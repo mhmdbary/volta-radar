@@ -10,6 +10,7 @@ Usage:
 import html
 import json
 import os
+import re
 import sys
 import time
 import urllib.parse
@@ -55,7 +56,21 @@ def http_get_json(url, headers=None, retries=4):
             time.sleep(6 * (attempt + 1))
 
 
+# Telegram turns a bare @name into a Telegram user link; point every @handle at its X profile instead.
+# Skips handles right after ">" (already inside a link or tag) and after word characters (emails).
+X_HANDLE = re.compile(r"(?<![\w/>@])@(\w{1,15})(?!\w)")
+
+
+def link_x_handles(text):
+    return X_HANDLE.sub(lambda m: f'<a href="https://x.com/{m.group(1)}">@{m.group(1)}</a>', text)
+
+
 def http_post_json(url, payload, retries=3):
+    if "api.telegram.org" in url and payload.get("parse_mode") == "HTML":
+        payload = dict(payload)
+        for field in ("text", "caption"):
+            if isinstance(payload.get(field), str):
+                payload[field] = link_x_handles(payload[field])
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
     for attempt in range(retries + 1):
@@ -402,7 +417,7 @@ def draft_message(d, tags):
     label = "🟢 <b>بيذكر Volta</b>" if d.get("relevant") else "💬 <b>تفاعل بس</b> (بدون ذكر Volta)"
     lines = ["🤖 <b>اقتراح رد</b>", LINE,
              tag_line(tags, d["author"]),
-             f"👤 <code>@{html.escape(d['author'])}</code>",
+             f"👤 @{html.escape(d['author'])}",
              f"<blockquote>{snippet}</blockquote>"]
     if d.get("tweet_ar"):
         lines.append(f"🇸🇦 <b>الترجمة:</b>\n<blockquote>{html.escape(d['tweet_ar'][:400])}</blockquote>")
@@ -629,7 +644,7 @@ def format_alert(tweet, settings, tags, mention=False):
     top.append(tag_line(tags, handle))
 
     parts = top + [LINE,
-                   f"👤 <b>{name}</b>  <code>@{html.escape(handle)}</code>",
+                   f"👤 <b>{name}</b>  @{html.escape(handle)}",
                    f"👥 {short_num(author.get('followers'))} followers",
                    "",
                    f"<blockquote>{text}</blockquote>",
