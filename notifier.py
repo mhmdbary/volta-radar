@@ -117,12 +117,39 @@ def guess_tag(bio):
     return "KOL"
 
 
+LINE = "━━━━━━━━━━━━━━━━━━"
+MEDALS = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣"]
+
+
 def tag_line(tags, handle):
     tag = tags.get((handle or "").lower())
     if not tag:
         return ""
     marker = "🟢" if any(w in tag.lower() for w in ECO_WORDS) else "🔵"
-    return f"{marker} <b>{html.escape(tag)}</b>\n"
+    return f"{marker} <b>{html.escape(tag.upper())}</b>"
+
+
+def tag_hashtag(tags, handle):
+    """First word of the tag as a hashtag, so the channel can be searched by network (#Elysium)."""
+    tag = tags.get((handle or "").lower()) or ""
+    word = "".join(c for c in tag.split("·")[0].split("/")[0].strip().split(" ")[0] if c.isalnum())
+    return f"#{word}" if word else ""
+
+
+def short_num(n):
+    if not isinstance(n, int):
+        return "?"
+    for size, suffix in ((1_000_000, "M"), (1_000, "K")):
+        if n >= size:
+            return f"{n / size:.1f}".rstrip("0").rstrip(".") + suffix
+    return str(n)
+
+
+def clean_text(text, drop_links=False):
+    text = (text or "").strip()
+    if drop_links:
+        text = " ".join(w for w in text.split() if not w.startswith("https://t.co/"))
+    return text
 
 
 HELP_TEXT = (
@@ -244,29 +271,44 @@ def is_highlight(tweet, settings):
 
 def format_alert(tweet, settings, tags, mention=False):
     author = tweet.get("author") or {}
-    name = html.escape(author.get("name") or "")
-    user = html.escape(author.get("userName") or "")
-    followers = author.get("followers")
-    followers_txt = f" · {followers:,} followers" if isinstance(followers, int) else ""
-    text = html.escape((tweet.get("text") or "")[:800])
+    handle = author.get("userName") or ""
+    name = html.escape(author.get("name") or handle)
+    text = html.escape(clean_text(tweet.get("text"))[:700]) or "📷 <i>media post</i>"
+
+    top = []
     if mention:
-        header = "💬 <b>Volta mention</b>\n"
+        top.append("💬 <b>$VOLTA MENTION</b>")
     elif is_highlight(tweet, settings):
-        header = "⭐ <b>IMPORTANT</b>\n"
-    else:
-        header = ""
-    return f"{header}{tag_line(tags, author.get('userName'))}🔔 <b>{name}</b> (@{user}){followers_txt}\n\n{text}"
+        top.append("⭐ <b>IMPORTANT</b> ⭐")
+    tag = tag_line(tags, handle)
+    if tag:
+        top.append(tag)
+
+    parts = top + [LINE,
+                   f"👤 <b>{name}</b>  <code>@{html.escape(handle)}</code>",
+                   f"👥 {short_num(author.get('followers'))} followers",
+                   "",
+                   f"<blockquote>{text}</blockquote>",
+                   LINE]
+    tags_txt = " ".join(x for x in (tag_hashtag(tags, handle), "#VoltaRadar") if x)
+    parts.append(f"⚡ {tags_txt}")
+    return "\n".join(parts)
 
 
-def send_telegram(token, chat_id, text, url=None):
+def send_telegram(token, chat_id, text, url=None, profile=None):
     payload = {
         "chat_id": chat_id,
         "text": text,
         "parse_mode": "HTML",
         "disable_web_page_preview": True,
     }
+    buttons = []
     if url:
-        payload["reply_markup"] = {"inline_keyboard": [[{"text": "Open on X", "url": url}]]}
+        buttons.append({"text": "🔗 Open on X", "url": url})
+    if profile:
+        buttons.append({"text": "👤 Profile", "url": f"https://x.com/{profile}"})
+    if buttons:
+        payload["reply_markup"] = {"inline_keyboard": [buttons]}
     http_post_json(f"https://api.telegram.org/bot{token}/sendMessage", payload)
 
 
@@ -335,7 +377,8 @@ def check_once(cfg, settings, handles, state):
     for t, mention in ordered:
         try:
             send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
-                          format_alert(t, settings, tags, mention), tweet_url(t))
+                          format_alert(t, settings, tags, mention), tweet_url(t),
+                          (t.get("author") or {}).get("userName"))
             seen.add(str(t.get("id")))
             time.sleep(3)  # stay under Telegram's per-channel limit
         except Exception as e:
@@ -364,12 +407,34 @@ def countdown_line(settings, today):
     days = (time.mktime(launch) - time.mktime(time.strptime(today, "%Y-%m-%d"))) // 86400
     name = html.escape(settings.get("launch_name", "Launch"))
     if days > 1:
-        return f"⏳ <b>{name} in {int(days)} days</b> ({settings['launch_date']})\n\n"
+        return f"⏳ <b>{name.upper()} IN {int(days)} DAYS</b>\n📅 {settings['launch_date']}"
     if days == 1:
-        return f"⏳ <b>{name} is TOMORROW</b> 🚀\n\n"
+        return f"⏳ <b>{name.upper()} IS TOMORROW</b> 🚀"
     if days == 0:
-        return f"🚀 <b>{name} is LIVE today!</b>\n\n"
+        return f"🚀 <b>{name.upper()} IS LIVE TODAY!</b> 🚀"
     return ""
+
+
+def build_digest(settings, tags, tweets, today, n_accounts):
+    top = sorted(tweets, key=engagement, reverse=True)[:5]
+    date = time.strftime("%b %d", time.strptime(today, "%Y-%m-%d"))
+    lines = [f"📡 <b>DAILY RADAR</b> · {date}", LINE]
+    countdown = countdown_line(settings, today)
+    if countdown:
+        lines += [countdown, LINE]
+    lines += ["🔥 <b>TOP POSTS TODAY</b>", ""]
+    for medal, t in zip(MEDALS, top):
+        handle = (t.get("author") or {}).get("userName") or ""
+        snippet = html.escape(clean_text(t.get("text"), drop_links=True).replace("\n", " ")[:110]) or "📷 media post"
+        marker = tag_line(tags, handle).split(" ")[0] if tags.get(handle.lower()) else "⚪"
+        lines += [f"{medal} {marker} <a href=\"{tweet_url(t)}\"><b>@{html.escape(handle)}</b></a>",
+                  f"❤️ {short_num(int(t.get('likeCount') or 0))}   🔁 {short_num(int(t.get('retweetCount') or 0))}"
+                  f"   💬 {short_num(int(t.get('replyCount') or 0))}",
+                  f"<blockquote>{snippet}</blockquote>"]
+    if not top:
+        lines.append("<i>No posts in the last 24h.</i>")
+    lines += [LINE, f"📈 {len(tweets)} posts · {n_accounts} accounts tracked", "⚡ #DailyRadar #VoltaRadar"]
+    return "\n".join(lines)
 
 
 def daily_report(cfg, settings, handles, state):
@@ -385,18 +450,9 @@ def daily_report(cfg, settings, handles, state):
         batch = handles[i:i + BATCH_SIZE]
         query = "(" + " OR ".join(f"from:{h}" for h in batch) + f") since_time:{since} -filter:replies"
         tweets.extend(search_tweets(cfg["twitterapi_key"], query))
-    top = sorted(tweets, key=engagement, reverse=True)[:5]
 
-    lines = [countdown_line(settings, today), f"📊 <b>Top posts today</b> ({len(tweets)} posts from tracked accounts)\n"]
-    for i, t in enumerate(top, 1):
-        user = html.escape((t.get("author") or {}).get("userName") or "")
-        snippet = html.escape((t.get("text") or "").replace("\n", " ")[:120])
-        lines.append(f"{i}. <a href=\"{tweet_url(t)}\">@{user}</a> · ❤️ {t.get('likeCount') or 0} "
-                     f"🔁 {t.get('retweetCount') or 0}\n{snippet}\n")
-    if not top:
-        lines.append("No posts in the last 24h.")
-
-    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], "\n".join(lines))
+    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
+                  build_digest(settings, load_json(TAGS_FILE, {}), tweets, today, len(handles)))
     state["last_digest"] = today
     save_json(STATE_FILE, state)
     print("daily report sent")
@@ -416,6 +472,21 @@ def get_followings(api_key, account):
         cursor = data["next_cursor"]
 
 
+def format_new_follow(account, u, already_tracked):
+    bio = html.escape(clean_text(u.get("description")).replace("\n", " ")[:200]) or "<i>no bio</i>"
+    user = html.escape(u["userName"])
+    followers = u.get("followers_count", u.get("followers"))
+    lines = ["🆕 <b>NEW ON THE RADAR</b>", LINE,
+             f"🟢 <b>@{html.escape(account)}</b> just followed",
+             f"👤 <b>{html.escape(u.get('name') or user)}</b>  <code>@{user}</code>",
+             f"👥 {short_num(followers if isinstance(followers, int) else None)} followers",
+             "", f"<blockquote>{bio}</blockquote>", LINE]
+    if not already_tracked:
+        lines.append(f"➕ Track it: <code>/add {user}</code>")
+    lines.append("⚡ #NewFollow #VoltaRadar")
+    return "\n".join(lines)
+
+
 def check_new_follows(cfg, settings, handles, state):
     """Every few hours: alert when the official accounts follow someone new (new projects/partners)."""
     every = float(settings.get("follow_check_hours", 6)) * 3600
@@ -432,12 +503,9 @@ def check_new_follows(cfg, settings, handles, state):
             for u in users:
                 if u["userName"].lower() in old:
                     continue
-                bio = html.escape((u.get("description") or "").replace("\n", " ")[:150])
-                user = html.escape(u["userName"])
-                note = "" if user.lower() in tracked else f"\n\nTrack it: <code>/add {user}</code>"
                 send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
-                              f"🆕 <b>@{html.escape(account)} followed @{user}</b>\n\n{bio}{note}",
-                              f"https://x.com/{u['userName']}")
+                              format_new_follow(account, u, u["userName"].lower() in tracked),
+                              profile=u["userName"])
                 time.sleep(3)
         known[account] = current
 
