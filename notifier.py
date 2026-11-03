@@ -22,6 +22,7 @@ HANDLES_FILE = ROOT / "handles.txt"
 STATE_FILE = ROOT / "state.json"
 SETTINGS_FILE = ROOT / "settings.json"
 TAGS_FILE = ROOT / "tags.json"
+STATS_FILE = ROOT / "stats.json"
 
 # tags containing one of these get the green "our ecosystem" marker
 ECO_WORDS = ("volta", "elysium", "kinetiq")
@@ -170,7 +171,8 @@ HELP_TEXT = (
     "/add username  (or @username or x.com link)\n"
     "/remove username\n"
     "/tag username Some Tag  set the label shown on alerts\n"
-    "/list  show tracked accounts\n\n"
+    "/list  show tracked accounts\n"
+    "/leaderboard  top Volta mentions and most active accounts\n\n"
     "Commands are read every few minutes, so replies can take a short while."
 )
 
@@ -186,6 +188,9 @@ def handle_command(cfg, handles, tags, text):
         lines = "\n".join(f"{i}. @{html.escape(h)} · {html.escape(tags.get(h.lower(), '-'))}"
                           for i, h in enumerate(handles, 1))
         return f"<b>Tracking {len(handles)} accounts</b>\n\n{lines}"
+
+    if cmd == "/leaderboard":
+        return build_leaderboard(tags)
 
     if cmd == "/tag":
         bits = arg.split(maxsplit=1)
@@ -282,11 +287,26 @@ def is_highlight(tweet, settings):
     return any(w.lower() in text for w in settings.get("highlight_words", []))
 
 
+def tweet_media(tweet):
+    """Return (image_url, kind) for the tweet's first photo/video thumbnail, or (None, None)."""
+    for source in (tweet.get("extendedEntities"), tweet.get("entities")):
+        for m in (source or {}).get("media") or []:
+            if m.get("media_url_https"):
+                return m["media_url_https"], m.get("type") or "photo"
+    return None, None
+
+
 def format_alert(tweet, settings, tags, mention=False):
     author = tweet.get("author") or {}
     handle = author.get("userName") or ""
     name = html.escape(author.get("name") or handle)
-    text = html.escape(clean_text(tweet.get("text"))[:700]) or "📷 <i>media post</i>"
+    image, kind = tweet_media(tweet)
+    # photo captions are capped at 1024 characters by Telegram, so keep the quote shorter there
+    text = html.escape(clean_text(tweet.get("text"), drop_links=bool(image))[:450 if image else 700])
+    if not text:
+        text = "🎥 <i>video post</i>" if kind in ("video", "animated_gif") else "📷 <i>media post</i>"
+    elif kind in ("video", "animated_gif"):
+        text = f"🎥 {text}"
 
     top = []
     if mention:
@@ -306,13 +326,8 @@ def format_alert(tweet, settings, tags, mention=False):
     return "\n".join(parts)
 
 
-def send_telegram(token, chat_id, text, url=None, profile=None):
-    payload = {
-        "chat_id": chat_id,
-        "text": text,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": True,
-    }
+def send_telegram(token, chat_id, text, url=None, profile=None, photo=None):
+    payload = {"chat_id": chat_id, "parse_mode": "HTML"}
     buttons = []
     if url:
         buttons.append({"text": "🔗 Open on X", "url": url})
@@ -320,7 +335,15 @@ def send_telegram(token, chat_id, text, url=None, profile=None):
         buttons.append({"text": "👤 Profile", "url": f"https://x.com/{profile}"})
     if buttons:
         payload["reply_markup"] = {"inline_keyboard": [buttons]}
-    http_post_json(f"https://api.telegram.org/bot{token}/sendMessage", payload)
+    if photo:
+        try:
+            http_post_json(f"https://api.telegram.org/bot{token}/sendPhoto",
+                           dict(payload, photo=photo, caption=text[:1024]))
+            return
+        except urllib.error.HTTPError as e:  # bad image or caption too long: fall back to text
+            print(f"[photo fallback] {e}")
+    http_post_json(f"https://api.telegram.org/bot{token}/sendMessage",
+                   dict(payload, text=text, disable_web_page_preview=True))
 
 
 def print_chat_ids(token):
@@ -334,6 +357,47 @@ def print_chat_ids(token):
         print("No messages found. Open your bot in Telegram, press Start / send /start, then retry.")
     for cid, name in chats.items():
         print(f"chat_id: {cid}   (@{name})")
+
+
+def record_stats(tweets):
+    """Count posts per tracked account and Volta mentions per author, for the leaderboard."""
+    stats = load_json(STATS_FILE, {})
+    stats.setdefault("since", time.strftime("%Y-%m-%d", time.gmtime()))
+    posts, mentions = stats.setdefault("posts", {}), stats.setdefault("mentions", {})
+    followers = stats.setdefault("followers", {})
+    for t, mention in tweets:
+        author = t.get("author") or {}
+        handle = author.get("userName")
+        if not handle:
+            continue
+        if isinstance(author.get("followers"), int):
+            followers[handle] = author["followers"]
+        if not mention:
+            posts[handle] = posts.get(handle, 0) + 1
+        if mention or "volta" in (t.get("text") or "").lower():
+            mentions[handle] = mentions.get(handle, 0) + 1
+    save_json(STATS_FILE, stats)
+
+
+def build_leaderboard(tags):
+    stats = load_json(STATS_FILE, {})
+    since = stats.get("since")
+    date = time.strftime("%b %d", time.strptime(since, "%Y-%m-%d")) if since else "start"
+    followers = stats.get("followers", {})
+
+    def rows(counts, unit):
+        top = sorted(counts.items(), key=lambda kv: (-kv[1], -followers.get(kv[0], 0)))[:5]
+        if not top:
+            return ["<i>Nothing yet.</i>"]
+        return [f"{medal} {tag_marker(tags.get(h.lower()))} <a href=\"https://x.com/{h}\"><b>@{html.escape(h)}</b></a>"
+                f" · {n} {unit}{'s' if n != 1 else ''} · 👥 {short_num(followers.get(h))}"
+                for medal, (h, n) in zip(MEDALS, top)]
+
+    lines = ["🏆 <b>VOLTA LEADERBOARD</b>", LINE,
+             "💬 <b>MOST VOLTA MENTIONS</b>", ""] + rows(stats.get("mentions", {}), "mention") + [
+             LINE, "🔥 <b>MOST ACTIVE ACCOUNTS</b>", ""] + rows(stats.get("posts", {}), "post") + [
+             LINE, f"📅 Since {date}", "⚡ #Leaderboard #VoltaRadar"]
+    return "\n".join(lines)
 
 
 def mention_query(settings, handles, since):
@@ -370,9 +434,14 @@ def check_once(cfg, settings, handles, state):
     if mq:
         query, exclude = mq
         try:
+            min_followers = int(settings.get("mention_min_followers", 0))
             for t in search_tweets(cfg["twitterapi_key"], query):
-                if ((t.get("author") or {}).get("userName") or "").lower() not in exclude:
-                    new_tweets.append((t, True))
+                author = t.get("author") or {}
+                if (author.get("userName") or "").lower() in exclude:
+                    continue
+                if int(author.get("followers") or 0) < min_followers:  # skip tiny/bot accounts
+                    continue
+                new_tweets.append((t, True))
         except Exception as e:
             print(f"[mention search error] {e}")
             failed = True
@@ -384,12 +453,13 @@ def check_once(cfg, settings, handles, state):
             unique[tid] = (t, mention)
     ordered = sorted(unique.values(), key=lambda x: int(x[0].get("id") or 0))  # oldest first
     tags = load_json(TAGS_FILE, {})
+    record_stats(ordered)
 
     for t, mention in ordered:
         try:
             send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
                           format_alert(t, settings, tags, mention), tweet_url(t),
-                          (t.get("author") or {}).get("userName"))
+                          (t.get("author") or {}).get("userName"), tweet_media(t)[0])
             seen.add(str(t.get("id")))
             time.sleep(3)  # stay under Telegram's per-channel limit
         except Exception as e:
@@ -462,8 +532,11 @@ def daily_report(cfg, settings, handles, state):
         query = "(" + " OR ".join(f"from:{h}" for h in batch) + f") since_time:{since} -filter:replies"
         tweets.extend(search_tweets(cfg["twitterapi_key"], query))
 
+    tags = load_json(TAGS_FILE, {})
     send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
-                  build_digest(settings, load_json(TAGS_FILE, {}), tweets, today, len(handles)))
+                  build_digest(settings, tags, tweets, today, len(handles)))
+    time.sleep(2)
+    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], build_leaderboard(tags))
     state["last_digest"] = today
     save_json(STATE_FILE, state)
     print("daily report sent")

@@ -39,7 +39,7 @@ jobs:
           while [ $SECONDS -lt $end ]; do
             git pull -q --rebase || true   # pick up handles/settings changed from outside
             python notifier.py --once || echo "check failed, retrying next round"
-            git add state.json handles.txt tags.json
+            git add state.json handles.txt tags.json stats.json 2>/dev/null || git add state.json handles.txt tags.json
             git diff --cached --quiet || (git commit -q -m "Update radar state" && (git push -q || (git pull -q --rebase && git push -q)))
             sleep 180
           done

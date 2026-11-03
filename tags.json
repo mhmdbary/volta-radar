@@ -1,6 +1,5 @@
 {
   "voltafamily": "Volta · official",
-
   "enter_elysium": "Elysium · official",
   "kinetiq_xyz": "Kinetiq · official (creators of Elysium)",
   "kinetiqfnd": "Kinetiq · official",
@@ -23,7 +22,6 @@
   "thekleos_": "Elysium · launchpad",
   "agora_elysium": "Elysium · launchpad aggregator",
   "hypedexer": "Hyperliquid · Elysium data/RPC",
-
   "hyperliquidx": "Hyperliquid · official",
   "hypurr": "Hyperliquid",
   "chameleon_jeff": "Hyperliquid · founder",
@@ -32,7 +30,6 @@
   "bananagun": "Banana Gun · trading bot",
   "uttam_singhk": "Alchemy · growth",
   "chartdotzone": "chart.zone",
-
   "elcryptodoc": "KOL",
   "km_201124": "KOL",
   "real_alpha": "KOL",
@@ -43,19 +40,23 @@
   "heavyy": "KOL",
   "bitblitzbuzz": "KOL · Elysium bull",
   "habibxweb3": "KOL",
-
-  "vitalikbuterin": "Ethereum · founder",
-  "cz_binance": "Binance · founder",
-  "brian_armstrong": "Coinbase · CEO",
   "haydenzadams": "Uniswap · founder",
   "uniswap": "Uniswap · official",
-  "saylor": "Bitcoin · Strategy",
-  "jessepollak": "Base · founder",
-  "apompliano": "Top KOL",
-  "cobie": "Top KOL",
-  "cryptohayes": "Top KOL",
-  "pentosh1": "Top KOL",
-  "inversebrah": "Top KOL",
-  "blknoiz06": "Top KOL · Solana",
-  "defiignas": "Top KOL · DeFi"
+  "cryptohayes": "Top KOL · Hyperliquid",
+  "pentosh1": "Top KOL · Hyperliquid",
+  "defiignas": "Top KOL · DeFi / Hyperliquid",
+  "hsakatrades": "Top KOL · Hyperliquid",
+  "thinkingusd": "Top KOL · Hyperliquid",
+  "cl207": "Top KOL · Hyperliquid",
+  "0xsisyphus": "Top KOL · Hyperliquid",
+  "cryptopicsou": "KOL · Hyperliquid",
+  "based16z": "KOL · Hyperliquid",
+  "izebel_eth": "KOL · Hyperliquid",
+  "mlmabc": "KOL · Hyperliquid",
+  "smartestmoney": "Hyperliquid · Chief Cultist",
+  "jchervinsky": "Hyperliquid · HyperliquidPC CEO",
+  "xulian_hl": "Hyperliquid · core contributor",
+  "hyperfnd": "Hyperliquid · Foundation",
+  "tradexyz": "Hyperliquid · trade.xyz",
+  "unitxyz": "Hyperliquid · Unit"
 }
