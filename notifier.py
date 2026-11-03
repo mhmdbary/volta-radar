@@ -22,7 +22,7 @@ HANDLES_FILE = ROOT / "handles.txt"
 STATE_FILE = ROOT / "state.json"
 
 TWITTERAPI_BASE = "https://api.twitterapi.io"
-BATCH_SIZE = 25  # handles per search query (one paid request per batch)
+BATCH_SIZE = 20  # handles per search query (one paid request per batch)
 
 
 def load_json(path, default):
@@ -71,11 +71,113 @@ def load_handles():
     if not HANDLES_FILE.exists():
         sys.exit("handles.txt not found. Run fetch_handles.py or add usernames manually.")
     handles = []
-    for line in HANDLES_FILE.read_text(encoding="utf-8").splitlines():
+    for line in HANDLES_FILE.read_text(encoding="utf-8-sig").splitlines():
         h = line.strip().lstrip("@")
         if h and not h.startswith("#"):
             handles.append(h)
     return handles
+
+
+def save_handles(handles):
+    HANDLES_FILE.write_text("\n".join(handles) + "\n", encoding="utf-8")
+
+
+def parse_handle(arg):
+    """Accept 'name', '@name' or an x.com/twitter.com profile link."""
+    arg = arg.strip()
+    for prefix in ("https://", "http://", "www.", "x.com/", "twitter.com/"):
+        if arg.lower().startswith(prefix):
+            arg = arg[len(prefix):]
+    return arg.split("/")[0].split("?")[0].lstrip("@")
+
+
+def lookup_user(api_key, handle):
+    """Return the account's real username and follower count, or None if it doesn't exist."""
+    url = f"{TWITTERAPI_BASE}/twitter/user/info?{urllib.parse.urlencode({'userName': handle})}"
+    try:
+        data = http_get_json(url, {"X-API-Key": api_key}).get("data") or {}
+    except Exception:
+        return None
+    return (data["userName"], data.get("followers")) if data.get("userName") else None
+
+
+HELP_TEXT = (
+    "<b>Volta Radar commands</b>\n\n"
+    "/add username  (or @username or x.com link)\n"
+    "/remove username\n"
+    "/list  show tracked accounts\n\n"
+    "Commands are read every few minutes, so replies can take a short while."
+)
+
+
+def handle_command(cfg, handles, text):
+    """Apply one admin command to the handles list; return the reply text."""
+    parts = text.strip().split(maxsplit=1)
+    cmd = parts[0].split("@")[0].lower()
+    arg = parts[1] if len(parts) > 1 else ""
+    lower = [h.lower() for h in handles]
+
+    if cmd == "/list":
+        lines = "\n".join(f"{i}. @{html.escape(h)}" for i, h in enumerate(handles, 1))
+        return f"<b>Tracking {len(handles)} accounts</b>\n\n{lines}"
+
+    if cmd in ("/add", "/remove"):
+        names = [parse_handle(a) for a in arg.replace(",", " ").split() if parse_handle(a)]
+        if not names:
+            return f"Usage: {cmd} username"
+        replies = []
+        for name in names:
+            if cmd == "/add":
+                if name.lower() in lower:
+                    replies.append(f"@{html.escape(name)} is already tracked")
+                    continue
+                found = lookup_user(cfg["twitterapi_key"], name)
+                if not found:
+                    replies.append(f"❌ @{html.escape(name)} not found on X")
+                    continue
+                real, followers = found
+                handles.append(real)
+                lower.append(real.lower())
+                f = f" ({followers:,} followers)" if isinstance(followers, int) else ""
+                replies.append(f"✅ Added @{html.escape(real)}{f}")
+            else:
+                if name.lower() not in lower:
+                    replies.append(f"@{html.escape(name)} is not in the list")
+                    continue
+                idx = lower.index(name.lower())
+                replies.append(f"🗑 Removed @{html.escape(handles.pop(idx))}")
+                lower.pop(idx)
+        return "\n".join(replies) + f"\n\nNow tracking {len(handles)} accounts."
+
+    return HELP_TEXT
+
+
+def process_commands(cfg, state):
+    """Read new Telegram messages and apply commands sent by the admin."""
+    admin = str(cfg.get("telegram_admin_id") or "")
+    if not admin:
+        return
+    token = cfg["telegram_bot_token"]
+    offset = int(state.get("tg_offset") or 0)
+    data = http_get_json(f"https://api.telegram.org/bot{token}/getUpdates?offset={offset}&timeout=0")
+    handles = load_handles()
+    changed = False
+
+    for upd in data.get("result", []):
+        state["tg_offset"] = upd["update_id"] + 1
+        msg = upd.get("message") or {}
+        text = msg.get("text") or ""
+        if not text.startswith("/") or str((msg.get("from") or {}).get("id")) != admin:
+            continue
+        before = list(handles)
+        reply = handle_command(cfg, handles, text)
+        changed = changed or handles != before
+        http_post_json(f"https://api.telegram.org/bot{token}/sendMessage",
+                       {"chat_id": msg["chat"]["id"], "text": reply, "parse_mode": "HTML"})
+
+    if changed:
+        save_handles(handles)
+    save_json(STATE_FILE, state)
 
 
 def search_tweets(api_key, query):
@@ -104,7 +206,7 @@ def format_alert(tweet):
     name = html.escape(author.get("name") or "")
     user = html.escape(author.get("userName") or "")
     followers = author.get("followers")
-    followers_txt = f" · {followers:,} followers" if isinstance(followers, int) else ""
+    followers_txt = f" ? {followers:,} followers" if isinstance(followers, int) else ""
     text = html.escape((tweet.get("text") or "")[:800])
     return f"🔔 <b>{name}</b> (@{user}){followers_txt}\n\n{text}"
 
@@ -175,7 +277,8 @@ def main():
     # on GitHub Actions the keys come from repository secrets instead of config.json
     for key, env in [("twitterapi_key", "TWITTERAPI_KEY"),
                      ("telegram_bot_token", "TELEGRAM_BOT_TOKEN"),
-                     ("telegram_chat_id", "TELEGRAM_CHAT_ID")]:
+                     ("telegram_chat_id", "TELEGRAM_CHAT_ID"),
+                     ("telegram_admin_id", "TELEGRAM_ADMIN_ID")]:
         if os.environ.get(env):
             cfg[key] = os.environ[env]
     if not cfg.get("twitterapi_key") or not cfg.get("telegram_bot_token"):
@@ -185,15 +288,16 @@ def main():
         print_chat_ids(cfg["telegram_bot_token"])
         return
 
-    handles = load_handles()
     state = load_json(STATE_FILE, {})
-    if "--once" in sys.argv:
-        check_once(cfg, handles, state)
-        return
-
     interval = max(1, int(cfg.get("poll_minutes", 3))) * 60
     while True:
-        check_once(cfg, handles, state)
+        try:
+            process_commands(cfg, state)
+        except Exception as e:  # a command problem must not stop the alerts
+            print(f"[commands error] {e}")
+        check_once(cfg, load_handles(), state)
+        if "--once" in sys.argv:
+            return
         time.sleep(interval)
 
 
