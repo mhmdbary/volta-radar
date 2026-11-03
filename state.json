@@ -46,7 +46,7 @@
     "2117622034549080230",
     "2117603996827279590"
   ],
-  "tg_offset": 277101660,
+  "tg_offset": 277101663,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -201,6 +201,15 @@
       ],
       "relevant": true,
       "message_id": 28
+    },
+    "w1793735003": {
+      "kind": "tweet",
+      "instruction": "خلي الreply قصيره و حماسيه للعمله",
+      "reply": "this one's got real energy and the community is showing up. can't wait to see it running on elysium when mainnet drops nov 9 ⚡",
+      "tried": [
+        "this one's got real energy and the community is showing up. can't wait to see it running on elysium when mainnet drops nov 9 ⚡"
+      ],
+      "message_id": 36
     }
   }
 }
