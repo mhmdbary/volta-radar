@@ -173,6 +173,11 @@ HELP_TEXT = (
     "/tag username Some Tag  set the label shown on alerts\n"
     "/list  show tracked accounts\n"
     "/leaderboard  top Volta mentions and most active accounts\n\n"
+    "<b>✍️ Writing</b>\n"
+    "Send any idea (عربي or English) → I write the tweet\n"
+    "/write idea  same thing\n"
+    "Reply to a draft with your idea → I rewrite it\n"
+    "post / انشر → link to X with it ready\n\n"
     "Commands are read every few minutes, so replies can take a short while."
 )
 
@@ -256,7 +261,28 @@ def process_commands(cfg, state):
             continue
         msg = upd.get("message") or {}
         text = msg.get("text") or ""
-        if not text.startswith("/") or str((msg.get("from") or {}).get("id")) != admin:
+        if not text or str((msg.get("from") or {}).get("id")) != admin:
+            continue
+        try:
+            replied_to = (msg.get("reply_to_message") or {}).get("message_id")
+            first = text.split()[0].split("@")[0].lower()
+            if text.strip().lower() in POST_WORDS or first == "/post":  # "post" / "انشر"
+                post_link(cfg, state, replied_to)
+                continue
+            if replied_to and not text.startswith("/"):  # your idea for an existing draft
+                rewrite_draft(cfg, state, replied_to, text)
+                continue
+            if first in ("/write", "/tweet"):
+                new_tweet_draft(cfg, state, text.partition(" ")[2].strip())
+                continue
+            if not text.startswith("/") and cfg.get("anthropic_api_key"):  # any plain message = tweet idea
+                new_tweet_draft(cfg, state, text.strip())
+                continue
+        except Exception as e:
+            print(f"[ai command error] {e}")
+            tg_call(cfg, "sendMessage", {"chat_id": msg["chat"]["id"], "text": f"⚠️ AI error: {e}"})
+            continue
+        if not text.startswith("/"):
             continue
         reply = handle_command(cfg, handles, tags, text)
         http_post_json(f"https://api.telegram.org/bot{token}/sendMessage",
@@ -283,26 +309,96 @@ def wants_draft(tweet, tags, settings, mention):
 
 def draft_message(d, tags):
     reply_txt = html.escape(d["reply"])
+    footer = ["", "✏️ <i>Reply to this message with your idea (عربي or English) and I'll rewrite it.</i>",
+              "<i>Nothing is posted automatically.</i>"]
+    if d.get("kind") == "tweet":
+        return "\n".join([
+            "📝 <b>TWEET DRAFT</b>", LINE,
+            f"🗒 <i>{html.escape(d.get('instruction') or '')}</i>", LINE,
+            "✍️ <b>Tweet</b> (tap to copy):", f"<code>{reply_txt}</code>"] + footer)
     snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
-    return "\n".join([
-        "🤖 <b>REPLY IDEA</b>", LINE,
-        tag_line(tags, d["author"]),
-        f"👤 <code>@{html.escape(d['author'])}</code>",
-        f"<blockquote>{snippet}</blockquote>", LINE,
-        "✍️ <b>Suggested reply</b> (tap to copy):",
-        f"<code>{reply_txt}</code>", "",
-        f"<i>💡 {html.escape(d.get('reason', ''))}</i>",
-        "<i>Review before posting. Nothing is posted automatically.</i>",
-    ])
+    label = "🟢 <b>Mentions Volta</b>" if d.get("relevant") else "💬 <b>Engagement only</b> (no Volta mention)"
+    lines = ["🤖 <b>REPLY IDEA</b>", LINE,
+             tag_line(tags, d["author"]),
+             f"👤 <code>@{html.escape(d['author'])}</code>",
+             f"<blockquote>{snippet}</blockquote>", LINE,
+             label, "✍️ <b>Suggested reply</b> (tap to copy):", f"<code>{reply_txt}</code>"]
+    if d.get("instruction"):
+        lines.append(f"🗒 <i>Your idea: {html.escape(d['instruction'])}</i>")
+    return "\n".join(lines + footer)
 
 
 def draft_buttons(tid, d):
-    intent = "https://x.com/intent/post?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})
+    if d.get("kind") == "tweet":
+        first = {"text": "📝 Post on X", "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"text": d["reply"]})}
+    else:
+        first = {"text": "✍️ Reply on X",
+                 "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})}
     return {"inline_keyboard": [
-        [{"text": "✍️ Reply on X", "url": intent}],
+        [first],
         [{"text": "🔄 Change", "callback_data": f"chg:{tid}"},
          {"text": "❌ Ignore", "callback_data": f"ign:{tid}"}],
     ]}
+
+
+def regenerate(cfg, d, avoid=None):
+    import ai_replies
+    if d.get("kind") == "tweet":
+        return ai_replies.write_tweet(cfg["anthropic_api_key"], d.get("instruction"), avoid=avoid)
+    return ai_replies.suggest_reply(cfg["anthropic_api_key"], d["author"], d["text"],
+                                    avoid=avoid, instruction=d.get("instruction"))
+
+
+def store_draft(state, key, d):
+    drafts = state.setdefault("drafts", {})
+    drafts[key] = d
+    for old in list(drafts)[:-100]:  # keep the newest 100
+        drafts.pop(old)
+
+
+def show_draft(cfg, tags, key, d, edit_message_id=None):
+    payload = {"chat_id": cfg["telegram_admin_id"], "text": draft_message(d, tags), "parse_mode": "HTML",
+               "disable_web_page_preview": True, "reply_markup": draft_buttons(key, d)}
+    if edit_message_id:
+        tg_call(cfg, "editMessageText", dict(payload, message_id=edit_message_id))
+    else:
+        d["message_id"] = tg_call(cfg, "sendMessage", payload)["result"]["message_id"]
+
+
+def rewrite_draft(cfg, state, message_id, instruction):
+    """You replied to a draft with your own idea: rewrite it following that idea."""
+    key, d = next(((k, v) for k, v in state.get("drafts", {}).items() if v.get("message_id") == message_id),
+                  (None, None))
+    if not d:
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"],
+                                     "text": "That draft expired. Use /write your idea for a new tweet."})
+        return
+    d["instruction"] = instruction
+    result = regenerate(cfg, d)
+    if not result or not result.get("reply"):
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't write that one, try rephrasing."})
+        return
+    d["reply"], d["relevant"] = result["reply"], result.get("relevant")
+    d["tried"] = (d.get("tried", []) + [d["reply"]])[-5:]
+    show_draft(cfg, load_json(TAGS_FILE, {}), key, d, edit_message_id=message_id)
+
+
+def new_tweet_draft(cfg, state, instruction):
+    """/write your idea: draft a new tweet from your instruction."""
+    if not instruction:
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "parse_mode": "HTML",
+                                     "text": "Usage: <code>/write your idea</code>\nمثال: <code>/write تويتة عن إطلاق elysium يوم 9، حماسية</code>"})
+        return
+    d = {"kind": "tweet", "instruction": instruction, "reply": "", "tried": []}
+    result = regenerate(cfg, d)
+    if not result or not result.get("reply"):
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't write that one, try rephrasing."})
+        return
+    d["reply"] = result["reply"]
+    d["tried"] = [d["reply"]]
+    key = f"w{int(time.time())}"
+    show_draft(cfg, {}, key, d)
+    store_draft(state, key, d)
 
 
 def send_draft(cfg, settings, state, tags, tweet, mention):
@@ -311,49 +407,57 @@ def send_draft(cfg, settings, state, tags, tweet, mention):
         return
     if not wants_draft(tweet, tags, settings, mention):
         return
-    import ai_replies  # only needed when AI is configured
     author = (tweet.get("author") or {}).get("userName") or ""
-    result = ai_replies.suggest_reply(cfg["anthropic_api_key"], author, tweet.get("text") or "")
-    if not result or not result.get("relevant") or not result.get("reply"):
+    d = {"author": author, "text": tweet.get("text") or "", "reply": "", "tried": []}
+    result = regenerate(cfg, d)
+    if not result or not result.get("reply"):
         return
+    d.update(reply=result["reply"], relevant=result.get("relevant"), tried=[result["reply"]])
     tid = str(tweet.get("id"))
-    d = {"author": author, "text": tweet.get("text") or "", "reply": result["reply"],
-         "reason": result.get("reason", ""), "tried": [result["reply"]]}
-    r = tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": draft_message(d, tags),
-                                     "parse_mode": "HTML", "disable_web_page_preview": True,
-                                     "reply_markup": draft_buttons(tid, d)})
-    d["message_id"] = r["result"]["message_id"]
-    drafts = state.setdefault("drafts", {})
-    drafts[tid] = d
-    for old in list(drafts)[:-100]:  # keep the newest 100
-        drafts.pop(old)
+    show_draft(cfg, tags, tid, d)
+    store_draft(state, tid, d)
+
+
+POST_WORDS = {"post", "انشر", "نشر", "publish", "send", "ابعت"}
+
+
+def post_link(cfg, state, message_id=None):
+    """You said 'post': send the X link with the draft (latest one, or the one you replied to) ready."""
+    drafts = state.get("drafts", {})
+    found = [(k, v) for k, v in drafts.items() if not message_id or v.get("message_id") == message_id]
+    if not found:
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "No draft to post yet."})
+        return
+    key, d = found[-1]
+    button = draft_buttons(key, d)["inline_keyboard"][0][0]
+    tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "parse_mode": "HTML",
+                                 "text": f"🚀 <b>Ready to post</b>\n\n<code>{html.escape(d['reply'])}</code>\n\n"
+                                         "<i>Tap the button, check it, then press Post on X.</i>",
+                                 "reply_markup": {"inline_keyboard": [[button]]}})
 
 
 def handle_draft_button(cfg, state, cb):
-    action, _, tid = (cb.get("data") or "").partition(":")
-    d = state.get("drafts", {}).get(tid)
-    msg = cb.get("message") or {}
-    target = {"chat_id": msg.get("chat", {}).get("id"), "message_id": msg.get("message_id")}
-    tags = load_json(TAGS_FILE, {})
+    action, _, key = (cb.get("data") or "").partition(":")
+    d = state.get("drafts", {}).get(key)
+    msg_id = (cb.get("message") or {}).get("message_id")
     if not d:
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "This draft expired."})
         return
     if action == "ign":
-        state["drafts"].pop(tid, None)
-        tg_call(cfg, "editMessageText", dict(target, text=f"❌ <i>Ignored · @{html.escape(d['author'])}</i>",
-                                             parse_mode="HTML"))
+        state["drafts"].pop(key, None)
+        who = f"@{html.escape(d['author'])}" if d.get("author") else "tweet draft"
+        tg_call(cfg, "editMessageText", {"chat_id": cfg["telegram_admin_id"], "message_id": msg_id,
+                                         "text": f"❌ <i>Ignored · {who}</i>", "parse_mode": "HTML"})
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "Ignored"})
         return
     if action == "chg":
-        import ai_replies
-        result = ai_replies.suggest_reply(cfg["anthropic_api_key"], d["author"], d["text"], avoid=d["tried"])
+        result = regenerate(cfg, d, avoid=d.get("tried"))
         if not result or not result.get("reply"):
             tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "No better idea, sorry"})
             return
-        d["reply"], d["reason"] = result["reply"], result.get("reason", d.get("reason", ""))
-        d["tried"] = (d["tried"] + [d["reply"]])[-5:]
-        tg_call(cfg, "editMessageText", dict(target, text=draft_message(d, tags), parse_mode="HTML",
-                                             disable_web_page_preview=True, reply_markup=draft_buttons(tid, d)))
+        d["reply"], d["relevant"] = result["reply"], result.get("relevant", d.get("relevant"))
+        d["tried"] = (d.get("tried", []) + [d["reply"]])[-5:]
+        show_draft(cfg, load_json(TAGS_FILE, {}), key, d, edit_message_id=msg_id)
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "New idea ready"})
 
 

@@ -1,6 +1,6 @@
 """
-AI reply suggestions: for relevant tweets, Claude drafts a reply that you review and post yourself.
-Drafts go to the admin's private chat only, never to the channel, and nothing is posted on X automatically.
+AI writing help: reply ideas for tweets and custom tweets, drafted by Claude.
+Drafts go to the admin's private chat only, and nothing is posted on X automatically.
 """
 import json
 
@@ -8,29 +8,41 @@ import anthropic
 
 MODEL = "claude-opus-5-5"
 
-SYSTEM = """You help a member of the Volta team write replies on X (Twitter).
-
-About Volta:
+FACTS = """About Volta:
 - Volta is a token launchpad on Elysium (the network built by Kinetiq, accelerating Hyperliquid).
 - It is built on the official Uniswap V4 contracts.
 - Trading fees are paid out in HYPE and tokenized stocks to creators, plus buybacks and rewards for holders.
 - Elysium mainnet goes live on November 9.
-- X account: @VoltaFamily
+- X account: @VoltaFamily"""
 
-Your job: read one tweet and decide whether a reply from someone on the Volta team would be genuinely relevant and welcome.
-Relevant means the tweet is about launchpads, launching tokens, Elysium, Kinetiq, HyperEVM / Hyperliquid builders,
-Uniswap V4, creator fees, or a question Volta actually answers. Generic market talk, politics, memes with no hook,
-personal posts, giveaways, or anything where mentioning Volta would feel forced are NOT relevant.
+RULES = """Style and limits:
+- sound like a real person: short, casual, lowercase is fine, at most one emoji, no hashtags
+- when Volta is mentioned, write as the Volta team ("we're building...", "at volta we...") so the affiliation is clear
+- never tell anyone to buy, ape, or invest; no price talk, no "100x", no financial advice
+- no claims about competitors and nothing about Volta beyond the facts above
+- write in English unless the user's instruction asks for another language"""
 
-If relevant, write one reply that:
-- adds something real (an insight, a useful fact, an answer, a genuine reaction) before anything else
-- is written in first person plural as the Volta team ("we're building...", "at volta we..."), so the affiliation is clear
-- mentions Volta at most once and only if it fits naturally; it is fine to not mention it at all
-- is short and casual like a real person: lowercase is fine, max 220 characters, at most one emoji, no hashtags
-- never tells anyone to buy, ape, or invest; no price talk, no "100x", no financial advice
-- makes no claims about competitors and nothing that isn't in the facts above
+REPLY_SYSTEM = f"""You help a member of the Volta team write replies on X (Twitter).
 
-If not relevant, set relevant to false and leave reply empty."""
+{FACTS}
+
+For the tweet you are given, always write one reply (max 220 characters).
+- If the tweet is about launchpads, launching tokens, Elysium, Kinetiq, HyperEVM / Hyperliquid builders,
+  Uniswap V4, creator fees, or something Volta actually answers: set relevant to true. The reply adds something
+  real first and may mention Volta once if it fits naturally.
+- Otherwise set relevant to false and write a genuine, friendly reply to the tweet itself that does NOT mention Volta
+  at all (good replies on unrelated posts build presence; forced promotion looks like spam).
+- If the user gives an instruction, follow it (language, tone, points to make), still within the limits below.
+
+{RULES}"""
+
+TWEET_SYSTEM = f"""You help a member of the Volta team write their own tweets on X (Twitter).
+
+{FACTS}
+
+Write one tweet (max 270 characters) from the user's instruction. Follow their language, tone and points.
+
+{RULES}"""
 
 SCHEMA = {
     "type": "object",
@@ -44,13 +56,7 @@ SCHEMA = {
 }
 
 
-def suggest_reply(api_key, author, text, avoid=None):
-    """Return {"relevant", "reason", "reply"} for a tweet, or None if the model declined."""
-    prompt = f"Tweet by @{author}:\n\n{text}"
-    if avoid:
-        prompt += ("\n\nThe user asked for a different reply. Do not repeat these earlier drafts; "
-                   "take a different angle:\n" + "\n".join(f"- {a}" for a in avoid))
-
+def _ask(api_key, system, prompt):
     client = anthropic.Anthropic(api_key=api_key)
     response = client.beta.messages.create(
         model=MODEL,
@@ -58,12 +64,31 @@ def suggest_reply(api_key, author, text, avoid=None):
         betas=["server-side-fallback-2026-07-01"],
         fallbacks="default",
         output_config={"effort": "low", "format": {"type": "json_schema", "schema": SCHEMA}},
-        system=SYSTEM,
+        system=system,
         messages=[{"role": "user", "content": prompt}],
     )
     if response.stop_reason == "refusal":
         return None
-    raw = next((b.text for b in response.content if b.type == "text"), "")
-    data = json.loads(raw)
-    data["reply"] = data.get("reply", "").strip()[:280]
+    data = json.loads(next((b.text for b in response.content if b.type == "text"), "{}"))
+    data["reply"] = (data.get("reply") or "").strip()[:280]
     return data
+
+
+def _extras(instruction, avoid):
+    extra = ""
+    if instruction:
+        extra += f"\n\nUser's instruction (may be Arabic or English): {instruction}"
+    if avoid:
+        extra += ("\n\nDo not repeat these earlier drafts; take a different angle:\n"
+                  + "\n".join(f"- {a}" for a in avoid))
+    return extra
+
+
+def suggest_reply(api_key, author, text, avoid=None, instruction=None):
+    """Return {"relevant", "reason", "reply"} for a tweet, or None if the model declined."""
+    return _ask(api_key, REPLY_SYSTEM, f"Tweet by @{author}:\n\n{text}" + _extras(instruction, avoid))
+
+
+def write_tweet(api_key, instruction, avoid=None):
+    """Return {"relevant", "reason", "reply"} where reply is a new tweet written from the instruction."""
+    return _ask(api_key, TWEET_SYSTEM, "Write the tweet." + _extras(instruction, avoid))
