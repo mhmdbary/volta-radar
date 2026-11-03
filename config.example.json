@@ -1,0 +1,7 @@
+{
+  "twitterapi_key": "PUT_YOUR_TWITTERAPI_IO_KEY_HERE",
+  "telegram_bot_token": "PUT_YOUR_BOTFATHER_TOKEN_HERE",
+  "telegram_chat_id": "PUT_YOUR_CHAT_ID_HERE",
+  "poll_minutes": 3,
+  "include_replies": false
+}
