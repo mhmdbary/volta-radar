@@ -39,7 +39,9 @@ For the tweet you are given, always write one reply (max 220 characters).
   real first and may mention Volta once if it fits naturally.
 - Otherwise set relevant to false and write a genuine, friendly reply to the tweet itself that does NOT mention Volta
   at all (good replies on unrelated posts build presence; forced promotion looks like spam).
-- If the user gives an instruction, follow it (language, tone, points to make), still within the limits below.
+- If the user gives an instruction, follow it (tone, points to make), still within the limits below.
+- tweet_ar: a natural Arabic translation of the original tweet, so an Arabic speaker understands it.
+- reply_ar: a short Arabic translation of your reply, so the user knows what it says.
 
 {RULES}"""
 
@@ -47,7 +49,8 @@ TWEET_SYSTEM = f"""You help a member of the Volta team write their own tweets on
 
 {FACTS}
 
-Write one tweet (max 270 characters) from the user's instruction. Follow their language, tone and points.
+Write one tweet (max 270 characters) from the user's instruction. Follow their tone and points.
+Put the tweet in reply, a short Arabic translation of it in reply_ar, and leave tweet_ar empty.
 
 {RULES}"""
 
@@ -57,13 +60,19 @@ SCHEMA = {
         "relevant": {"type": "boolean"},
         "reason": {"type": "string"},
         "reply": {"type": "string"},
+        "tweet_ar": {"type": "string"},
+        "reply_ar": {"type": "string"},
     },
-    "required": ["relevant", "reason", "reply"],
+    "required": ["relevant", "reason", "reply", "tweet_ar", "reply_ar"],
     "additionalProperties": False,
 }
 
 
-def _ask(api_key, system, prompt):
+def _ask(api_key, system, prompt, image=None):
+    content = prompt
+    if image:  # let the model see the tweet's picture / video thumbnail too
+        content = [{"type": "image", "source": {"type": "url", "url": image}},
+                   {"type": "text", "text": prompt + "\n\n(The image above is attached to the tweet.)"}]
     client = anthropic.Anthropic(api_key=api_key)
     response = client.beta.messages.create(
         model=MODEL,
@@ -72,7 +81,7 @@ def _ask(api_key, system, prompt):
         fallbacks="default",
         output_config={"effort": "low", "format": {"type": "json_schema", "schema": SCHEMA}},
         system=system,
-        messages=[{"role": "user", "content": prompt}],
+        messages=[{"role": "user", "content": content}],
     )
     if response.stop_reason == "refusal":
         return None
@@ -91,9 +100,13 @@ def _extras(instruction, avoid):
     return extra
 
 
-def suggest_reply(api_key, author, text, avoid=None, instruction=None):
+def suggest_reply(api_key, author, text, avoid=None, instruction=None, image=None):
     """Return {"relevant", "reason", "reply"} for a tweet, or None if the model declined."""
-    return _ask(api_key, REPLY_SYSTEM, f"Tweet by @{author}:\n\n{text}" + _extras(instruction, avoid))
+    prompt = f"Tweet by @{author}:\n\n{text}" + _extras(instruction, avoid)
+    try:
+        return _ask(api_key, REPLY_SYSTEM, prompt, image)
+    except anthropic.BadRequestError:  # image URL unreachable for the API: answer from the text alone
+        return _ask(api_key, REPLY_SYSTEM, prompt)
 
 
 def write_tweet(api_key, instruction, avoid=None):

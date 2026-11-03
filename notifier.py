@@ -270,8 +270,12 @@ def process_commands(cfg, state):
             if text.strip().lower() in POST_WORDS or first == "/post":  # "post" / "انشر"
                 post_link(cfg, state, replied_to)
                 continue
-            if replied_to and not text.startswith("/"):  # your idea for an existing draft
-                rewrite_draft(cfg, state, replied_to, text)
+            draft_key = find_draft(state, replied_to)[0] if replied_to else None
+            if draft_key and not text.startswith("/"):  # you replied to a draft with your idea
+                rewrite_draft(cfg, state, draft_key, text)
+                continue
+            if state.get("awaiting") and not text.startswith("/"):  # answer to the ✏️ button
+                rewrite_draft(cfg, state, state.pop("awaiting"), text)
                 continue
             if first == "/myreport":
                 arg = text.partition(" ")[2].strip()
@@ -319,18 +323,21 @@ def draft_message(d, tags):
     reply_txt = html.escape(d["reply"])
     footer = ["", "✏️ <i>Reply to this message with your idea (عربي or English) and I'll rewrite it.</i>",
               "<i>Nothing is posted automatically.</i>"]
+    meaning = [f"🇸🇦 <i>{html.escape(d['reply_ar'])}</i>"] if d.get("reply_ar") else []
     if d.get("kind") == "tweet":
         return "\n".join([
             "📝 <b>TWEET DRAFT</b>", LINE,
             f"🗒 <i>{html.escape(d.get('instruction') or '')}</i>", LINE,
-            "✍️ <b>Tweet</b> (tap to copy):", f"<code>{reply_txt}</code>"] + footer)
+            "✍️ <b>Tweet</b> (tap to copy):", f"<code>{reply_txt}</code>"] + meaning + footer)
     snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
     label = "🟢 <b>Mentions Volta</b>" if d.get("relevant") else "💬 <b>Engagement only</b> (no Volta mention)"
     lines = ["🤖 <b>REPLY IDEA</b>", LINE,
              tag_line(tags, d["author"]),
              f"👤 <code>@{html.escape(d['author'])}</code>",
-             f"<blockquote>{snippet}</blockquote>", LINE,
-             label, "✍️ <b>Suggested reply</b> (tap to copy):", f"<code>{reply_txt}</code>"]
+             f"<blockquote>{snippet}</blockquote>"]
+    if d.get("tweet_ar"):
+        lines.append(f"🇸🇦 <b>الترجمة:</b>\n<blockquote>{html.escape(d['tweet_ar'][:400])}</blockquote>")
+    lines += [LINE, label, "✍️ <b>Suggested reply</b> (tap to copy):", f"<code>{reply_txt}</code>"] + meaning
     if d.get("instruction"):
         lines.append(f"🗒 <i>Your idea: {html.escape(d['instruction'])}</i>")
     return "\n".join(lines + footer)
@@ -344,9 +351,18 @@ def draft_buttons(tid, d):
                  "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})}
     return {"inline_keyboard": [
         [first],
+        [{"text": "✏️ اكتب فكرتك بالعربي", "callback_data": f"ins:{tid}"}],
         [{"text": "🔄 Change", "callback_data": f"chg:{tid}"},
          {"text": "❌ Ignore", "callback_data": f"ign:{tid}"}],
     ]}
+
+
+def apply_result(d, result):
+    d["reply"] = result["reply"]
+    d["relevant"] = result.get("relevant", d.get("relevant"))
+    d["reply_ar"] = result.get("reply_ar") or ""
+    d["tweet_ar"] = result.get("tweet_ar") or d.get("tweet_ar") or ""
+    d["tried"] = (d.get("tried", []) + [d["reply"]])[-5:]
 
 
 def regenerate(cfg, d, avoid=None):
@@ -354,7 +370,7 @@ def regenerate(cfg, d, avoid=None):
     if d.get("kind") == "tweet":
         return ai_replies.write_tweet(cfg["anthropic_api_key"], d.get("instruction"), avoid=avoid)
     return ai_replies.suggest_reply(cfg["anthropic_api_key"], d["author"], d["text"],
-                                    avoid=avoid, instruction=d.get("instruction"))
+                                    avoid=avoid, instruction=d.get("instruction"), image=d.get("image"))
 
 
 def store_draft(state, key, d):
@@ -366,17 +382,25 @@ def store_draft(state, key, d):
 
 def show_draft(cfg, tags, key, d, edit_message_id=None):
     payload = {"chat_id": cfg["telegram_admin_id"], "text": draft_message(d, tags), "parse_mode": "HTML",
-               "disable_web_page_preview": True, "reply_markup": draft_buttons(key, d)}
+               "reply_markup": draft_buttons(key, d)}
+    if d.get("image"):  # show the tweet's image above the draft (text edits keep working, unlike photo captions)
+        payload["link_preview_options"] = {"url": d["image"], "prefer_large_media": True, "show_above_text": True}
+    else:
+        payload["link_preview_options"] = {"is_disabled": True}
     if edit_message_id:
         tg_call(cfg, "editMessageText", dict(payload, message_id=edit_message_id))
     else:
         d["message_id"] = tg_call(cfg, "sendMessage", payload)["result"]["message_id"]
 
 
-def rewrite_draft(cfg, state, message_id, instruction):
-    """You replied to a draft with your own idea: rewrite it following that idea."""
-    key, d = next(((k, v) for k, v in state.get("drafts", {}).items() if v.get("message_id") == message_id),
-                  (None, None))
+def find_draft(state, message_id):
+    return next(((k, v) for k, v in state.get("drafts", {}).items() if v.get("message_id") == message_id),
+                (None, None))
+
+
+def rewrite_draft(cfg, state, key, instruction):
+    """You gave your own idea for a draft (by replying to it or via the ✏️ button): rewrite it."""
+    d = state.get("drafts", {}).get(key)
     if not d:
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"],
                                      "text": "That draft expired. Use /write your idea for a new tweet."})
@@ -386,9 +410,14 @@ def rewrite_draft(cfg, state, message_id, instruction):
     if not result or not result.get("reply"):
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't write that one, try rephrasing."})
         return
-    d["reply"], d["relevant"] = result["reply"], result.get("relevant")
-    d["tried"] = (d.get("tried", []) + [d["reply"]])[-5:]
-    show_draft(cfg, load_json(TAGS_FILE, {}), key, d, edit_message_id=message_id)
+    apply_result(d, result)
+    old_id = d.get("message_id")
+    show_draft(cfg, load_json(TAGS_FILE, {}), key, d)  # send fresh at the bottom so you see it
+    if old_id:
+        try:
+            tg_call(cfg, "deleteMessage", {"chat_id": cfg["telegram_admin_id"], "message_id": old_id})
+        except Exception:
+            pass
 
 
 def new_tweet_draft(cfg, state, instruction):
@@ -402,8 +431,7 @@ def new_tweet_draft(cfg, state, instruction):
     if not result or not result.get("reply"):
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't write that one, try rephrasing."})
         return
-    d["reply"] = result["reply"]
-    d["tried"] = [d["reply"]]
+    apply_result(d, result)
     key = f"w{int(time.time())}"
     show_draft(cfg, {}, key, d)
     store_draft(state, key, d)
@@ -416,11 +444,12 @@ def send_draft(cfg, settings, state, tags, tweet, mention):
     if not wants_draft(tweet, tags, settings, mention):
         return
     author = (tweet.get("author") or {}).get("userName") or ""
-    d = {"author": author, "text": tweet.get("text") or "", "reply": "", "tried": []}
+    d = {"author": author, "text": tweet.get("text") or "", "reply": "", "tried": [],
+         "image": tweet_media(tweet)[0]}
     result = regenerate(cfg, d)
     if not result or not result.get("reply"):
         return
-    d.update(reply=result["reply"], relevant=result.get("relevant"), tried=[result["reply"]])
+    apply_result(d, result)
     tid = str(tweet.get("id"))
     show_draft(cfg, tags, tid, d)
     store_draft(state, tid, d)
@@ -458,13 +487,20 @@ def handle_draft_button(cfg, state, cb):
                                          "text": f"❌ <i>Ignored · {who}</i>", "parse_mode": "HTML"})
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "Ignored"})
         return
+    if action == "ins":
+        state["awaiting"] = key
+        who = f"للرد على @{d['author']}" if d.get("author") else "للتويتة"
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"],
+                                     "text": f"✏️ اكتب فكرتك {who} بالعربي (أو إنجليزي)، وأنا بحولها لإنجليزي طبيعي.",
+                                     "reply_markup": {"force_reply": True, "input_field_placeholder": "اكتب فكرتك هون..."}})
+        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "اكتب فكرتك"})
+        return
     if action == "chg":
         result = regenerate(cfg, d, avoid=d.get("tried"))
         if not result or not result.get("reply"):
             tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "No better idea, sorry"})
             return
-        d["reply"], d["relevant"] = result["reply"], result.get("relevant", d.get("relevant"))
-        d["tried"] = (d.get("tried", []) + [d["reply"]])[-5:]
+        apply_result(d, result)
         show_draft(cfg, load_json(TAGS_FILE, {}), key, d, edit_message_id=msg_id)
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "New idea ready"})
 
