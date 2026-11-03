@@ -121,17 +121,30 @@ LINE = "━━━━━━━━━━━━━━━━━━"
 MEDALS = ["🥇", "🥈", "🥉", "4️⃣", "5️⃣"]
 
 
+def tag_marker(tag):
+    """🟢 our ecosystem · 🟣 KOL · 🔵 other network/project · ⚪ untracked."""
+    if not tag:
+        return "⚪"
+    low = tag.lower()
+    if any(w in low for w in ECO_WORDS):
+        return "🟢"
+    if "kol" in low:
+        return "🟣"
+    return "🔵"
+
+
 def tag_line(tags, handle):
     tag = tags.get((handle or "").lower())
-    if not tag:
-        return ""
-    marker = "🟢" if any(w in tag.lower() for w in ECO_WORDS) else "🔵"
-    return f"{marker} <b>{html.escape(tag.upper())}</b>"
+    return f"{tag_marker(tag)} <b>{html.escape((tag or 'Community').upper())}</b>"
 
 
 def tag_hashtag(tags, handle):
-    """First word of the tag as a hashtag, so the channel can be searched by network (#Elysium)."""
+    """Category as a hashtag, so the channel can be searched by network (#Elysium, #KOL)."""
     tag = tags.get((handle or "").lower()) or ""
+    if not tag:
+        return "#Community"
+    if "kol" in tag.lower():
+        return "#KOL"
     word = "".join(c for c in tag.split("·")[0].split("/")[0].strip().split(" ")[0] if c.isalnum())
     return f"#{word}" if word else ""
 
@@ -280,9 +293,7 @@ def format_alert(tweet, settings, tags, mention=False):
         top.append("💬 <b>$VOLTA MENTION</b>")
     elif is_highlight(tweet, settings):
         top.append("⭐ <b>IMPORTANT</b> ⭐")
-    tag = tag_line(tags, handle)
-    if tag:
-        top.append(tag)
+    top.append(tag_line(tags, handle))
 
     parts = top + [LINE,
                    f"👤 <b>{name}</b>  <code>@{html.escape(handle)}</code>",
@@ -426,7 +437,7 @@ def build_digest(settings, tags, tweets, today, n_accounts):
     for medal, t in zip(MEDALS, top):
         handle = (t.get("author") or {}).get("userName") or ""
         snippet = html.escape(clean_text(t.get("text"), drop_links=True).replace("\n", " ")[:110]) or "📷 media post"
-        marker = tag_line(tags, handle).split(" ")[0] if tags.get(handle.lower()) else "⚪"
+        marker = tag_marker(tags.get(handle.lower()))
         lines += [f"{medal} {marker} <a href=\"{tweet_url(t)}\"><b>@{html.escape(handle)}</b></a>",
                   f"❤️ {short_num(int(t.get('likeCount') or 0))}   🔁 {short_num(int(t.get('retweetCount') or 0))}"
                   f"   💬 {short_num(int(t.get('replyCount') or 0))}",
