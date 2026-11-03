@@ -20,6 +20,7 @@ ROOT = Path(__file__).parent
 CONFIG_FILE = ROOT / "config.json"
 HANDLES_FILE = ROOT / "handles.txt"
 STATE_FILE = ROOT / "state.json"
+SETTINGS_FILE = ROOT / "settings.json"
 
 TWITTERAPI_BASE = "https://api.twitterapi.io"
 BATCH_SIZE = 20  # handles per search query (one paid request per batch)
@@ -201,24 +202,36 @@ def tweet_url(tweet):
     return tweet.get("url") or f"https://x.com/{author}/status/{tweet.get('id')}"
 
 
-def format_alert(tweet):
+def is_highlight(tweet, settings):
+    text = (tweet.get("text") or "").lower()
+    return any(w.lower() in text for w in settings.get("highlight_words", []))
+
+
+def format_alert(tweet, settings, mention=False):
     author = tweet.get("author") or {}
     name = html.escape(author.get("name") or "")
     user = html.escape(author.get("userName") or "")
     followers = author.get("followers")
-    followers_txt = f" ? {followers:,} followers" if isinstance(followers, int) else ""
+    followers_txt = f" · {followers:,} followers" if isinstance(followers, int) else ""
     text = html.escape((tweet.get("text") or "")[:800])
-    return f"🔔 <b>{name}</b> (@{user}){followers_txt}\n\n{text}"
+    if mention:
+        header = "💬 <b>Volta mention</b>\n"
+    elif is_highlight(tweet, settings):
+        header = "⭐ <b>IMPORTANT</b>\n"
+    else:
+        header = ""
+    return f"{header}🔔 <b>{name}</b> (@{user}){followers_txt}\n\n{text}"
 
 
-def send_telegram(token, chat_id, text, url):
+def send_telegram(token, chat_id, text, url=None):
     payload = {
         "chat_id": chat_id,
         "text": text,
         "parse_mode": "HTML",
         "disable_web_page_preview": True,
-        "reply_markup": {"inline_keyboard": [[{"text": "Open on X", "url": url}]]},
     }
+    if url:
+        payload["reply_markup"] = {"inline_keyboard": [[{"text": "Open on X", "url": url}]]}
     http_post_json(f"https://api.telegram.org/bot{token}/sendMessage", payload)
 
 
@@ -235,11 +248,23 @@ def print_chat_ids(token):
         print(f"chat_id: {cid}   (@{name})")
 
 
-def check_once(cfg, handles, state):
+def mention_query(settings, handles, since):
+    """Search for Volta mentions by anyone not already tracked (their posts arrive as normal alerts)."""
+    terms = settings.get("mention_terms") or []
+    if not terms:
+        return None
+    exclude = set(h.lower() for h in handles) | set(h.lower() for h in settings.get("mention_exclude", []))
+    query = "(" + " OR ".join(terms) + f") since_time:{since} -filter:retweets"
+    # keep the query short: only exclude the explicit list, tracked authors are filtered after
+    query += "".join(f" -from:{h}" for h in settings.get("mention_exclude", []))
+    return query, exclude
+
+
+def check_once(cfg, settings, handles, state):
     since = int(state.get("last_check") or time.time() - 15 * 60)
     now = int(time.time())
     seen = set(state.get("seen_ids", []))
-    new_tweets = []
+    new_tweets = []  # (tweet, is_mention)
     failed = False
 
     for i in range(0, len(handles), BATCH_SIZE):
@@ -248,17 +273,33 @@ def check_once(cfg, handles, state):
         if not cfg.get("include_replies", False):
             query += " -filter:replies"
         try:
-            new_tweets.extend(search_tweets(cfg["twitterapi_key"], query))
+            new_tweets.extend((t, False) for t in search_tweets(cfg["twitterapi_key"], query))
         except Exception as e:  # keep going with the other batches
             print(f"[search error] {e}")
             failed = True
 
-    new_tweets = [t for t in new_tweets if str(t.get("id")) not in seen]
-    new_tweets.sort(key=lambda t: int(t.get("id") or 0))  # oldest first
-
-    for t in new_tweets:
+    mq = mention_query(settings, handles, since)
+    if mq:
+        query, exclude = mq
         try:
-            send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], format_alert(t), tweet_url(t))
+            for t in search_tweets(cfg["twitterapi_key"], query):
+                if ((t.get("author") or {}).get("userName") or "").lower() not in exclude:
+                    new_tweets.append((t, True))
+        except Exception as e:
+            print(f"[mention search error] {e}")
+            failed = True
+
+    unique = {}
+    for t, mention in new_tweets:
+        tid = str(t.get("id"))
+        if tid not in seen and tid not in unique:
+            unique[tid] = (t, mention)
+    ordered = sorted(unique.values(), key=lambda x: int(x[0].get("id") or 0))  # oldest first
+
+    for t, mention in ordered:
+        try:
+            send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
+                          format_alert(t, settings, mention), tweet_url(t))
             seen.add(str(t.get("id")))
             time.sleep(3)  # stay under Telegram's per-channel limit
         except Exception as e:
@@ -269,7 +310,103 @@ def check_once(cfg, handles, state):
         state["last_check"] = now
     state["seen_ids"] = list(seen)[-2000:]
     save_json(STATE_FILE, state)
-    print(f"{time.strftime('%H:%M:%S')}  checked {len(handles)} accounts, {len(new_tweets)} new")
+    mentions = sum(1 for _, m in ordered if m)
+    print(f"{time.strftime('%H:%M:%S')}  checked {len(handles)} accounts, "
+          f"{len(ordered) - mentions} new posts, {mentions} mentions")
+
+
+def engagement(t):
+    return sum(int(t.get(k) or 0) * w for k, w in
+               [("likeCount", 1), ("retweetCount", 3), ("replyCount", 2), ("quoteCount", 3)])
+
+
+def countdown_line(settings, today):
+    try:
+        launch = time.strptime(settings["launch_date"], "%Y-%m-%d")
+    except (KeyError, ValueError):
+        return ""
+    days = (time.mktime(launch) - time.mktime(time.strptime(today, "%Y-%m-%d"))) // 86400
+    name = html.escape(settings.get("launch_name", "Launch"))
+    if days > 1:
+        return f"⏳ <b>{name} in {int(days)} days</b> ({settings['launch_date']})\n\n"
+    if days == 1:
+        return f"⏳ <b>{name} is TOMORROW</b> 🚀\n\n"
+    if days == 0:
+        return f"🚀 <b>{name} is LIVE today!</b>\n\n"
+    return ""
+
+
+def daily_report(cfg, settings, handles, state):
+    """Once a day: launch countdown + the 5 most-engaged posts from tracked accounts."""
+    now = time.gmtime()
+    today = time.strftime("%Y-%m-%d", now)
+    if now.tm_hour < int(settings.get("daily_hour_utc", 17)) or state.get("last_digest") == today:
+        return
+
+    since = int(time.time()) - 86400
+    tweets = []
+    for i in range(0, len(handles), BATCH_SIZE):
+        batch = handles[i:i + BATCH_SIZE]
+        query = "(" + " OR ".join(f"from:{h}" for h in batch) + f") since_time:{since} -filter:replies"
+        tweets.extend(search_tweets(cfg["twitterapi_key"], query))
+    top = sorted(tweets, key=engagement, reverse=True)[:5]
+
+    lines = [countdown_line(settings, today), f"📊 <b>Top posts today</b> ({len(tweets)} posts from tracked accounts)\n"]
+    for i, t in enumerate(top, 1):
+        user = html.escape((t.get("author") or {}).get("userName") or "")
+        snippet = html.escape((t.get("text") or "").replace("\n", " ")[:120])
+        lines.append(f"{i}. <a href=\"{tweet_url(t)}\">@{user}</a> · ❤️ {t.get('likeCount') or 0} "
+                     f"🔁 {t.get('retweetCount') or 0}\n{snippet}\n")
+    if not top:
+        lines.append("No posts in the last 24h.")
+
+    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], "\n".join(lines))
+    state["last_digest"] = today
+    save_json(STATE_FILE, state)
+    print("daily report sent")
+
+
+def get_followings(api_key, account):
+    names, cursor = [], ""
+    while True:
+        params = {"userName": account, "pageSize": 200}
+        if cursor:
+            params["cursor"] = cursor
+        data = http_get_json(f"{TWITTERAPI_BASE}/twitter/user/followings?{urllib.parse.urlencode(params)}",
+                             {"X-API-Key": api_key})
+        names.extend(u for u in data.get("followings") or [] if u.get("userName"))
+        if not data.get("has_next_page") or not data.get("next_cursor"):
+            return names
+        cursor = data["next_cursor"]
+
+
+def check_new_follows(cfg, settings, handles, state):
+    """Every few hours: alert when the official accounts follow someone new (new projects/partners)."""
+    every = float(settings.get("follow_check_hours", 6)) * 3600
+    if time.time() - float(state.get("last_follow_check") or 0) < every:
+        return
+    known = state.setdefault("known_follows", {})
+    tracked = set(h.lower() for h in handles)
+
+    for account in settings.get("watch_follows_of", []):
+        users = get_followings(cfg["twitterapi_key"], account)
+        current = [u["userName"] for u in users]
+        if account in known:  # first run only records the list, so we don't flood the channel
+            old = set(n.lower() for n in known[account])
+            for u in users:
+                if u["userName"].lower() in old:
+                    continue
+                bio = html.escape((u.get("description") or "").replace("\n", " ")[:150])
+                user = html.escape(u["userName"])
+                note = "" if user.lower() in tracked else f"\n\nTrack it: <code>/add {user}</code>"
+                send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
+                              f"🆕 <b>@{html.escape(account)} followed @{user}</b>\n\n{bio}{note}",
+                              f"https://x.com/{u['userName']}")
+                time.sleep(3)
+        known[account] = current
+
+    state["last_follow_check"] = int(time.time())
+    save_json(STATE_FILE, state)
 
 
 def main():
@@ -295,7 +432,15 @@ def main():
             process_commands(cfg, state)
         except Exception as e:  # a command problem must not stop the alerts
             print(f"[commands error] {e}")
-        check_once(cfg, load_handles(), state)
+        settings = load_json(SETTINGS_FILE, {})
+        handles = load_handles()
+        check_once(cfg, settings, handles, state)
+        # extras must never stop the main alerts
+        for extra in (daily_report, check_new_follows):
+            try:
+                extra(cfg, settings, handles, state)
+            except Exception as e:
+                print(f"[{extra.__name__} error] {e}")
         if "--once" in sys.argv:
             return
         time.sleep(interval)

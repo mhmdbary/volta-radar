@@ -1,0 +1,10 @@
+{
+  "mention_terms": ["$VOLTA", "\"volta launchpad\"", "@VoltaFamily"],
+  "mention_exclude": ["VoltaFamily"],
+  "highlight_words": ["volta", "launchpad", "uniswap v4", "v4", "fomo", "launch", "mainnet", "airdrop", "partnership"],
+  "daily_hour_utc": 17,
+  "launch_date": "2026-11-09",
+  "launch_name": "Elysium mainnet",
+  "watch_follows_of": ["Enter_Elysium", "Kinetiq_xyz"],
+  "follow_check_hours": 6
+}
