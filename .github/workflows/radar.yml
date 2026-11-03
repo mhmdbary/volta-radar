@@ -1,12 +1,15 @@
 name: Volta Radar
 
+# GitHub's cron is unreliable (often hours late), so each run keeps checking for
+# ~5.5 hours and then starts the next run itself. The hourly cron is only a backup.
 on:
   schedule:
-    - cron: "*/5 * * * *"  # GitHub runs this every 5 minutes at best, sometimes later
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: radar
@@ -15,7 +18,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
@@ -23,17 +26,26 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Check accounts and send alerts
+      - name: Check accounts and send alerts (loop)
         env:
           TWITTERAPI_KEY: ${{ secrets.TWITTERAPI_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_ADMIN_ID: ${{ secrets.TELEGRAM_ADMIN_ID }}
-        run: python notifier.py --once
-
-      - name: Save state
         run: |
           git config user.name "volta-radar-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json handles.txt tags.json
-          git diff --cached --quiet || (git commit -m "Update radar state" && git pull --rebase && git push)
+          end=$((SECONDS + 330 * 60))
+          while [ $SECONDS -lt $end ]; do
+            git pull -q --rebase || true   # pick up handles/settings changed from outside
+            python notifier.py --once || echo "check failed, retrying next round"
+            git add state.json handles.txt tags.json
+            git diff --cached --quiet || (git commit -q -m "Update radar state" && (git push -q || (git pull -q --rebase && git push -q)))
+            sleep 180
+          done
+
+      - name: Start the next run
+        if: success() || failure()  # not when cancelled by hand, so you can stop it
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run radar.yml --repo ${{ github.repository }}
