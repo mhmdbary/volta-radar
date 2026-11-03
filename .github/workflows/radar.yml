@@ -26,22 +26,32 @@ jobs:
         with:
           python-version: "3.12"
 
+      - run: pip install --quiet anthropic
+
       - name: Check accounts and send alerts (loop)
         env:
           TWITTERAPI_KEY: ${{ secrets.TWITTERAPI_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_ADMIN_ID: ${{ secrets.TELEGRAM_ADMIN_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           git config user.name "volta-radar-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           end=$((SECONDS + 330 * 60))
+          round=0
           while [ $SECONDS -lt $end ]; do
             git pull -q --rebase || true   # pick up handles/settings changed from outside
-            python notifier.py --once || echo "check failed, retrying next round"
+            # full check every 3rd minute; in between only read Telegram buttons/commands
+            if [ $((round % 3)) -eq 0 ]; then
+              python notifier.py --once || echo "check failed, retrying next round"
+            else
+              python notifier.py --commands-only || true
+            fi
+            round=$((round + 1))
             git add state.json handles.txt tags.json stats.json 2>/dev/null || git add state.json handles.txt tags.json
             git diff --cached --quiet || (git commit -q -m "Update radar state" && (git push -q || (git pull -q --rebase && git push -q)))
-            sleep 180
+            sleep 60
           done
 
       - name: Start the next run

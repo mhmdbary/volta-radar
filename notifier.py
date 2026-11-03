@@ -246,6 +246,14 @@ def process_commands(cfg, state):
 
     for upd in data.get("result", []):
         state["tg_offset"] = upd["update_id"] + 1
+        cb = upd.get("callback_query")
+        if cb:
+            if str((cb.get("from") or {}).get("id")) == admin:
+                try:
+                    handle_draft_button(cfg, state, cb)
+                except Exception as e:
+                    print(f"[draft button error] {e}")
+            continue
         msg = upd.get("message") or {}
         text = msg.get("text") or ""
         if not text.startswith("/") or str((msg.get("from") or {}).get("id")) != admin:
@@ -259,6 +267,92 @@ def process_commands(cfg, state):
     if tags != before_tags:
         save_json(TAGS_FILE, tags)
     save_json(STATE_FILE, state)
+
+
+def tg_call(cfg, method, payload):
+    return http_post_json(f"https://api.telegram.org/bot{cfg['telegram_bot_token']}/{method}", payload)
+
+
+def wants_draft(tweet, tags, settings, mention):
+    """Only draft replies where Volta is plausibly relevant: our ecosystem, Hyperliquid, mentions, highlights."""
+    tag = (tags.get(((tweet.get("author") or {}).get("userName") or "").lower()) or "").lower()
+    return mention or tag_marker(tag) == "🟢" or "hyperliquid" in tag or is_highlight(tweet, settings)
+
+
+def draft_message(d, tags):
+    reply_txt = html.escape(d["reply"])
+    snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
+    return "\n".join([
+        "🤖 <b>REPLY IDEA</b>", LINE,
+        tag_line(tags, d["author"]),
+        f"👤 <code>@{html.escape(d['author'])}</code>",
+        f"<blockquote>{snippet}</blockquote>", LINE,
+        "✍️ <b>Suggested reply</b> (tap to copy):",
+        f"<code>{reply_txt}</code>", "",
+        f"<i>💡 {html.escape(d.get('reason', ''))}</i>",
+        "<i>Review before posting. Nothing is posted automatically.</i>",
+    ])
+
+
+def draft_buttons(tid, d):
+    intent = "https://x.com/intent/post?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})
+    return {"inline_keyboard": [
+        [{"text": "✍️ Reply on X", "url": intent}],
+        [{"text": "🔄 Change", "callback_data": f"chg:{tid}"},
+         {"text": "❌ Ignore", "callback_data": f"ign:{tid}"}],
+    ]}
+
+
+def send_draft(cfg, settings, state, tags, tweet, mention):
+    """Ask Claude for a reply idea and DM it to the admin if the tweet is relevant."""
+    if not cfg.get("anthropic_api_key") or not cfg.get("telegram_admin_id"):
+        return
+    if not wants_draft(tweet, tags, settings, mention):
+        return
+    import ai_replies  # only needed when AI is configured
+    author = (tweet.get("author") or {}).get("userName") or ""
+    result = ai_replies.suggest_reply(cfg["anthropic_api_key"], author, tweet.get("text") or "")
+    if not result or not result.get("relevant") or not result.get("reply"):
+        return
+    tid = str(tweet.get("id"))
+    d = {"author": author, "text": tweet.get("text") or "", "reply": result["reply"],
+         "reason": result.get("reason", ""), "tried": [result["reply"]]}
+    r = tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": draft_message(d, tags),
+                                     "parse_mode": "HTML", "disable_web_page_preview": True,
+                                     "reply_markup": draft_buttons(tid, d)})
+    d["message_id"] = r["result"]["message_id"]
+    drafts = state.setdefault("drafts", {})
+    drafts[tid] = d
+    for old in list(drafts)[:-100]:  # keep the newest 100
+        drafts.pop(old)
+
+
+def handle_draft_button(cfg, state, cb):
+    action, _, tid = (cb.get("data") or "").partition(":")
+    d = state.get("drafts", {}).get(tid)
+    msg = cb.get("message") or {}
+    target = {"chat_id": msg.get("chat", {}).get("id"), "message_id": msg.get("message_id")}
+    tags = load_json(TAGS_FILE, {})
+    if not d:
+        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "This draft expired."})
+        return
+    if action == "ign":
+        state["drafts"].pop(tid, None)
+        tg_call(cfg, "editMessageText", dict(target, text=f"❌ <i>Ignored · @{html.escape(d['author'])}</i>",
+                                             parse_mode="HTML"))
+        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "Ignored"})
+        return
+    if action == "chg":
+        import ai_replies
+        result = ai_replies.suggest_reply(cfg["anthropic_api_key"], d["author"], d["text"], avoid=d["tried"])
+        if not result or not result.get("reply"):
+            tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "No better idea, sorry"})
+            return
+        d["reply"], d["reason"] = result["reply"], result.get("reason", d.get("reason", ""))
+        d["tried"] = (d["tried"] + [d["reply"]])[-5:]
+        tg_call(cfg, "editMessageText", dict(target, text=draft_message(d, tags), parse_mode="HTML",
+                                             disable_web_page_preview=True, reply_markup=draft_buttons(tid, d)))
+        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "New idea ready"})
 
 
 def search_tweets(api_key, query):
@@ -465,6 +559,11 @@ def check_once(cfg, settings, handles, state):
         except Exception as e:
             print(f"[telegram error] {e}")
             failed = True
+            continue
+        try:
+            send_draft(cfg, settings, state, tags, t, mention)
+        except Exception as e:  # AI problems must never block alerts
+            print(f"[draft error] {e}")
 
     if not failed:  # on error, keep the old window so the next run catches up
         state["last_check"] = now
@@ -603,7 +702,8 @@ def main():
     for key, env in [("twitterapi_key", "TWITTERAPI_KEY"),
                      ("telegram_bot_token", "TELEGRAM_BOT_TOKEN"),
                      ("telegram_chat_id", "TELEGRAM_CHAT_ID"),
-                     ("telegram_admin_id", "TELEGRAM_ADMIN_ID")]:
+                     ("telegram_admin_id", "TELEGRAM_ADMIN_ID"),
+                     ("anthropic_api_key", "ANTHROPIC_API_KEY")]:
         if os.environ.get(env):
             cfg[key] = os.environ[env]
     if not cfg.get("twitterapi_key") or not cfg.get("telegram_bot_token"):
@@ -620,6 +720,9 @@ def main():
             process_commands(cfg, state)
         except Exception as e:  # a command problem must not stop the alerts
             print(f"[commands error] {e}")
+        if "--commands-only" in sys.argv:  # quick pass for button presses between full checks
+            save_json(STATE_FILE, state)
+            return
         settings = load_json(SETTINGS_FILE, {})
         handles = load_handles()
         check_once(cfg, settings, handles, state)
