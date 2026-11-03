@@ -274,7 +274,9 @@ def tg_call(cfg, method, payload):
 
 
 def wants_draft(tweet, tags, settings, mention):
-    """Only draft replies where Volta is plausibly relevant: our ecosystem, Hyperliquid, mentions, highlights."""
+    """Every tracked account and every mention gets read; the model still skips tweets where Volta isn't relevant."""
+    if settings.get("ai_all_tracked", True):
+        return True
     tag = (tags.get(((tweet.get("author") or {}).get("userName") or "").lower()) or "").lower()
     return mention or tag_marker(tag) == "🟢" or "hyperliquid" in tag or is_highlight(tweet, settings)
 
