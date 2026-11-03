@@ -21,6 +21,10 @@ CONFIG_FILE = ROOT / "config.json"
 HANDLES_FILE = ROOT / "handles.txt"
 STATE_FILE = ROOT / "state.json"
 SETTINGS_FILE = ROOT / "settings.json"
+TAGS_FILE = ROOT / "tags.json"
+
+# tags containing one of these get the green "our ecosystem" marker
+ECO_WORDS = ("volta", "elysium", "kinetiq")
 
 TWITTERAPI_BASE = "https://api.twitterapi.io"
 BATCH_SIZE = 20  # handles per search query (one paid request per batch)
@@ -93,34 +97,63 @@ def parse_handle(arg):
 
 
 def lookup_user(api_key, handle):
-    """Return the account's real username and follower count, or None if it doesn't exist."""
+    """Return (username, followers, bio) for the account, or None if it doesn't exist."""
     url = f"{TWITTERAPI_BASE}/twitter/user/info?{urllib.parse.urlencode({'userName': handle})}"
     try:
         data = http_get_json(url, {"X-API-Key": api_key}).get("data") or {}
     except Exception:
         return None
-    return (data["userName"], data.get("followers")) if data.get("userName") else None
+    if not data.get("userName"):
+        return None
+    return data["userName"], data.get("followers"), data.get("description") or ""
+
+
+def guess_tag(bio):
+    bio = bio.lower()
+    if "elysium" in bio or "kinetiq" in bio:
+        return "Elysium · ecosystem"
+    if "hyperliquid" in bio:
+        return "Hyperliquid"
+    return "KOL"
+
+
+def tag_line(tags, handle):
+    tag = tags.get((handle or "").lower())
+    if not tag:
+        return ""
+    marker = "🟢" if any(w in tag.lower() for w in ECO_WORDS) else "🔵"
+    return f"{marker} <b>{html.escape(tag)}</b>\n"
 
 
 HELP_TEXT = (
     "<b>Volta Radar commands</b>\n\n"
     "/add username  (or @username or x.com link)\n"
     "/remove username\n"
+    "/tag username Some Tag  set the label shown on alerts\n"
     "/list  show tracked accounts\n\n"
     "Commands are read every few minutes, so replies can take a short while."
 )
 
 
-def handle_command(cfg, handles, text):
-    """Apply one admin command to the handles list; return the reply text."""
+def handle_command(cfg, handles, tags, text):
+    """Apply one admin command to the handles list and tags; return the reply text."""
     parts = text.strip().split(maxsplit=1)
     cmd = parts[0].split("@")[0].lower()
     arg = parts[1] if len(parts) > 1 else ""
     lower = [h.lower() for h in handles]
 
     if cmd == "/list":
-        lines = "\n".join(f"{i}. @{html.escape(h)}" for i, h in enumerate(handles, 1))
+        lines = "\n".join(f"{i}. @{html.escape(h)} · {html.escape(tags.get(h.lower(), '-'))}"
+                          for i, h in enumerate(handles, 1))
         return f"<b>Tracking {len(handles)} accounts</b>\n\n{lines}"
+
+    if cmd == "/tag":
+        bits = arg.split(maxsplit=1)
+        if len(bits) < 2:
+            return "Usage: /tag username Some Tag"
+        name = parse_handle(bits[0])
+        tags[name.lower()] = bits[1].strip()
+        return f"🏷 @{html.escape(name)} → {html.escape(bits[1].strip())}"
 
     if cmd in ("/add", "/remove"):
         names = [parse_handle(a) for a in arg.replace(",", " ").split() if parse_handle(a)]
@@ -136,11 +169,12 @@ def handle_command(cfg, handles, text):
                 if not found:
                     replies.append(f"❌ @{html.escape(name)} not found on X")
                     continue
-                real, followers = found
+                real, followers, bio = found
                 handles.append(real)
                 lower.append(real.lower())
+                tag = tags.setdefault(real.lower(), guess_tag(bio))
                 f = f" ({followers:,} followers)" if isinstance(followers, int) else ""
-                replies.append(f"✅ Added @{html.escape(real)}{f}")
+                replies.append(f"✅ Added @{html.escape(real)}{f} · 🏷 {html.escape(tag)}")
             else:
                 if name.lower() not in lower:
                     replies.append(f"@{html.escape(name)} is not in the list")
@@ -162,7 +196,8 @@ def process_commands(cfg, state):
     offset = int(state.get("tg_offset") or 0)
     data = http_get_json(f"https://api.telegram.org/bot{token}/getUpdates?offset={offset}&timeout=0")
     handles = load_handles()
-    changed = False
+    tags = load_json(TAGS_FILE, {})
+    before_handles, before_tags = list(handles), dict(tags)
 
     for upd in data.get("result", []):
         state["tg_offset"] = upd["update_id"] + 1
@@ -170,14 +205,14 @@ def process_commands(cfg, state):
         text = msg.get("text") or ""
         if not text.startswith("/") or str((msg.get("from") or {}).get("id")) != admin:
             continue
-        before = list(handles)
-        reply = handle_command(cfg, handles, text)
-        changed = changed or handles != before
+        reply = handle_command(cfg, handles, tags, text)
         http_post_json(f"https://api.telegram.org/bot{token}/sendMessage",
                        {"chat_id": msg["chat"]["id"], "text": reply, "parse_mode": "HTML"})
 
-    if changed:
+    if handles != before_handles:
         save_handles(handles)
+    if tags != before_tags:
+        save_json(TAGS_FILE, tags)
     save_json(STATE_FILE, state)
 
 
@@ -207,7 +242,7 @@ def is_highlight(tweet, settings):
     return any(w.lower() in text for w in settings.get("highlight_words", []))
 
 
-def format_alert(tweet, settings, mention=False):
+def format_alert(tweet, settings, tags, mention=False):
     author = tweet.get("author") or {}
     name = html.escape(author.get("name") or "")
     user = html.escape(author.get("userName") or "")
@@ -220,7 +255,7 @@ def format_alert(tweet, settings, mention=False):
         header = "⭐ <b>IMPORTANT</b>\n"
     else:
         header = ""
-    return f"{header}🔔 <b>{name}</b> (@{user}){followers_txt}\n\n{text}"
+    return f"{header}{tag_line(tags, author.get('userName'))}🔔 <b>{name}</b> (@{user}){followers_txt}\n\n{text}"
 
 
 def send_telegram(token, chat_id, text, url=None):
@@ -295,11 +330,12 @@ def check_once(cfg, settings, handles, state):
         if tid not in seen and tid not in unique:
             unique[tid] = (t, mention)
     ordered = sorted(unique.values(), key=lambda x: int(x[0].get("id") or 0))  # oldest first
+    tags = load_json(TAGS_FILE, {})
 
     for t, mention in ordered:
         try:
             send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
-                          format_alert(t, settings, mention), tweet_url(t))
+                          format_alert(t, settings, tags, mention), tweet_url(t))
             seen.add(str(t.get("id")))
             time.sleep(3)  # stay under Telegram's per-channel limit
         except Exception as e:

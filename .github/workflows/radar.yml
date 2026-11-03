@@ -35,5 +35,5 @@ jobs:
         run: |
           git config user.name "volta-radar-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state.json handles.txt
+          git add state.json handles.txt tags.json
           git diff --cached --quiet || (git commit -m "Update radar state" && git pull --rebase && git push)
