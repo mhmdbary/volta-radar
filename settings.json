@@ -26,5 +26,6 @@
     "Kinetiq_xyz"
   ],
   "follow_check_hours": 6,
-  "mention_min_followers": 1000
+  "mention_min_followers": 1000,
+  "my_handle": "barymoto"
 }

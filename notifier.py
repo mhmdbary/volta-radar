@@ -178,6 +178,7 @@ HELP_TEXT = (
     "/write idea  same thing\n"
     "Reply to a draft with your idea → I rewrite it\n"
     "post / انشر → link to X with it ready\n\n"
+    "/myreport  your replies & posts, last 7 days (/myreport 1 for today)\n\n"
     "Commands are read every few minutes, so replies can take a short while."
 )
 
@@ -271,6 +272,13 @@ def process_commands(cfg, state):
                 continue
             if replied_to and not text.startswith("/"):  # your idea for an existing draft
                 rewrite_draft(cfg, state, replied_to, text)
+                continue
+            if first == "/myreport":
+                arg = text.partition(" ")[2].strip()
+                days = int(arg) if arg.isdigit() else 7
+                tg_call(cfg, "sendMessage", {"chat_id": msg["chat"]["id"], "parse_mode": "HTML",
+                                             "disable_web_page_preview": True,
+                                             "text": build_my_report(cfg, load_json(SETTINGS_FILE, {}), tags, days)})
                 continue
             if first in ("/write", "/tweet"):
                 new_tweet_draft(cfg, state, text.partition(" ")[2].strip())
@@ -742,9 +750,64 @@ def daily_report(cfg, settings, handles, state):
                   build_digest(settings, tags, tweets, today, len(handles)))
     time.sleep(2)
     send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], build_leaderboard(tags))
+    if cfg.get("telegram_admin_id") and settings.get("my_handle"):  # your daily work log, DM only
+        try:
+            send_telegram(cfg["telegram_bot_token"], cfg["telegram_admin_id"],
+                          build_my_report(cfg, settings, tags, 1))
+        except Exception as e:
+            print(f"[my report error] {e}")
     state["last_digest"] = today
     save_json(STATE_FILE, state)
     print("daily report sent")
+
+
+def build_my_report(cfg, settings, tags, days):
+    """Your own X activity: replies and posts with likes/views, to show the work you've done."""
+    me = (settings.get("my_handle") or "").lstrip("@")
+    if not me:
+        return "Set <code>my_handle</code> in settings.json first."
+    since = int(time.time()) - days * 86400
+    tweets = search_tweets(cfg["twitterapi_key"], f"from:{me} since_time:{since} -filter:retweets")
+    is_reply = lambda t: bool(t.get("isReply") or t.get("inReplyToUsername"))
+    replies = [t for t in tweets if is_reply(t)]
+    posts = [t for t in tweets if not is_reply(t)]
+
+    def n(t, k):
+        return int(t.get(k) or 0)
+
+    likes = sum(n(t, "likeCount") for t in tweets)
+    views = sum(n(t, "viewCount") for t in tweets)
+    period = "TODAY" if days == 1 else f"LAST {days} DAYS"
+    lines = [f"📋 <b>MY WORK · {period}</b>", LINE,
+             f"💬 {len(replies)} replies   📝 {len(posts)} posts",
+             f"❤️ {short_num(likes)} likes   👁 {short_num(views)} views"]
+
+    by_cat = {}
+    for t in replies:
+        marker = tag_marker(tags.get((t.get("inReplyToUsername") or "").lower()))
+        by_cat[marker] = by_cat.get(marker, 0) + 1
+    if by_cat:
+        names = {"🟢": "ecosystem", "🔵": "networks", "🟣": "KOLs", "⚪": "others"}
+        lines.append("   ".join(f"{m} {c} {names[m]}" for m, c in sorted(by_cat.items(), key=lambda kv: -kv[1])))
+
+    top = sorted(tweets, key=lambda t: (n(t, "likeCount"), n(t, "viewCount")), reverse=True)[:5]
+    if top:
+        lines += [LINE, "🏆 <b>TOP</b>", ""]
+        for medal, t in zip(MEDALS, top):
+            to = t.get("inReplyToUsername")
+            where = f"↪️ reply to @{html.escape(to)}" if to else "📝 post"
+            snippet = html.escape(clean_text(t.get("text"), drop_links=True).replace("\n", " ")[:90])
+            lines += [f"{medal} <a href=\"{tweet_url(t)}\">{where}</a>",
+                      f"❤️ {n(t, 'likeCount')}   👁 {short_num(n(t, 'viewCount'))}   💬 {n(t, 'replyCount')}",
+                      f"<blockquote>{snippet}</blockquote>"]
+    if replies:
+        lines += [LINE, "🔗 <b>ALL REPLIES</b> (tap to copy)"]
+        for t in sorted(replies, key=lambda t: int(t.get("id") or 0))[-20:]:
+            lines.append(f"• @{html.escape(t.get('inReplyToUsername') or '?')}: <code>{tweet_url(t)}</code>")
+    if not tweets:
+        lines.append("\n<i>Nothing posted in this period yet.</i>")
+    lines += [LINE, "⚡ #MyWork"]
+    return "\n".join(lines)
 
 
 def get_followings(api_key, account):
