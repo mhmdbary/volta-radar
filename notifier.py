@@ -238,6 +238,53 @@ def handle_command(cfg, handles, tags, text):
     return HELP_TEXT
 
 
+MENU_ACTIONS = {
+    "✍️ تويتة جديدة": "write",
+    "📋 شغلي": "report",
+    "🏆 الترتيب": "leaderboard",
+    "📃 الحسابات": "list",
+    "➕ ضيف حساب": "add",
+    "➖ شيل حساب": "remove",
+}
+MENU_KEYBOARD = {
+    "keyboard": [[{"text": "✍️ تويتة جديدة"}, {"text": "📋 شغلي"}],
+                 [{"text": "🏆 الترتيب"}, {"text": "📃 الحسابات"}],
+                 [{"text": "➕ ضيف حساب"}, {"text": "➖ شيل حساب"}]],
+    "resize_keyboard": True,
+    "is_persistent": True,
+}
+REPORT_BUTTONS = {"inline_keyboard": [[{"text": "اليوم", "callback_data": "rep:1"},
+                                       {"text": "7 أيام", "callback_data": "rep:7"},
+                                       {"text": "30 يوم", "callback_data": "rep:30"}]]}
+ASK = {
+    "write": "✍️ اكتب فكرة التويتة بالعربي، وأنا بكتبها إنجليزي:",
+    "add": "➕ اكتب يوزر الحساب أو الرابط تبعه:",
+    "remove": "➖ اكتب يوزر الحساب اللي بدك تشيله:",
+}
+
+
+def show_menu(cfg):
+    tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "reply_markup": MENU_KEYBOARD,
+                                 "text": "⚡ أهلاً! كل شيء من الأزرار تحت 👇\n\n"
+                                         "اقتراحات الرد بتوصلك هون لحالها مع كل تويتة جديدة."})
+
+
+def menu_action(cfg, state, handles, tags, action):
+    admin = cfg["telegram_admin_id"]
+    if action in ASK:
+        state["awaiting"] = action
+        tg_call(cfg, "sendMessage", {"chat_id": admin, "text": ASK[action],
+                                     "reply_markup": {"force_reply": True, "input_field_placeholder": "اكتب هون..."}})
+    elif action == "report":
+        tg_call(cfg, "sendMessage", {"chat_id": admin, "parse_mode": "HTML", "disable_web_page_preview": True,
+                                     "reply_markup": REPORT_BUTTONS,
+                                     "text": build_my_report(cfg, load_json(SETTINGS_FILE, {}), tags, 7)})
+    else:
+        text = build_leaderboard(tags) if action == "leaderboard" else handle_command(cfg, handles, tags, "/list")
+        tg_call(cfg, "sendMessage", {"chat_id": admin, "text": text, "parse_mode": "HTML",
+                                     "disable_web_page_preview": True, "reply_markup": MENU_KEYBOARD})
+
+
 def process_commands(cfg, state):
     """Read new Telegram messages and apply commands sent by the admin."""
     admin = str(cfg.get("telegram_admin_id") or "")
@@ -256,26 +303,49 @@ def process_commands(cfg, state):
         if cb:
             if str((cb.get("from") or {}).get("id")) == admin:
                 try:
-                    handle_draft_button(cfg, state, cb)
+                    if (cb.get("data") or "").startswith("rep:"):  # report period buttons
+                        days = int(cb["data"][4:])
+                        tg_call(cfg, "editMessageText", {
+                            "chat_id": admin, "message_id": cb["message"]["message_id"], "parse_mode": "HTML",
+                            "disable_web_page_preview": True, "reply_markup": REPORT_BUTTONS,
+                            "text": build_my_report(cfg, load_json(SETTINGS_FILE, {}), tags, days)})
+                        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"]})
+                    else:
+                        handle_draft_button(cfg, state, cb)
                 except Exception as e:
-                    print(f"[draft button error] {e}")
+                    print(f"[button error] {e}")
             continue
         msg = upd.get("message") or {}
-        text = msg.get("text") or ""
+        text = (msg.get("text") or "").strip()
         if not text or str((msg.get("from") or {}).get("id")) != admin:
             continue
         try:
             replied_to = (msg.get("reply_to_message") or {}).get("message_id")
             first = text.split()[0].split("@")[0].lower()
-            if text.strip().lower() in POST_WORDS or first == "/post":  # "post" / "انشر"
+            if text in MENU_ACTIONS:  # a menu button at the bottom of the chat
+                state.pop("awaiting", None)
+                menu_action(cfg, state, handles, tags, MENU_ACTIONS[text])
+                continue
+            if first in ("/start", "/menu", "/help"):
+                show_menu(cfg)
+                continue
+            if text.lower() in POST_WORDS or first == "/post":  # "post" / "انشر"
                 post_link(cfg, state, replied_to)
                 continue
             draft_key = find_draft(state, replied_to)[0] if replied_to else None
             if draft_key and not text.startswith("/"):  # you replied to a draft with your idea
                 rewrite_draft(cfg, state, draft_key, text)
                 continue
-            if state.get("awaiting") and not text.startswith("/"):  # answer to the ✏️ button
-                rewrite_draft(cfg, state, state.pop("awaiting"), text)
+            waiting = state.pop("awaiting", None)
+            if waiting and not text.startswith("/"):  # answer to a button that asked you to type
+                if waiting == "write":
+                    new_tweet_draft(cfg, state, text)
+                elif waiting in ("add", "remove"):
+                    reply = handle_command(cfg, handles, tags, f"/{waiting} {text}")
+                    tg_call(cfg, "sendMessage", {"chat_id": admin, "text": reply, "parse_mode": "HTML",
+                                                 "reply_markup": MENU_KEYBOARD})
+                else:
+                    rewrite_draft(cfg, state, waiting, text)
                 continue
             if first == "/myreport":
                 arg = text.partition(" ")[2].strip()
@@ -321,39 +391,38 @@ def wants_draft(tweet, tags, settings, mention):
 
 def draft_message(d, tags):
     reply_txt = html.escape(d["reply"])
-    footer = ["", "✏️ <i>Reply to this message with your idea (عربي or English) and I'll rewrite it.</i>",
-              "<i>Nothing is posted automatically.</i>"]
+    footer = []
     meaning = [f"🇸🇦 <i>{html.escape(d['reply_ar'])}</i>"] if d.get("reply_ar") else []
     if d.get("kind") == "tweet":
         return "\n".join([
-            "📝 <b>TWEET DRAFT</b>", LINE,
+            "📝 <b>تويتة جديدة</b>", LINE,
             f"🗒 <i>{html.escape(d.get('instruction') or '')}</i>", LINE,
-            "✍️ <b>Tweet</b> (tap to copy):", f"<code>{reply_txt}</code>"] + meaning + footer)
+            "✍️ <b>التويتة</b> (اضغط للنسخ):", f"<code>{reply_txt}</code>"] + meaning + footer)
     snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
-    label = "🟢 <b>Mentions Volta</b>" if d.get("relevant") else "💬 <b>Engagement only</b> (no Volta mention)"
-    lines = ["🤖 <b>REPLY IDEA</b>", LINE,
+    label = "🟢 <b>بيذكر Volta</b>" if d.get("relevant") else "💬 <b>تفاعل بس</b> (بدون ذكر Volta)"
+    lines = ["🤖 <b>اقتراح رد</b>", LINE,
              tag_line(tags, d["author"]),
              f"👤 <code>@{html.escape(d['author'])}</code>",
              f"<blockquote>{snippet}</blockquote>"]
     if d.get("tweet_ar"):
         lines.append(f"🇸🇦 <b>الترجمة:</b>\n<blockquote>{html.escape(d['tweet_ar'][:400])}</blockquote>")
-    lines += [LINE, label, "✍️ <b>Suggested reply</b> (tap to copy):", f"<code>{reply_txt}</code>"] + meaning
+    lines += [LINE, label, "✍️ <b>الرد المقترح</b> (اضغط للنسخ):", f"<code>{reply_txt}</code>"] + meaning
     if d.get("instruction"):
-        lines.append(f"🗒 <i>Your idea: {html.escape(d['instruction'])}</i>")
+        lines.append(f"🗒 <i>فكرتك: {html.escape(d['instruction'])}</i>")
     return "\n".join(lines + footer)
 
 
 def draft_buttons(tid, d):
     if d.get("kind") == "tweet":
-        first = {"text": "📝 Post on X", "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"text": d["reply"]})}
+        first = {"text": "🚀 انشر على X", "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"text": d["reply"]})}
     else:
-        first = {"text": "✍️ Reply on X",
+        first = {"text": "🚀 رد على X",
                  "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})}
     return {"inline_keyboard": [
         [first],
-        [{"text": "✏️ اكتب فكرتك بالعربي", "callback_data": f"ins:{tid}"}],
-        [{"text": "🔄 Change", "callback_data": f"chg:{tid}"},
-         {"text": "❌ Ignore", "callback_data": f"ign:{tid}"}],
+        [{"text": "✏️ فكرتي بالعربي", "callback_data": f"ins:{tid}"},
+         {"text": "🔄 غيرها", "callback_data": f"chg:{tid}"}],
+        [{"text": "❌ تجاهل", "callback_data": f"ign:{tid}"}],
     ]}
 
 
@@ -468,8 +537,8 @@ def post_link(cfg, state, message_id=None):
     key, d = found[-1]
     button = draft_buttons(key, d)["inline_keyboard"][0][0]
     tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "parse_mode": "HTML",
-                                 "text": f"🚀 <b>Ready to post</b>\n\n<code>{html.escape(d['reply'])}</code>\n\n"
-                                         "<i>Tap the button, check it, then press Post on X.</i>",
+                                 "text": f"🚀 <b>جاهزة للنشر</b>\n\n<code>{html.escape(d['reply'])}</code>\n\n"
+                                         "<i>اضغط الزر، شيّك عليها، وبعدين Post على X.</i>",
                                  "reply_markup": {"inline_keyboard": [[button]]}})
 
 
