@@ -312,14 +312,16 @@ MENU_ACTIONS = {
     "➖ شيل حساب": "remove",
     "🔗 روابطي": "links",
     "💳 الرصيد": "apis",
+    "⬇️ خبّي القائمة": "hide",
 }
 MENU_KEYBOARD = {
     "keyboard": [[{"text": "✍️ تويتة جديدة"}, {"text": "📋 شغلي"}],
                  [{"text": "🏆 الترتيب"}, {"text": "📃 الحسابات"}],
                  [{"text": "➕ ضيف حساب"}, {"text": "➖ شيل حساب"}],
-                 [{"text": "🔗 روابطي"}, {"text": "💳 الرصيد"}]],
+                 [{"text": "🔗 روابطي"}, {"text": "💳 الرصيد"}],
+                 [{"text": "⬇️ خبّي القائمة"}]],
     "resize_keyboard": True,
-    "is_persistent": True,
+    "is_persistent": False,  # can be folded away with the keyboard icon next to the message box
 }
 REPORT_BUTTONS = {"inline_keyboard": [[{"text": "Today", "callback_data": "rep:1"},
                                        {"text": "7 days", "callback_data": "rep:7"},
@@ -344,6 +346,9 @@ def menu_action(cfg, state, handles, tags, action):
         state["awaiting"] = action
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": ASK[action],
                                      "reply_markup": {"force_reply": True, "input_field_placeholder": "اكتب هون..."}})
+    elif action == "hide":
+        tg_call(cfg, "sendMessage", {"chat_id": admin, "reply_markup": {"remove_keyboard": True},
+                                     "text": "تمام ✅ القائمة مخفية. لترجعها اكتب /menu أو اضغط Menu ← menu"})
     elif action == "apis":
         typing(cfg)
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": build_apis_report(cfg, state), "parse_mode": "HTML",
