@@ -1,5 +1,5 @@
 {
-  "last_check": 1793780480,
+  "last_check": 1793780600,
   "seen_ids": [
     "2117752963968143519",
     "2117894343155401011",
@@ -13,6 +13,7 @@
     "2117862767831159287",
     "2117702234675060834",
     "2117618058525372634",
+    "2117895014772813849",
     "2117725086413402244",
     "2117860431142224016",
     "2117617355627131060",
@@ -86,6 +87,7 @@
     "2117855496178675954",
     "2117888338447540566",
     "2117681085551456728",
+    "2117895099598405919",
     "2117595326626619825",
     "2117870819640827934",
     "2117894194656374840",
@@ -238,39 +240,6 @@
   },
   "last_follow_check": 1793771975,
   "drafts": {
-    "2117702234675060834": {
-      "author": "VoltaFamily",
-      "text": "1% of $VOLTA is already gone.\n\nVolta runs the Pons playbook: 80% of fees go to buying back $VOLTA, and every token bought is burned.\n\nMore launches, more trades, more burns. The flywheel has just started running: https://t.co/NRJFUT34GY https://t.co/UahLdV71b1",
-      "reply": "the bit people skip is that creators still get paid out in HYPE and tokenized stocks from the same trading. the burn just happens in the background when launches actually get used",
-      "tried": [
-        "wild to watch the supply chart move just from people launching and trading. every new token on volta feeds the buybacks, so we're mostly focused on making launches worth doing",
-        "the bit people skip is that creators still get paid out in HYPE and tokenized stocks from the same trading. the burn just happens in the background when launches actually get used"
-      ],
-      "relevant": true,
-      "message_id": 23,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117707213863375177"
-    },
-    "2117702404908986400": {
-      "author": "OhMyJack",
-      "text": "Suplly shock ???\n\n$volta",
-      "reply": "can't speak to price stuff from our side. at volta we're just heads down getting ready for elysium mainnet on nov 9",
-      "tried": [
-        "can't speak to price stuff from our side. at volta we're just heads down getting ready for elysium mainnet on nov 9"
-      ],
-      "relevant": true,
-      "message_id": 26
-    },
-    "2117702413876666698": {
-      "author": "Wayne_D_Hell",
-      "text": "@VoltaFamily 🔥🔥🔥",
-      "reply": "appreciate you wayne, means a lot. elysium mainnet goes live nov 9 so not long now",
-      "tried": [
-        "appreciate you wayne, means a lot. elysium mainnet goes live nov 9 so not long now"
-      ],
-      "relevant": true,
-      "message_id": 27
-    },
     "2117702432436195347": {
       "author": "OhMyJack",
       "text": "@VoltaFamily Suplly shock coming",
@@ -1561,13 +1530,53 @@
       "reply_ar": "متفق، وجانب صنّاع التوكنات لا يُتحدث عنه بما يكفي. تطلق توكن على فولتا ورسومك تصلك بعملة HYPE، وهذا جزء كبير من سبب احتفاظي بـ $VOLTA",
       "tweet_ar": "هذا المشروع يستحق أن يكون تحت الأضواء 🌟",
       "message_id": 227
+    },
+    "2117895014772813849": {
+      "author": "AdamHODL",
+      "text": "Feel we see an e/acc repricing on elysium pre mainnet.\n\nLiterally the chain slogan, and one of the first memes onchain. Don’t think it’ll flip $BLOB, but has plenty of upside.\n\nPVE chain.",
+      "reply": "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix",
+      "tried": [
+        "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix"
+      ],
+      "image": null,
+      "followers": 73648,
+      "relevant": true,
+      "reply_ar": "وصف PVE هو القراءة الصحيحة برأيي. e/acc على Elysium منطقية، وكون volta تتيح للمنشئين أخذ رسومهم بأسهم مرمّزة يناسب طابع الشبكة. أحمل $VOLTA بسبب هذا المزيج",
+      "tweet_ar": "أشعر أننا سنرى إعادة تسعير لعملة e/acc على شبكة Elysium قبل إطلاق الشبكة الرئيسية. إنه حرفياً شعار الشبكة، وواحدة من أوائل الميمز على السلسلة. لا أظن أنها ستتجاوز $BLOB، لكن لديها مجال كبير للصعود. شبكة PVE.",
+      "message_id": 228
+    },
+    "2117895099598405919": {
+      "author": "AdamHODL",
+      "text": "Man, I am glad I slept through that price action holy shit",
+      "reply": "sleeping through chaos is underrated lol. only thing i like waking up to is the volta burn tracker, 80% of fees keep buying back $VOLTA and burning it overnight",
+      "tried": [
+        "sleeping through chaos is underrated lol. only thing i like waking up to is the volta burn tracker, 80% of fees keep buying back $VOLTA and burning it overnight"
+      ],
+      "image": null,
+      "followers": 73648,
+      "relevant": false,
+      "reply_ar": "النوم خلال الفوضى أمر لا يُقدَّر حقه هههه. الشيء الوحيد الذي أحب أن أستيقظ عليه هو متتبع الحرق في فولتا، 80% من الرسوم تستمر في إعادة شراء $VOLTA وحرقه طوال الليل",
+      "tweet_ar": "يا رجل، أنا سعيد أنني نمت خلال تقلبات السعر تلك، يا للهول",
+      "message_id": 229
+    },
+    "2117895148365607335": {
+      "to_me": true,
+      "author": "x_teraus",
+      "text": "@barymoto @BitBlitzBuzz @TheKleos_ Volta on Elysium deserved a spot on that list — day-one builders should get the spotlight. Rooting for the launch.",
+      "reply": "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA",
+      "tried": [
+        "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA"
+      ],
+      "image": null,
+      "my_text": "@BitBlitzBuzz @TheKleos_ solid list, bit sad we didn't make it lol. we're building $volta on elysium too",
+      "relevant": true,
+      "reply_ar": "متفق، كونه أول hook من Uniswap V4 يعمل فعلياً على Elysium خطوة حقيقية من اليوم الأول. هذا البناء المبكر جزء كبير من سبب احتفاظي بـ $VOLTA",
+      "tweet_ar": "كان يستحق Volta على Elysium مكاناً في تلك القائمة، فالبناة من اليوم الأول يستحقون تسليط الضوء عليهم. أتمنى النجاح للإطلاق.",
+      "message_id": 230
     }
   },
-  "angle_i": 33,
+  "angle_i": 36,
   "recent_texts": [
-    "plenty of room on elysium for more than one winner tbh. we built volta on the official uniswap v4 contracts so the boring plumbing just works from day one",
-    "gm, that cat is way too cool for winter 😎 we're getting volta ready for elysium mainnet on nov 9, feels like a cozy place to land",
-    "copy trading on elysium already, nice work. volta launches trade on agora too, and on our charts you'll see your own copied buys and avg entry for any $VOLTA pair",
     "elysium isn't even at public mainnet yet (nov 9) and there's already copy trading. fun to be building $VOLTA next to teams shipping this fast",
     "copy trading on elysium before public mainnet is wild 🔥 volta launches already trade on agora, so $VOLTA launchers just got a lot more eyes on day one",
     "solid list, bit sad we didn't make it lol. we're building volta on elysium too and creators there earn fees in HYPE on every trade. happy to send you $VOLTA onchain data for round 2",
@@ -1594,12 +1603,16 @@
     "that chart with dev trades and burns marked right on the candles is so clean. on volta i mostly use it to check my own avg entry, kinda why i stuck around holding $VOLTA",
     "letting a bot do the shopping is peak lazy, love it. my own window shopping lately is elysium ahead of public mainnet nov 9, volta's already live there and i hold $VOLTA",
     "solid bag already lol. what keeps me in $VOLTA is the free elysium rpc they run, snappy enough that i stopped switching endpoints. what else is on your watchlist?",
-    "agreed, and the creator side doesn't get talked about enough. you launch a token on volta and your fees land in HYPE, which is a big part of why i'm a $VOLTA holder"
+    "agreed, and the creator side doesn't get talked about enough. you launch a token on volta and your fees land in HYPE, which is a big part of why i'm a $VOLTA holder",
+    "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix",
+    "sleeping through chaos is underrated lol. only thing i like waking up to is the volta burn tracker, 80% of fees keep buying back $VOLTA and burning it overnight",
+    "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA"
   ],
   "to_me_seen": [
-    "2117872026555965644"
+    "2117872026555965644",
+    "2117895148365607335"
   ],
-  "last_to_me": 1793780490,
+  "last_to_me": 1793780630,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1617,11 +1630,13 @@
     "2117890229293949130",
     "2117893633009651980",
     "2117894194656374840",
-    "2117894343155401011"
+    "2117894343155401011",
+    "2117895014772813849",
+    "2117895099598405919"
   ],
-  "last_fast": 1793780480,
-  "last_mentions": 1793780480,
-  "last_slow": 1793780420,
+  "last_fast": 1793780600,
+  "last_mentions": 1793780570,
+  "last_slow": 1793780600,
   "tw_samples": [
     [
       1793779148,
