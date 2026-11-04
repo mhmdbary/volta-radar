@@ -450,11 +450,17 @@ def draft_message(d, tags):
             "✍️ <b>التويتة</b> (اضغط للنسخ):", f"<code>{reply_txt}</code>"] + meaning + footer)
     snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
     label = "🟢 <b>بيذكر Volta</b>" if d.get("relevant") else "💬 <b>تفاعل بس</b> (بدون ذكر Volta)"
-    status = "✅✅ <b>تم الرد</b> ✅✅" if d.get("done") else "🟡 <b>لسا ما رديت</b>"
-    lines = [status, "🤖 <b>اقتراح رد</b>", LINE,
-             tag_line(tags, d["author"]),
-             f"👤 @{html.escape(d['author'])}",
-             f"<blockquote>{snippet}</blockquote>"]
+    status = "✅✅ <b>أنا رديت عليها</b> ✅✅" if d.get("done") else "🟡 <b>لسا أنا ما رديت</b>"
+    if d.get("to_me"):  # someone replied to you
+        lines = [f"📩📩 <b>رد جديد عليك من @{html.escape(d['author'])}</b> 📩📩", status, LINE]
+        if d.get("my_text"):
+            lines.append(f"🗣 <b>إنت كتبت:</b>\n<blockquote>{html.escape(d['my_text'][:200])}</blockquote>")
+        lines += [f"💬 <b>هو رد:</b>", f"<blockquote>{snippet}</blockquote>"]
+    else:
+        lines = [status, "🤖 <b>اقتراح رد</b>", LINE,
+                 tag_line(tags, d["author"]),
+                 f"👤 @{html.escape(d['author'])}",
+                 f"<blockquote>{snippet}</blockquote>"]
     if d.get("tweet_ar"):
         lines.append(f"🇸🇦 <b>الترجمة:</b>\n<blockquote>{html.escape(d['tweet_ar'][:400])}</blockquote>")
     lines += [LINE, label, "✍️ <b>الرد المقترح</b> (اضغط للنسخ):", f"<code>{reply_txt}</code>"] + meaning
@@ -468,7 +474,7 @@ def draft_buttons(tid, d):
     # (x.com/intent/post only opens the website)
     if d.get("done"):  # already answered: one button to see your reply (or the tweet), nothing else to press
         mine = d.get("my_url") or f"https://x.com/{d.get('author') or 'i'}/status/{tid}"
-        return {"inline_keyboard": [[{"text": "✅ تم الرد · افتح ردي" if d.get("my_url") else "✅ تم الرد",
+        return {"inline_keyboard": [[{"text": "✅ أنا رديت · افتح ردي" if d.get("my_url") else "✅ أنا رديت",
                                       "url": mine}],
                                     [{"text": "↩️ رجّعها مش متعمولة", "callback_data": f"und:{tid}"}]]}
     if d.get("kind") == "tweet":
@@ -481,7 +487,7 @@ def draft_buttons(tid, d):
     return {"inline_keyboard": rows + [
         [{"text": "✏️ فكرتي بالعربي", "callback_data": f"ins:{tid}"},
          {"text": "🔄 غيرها", "callback_data": f"chg:{tid}"}],
-        [{"text": "✅ رديت", "callback_data": f"don:{tid}"},
+        [{"text": "✅ أنا رديت", "callback_data": f"don:{tid}"},
          {"text": "❌ تجاهل", "callback_data": f"ign:{tid}"}],
     ]}
 
@@ -603,6 +609,41 @@ def send_draft(cfg, settings, state, tags, tweet, mention):
     show_draft(cfg, tags, tid, d)
     store_draft(state, tid, d)
     state["drafted_ids"] = (state.get("drafted_ids", []) + [tid])[-3000:]
+
+
+def check_replies_to_me(cfg, settings, handles, state):
+    """Someone replied to you on X: DM you their reply with a suggested answer and the usual buttons."""
+    me = (settings.get("my_handle") or "").lstrip("@")
+    if not me or not cfg.get("telegram_admin_id"):
+        return
+    since = int(state.get("last_to_me") or time.time() - 600)
+    now = int(time.time())
+    found = search_tweets(cfg["twitterapi_key"], f"to:{me} since_time:{since} -from:{me}")
+    seen = set(state.get("to_me_seen", []))
+    mine = load_json(MYWORK_FILE, {})
+    tags = load_json(TAGS_FILE, {})
+    for t in sorted(found, key=lambda x: int(x.get("id") or 0)):
+        tid = str(t.get("id"))
+        if tid in seen:
+            continue
+        seen.add(tid)
+        author = (t.get("author") or {}).get("userName") or ""
+        d = {"to_me": True, "author": author, "text": t.get("text") or "", "reply": "", "tried": [],
+             "image": tweet_media(t)[0], "my_text": (mine.get(str(t.get("inReplyToId"))) or {}).get("text", "")}
+        result = None
+        if cfg.get("anthropic_api_key"):
+            try:
+                result = regenerate(cfg, d, state)
+            except Exception as e:
+                print(f"[reply-to-me draft error] {e}")
+        if result and result.get("reply"):
+            apply_result(d, result)
+        else:
+            d["reply"] = ""
+        show_draft(cfg, tags, tid, d)
+        store_draft(state, tid, d)
+    state["to_me_seen"] = list(seen)[-1000:]
+    state["last_to_me"] = now
 
 
 POST_WORDS = {"post", "انشر", "نشر", "publish", "send", "ابعت"}
@@ -1216,12 +1257,13 @@ def run_daemon(cfg, state, minutes):
             check_once(cfg, settings, handles, state)
         except Exception as e:
             print(f"[check error] {e}")
-        if time.time() - last_mine > 90:  # your own replies: turns answered drafts green quickly
+        if time.time() - last_mine > 60:  # your own tweets and replies to you, every minute
             last_mine = time.time()
-            try:
-                refresh_my_work(cfg, settings, handles, state)
-            except Exception as e:
-                print(f"[refresh_my_work error] {e}")
+            for mine in (check_replies_to_me, refresh_my_work):
+                try:
+                    mine(cfg, settings, handles, state)
+                except Exception as e:
+                    print(f"[{mine.__name__} error] {e}")
         if time.time() - last_extras > 300:  # digest / follows: every 5 minutes is plenty
             last_extras = time.time()
             for extra in (daily_report, check_new_follows):
