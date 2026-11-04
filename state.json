@@ -1,5 +1,5 @@
 {
-  "last_check": 1793836316,
+  "last_check": 1793836471,
   "seen_ids": [
     "2118023800369615214",
     "2117726419086413958",
@@ -143,6 +143,7 @@
     "2117824660230521170",
     "2117673754574651760",
     "2117980675630321812",
+    "2118128608338207226",
     "2118042176584327339",
     "2118113647511625768",
     "2117738454058508654",
@@ -411,20 +412,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117991208786010539": {
-      "author": "TheKleos_",
-      "text": "The road to Elysium continues on @Uniswap .\n\nAll for Kleos. https://t.co/ZrXKWpbvar",
-      "reply": "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA",
-      "tried": [
-        "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSdx1fWsAAQdt7.jpg",
-      "followers": 1750,
-      "relevant": true,
-      "reply_ar": "الطريق صار مزدحم هههه. فولتا سبقت إطلاق الشبكة الرئيسية في 9 نوفمبر ومعها $VOLTA",
-      "tweet_ar": "الطريق إلى إليسيوم مستمر على يونيسواب. الإطلاقات الجديدة صارت تتداول في مجمعات يونيسواب v4 على إليسيوم. كل شيء من أجل كليوس.",
-      "message_id": 322
-    },
     "2117994110673977542": {
       "author": "0xOmnia",
       "text": "interesting\n\nand elysium coded https://t.co/4Ug6kHAZrE",
@@ -1824,11 +1811,24 @@
       "reply_ar": "شريط الفلاتر في Agora صار مزدحمًا، وفولتا موجودة هناك بجانب Ascend. ما زلت أرى أن السماح لصنّاع التوكنات في فولتا بكسب الرسوم بأسهم مرمّزة هو التفصيل المغمور وراء $VOLTA.",
       "tweet_ar": "أضفنا الآن دعم منصة Ascend. صار بإمكانكم تداول وإطلاق توكنات Ascend مباشرة على Agora.",
       "message_id": 425
+    },
+    "2118128608338207226": {
+      "author": "AdamHODL",
+      "text": "The real fun on Elysium starts on mainnet.\n\nNov 9th \n\nRight now the entire chain is doing sub 5M vol daily, identical to arc in testnet. On mainnet, arc volume hit 9 figures on consecutive days.\n\nWhat do you think will happen with Elysium, with literally the entire space supporting hyperliquids L2 from day one. Don’t get flushed out on the first chain pullback before mainnet.",
+      "reply": "arc going from testnet crumbs to 9 figures is the comp i keep thinking about too. on volta 80% of fees buy back and burn $VOLTA, so mainnet volume would show up on the burn dashboard",
+      "tried": [
+        "arc going from testnet crumbs to 9 figures is the comp i keep thinking about too. on volta 80% of fees buy back and burn $VOLTA, so mainnet volume would show up on the burn dashboard"
+      ],
+      "image": null,
+      "followers": 73675,
+      "relevant": true,
+      "reply_ar": "قفزة arc من أرقام صغيرة في الشبكة التجريبية إلى أرقام من 9 خانات هي المقارنة التي أفكر فيها أنا أيضاً. على volta تُستخدم 80% من الرسوم لإعادة شراء $VOLTA وحرقها، لذا فأي حجم تداول على الشبكة الرئيسية سيظهر على لوحة الحرق.",
+      "tweet_ar": "المتعة الحقيقية على Elysium تبدأ مع إطلاق الشبكة الرئيسية في 9 نوفمبر. حالياً حجم التداول على الشبكة كلها أقل من 5 ملايين يومياً، تماماً مثل arc وهي في مرحلة الشبكة التجريبية. وعند إطلاق arc على الشبكة الرئيسية وصل حجم تداولها إلى أرقام من 9 خانات لعدة أيام متتالية. ماذا تتوقعون أن يحدث مع Elysium، والساحة كلها تدعم شبكة الطبقة الثانية لـ Hyperliquid من اليوم الأول؟ لا تخرجوا من السوق مع أول تراجع للشبكة قبل الإطلاق الرئيسي.",
+      "message_id": 426
     }
   },
-  "angle_i": 210,
+  "angle_i": 211,
   "recent_texts": [
-    "only touching what a team confirms on its own account is basic elysium hygiene. nov 9 mainnet will bring a flood of fake links, for $VOLTA i just go by @VoltaFamily",
     "calling it already lol. busy days are when volta's free elysium rpc matters, one reason i follow $VOLTA",
     "day 1 crew, ever tempted to launch on volta and take creator fees in HYPE, or strictly a $VOLTA holder?",
     "spartans earned glory, volta creators earn stocks, $VOLTA style",
@@ -1887,7 +1887,8 @@
     "what got you into $VOLTA first, the elysium timing?",
     "spreadsheet entries vs volta charts plotting them, why i like $VOLTA",
     "opportunities of a lifetime for creators too, volta launchers earn fees in HYPE, my $VOLTA vested interest",
-    "agora's filter bar is getting crowded, volta sits right there next to ascend. still think volta letting creators earn fees in tokenized stocks is the sleeper detail behind $VOLTA"
+    "agora's filter bar is getting crowded, volta sits right there next to ascend. still think volta letting creators earn fees in tokenized stocks is the sleeper detail behind $VOLTA",
+    "arc going from testnet crumbs to 9 figures is the comp i keep thinking about too. on volta 80% of fees buy back and burn $VOLTA, so mainnet volume would show up on the burn dashboard"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1896,7 +1897,7 @@
     "2117986555780620334",
     "2117945433234313681"
   ],
-  "last_to_me": 1793836216,
+  "last_to_me": 1793836380,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2085,11 +2086,12 @@
     "2118122861860667621",
     "2118123109806964940",
     "2118124829270237207",
-    "2118128474506580400"
+    "2118128474506580400",
+    "2118128608338207226"
   ],
-  "last_fast": 1793836316,
-  "last_mentions": 1793836256,
-  "last_slow": 1793836166,
+  "last_fast": 1793836471,
+  "last_mentions": 1793836441,
+  "last_slow": 1793836346,
   "tw_samples": [
     [
       1793779148,
@@ -2478,9 +2480,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 181,
-      "input_tokens": 873263,
-      "output_tokens": 158188
+      "calls": 182,
+      "input_tokens": 877792,
+      "output_tokens": 159289
     }
   },
   "x_actions": {
