@@ -846,10 +846,10 @@ def format_alert(tweet, settings, tags, mention=False):
 X_READY = False  # set in main() when the X API keys are present
 
 
-def engage_row(tweet_id):
-    """❤️ / 🔁 buttons. With X API keys they like / repost in one tap from Telegram;
-    without them they open X's like / repost screen."""
-    if X_READY:
+def engage_row(tweet_id, one_tap=None):
+    """❤️ / 🔁 buttons. One-tap (your private chat, X API keys set) likes / reposts from your account right away;
+    otherwise they open X's like / repost screen for whoever taps (used in the public channel)."""
+    if X_READY if one_tap is None else one_tap:
         return [{"text": "❤️ Like", "callback_data": f"lk:{tweet_id}"},
                 {"text": "🔁 Repost", "callback_data": f"rt:{tweet_id}"}]
     return [{"text": "❤️ Like", "url": f"https://twitter.com/intent/like?tweet_id={tweet_id}"},
@@ -900,10 +900,11 @@ def send_telegram(token, chat_id, text, url=None, profile=None, photo=None, enga
     payload = {"chat_id": chat_id, "parse_mode": "HTML"}
     buttons = []
     if url:
-        buttons.append({"text": "🔗 Open on X", "url": url})
+        buttons.append({"text": "🔗 Open tweet", "url": url})
     if profile:
         buttons.append({"text": "👤 Profile", "url": f"https://x.com/{profile}"})
-    rows = ([engage_row(engage_id)] if engage_id else []) + ([buttons] if buttons else [])
+    # the channel is public: its like / repost buttons open X for whoever taps them
+    rows = ([engage_row(engage_id, one_tap=False)] if engage_id else []) + ([buttons] if buttons else [])
     if rows:
         payload["reply_markup"] = {"inline_keyboard": rows}
     if photo:
