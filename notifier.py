@@ -909,6 +909,20 @@ def is_volta_tweet(tweet_or_draft):
     return (handle or "").lower() == "voltafamily" or "volta" in text
 
 
+CHANNEL_DOWN = {"until": 0}
+
+
+def channel_ok(cfg):
+    """False when there is no channel or it failed recently (deleted, bot removed); retried every hour."""
+    cid = str(cfg.get("telegram_chat_id") or "").strip()
+    return bool(cid) and cid != str(cfg.get("telegram_admin_id")) and time.time() > CHANNEL_DOWN["until"]
+
+
+def public_chat(cfg):
+    """The channel, or the owner's private chat when there is no working channel."""
+    return cfg["telegram_chat_id"] if channel_ok(cfg) else cfg.get("telegram_admin_id")
+
+
 def send_telegram(token, chat_id, text, url=None, profile=None, photo=None, engage_id=None):
     payload = {"chat_id": chat_id, "parse_mode": "HTML"}
     buttons = []
@@ -1122,17 +1136,18 @@ def check_once(cfg, settings, handles, state):
     record_stats(ordered)
 
     for t, mention in ordered:
-        try:
-            send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
-                          format_alert(t, settings, tags, mention), tweet_url(t),
-                          (t.get("author") or {}).get("userName"), tweet_media(t)[0],
-                          engage_id=str(t.get("id")))
-            seen.add(str(t.get("id")))
-            time.sleep(3)  # stay under Telegram's per-channel limit
-        except Exception as e:
-            print(f"[telegram error] {e}")
-            failed = True
-            continue
+        if channel_ok(cfg):
+            try:
+                send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
+                              format_alert(t, settings, tags, mention), tweet_url(t),
+                              (t.get("author") or {}).get("userName"), tweet_media(t)[0],
+                              engage_id=str(t.get("id")))
+                time.sleep(3)  # stay under Telegram's per-channel limit
+            except Exception as e:  # a missing channel must never block the private drafts
+                print(f"[telegram error] {e}")
+                if "chat not found" in str(e).lower() or "403" in str(e) or "400" in str(e):
+                    CHANNEL_DOWN["until"] = time.time() + 3600
+        seen.add(str(t.get("id")))
         try:
             send_draft(cfg, settings, state, tags, t, mention)
         except Exception as e:  # AI problems must never block alerts
@@ -1205,10 +1220,15 @@ def daily_report(cfg, settings, handles, state):
         tweets.extend(search_tweets(cfg["twitterapi_key"], query))
 
     tags = load_json(TAGS_FILE, {})
-    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
-                  build_digest(settings, tags, tweets, today, len(handles)))
-    time.sleep(2)
-    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], build_leaderboard(cfg, tags, settings))
+    for text in (build_digest(settings, tags, tweets, today, len(handles)), build_leaderboard(cfg, tags, settings)):
+        try:
+            send_telegram(cfg["telegram_bot_token"], public_chat(cfg), text)
+        except Exception as e:
+            print(f"[digest error] {e}")
+            if public_chat(cfg) != cfg.get("telegram_admin_id"):  # channel gone: give it to the owner instead
+                CHANNEL_DOWN["until"] = time.time() + 3600
+                send_telegram(cfg["telegram_bot_token"], cfg["telegram_admin_id"], text)
+        time.sleep(2)
     if cfg.get("telegram_admin_id") and settings.get("my_handle"):  # your daily work log, DM only
         try:
             send_telegram(cfg["telegram_bot_token"], cfg["telegram_admin_id"],
@@ -1451,7 +1471,7 @@ def check_new_follows(cfg, settings, handles, state):
             for u in users:
                 if u["userName"].lower() in old:
                     continue
-                send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
+                send_telegram(cfg["telegram_bot_token"], public_chat(cfg),
                               format_new_follow(account, u, u["userName"].lower() in tracked),
                               profile=u["userName"])
                 time.sleep(3)
