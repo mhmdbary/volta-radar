@@ -909,39 +909,50 @@ def build_my_report(cfg, settings, tags, days):
     def n(t, k):
         return int(t.get(k) or 0)
 
-    likes = sum(n(t, "likeCount") for t in tweets)
-    views = sum(n(t, "viewCount") for t in tweets)
-    period = "TODAY" if days == 1 else f"LAST {days} DAYS"
-    lines = [f"📋 <b>MY WORK · {period}</b>", LINE,
-             f"💬 {len(replies)} replies   📝 {len(posts)} posts",
-             f"❤️ {short_num(likes)} likes   👁 {short_num(views)} views"]
+    total = {k: sum(n(t, k) for t in tweets) for k in ("likeCount", "viewCount", "retweetCount", "replyCount")}
+    volta = sum(1 for t in tweets if "volta" in (t.get("text") or "").lower())
+    avg_views = total["viewCount"] // len(tweets) if tweets else 0
+    period = "اليوم" if days == 1 else f"آخر {days} يوم"
+    lines = [f"📋 <b>شغلي · {period}</b>", LINE,
+             f"🧮 <b>{len(tweets)}</b> المجموع   💬 {len(replies)} رد   📝 {len(posts)} تويتة",
+             f"⚡ {volta} فيهم Volta",
+             f"👁 {short_num(total['viewCount'])} مشاهدة   (متوسط {short_num(avg_views)})",
+             f"❤️ {short_num(total['likeCount'])}   🔁 {short_num(total['retweetCount'])}   "
+             f"💬 {short_num(total['replyCount'])} تعليق عليهم"]
 
     by_cat = {}
     for t in replies:
         marker = tag_marker(tags.get((t.get("inReplyToUsername") or "").lower()))
         by_cat[marker] = by_cat.get(marker, 0) + 1
     if by_cat:
-        names = {"🟢": "ecosystem", "🔵": "networks", "🟣": "KOLs", "⚪": "others"}
+        names = {"🟢": "شبكتنا", "🔵": "شبكات تانية", "🟣": "KOLs", "⚪": "غيرهم"}
         lines.append("   ".join(f"{m} {c} {names[m]}" for m, c in sorted(by_cat.items(), key=lambda kv: -kv[1])))
 
-    top = sorted(tweets, key=lambda t: (n(t, "likeCount"), n(t, "viewCount")), reverse=True)[:5]
+    top = sorted(tweets, key=lambda t: (n(t, "viewCount"), n(t, "likeCount")), reverse=True)[:3]
     if top:
-        lines += [LINE, "🏆 <b>TOP</b>", ""]
+        lines += [LINE, "🏆 <b>الأفضل</b>"]
         for medal, t in zip(MEDALS, top):
             to = t.get("inReplyToUsername")
-            where = f"↪️ reply to @{html.escape(to)}" if to else "📝 post"
-            snippet = html.escape(clean_text(t.get("text"), drop_links=True).replace("\n", " ")[:90])
-            lines += [f"{medal} <a href=\"{tweet_url(t)}\">{where}</a>",
-                      f"❤️ {n(t, 'likeCount')}   👁 {short_num(n(t, 'viewCount'))}   💬 {n(t, 'replyCount')}",
-                      f"<blockquote>{snippet}</blockquote>"]
-    if replies:
-        lines += [LINE, "🔗 <b>ALL REPLIES</b> (tap to copy)"]
-        for t in sorted(replies, key=lambda t: int(t.get("id") or 0))[-20:]:
-            lines.append(f"• @{html.escape(t.get('inReplyToUsername') or '?')}: <code>{tweet_url(t)}</code>")
-    if not tweets:
-        lines.append("\n<i>Nothing posted in this period yet.</i>")
+            where = f"↪️ رد على @{html.escape(to)}" if to else "📝 تويتة"
+            lines.append(f"{medal} <a href=\"{tweet_url(t)}\">{where}</a> · 👁 {short_num(n(t, 'viewCount'))} "
+                         f"❤️ {n(t, 'likeCount')}")
+
+    if tweets:
+        newest = sorted(tweets, key=lambda t: int(t.get("id") or 0), reverse=True)
+        shown = newest[:25]  # Telegram messages are capped at 4096 characters
+        lines += [LINE, f"📜 <b>كل التويتات</b> ({len(shown)} من {len(tweets)}، الأحدث أول)"]
+        for t in shown:
+            to = t.get("inReplyToUsername")
+            icon = f"↪️ @{html.escape(to)}" if to else "📝"
+            snippet = html.escape(clean_text(t.get("text"), drop_links=True).replace("\n", " ")[:60])
+            lines.append(f"{icon} <a href=\"{tweet_url(t)}\">{snippet or 'media'}</a>\n"
+                         f"    👁 {short_num(n(t, 'viewCount'))}  ❤️ {n(t, 'likeCount')}  🔁 {n(t, 'retweetCount')}"
+                         f"  💬 {n(t, 'replyCount')}")
+    else:
+        lines.append("\n<i>ما في تويتات بهالفترة.</i>")
     lines += [LINE, "⚡ #MyWork"]
-    return "\n".join(lines)
+    text = "\n".join(lines)
+    return text if len(text) <= 4000 else text[:3990].rsplit("\n", 1)[0] + "\n…"
 
 
 def get_followings(api_key, account):

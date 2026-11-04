@@ -48,6 +48,7 @@ RULES = """Style: write like a real person on crypto twitter typing on their pho
 
 Limits:
 - write as the Volta team ("we're building...", "at volta we...") so the affiliation is clear
+- always include the ticker $VOLTA exactly once, worked naturally into the sentence (not tacked on at the end)
 - never tell anyone to buy, ape, or invest; no price talk, no "100x", no financial advice
 - no claims about competitors, not even implied ones (don't suggest other launchpads are forks, unsafe or
   "mystery code"), and nothing about Volta beyond the facts above"""
@@ -73,8 +74,10 @@ TWEET_SYSTEM = f"""You help a member of the Volta team write their own tweets on
 
 {FACTS}
 
-Write one short tweet that promotes Volta well (ideally under 160 characters, max 220).
+Write one tweet that promotes Volta well (ideally 150-230 characters, max 260).
 Follow the user's instruction if there is one; otherwise build it around the suggested angle.
+Explain that one feature clearly enough that someone new gets what it is and why it matters,
+in plain words a degen would use. Sound like a confident builder, not an ad.
 Put the tweet in reply, a short Arabic translation of it in reply_ar, and leave tweet_ar empty.
 
 {RULES}"""
