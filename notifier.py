@@ -12,7 +12,9 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
+import threading
 import time
 import urllib.parse
 import urllib.request
@@ -25,6 +27,7 @@ STATE_FILE = ROOT / "state.json"
 SETTINGS_FILE = ROOT / "settings.json"
 TAGS_FILE = ROOT / "tags.json"
 STATS_FILE = ROOT / "stats.json"
+MYWORK_FILE = ROOT / "mywork.json"
 
 # tags containing one of these get the green "our ecosystem" marker
 ECO_WORDS = ("volta", "elysium", "kinetiq")
@@ -40,8 +43,20 @@ def load_json(path, default):
         return default
 
 
+STATE_LOCK = threading.RLock()  # the command thread and the checker share one state dict
+
+
 def save_json(path, data):
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    with STATE_LOCK:
+        for _ in range(3):  # the other thread may add a key mid-dump; just try again
+            try:
+                text = json.dumps(data, ensure_ascii=False, indent=2)
+                break
+            except RuntimeError:
+                time.sleep(0.05)
+        else:
+            return
+        path.write_text(text, encoding="utf-8")
 
 
 def http_get_json(url, headers=None, retries=4):
@@ -266,11 +281,13 @@ MENU_ACTIONS = {
     "📃 الحسابات": "list",
     "➕ ضيف حساب": "add",
     "➖ شيل حساب": "remove",
+    "🔗 روابطي": "links",
 }
 MENU_KEYBOARD = {
     "keyboard": [[{"text": "✍️ تويتة جديدة"}, {"text": "📋 شغلي"}],
                  [{"text": "🏆 الترتيب"}, {"text": "📃 الحسابات"}],
-                 [{"text": "➕ ضيف حساب"}, {"text": "➖ شيل حساب"}]],
+                 [{"text": "➕ ضيف حساب"}, {"text": "➖ شيل حساب"}],
+                 [{"text": "🔗 روابطي"}]],
     "resize_keyboard": True,
     "is_persistent": True,
 }
@@ -297,7 +314,13 @@ def menu_action(cfg, state, handles, tags, action):
         state["awaiting"] = action
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": ASK[action],
                                      "reply_markup": {"force_reply": True, "input_field_placeholder": "اكتب هون..."}})
+    elif action == "links":
+        refresh_my_work(cfg, load_json(SETTINGS_FILE, {}), handles, state)
+        for m in links_messages():
+            tg_call(cfg, "sendMessage", {"chat_id": admin, "text": m, "parse_mode": "HTML",
+                                         "disable_web_page_preview": True})
     elif action == "report":
+        typing(cfg)
         tg_call(cfg, "sendMessage", {"chat_id": admin, "parse_mode": "HTML", "disable_web_page_preview": True,
                                      "reply_markup": REPORT_BUTTONS,
                                      "text": build_my_report(cfg, load_json(SETTINGS_FILE, {}), tags, 7)})
@@ -307,14 +330,15 @@ def menu_action(cfg, state, handles, tags, action):
                                      "disable_web_page_preview": True, "reply_markup": MENU_KEYBOARD})
 
 
-def process_commands(cfg, state):
+def process_commands(cfg, state, wait=0):
     """Read new Telegram messages and apply commands sent by the admin."""
     admin = str(cfg.get("telegram_admin_id") or "")
     if not admin:
         return
     token = cfg["telegram_bot_token"]
     offset = int(state.get("tg_offset") or 0)
-    data = http_get_json(f"https://api.telegram.org/bot{token}/getUpdates?offset={offset}&timeout=0")
+    # wait > 0 = long polling: Telegram holds the request until a message arrives, so replies are instant
+    data = http_get_json(f"https://api.telegram.org/bot{token}/getUpdates?offset={offset}&timeout={wait}")
     handles = load_handles()
     tags = load_json(TAGS_FILE, {})
     before_handles, before_tags = list(handles), dict(tags)
@@ -368,6 +392,9 @@ def process_commands(cfg, state):
                                                  "reply_markup": MENU_KEYBOARD})
                 else:
                     rewrite_draft(cfg, state, waiting, text)
+                continue
+            if first == "/links":
+                menu_action(cfg, state, handles, tags, "links")
                 continue
             report_days = {"/today": 1, "/week": 7, "/month": 30, "/all": 3650, "/mywork": 3650}
             if first in report_days or first == "/myreport":
@@ -504,8 +531,16 @@ def find_draft(state, message_id):
                 (None, None))
 
 
+def typing(cfg):
+    try:
+        tg_call(cfg, "sendChatAction", {"chat_id": cfg["telegram_admin_id"], "action": "typing"})
+    except Exception:
+        pass
+
+
 def rewrite_draft(cfg, state, key, instruction):
     """You gave your own idea for a draft (by replying to it or via the ✏️ button): rewrite it."""
+    typing(cfg)
     d = state.get("drafts", {}).get(key)
     if not d:
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"],
@@ -532,6 +567,7 @@ def new_tweet_draft(cfg, state, instruction):
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "parse_mode": "HTML",
                                      "text": "Usage: <code>/write your idea</code>\nمثال: <code>/write تويتة عن إطلاق elysium يوم 9، حماسية</code>"})
         return
+    typing(cfg)
     d = {"kind": "tweet", "instruction": instruction, "reply": "", "tried": []}
     result = regenerate(cfg, d, state)
     if not result or not result.get("reply"):
@@ -559,6 +595,7 @@ def send_draft(cfg, settings, state, tags, tweet, mention):
     tid = str(tweet.get("id"))
     show_draft(cfg, tags, tid, d)
     store_draft(state, tid, d)
+    state["drafted_ids"] = (state.get("drafted_ids", []) + [tid])[-3000:]
 
 
 POST_WORDS = {"post", "انشر", "نشر", "publish", "send", "ابعت"}
@@ -602,13 +639,13 @@ def handle_draft_button(cfg, state, cb):
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "اكتب فكرتك"})
         return
     if action == "chg":
+        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "⏳ بكتب وحدة جديدة..."})
+        typing(cfg)
         result = regenerate(cfg, d, state, avoid=d.get("tried"))
         if not result or not result.get("reply"):
-            tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "No better idea, sorry"})
             return
         apply_result(d, result)
         show_draft(cfg, load_json(TAGS_FILE, {}), key, d, edit_message_id=msg_id)
-        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "New idea ready"})
 
 
 def search_tweets(api_key, query):
@@ -903,6 +940,67 @@ def daily_report(cfg, settings, handles, state):
     print("daily report sent")
 
 
+LIVE_STATE = {}  # the running bot's state, so reports can see which tweets the bot drafted
+
+
+def is_via_bot(t):
+    """Your tweet answers a tweet the bot drafted a reply for, or matches one of its drafts."""
+    if str(t.get("inReplyToId") or "") in set(LIVE_STATE.get("drafted_ids", [])):
+        return True
+    text = " ".join(w for w in (t.get("text") or "").lower().split() if not w.startswith("@"))[:50]
+    return bool(text) and any(r.lower()[:50] == text for r in LIVE_STATE.get("recent_texts", []))
+
+
+def fetch_my_volta_tweets(cfg, me, tags, since):
+    """Your Volta-related tweets since a time; every one is also saved to mywork.json with its link."""
+    tweets = search_tweets(cfg["twitterapi_key"], f"from:{me} since_time:{since} -filter:retweets")
+
+    def about_volta(t):
+        to = (t.get("inReplyToUsername") or "").lower()
+        return ("volta" in (t.get("text") or "").lower() or to == "voltafamily"
+                or tag_marker(tags.get(to)) == "🟢" or is_via_bot(t))
+
+    tweets = [t for t in tweets if about_volta(t)]
+    saved = load_json(MYWORK_FILE, {})
+    for t in tweets:
+        saved[str(t.get("id"))] = {
+            "url": tweet_url(t), "to": t.get("inReplyToUsername") or "", "date": t.get("createdAt", ""),
+            "text": (t.get("text") or "")[:280], "views": int(t.get("viewCount") or 0),
+            "likes": int(t.get("likeCount") or 0), "via_bot": is_via_bot(t)}
+    save_json(MYWORK_FILE, saved)
+    return tweets
+
+
+def refresh_my_work(cfg, settings, handles, state):
+    """Every few minutes: keep mywork.json up to date with your latest Volta tweets and their numbers."""
+    me = (settings.get("my_handle") or "").lstrip("@")
+    if not me:
+        return
+    try:
+        since = calendar.timegm(time.strptime(settings.get("work_start", ""), "%Y-%m-%d"))
+    except ValueError:
+        since = int(time.time()) - 7 * 86400
+    fetch_my_volta_tweets(cfg, me, load_json(TAGS_FILE, {}), since)
+
+
+def links_messages():
+    """All saved Volta tweet links, newest first, split into Telegram-sized messages."""
+    saved = sorted(load_json(MYWORK_FILE, {}).items(), key=lambda kv: int(kv[0]), reverse=True)
+    if not saved:
+        return ["No saved links yet."]
+    header = f"🔗 <b>MY VOLTA LINKS</b> · {len(saved)} total (tap to copy)\n{LINE}"
+    msgs, cur = [], header
+    for i, (_, v) in enumerate(saved, 1):
+        kind = f"↪️ @{html.escape(v['to'])}" if v.get("to") else "📝 Post"
+        line = f"\n<b>{i}.</b> {kind} · 👁 {short_num(v.get('views'))}\n<code>{v['url']}</code>"
+        if len(cur) + len(line) > 3900:
+            msgs.append(cur)
+            cur = ""
+        cur += line
+    msgs.append(cur)
+    return msgs
+
+
 def build_my_report(cfg, settings, tags, days):
     """Your own X activity: replies and posts with likes/views, to show the work you've done."""
     me = (settings.get("my_handle") or "").lstrip("@")
@@ -915,14 +1013,8 @@ def build_my_report(cfg, settings, tags, days):
             since, days = start, 0  # 0 = "since the work started"
     except ValueError:
         pass
-    tweets = search_tweets(cfg["twitterapi_key"], f"from:{me} since_time:{since} -filter:retweets")
-
-    def about_volta(t):
-        to = (t.get("inReplyToUsername") or "").lower()
-        return ("volta" in (t.get("text") or "").lower() or to == "voltafamily"
-                or tag_marker(tags.get(to)) == "🟢")
-
-    tweets = [t for t in tweets if about_volta(t)]  # only Volta-related work goes in the report
+    tweets = fetch_my_volta_tweets(cfg, me, tags, since)
+    via_bot = sum(1 for t in tweets if is_via_bot(t))
     is_reply = lambda t: bool(t.get("isReply") or t.get("inReplyToUsername"))
     replies = [t for t in tweets if is_reply(t)]
     posts = [t for t in tweets if not is_reply(t)]
@@ -956,6 +1048,7 @@ def build_my_report(cfg, settings, tags, days):
              LINE, "📈 <b>OVERVIEW</b>",
              f"• Total activity: <b>{len(tweets)}</b> ({len(replies)} replies · {len(posts)} posts)",
              f"• Mentioning $VOLTA: <b>{volta}</b>",
+             f"• Written with Volta Radar: <b>{via_bot}</b>",
              f"• Impressions: <b>{short_num(total['viewCount'])}</b> (avg {short_num(avg_views)} per tweet)",
              f"• Engagement: {short_num(total['likeCount'])} likes · {short_num(total['retweetCount'])} reposts"
              f" · {short_num(total['replyCount'])} comments",
@@ -1054,7 +1147,66 @@ def check_new_follows(cfg, settings, handles, state):
     save_json(STATE_FILE, state)
 
 
+def git_sync():
+    """On GitHub Actions: commit the bot's state files and push, so the next run continues from here."""
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    files = [str(p.name) for p in (STATE_FILE, HANDLES_FILE, TAGS_FILE, STATS_FILE, MYWORK_FILE) if p.exists()]
+    with STATE_LOCK:
+        subprocess.run(["git", "add", *files], cwd=ROOT)
+        if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=ROOT).returncode == 0:
+            return
+        subprocess.run(["git", "commit", "-q", "-m", "Update radar state"], cwd=ROOT)
+    for _ in range(3):
+        if subprocess.run(["git", "push", "-q"], cwd=ROOT).returncode == 0:
+            return
+        subprocess.run(["git", "pull", "-q", "--rebase", "-X", "theirs"], cwd=ROOT)
+
+
+def command_loop(cfg, state, stop):
+    """Answers your buttons and messages within a second or two (long polling), separate from the checks."""
+    while not stop.is_set():
+        try:
+            process_commands(cfg, state, wait=25)
+        except Exception as e:
+            print(f"[commands error] {e}")
+            time.sleep(3)
+
+
+def run_daemon(cfg, state, minutes):
+    """One long-running process: instant command thread + tweet checks every few seconds."""
+    stop = threading.Event()
+    threading.Thread(target=command_loop, args=(cfg, state, stop), daemon=True).start()
+    end = time.time() + minutes * 60
+    last_sync = last_extras = 0
+    while time.time() < end:
+        started = time.time()
+        settings = load_json(SETTINGS_FILE, {})
+        handles = load_handles()
+        try:
+            check_once(cfg, settings, handles, state)
+        except Exception as e:
+            print(f"[check error] {e}")
+        if time.time() - last_extras > 300:  # digest / follows / your links: every 5 minutes is plenty
+            last_extras = time.time()
+            for extra in (daily_report, check_new_follows, refresh_my_work):
+                try:
+                    extra(cfg, settings, handles, state)
+                except Exception as e:
+                    print(f"[{extra.__name__} error] {e}")
+        if time.time() - last_sync > 120:
+            last_sync = time.time()
+            git_sync()
+        pause = float(settings.get("check_seconds", 30)) - (time.time() - started)
+        if pause > 0:
+            time.sleep(pause)
+    stop.set()
+    save_json(STATE_FILE, state)
+    git_sync()
+
+
 def main():
+    global LIVE_STATE
     cfg = load_json(CONFIG_FILE, {})
     # on GitHub Actions the keys come from repository secrets instead of config.json
     for key, env in [("twitterapi_key", "TWITTERAPI_KEY"),
@@ -1071,7 +1223,11 @@ def main():
         print_chat_ids(cfg["telegram_bot_token"])
         return
 
-    state = load_json(STATE_FILE, {})
+    state = LIVE_STATE = load_json(STATE_FILE, {})
+    if "--daemon" in sys.argv:
+        minutes = float(sys.argv[sys.argv.index("--daemon") + 1])
+        run_daemon(cfg, state, minutes)
+        return
     interval = max(1, int(cfg.get("poll_minutes", 3))) * 60
     while True:
         try:
