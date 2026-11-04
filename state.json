@@ -1,5 +1,5 @@
 {
-  "last_check": 1793792916,
+  "last_check": 1793793066,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -7,8 +7,8 @@
     "2117595326626619825",
     "2117850834776256564",
     "2117943643290116163",
-    "2117580008931709076",
     "2117893633009651980",
+    "2117580008931709076",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -40,6 +40,7 @@
     "2117856962864136593",
     "2117888389739634881",
     "2117844124913319946",
+    "2117947676008300551",
     "2117686935863119887",
     "2117725086413402244",
     "2117895099598405919",
@@ -257,19 +258,6 @@
   },
   "last_follow_check": 1793771975,
   "drafts": {
-    "2117726419086413958": {
-      "author": "whalesdotsol",
-      "text": "@VoltaFamily Bullish on VOLTA",
-      "reply": "appreciate you 🙏 heads down shipping for elysium mainnet on nov 9, stick around",
-      "tried": [
-        "appreciate you 🙏 heads down shipping for elysium mainnet on nov 9, stick around"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر دعمك 🙏 نعمل بجد استعداداً لإطلاق الشبكة الرئيسية لـ Elysium في 9 نوفمبر، ابقَ معنا",
-      "tweet_ar": "@VoltaFamily متفائل جداً بـ VOLTA",
-      "message_id": 70
-    },
     "2117727040002736243": {
       "author": "MrbossOfficiial",
       "text": "@VoltaFamily This looks really good! Let's work together 💪",
@@ -1635,9 +1623,23 @@
       "reply_ar": "إنك تشوف شي يطير وأنت برّاه صار تقريبًا طقس عبور في كريبتو تويتر هههه. لوحة الترند في فولتا على الأقل تخلي الإطلاقات الجديدة أصعب إنها تفوتك، وهذا نص سبب إن $VOLTA تحت عيني",
       "tweet_ar": "ما دخلت لما كان عند ١٠٠ ألف، تبًا",
       "message_id": 257
+    },
+    "2117947676008300551": {
+      "author": "TheKleos_",
+      "text": "All Kleos pools have been integrated into @BasedBot \n\nhttps://t.co/iZeJGtAlso https://t.co/MScCec522K",
+      "reply": "elysium's not even at public mainnet yet and basedbot's already filling up, $VOLTA folks approve",
+      "tried": [
+        "elysium's not even at public mainnet yet and basedbot's already filling up, $VOLTA folks approve"
+      ],
+      "image": "https://pbs.twimg.com/media/HWR2L7zWsAA1I8C.jpg",
+      "followers": 1688,
+      "relevant": true,
+      "reply_ar": "Elysium لم تصل حتى إلى الإطلاق العام للشبكة الرئيسية، و BasedBot بدأ يمتلئ بالفعل، ومجتمع $VOLTA موافق على ذلك",
+      "tweet_ar": "تم دمج جميع مجمّعات Kleos في BasedBot. يمكنك الآن تداول إطلاقات Kleos على Elysium عبر BasedBot.",
+      "message_id": 258
     }
   },
-  "angle_i": 54,
+  "angle_i": 55,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1677,14 +1679,15 @@
     "still just submitted to uniswap, but the burn's the story. 80% of volta fees buy back and burn $VOLTA",
     "fingers crossed fr. volta's hook was the first uniswap v4 one live on elysium and every new token gets its own pool paired with HYPE, so $VOLTA isn't waiting on nov 9 to cook",
     "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA",
-    "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar"
+    "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar",
+    "elysium's not even at public mainnet yet and basedbot's already filling up, $VOLTA folks approve"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117945433234313681",
     "2117895148365607335"
   ],
-  "last_to_me": 1793792798,
+  "last_to_me": 1793792918,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1721,11 +1724,12 @@
     "2117943349877588018",
     "2117943995653640702",
     "2117943643290116163",
-    "2117944166487351634"
+    "2117944166487351634",
+    "2117947676008300551"
   ],
-  "last_fast": 1793792916,
-  "last_mentions": 1793792916,
-  "last_slow": 1793792826,
+  "last_fast": 1793793066,
+  "last_mentions": 1793793006,
+  "last_slow": 1793793006,
   "tw_samples": [
     [
       1793779148,
