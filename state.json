@@ -1,5 +1,5 @@
 {
-  "last_check": 1793791674,
+  "last_check": 1793791794,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -151,7 +151,8 @@
     "2117621571380797866",
     "2117872026555965644",
     "2117683945949343957",
-    "2117617355627131060"
+    "2117617355627131060",
+    "2117942164567343349"
   ],
   "tg_offset": 277101723,
   "last_digest": "2026-11-03",
@@ -250,19 +251,6 @@
   },
   "last_follow_check": 1793771975,
   "drafts": {
-    "2117722202791649418": {
-      "author": "agora_elysium",
-      "text": "We've added support for @ronspadfun \n\nyou can now trade rons token on agora, we will add the option to launch on rons in a later update https://t.co/AAFAMUwyvP",
-      "reply": "aggregating 9 launchpads already is wild, nice to see elysium fill up this fast. launching straight from agora would be clean. we're building volta on elysium too, would love to be on that list",
-      "tried": [
-        "aggregating 9 launchpads already is wild, nice to see elysium fill up this fast. launching straight from agora would be clean. we're building volta on elysium too, would love to be on that list"
-      ],
-      "image": "https://pbs.twimg.com/media/HWOoaDQWUAAztWy.jpg",
-      "relevant": true,
-      "reply_ar": "تجميع 9 منصات إطلاق بالفعل أمر مذهل، جميل أن نرى elysium تمتلئ بهذه السرعة. الإطلاق مباشرة من agora سيكون رائعاً. نحن نبني volta على elysium أيضاً، ويسعدنا أن نكون ضمن القائمة",
-      "tweet_ar": "أضفنا دعم @ronspadfun. يمكنكم الآن تداول توكنات rons على agora، وسنضيف خيار الإطلاق على rons في تحديث لاحق.",
-      "message_id": 62
-    },
     "2117722410749161518": {
       "author": "Mexy0x33",
       "text": "@VoltaFamily Your project definitely stands out. I'd be happy to contribute wherever useful, free of charge.",
@@ -1613,9 +1601,23 @@
       "reply_ar": "عمل بيسد بوت هو الجزء السهل. الجزء الذي لا يُقدَّر حقه هو فتح شارت فولتا بعدها ورؤية عمليات شرائك ومتوسط سعر دخولك معلَّمة عليه مباشرة، حتى على $VOLTA نفسها",
       "tweet_ar": "إنه يعمل",
       "message_id": 249
+    },
+    "2117942164567343349": {
+      "author": "zx_hey",
+      "text": "#Elysium 今天降温了，没有像前两天那样翻倍\n\n昨天新出来一个 $volta ，整个网站UI做的非常好，价格涨的也很好。\n\n它宣传的点是他们使用uniswap底池，可以被fomo等平台索引。\n\n不过其他平台又不是吃干饭的，也可以迁移到UNI啊，就算合约锁定了，那也可以重新建池子。 https://t.co/e5nhwCLUR1",
+      "reply": "fair take tbh. what keeps me watching is the hook, 80% of volta's fees buy back and burn $VOLTA on every trade",
+      "tried": [
+        "fair take tbh. what keeps me watching is the hook, 80% of volta's fees buy back and burn $VOLTA on every trade"
+      ],
+      "image": "https://pbs.twimg.com/media/HWRvz52a0AA7hCB.jpg",
+      "followers": 5766,
+      "relevant": true,
+      "reply_ar": "وجهة نظر منطقية بصراحة. ما يجعلني أتابع هو الـ hook نفسه، 80% من رسوم فولتا تُستخدم لإعادة شراء $VOLTA وحرقه مع كل صفقة",
+      "tweet_ar": "إليسيوم هدأ اليوم، ولم يتضاعف كما في اليومين الماضيين. بالأمس ظهر مشروع جديد اسمه $volta، واجهة الموقع مصممة بشكل ممتاز جدا، والسعر ارتفع بشكل جيد أيضا. النقطة التي يروّج لها هي أنهم يستخدمون مجمع سيولة يونيسواب، مما يسمح بفهرسته على منصات مثل fomo. لكن المنصات الأخرى ليست غافلة، يمكنها أيضا الانتقال إلى يونيسواب، وحتى لو كان العقد مقفلا، يمكنها إنشاء مجمع جديد.",
+      "message_id": 250
     }
   },
-  "angle_i": 46,
+  "angle_i": 47,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1647,13 +1649,14 @@
     "grimwald running a tighter onboarding than most dapps lol. once you're off the ferry, every trade on volta buys back and burns $VOLTA, so the island gets busier and supply gets thinner",
     "retard-proof is the highest compliment a bridge can get lol. once you're over, every volta launch has its own v4 pool paired with HYPE, so you can trade straight away. part of why i hold $VOLTA",
     "nice to see pons waking up. volta runs basically the same model over on elysium, 80% of fees buying back $VOLTA and burning it, so i've got an eye on both chains",
-    "basedbot working is the easy win. the underrated part is opening the volta chart after and seeing your own buys and avg entry marked right there, even on $VOLTA itself"
+    "basedbot working is the easy win. the underrated part is opening the volta chart after and seeing your own buys and avg entry marked right there, even on $VOLTA itself",
+    "fair take tbh. what keeps me watching is the hook, 80% of volta's fees buy back and burn $VOLTA on every trade"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117895148365607335"
   ],
-  "last_to_me": 1793791545,
+  "last_to_me": 1793791676,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1683,11 +1686,12 @@
     "2117901122773868878",
     "2117902428750368909",
     "2117904476514480615",
-    "2117938931136385206"
+    "2117938931136385206",
+    "2117942164567343349"
   ],
-  "last_fast": 1793791674,
-  "last_mentions": 1793791614,
-  "last_slow": 1793791524,
+  "last_fast": 1793791794,
+  "last_mentions": 1793791794,
+  "last_slow": 1793791704,
   "tw_samples": [
     [
       1793779148,
