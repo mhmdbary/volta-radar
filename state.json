@@ -1,5 +1,5 @@
 {
-  "last_check": 1793794437,
+  "last_check": 1793794557,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -31,6 +31,7 @@
     "2117689582485422507",
     "2117812508903772532",
     "2117748509201899912",
+    "2117953749591146800",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -262,19 +263,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117731688319201447": {
-      "author": "OscarDefii",
-      "text": "@VoltaFamily Love what you're building here! Let's connect 🔥",
-      "reply": "appreciate it oscar, means a lot this early. dms are open, always down to chat with people around the hyperliquid ecosystem before elysium mainnet on nov 9",
-      "tried": [
-        "appreciate it oscar, means a lot this early. dms are open, always down to chat with people around the hyperliquid ecosystem before elysium mainnet on nov 9"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر ذلك يا أوسكار، يعني لنا الكثير في هذه المرحلة المبكرة. الرسائل الخاصة مفتوحة، ودائماً مستعدون للتحدث مع الناس في منظومة هايبرليكويد قبل إطلاق الشبكة الرئيسية لإليزيوم في 9 نوفمبر",
-      "tweet_ar": "@VoltaFamily أحب ما تبنونه هنا! لنتواصل 🔥",
-      "message_id": 75
-    },
     "2117731962878316686": {
       "author": "_Niss0",
       "text": "@VoltaFamily Hey friend, let's connect and talk about a collab",
@@ -1644,10 +1632,26 @@
       "relevant": true,
       "reply_ar": "كل شبكة جديدة تأتي معها موجة من منصات الإطلاق، ومسار الرسوم هو الجزء الذي يتجاهله الناس. في فولتا تذهب 80% من رسوم التداول لإعادة شراء $VOLTA ثم حرقها، فكلما زاد حجم التداول قلّ المعروض.",
       "tweet_ar": "فولتا تجلب أول هوك Uniswap V4 فعّال إلى شبكة Elysium. كل توكن يحصل على مجمع V4 خاص به مقترن بـ HYPE، مع رسوم يحددها المنشئ، وحماية من القنص عند الإطلاق، وعمليات إعادة شراء وحرق مدمجة في كل صفقة.",
-      "message_id": 268
+      "message_id": 268,
+      "done": true,
+      "my_url": "https://x.com/barymoto/status/2117953403838177676"
+    },
+    "2117953749591146800": {
+      "author": "whalesdotsol",
+      "text": "@BitBlitzBuzz @TheKleos_ @BitBlitzBuzz $volta (@VoltaFamily) deserves to be here cause it’s the first uniswap V4 hook like, current the best R:R https://t.co/Bn2NVwgeRV",
+      "reply": "per-launch v4 pools paired with HYPE are the $VOLTA detail for me",
+      "tried": [
+        "per-launch v4 pools paired with HYPE are the $VOLTA detail for me"
+      ],
+      "image": "https://pbs.twimg.com/media/HWR7tHHXMAEo3oA.jpg",
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "بالنسبة لي، أهم ما يميّز $VOLTA أن لكل توكن يُطلق مسبح V4 خاص به مقترن بـ HYPE.",
+      "tweet_ar": "‏$volta يستحق أن يكون هنا لأنه أول hook على Uniswap V4، وحالياً يقدّم أفضل نسبة مخاطرة إلى عائد.",
+      "message_id": 269
     }
   },
-  "angle_i": 59,
+  "angle_i": 60,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1692,7 +1696,8 @@
     "how early do you spot these, volta trending board or $VOLTA chat?",
     "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip",
     "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with",
-    "every new chain gets a launchpad wave, and the fee flow is the part people skim. on volta 80% of trading fees go into $VOLTA buybacks that get burned, so more volume means less supply"
+    "every new chain gets a launchpad wave, and the fee flow is the part people skim. on volta 80% of trading fees go into $VOLTA buybacks that get burned, so more volume means less supply",
+    "per-launch v4 pools paired with HYPE are the $VOLTA detail for me"
   ],
   "to_me_seen": [
     "2117872026555965644",
@@ -1741,11 +1746,12 @@
     "2117948186304070092",
     "2117948392102089136",
     "2117950680807719246",
-    "2117952872898064730"
+    "2117952872898064730",
+    "2117953749591146800"
   ],
-  "last_fast": 1793794437,
-  "last_mentions": 1793794377,
-  "last_slow": 1793794287,
+  "last_fast": 1793794557,
+  "last_mentions": 1793794557,
+  "last_slow": 1793794467,
   "tw_samples": [
     [
       1793779148,
