@@ -1,5 +1,5 @@
 {
-  "last_check": 1793794287,
+  "last_check": 1793794437,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -8,8 +8,8 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117893633009651980",
     "2117580008931709076",
+    "2117893633009651980",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -129,6 +129,7 @@
     "2117885940761059428",
     "2117943349877588018",
     "2117702404908986400",
+    "2117952872898064730",
     "2117686540176376297",
     "2117938931136385206",
     "2117727385458245913",
@@ -164,7 +165,7 @@
     "2117617355627131060",
     "2117942164567343349"
   ],
-  "tg_offset": 277101727,
+  "tg_offset": 277101729,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -261,19 +262,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117729465287774431": {
-      "author": "jarmeseelna",
-      "text": "@VoltaFamily Interesting vision! Would love to explore what we could build together. 🤝",
-      "reply": "appreciate it 🤝 what are you building? if it's on hyperliquid or heading to elysium we'd love to hear more, dms are open",
-      "tried": [
-        "appreciate it 🤝 what are you building? if it's on hyperliquid or heading to elysium we'd love to hear more, dms are open"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر ذلك 🤝 ماذا تبني؟ إذا كان على هايبرليكويد أو متجهًا إلى إليسيوم يسعدنا أن نعرف المزيد، الرسائل الخاصة مفتوحة",
-      "tweet_ar": "@VoltaFamily رؤية مثيرة للاهتمام! يسعدني أن نستكشف ما يمكننا بناؤه معًا. 🤝",
-      "message_id": 74
-    },
     "2117731688319201447": {
       "author": "OscarDefii",
       "text": "@VoltaFamily Love what you're building here! Let's connect 🔥",
@@ -1643,9 +1631,23 @@
       "reply_ar": "كلمة \"الإمكانيات\" تحمل عبئاً كبيراً هنا هههه. اقتراحي لجدول النقاش: صنّاع التوكنات على فولتا يمكنهم كسب رسومهم بأسهم مرمّزة وليس بالعملات الرقمية فقط، وهذه تفصيلة $VOLTA التي سأبدأ بها",
       "tweet_ar": "مبادرة رائعة. دعونا نناقش الإمكانيات 🚀",
       "message_id": 265
+    },
+    "2117952872898064730": {
+      "author": "whalesdotsol",
+      "text": "@ElCryptoDoc @Enter_Elysium @VoltaFamily is bringing the first live Uniswap V4 hook to Elysium. \n\nEvery token gets its own V4 pool paired with $HYPE, with creator-set fees, launch anti-snipe protection, and built-in buybacks and burns on every trade. https://t.co/hEt9zVDH93",
+      "reply": "every new chain gets a launchpad wave, and the fee flow is the part people skim. on volta 80% of trading fees go into $VOLTA buybacks that get burned, so more volume means less supply",
+      "tried": [
+        "every new chain gets a launchpad wave, and the fee flow is the part people skim. on volta 80% of trading fees go into $VOLTA buybacks that get burned, so more volume means less supply"
+      ],
+      "image": "https://pbs.twimg.com/media/HWR66CFWQAAneH9.jpg",
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "كل شبكة جديدة تأتي معها موجة من منصات الإطلاق، ومسار الرسوم هو الجزء الذي يتجاهله الناس. في فولتا تذهب 80% من رسوم التداول لإعادة شراء $VOLTA ثم حرقها، فكلما زاد حجم التداول قلّ المعروض.",
+      "tweet_ar": "فولتا تجلب أول هوك Uniswap V4 فعّال إلى شبكة Elysium. كل توكن يحصل على مجمع V4 خاص به مقترن بـ HYPE، مع رسوم يحددها المنشئ، وحماية من القنص عند الإطلاق، وعمليات إعادة شراء وحرق مدمجة في كل صفقة.",
+      "message_id": 268
     }
   },
-  "angle_i": 58,
+  "angle_i": 59,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1689,14 +1691,15 @@
     "elysium's not even at public mainnet yet and basedbot's already filling up, $VOLTA folks approve",
     "how early do you spot these, volta trending board or $VOLTA chat?",
     "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip",
-    "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with"
+    "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with",
+    "every new chain gets a launchpad wave, and the fee flow is the part people skim. on volta 80% of trading fees go into $VOLTA buybacks that get burned, so more volume means less supply"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117945433234313681",
     "2117895148365607335"
   ],
-  "last_to_me": 1793794169,
+  "last_to_me": 1793794439,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1737,10 +1740,11 @@
     "2117947676008300551",
     "2117948186304070092",
     "2117948392102089136",
-    "2117950680807719246"
+    "2117950680807719246",
+    "2117952872898064730"
   ],
-  "last_fast": 1793794287,
-  "last_mentions": 1793794287,
+  "last_fast": 1793794437,
+  "last_mentions": 1793794377,
   "last_slow": 1793794287,
   "tw_samples": [
     [
@@ -1854,13 +1858,13 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 30,
-      "input_tokens": 122981,
-      "output_tokens": 18454
+      "calls": 31,
+      "input_tokens": 128884,
+      "output_tokens": 19381
     }
   },
   "x_actions": {
-    "likes": 6,
-    "reposts": 1
+    "likes": 7,
+    "reposts": 2
   }
 }
