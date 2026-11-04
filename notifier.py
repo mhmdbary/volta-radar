@@ -271,7 +271,8 @@ MENU_KEYBOARD = {
 }
 REPORT_BUTTONS = {"inline_keyboard": [[{"text": "Today", "callback_data": "rep:1"},
                                        {"text": "7 days", "callback_data": "rep:7"},
-                                       {"text": "30 days", "callback_data": "rep:30"}]]}
+                                       {"text": "30 days", "callback_data": "rep:30"},
+                                       {"text": "All", "callback_data": "rep:3650"}]]}
 ASK = {
     "write": "✍️ اكتب فكرة التويتة بالعربي، وأنا بكتبها إنجليزي:",
     "add": "➕ اكتب يوزر الحساب أو الرابط تبعه:",
@@ -363,11 +364,12 @@ def process_commands(cfg, state):
                 else:
                     rewrite_draft(cfg, state, waiting, text)
                 continue
-            if first == "/myreport":
+            report_days = {"/today": 1, "/week": 7, "/month": 30, "/all": 3650, "/mywork": 3650}
+            if first in report_days or first == "/myreport":
                 arg = text.partition(" ")[2].strip()
-                days = int(arg) if arg.isdigit() else 7
+                days = report_days.get(first) or (int(arg) if arg.isdigit() else 7)
                 tg_call(cfg, "sendMessage", {"chat_id": msg["chat"]["id"], "parse_mode": "HTML",
-                                             "disable_web_page_preview": True,
+                                             "disable_web_page_preview": True, "reply_markup": REPORT_BUTTONS,
                                              "text": build_my_report(cfg, load_json(SETTINGS_FILE, {}), tags, days)})
                 continue
             if first in ("/write", "/tweet"):
