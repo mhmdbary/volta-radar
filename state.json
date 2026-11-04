@@ -1,5 +1,5 @@
 {
-  "last_check": 1793816987,
+  "last_check": 1793817107,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -152,6 +152,7 @@
     "2118007378243408296",
     "2117899296339308577",
     "2117741496816287950",
+    "2118048421663973792",
     "2117843991861543336",
     "2117782132236120408",
     "2117743148470337652",
@@ -371,20 +372,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117962439178477821": {
-      "author": "Wayne_D_Hell",
-      "text": "@VoltaFamily @BasedBot @JustRektTool @agora_elysium exciting",
-      "reply": "three apps deep now. volta charts still show your $VOLTA avg entry",
-      "tried": [
-        "three apps deep now. volta charts still show your $VOLTA avg entry"
-      ],
-      "image": null,
-      "followers": 2106,
-      "relevant": true,
-      "reply_ar": "صار على ثلاث تطبيقات الحين. ومع ذلك تشارتات فولتا لسا تعرض لك متوسط سعر دخولك في $VOLTA",
-      "tweet_ar": "أمر مثير",
-      "message_id": 279
-    },
     "2117962969300529218": {
       "author": "whalesdotsol",
       "text": "@MRossticsknk @Befbunny @Enter_Elysium @VoltaFamily @voltage_elysium It’s really undervalued",
@@ -1791,11 +1778,24 @@
       "reply_ar": "عيني على فولتا أيضاً، رسوم المنشئين بالأسهم هي ما يميز $VOLTA",
       "tweet_ar": "👀 (يراقب ويلفت الانتباه إلى فولتا)",
       "message_id": 385
+    },
+    "2118048421663973792": {
+      "author": "elonmusk",
+      "text": "True",
+      "reply": "one word and the whole timeline scrolls up for context lol. my version of true is volta's math, 80% of fees buy back $VOLTA and burn it so every trade trims supply. what's the one thing in crypto you'd call true with zero caveats?",
+      "tried": [
+        "one word and the whole timeline scrolls up for context lol. my version of true is volta's math, 80% of fees buy back $VOLTA and burn it so every trade trims supply. what's the one thing in crypto you'd call true with zero caveats?"
+      ],
+      "image": null,
+      "followers": 241470883,
+      "relevant": false,
+      "reply_ar": "كلمة واحدة والتايملاين كله يرجع يدور على السياق 😂. نسختي من \"صحيح\" هي معادلة فولتا: 80% من الرسوم تشتري $VOLTA وتحرقه، فكل صفقة تقلل المعروض. ما هو الشيء الوحيد في الكريبتو اللي تعتبره صحيح بدون أي تحفظات؟",
+      "tweet_ar": "صحيح",
+      "message_id": 386
     }
   },
-  "angle_i": 170,
+  "angle_i": 171,
   "recent_texts": [
-    "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA",
     "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there",
     "gamified apps usually reward players, volta pays token creators fees in HYPE, a $VOLTA side quest for your research",
     "grok handling returns is the real selling point, nobody wants that chore lol. volta skips the cart entirely, creators can earn fees in tokenized stocks, a $VOLTA perk i like",
@@ -1854,7 +1854,8 @@
     "kyber showing up day 1 is the usual move, volta's already live on elysium ahead of nov 9, a head start i like for $VOLTA",
     "cable's always a cycle behind while markets price things live. same energy as volta's trending board on elysium vs waiting for some thread to tell you, $VOLTA nerd take lol",
     "elysium swap ux leveling up quick, any token into any token is a real upgrade. volta launches already trade here and creators still earn their fees in HYPE, good fit for $VOLTA",
-    "eyes on volta too, creator fees in stocks is the $VOLTA hook"
+    "eyes on volta too, creator fees in stocks is the $VOLTA hook",
+    "one word and the whole timeline scrolls up for context lol. my version of true is volta's math, 80% of fees buy back $VOLTA and burn it so every trade trims supply. what's the one thing in crypto you'd call true with zero caveats?"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -2012,11 +2013,12 @@
     "2118042922935566338",
     "2118043126753607737",
     "2118046344720044475",
-    "2118046612316385380"
+    "2118046612316385380",
+    "2118048421663973792"
   ],
-  "last_fast": 1793816987,
-  "last_mentions": 1793816927,
-  "last_slow": 1793816927,
+  "last_fast": 1793817107,
+  "last_mentions": 1793817107,
+  "last_slow": 1793817107,
   "tw_samples": [
     [
       1793779148,
@@ -2273,6 +2275,10 @@
     [
       1793816361,
       881115
+    ],
+    [
+      1793816996,
+      879705
     ]
   ],
   "ai_usage": {
