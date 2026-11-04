@@ -58,12 +58,17 @@ def http_get_json(url, headers=None, retries=4):
 
 
 # Telegram turns a bare @name into a Telegram user link; point every @handle at its X profile instead.
-# Skips handles right after ">" (already inside a link or tag) and after word characters (emails).
-X_HANDLE = re.compile(r"(?<![\w/>@])@(\w{1,15})(?!\w)")
+# Text already inside <a>...</a> or <code>...</code> is left alone (links can't nest, code can't hold links);
+# handles inside <b>, <i>, <blockquote> etc. are linked too. Word characters before "@" mean an email, skip.
+X_HANDLE = re.compile(r"(?<![\w/@])@(\w{1,15})(?!\w)")
+KEEP_AS_IS = re.compile(r"(<a\b[^>]*>.*?</a>|<code>.*?</code>|<[^>]+>)", re.S)
 
 
 def link_x_handles(text):
-    return X_HANDLE.sub(lambda m: f'<a href="https://x.com/{m.group(1)}">@{m.group(1)}</a>', text)
+    parts = KEEP_AS_IS.split(text)  # odd indexes are tags / links / code, even indexes are plain text
+    for i in range(0, len(parts), 2):
+        parts[i] = X_HANDLE.sub(lambda m: f'<a href="https://x.com/{m.group(1)}">@{m.group(1)}</a>', parts[i])
+    return "".join(parts)
 
 
 def http_post_json(url, payload, retries=3):
@@ -1014,7 +1019,7 @@ def format_new_follow(account, u, already_tracked):
     followers = u.get("followers_count", u.get("followers"))
     lines = ["🆕 <b>NEW ON THE RADAR</b>", LINE,
              f"🟢 <b>@{html.escape(account)}</b> just followed",
-             f"👤 <b>{html.escape(u.get('name') or user)}</b>  <code>@{user}</code>",
+             f"👤 <b>{html.escape(u.get('name') or user)}</b>  @{user}",
              f"👥 {short_num(followers if isinstance(followers, int) else None)} followers",
              "", f"<blockquote>{bio}</blockquote>", LINE]
     if not already_tracked:
