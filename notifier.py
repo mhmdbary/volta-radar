@@ -268,9 +268,9 @@ MENU_KEYBOARD = {
     "resize_keyboard": True,
     "is_persistent": True,
 }
-REPORT_BUTTONS = {"inline_keyboard": [[{"text": "اليوم", "callback_data": "rep:1"},
-                                       {"text": "7 أيام", "callback_data": "rep:7"},
-                                       {"text": "30 يوم", "callback_data": "rep:30"}]]}
+REPORT_BUTTONS = {"inline_keyboard": [[{"text": "Today", "callback_data": "rep:1"},
+                                       {"text": "7 days", "callback_data": "rep:7"},
+                                       {"text": "30 days", "callback_data": "rep:30"}]]}
 ASK = {
     "write": "✍️ اكتب فكرة التويتة بالعربي، وأنا بكتبها إنجليزي:",
     "add": "➕ اكتب يوزر الحساب أو الرابط تبعه:",
@@ -912,45 +912,68 @@ def build_my_report(cfg, settings, tags, days):
     total = {k: sum(n(t, k) for t in tweets) for k in ("likeCount", "viewCount", "retweetCount", "replyCount")}
     volta = sum(1 for t in tweets if "volta" in (t.get("text") or "").lower())
     avg_views = total["viewCount"] // len(tweets) if tweets else 0
-    period = "اليوم" if days == 1 else f"آخر {days} يوم"
-    lines = [f"📋 <b>شغلي · {period}</b>", LINE,
-             f"🧮 <b>{len(tweets)}</b> المجموع   💬 {len(replies)} رد   📝 {len(posts)} تويتة",
-             f"⚡ {volta} فيهم Volta",
-             f"👁 {short_num(total['viewCount'])} مشاهدة   (متوسط {short_num(avg_views)})",
-             f"❤️ {short_num(total['likeCount'])}   🔁 {short_num(total['retweetCount'])}   "
-             f"💬 {short_num(total['replyCount'])} تعليق عليهم"]
+    engagement = total["likeCount"] + total["retweetCount"] + total["replyCount"]
+    rate = f"{engagement / total['viewCount'] * 100:.1f}%" if total["viewCount"] else "0%"
+    period = "Today" if days == 1 else f"Last {days} days"
+    date_range = f"{time.strftime('%b %d', time.gmtime(since))} to {time.strftime('%b %d', time.gmtime())}"
+
+    def when(t):
+        try:
+            return time.strftime("%b %d", time.strptime(t.get("createdAt", ""), "%a %b %d %H:%M:%S %z %Y"))
+        except ValueError:
+            return ""
+
+    def body(t):
+        # drop the @mentions X puts at the start of a reply
+        words = clean_text(t.get("text"), drop_links=True).replace("\n", " ").split()
+        while words and words[0].startswith("@"):
+            words.pop(0)
+        return html.escape(" ".join(words)[:70]) or "media"
+
+    lines = ["📊 <b>VOLTA CONTRIBUTION REPORT</b>",
+             f"@{html.escape(me)} · {period} ({date_range})",
+             LINE, "📈 <b>OVERVIEW</b>",
+             f"• Total activity: <b>{len(tweets)}</b> ({len(replies)} replies · {len(posts)} posts)",
+             f"• Mentioning $VOLTA: <b>{volta}</b>",
+             f"• Impressions: <b>{short_num(total['viewCount'])}</b> (avg {short_num(avg_views)} per tweet)",
+             f"• Engagement: {short_num(total['likeCount'])} likes · {short_num(total['retweetCount'])} reposts"
+             f" · {short_num(total['replyCount'])} comments",
+             f"• Engagement rate: {rate}"]
 
     by_cat = {}
     for t in replies:
         marker = tag_marker(tags.get((t.get("inReplyToUsername") or "").lower()))
         by_cat[marker] = by_cat.get(marker, 0) + 1
     if by_cat:
-        names = {"🟢": "شبكتنا", "🔵": "شبكات تانية", "🟣": "KOLs", "⚪": "غيرهم"}
-        lines.append("   ".join(f"{m} {c} {names[m]}" for m, c in sorted(by_cat.items(), key=lambda kv: -kv[1])))
+        names = {"🟢": "Volta / Elysium ecosystem", "🔵": "Other networks & projects", "🟣": "KOLs",
+                 "⚪": "Community"}
+        lines += [LINE, "🎯 <b>REPLIES BY AUDIENCE</b>"]
+        lines += [f"{m} {names[m]}: <b>{c}</b>" for m, c in sorted(by_cat.items(), key=lambda kv: -kv[1])]
 
     top = sorted(tweets, key=lambda t: (n(t, "viewCount"), n(t, "likeCount")), reverse=True)[:3]
     if top:
-        lines += [LINE, "🏆 <b>الأفضل</b>"]
+        lines += [LINE, "🏆 <b>TOP PERFORMING</b>"]
         for medal, t in zip(MEDALS, top):
             to = t.get("inReplyToUsername")
-            where = f"↪️ رد على @{html.escape(to)}" if to else "📝 تويتة"
-            lines.append(f"{medal} <a href=\"{tweet_url(t)}\">{where}</a> · 👁 {short_num(n(t, 'viewCount'))} "
-                         f"❤️ {n(t, 'likeCount')}")
+            where = f"Reply to @{html.escape(to)}" if to else "Post"
+            lines.append(f"{medal} <a href=\"{tweet_url(t)}\">{where}</a> · {short_num(n(t, 'viewCount'))} views"
+                         f" · {n(t, 'likeCount')} like{'' if n(t, 'likeCount') == 1 else 's'}")
 
     if tweets:
         newest = sorted(tweets, key=lambda t: int(t.get("id") or 0), reverse=True)
-        shown = newest[:25]  # Telegram messages are capped at 4096 characters
-        lines += [LINE, f"📜 <b>كل التويتات</b> ({len(shown)} من {len(tweets)}، الأحدث أول)"]
-        for t in shown:
+        shown = newest[:20]  # Telegram messages are capped at 4096 characters
+        more = f" · latest {len(shown)} of {len(tweets)}" if len(shown) < len(tweets) else ""
+        lines += [LINE, f"📜 <b>ACTIVITY LOG</b>{more}"]
+        for i, t in enumerate(shown, 1):
             to = t.get("inReplyToUsername")
-            icon = f"↪️ @{html.escape(to)}" if to else "📝"
-            snippet = html.escape(clean_text(t.get("text"), drop_links=True).replace("\n", " ")[:60])
-            lines.append(f"{icon} <a href=\"{tweet_url(t)}\">{snippet or 'media'}</a>\n"
-                         f"    👁 {short_num(n(t, 'viewCount'))}  ❤️ {n(t, 'likeCount')}  🔁 {n(t, 'retweetCount')}"
-                         f"  💬 {n(t, 'replyCount')}")
+            kind = f"↪️ Reply to @{html.escape(to)}" if to else "📝 Post"
+            lines += [f"<b>{i}.</b> {kind} · {when(t)}",
+                      f"    <a href=\"{tweet_url(t)}\">“{body(t)}”</a>",
+                      f"    👁 {short_num(n(t, 'viewCount'))} · ❤️ {n(t, 'likeCount')} · 🔁 {n(t, 'retweetCount')}"
+                      f" · 💬 {n(t, 'replyCount')}"]
     else:
-        lines.append("\n<i>ما في تويتات بهالفترة.</i>")
-    lines += [LINE, "⚡ #MyWork"]
+        lines += [LINE, "<i>No activity in this period.</i>"]
+    lines += [LINE, "<i>Generated by Volta Radar</i>"]
     text = "\n".join(lines)
     return text if len(text) <= 4000 else text[:3990].rsplit("\n", 1)[0] + "\n…"
 
