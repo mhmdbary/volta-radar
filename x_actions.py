@@ -52,7 +52,7 @@ def _call(keys, method, path, body=None):
 
 
 def configured(cfg):
-    return all(str(cfg.get(k) or "").strip() and not str(cfg.get(k)).startswith("PUT_")
+    return all(str(cfg.get(k) or "").strip() and not str(cfg.get(k)).startswith(("PUT_", "PASTE_"))
                for k in ("x_api_key", "x_api_secret", "x_access_token", "x_access_secret"))
 
 
