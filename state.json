@@ -1,5 +1,5 @@
 {
-  "last_check": 1793795754,
+  "last_check": 1793795959,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -8,8 +8,8 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117893633009651980",
     "2117580008931709076",
+    "2117893633009651980",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -32,8 +32,8 @@
     "2117689582485422507",
     "2117957641175765165",
     "2117812508903772532",
-    "2117953749591146800",
     "2117748509201899912",
+    "2117953749591146800",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -112,6 +112,7 @@
     "2117900196407279826",
     "2117724724499452000",
     "2117732161797464230",
+    "2117959484815360086",
     "2117870819640827934",
     "2117779862056235231",
     "2117942008467570943",
@@ -268,19 +269,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117735456699805796": {
-      "author": "CryptoCobby",
-      "text": "@AdamHODL $volta and $quoted 🔥",
-      "reply": "appreciate the love 🙏 we're heads down getting ready for elysium mainnet on nov 9",
-      "tried": [
-        "appreciate the love 🙏 we're heads down getting ready for elysium mainnet on nov 9"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر الدعم 🙏 نحن منشغلون بالتحضير لإطلاق الشبكة الرئيسية لـ Elysium في 9 نوفمبر",
-      "tweet_ar": "@AdamHODL ‏$volta و $quoted 🔥",
-      "message_id": 81
-    },
     "2117736244881051699": {
       "author": "VoltaFamily",
       "text": "Several updates are rolling out on @VoltaFamily as we speak.\n\nCharts have been improved: buyback flames, your trades and entry on the chart, a new line view.\n\nHomepage now has a Trending board, total volume and traders.\n\nMany more little updates on the way! https://t.co/whVCo8a4S7",
@@ -1659,9 +1647,23 @@
       "reply_ar": "سحب الأموال الذي يستغرق 5.5 أيام هو السطر الذي سيتجاهله الناس ثم يندمون. للمطورين الذين يطلقون على 99901، فولتا تدفع لصانعي التوكنات رسومهم بعملة HYPE، وهذه هي ميزة $VOLTA التي أود إضافتها لقائمة المراقبة تلك.",
       "tweet_ar": "الشبكة الرئيسية لـ Elysium تنطلق في 9 نوفمبر. هذا ما يهم فعلاً قبل أن تشتري أي شيء بتهور: إنها شبكة الطبقة الثانية من Kinetiq على Hyperliquid، تتم تسويتها على HyperEVM، ومعرّف الشبكة 99901. الغاز هو HYPE منقولاً بنسبة 1:1، فلا توكن جديد ولا برنامج نقاط. 50% من رسوم المُرتِّب (sequencer) تذهب إلى عمليات إعادة شراء لـ kinetiq، ولا أحد يتحدث عن هذا. في اليوم الأول تعمل منصة التداول Nest من أول بلوك، وقد التزمت كل من Speculate وDawn وMontra وCitadel وAscend بالإطلاق. خطافات HyperCore تصل بعد نحو شهر، وهنا الفرصة الحقيقية. سحب الأموال عبر الجسر الرسمي يستغرق نحو 5.5 أيام، فلا تنقل أموال الإيجار. قاعدة يوم الإطلاق: عملة بسيولة 3 آلاف دولار تتحرك 50% مع عملية شراء بقيمة 500 دولار، والبوتات تشتري في نفس البلوك الذي يُنشأ فيه المسبح. لذا تحقق من السيولة ونسبة البوتات أولاً، ثم اشترِ. أنا أجهّز قائمة مراقبة لليوم الأول على Elysium، فإن كنت تطلق مشروعاً على 99901 فشاركه في الردود.",
       "message_id": 274
+    },
+    "2117959484815360086": {
+      "author": "whalesdotsol",
+      "text": "@MRossticsknk @cultureANON @voltage_elysium @VoltaFamily Best R:R $volta",
+      "reply": "is the tokenized stocks fee option part of your $VOLTA thesis?",
+      "tried": [
+        "is the tokenized stocks fee option part of your $VOLTA thesis?"
+      ],
+      "image": null,
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "هل خيار حصول المنشئين على الرسوم بأسهم مرمّزة جزء من قناعتك بـ $VOLTA؟",
+      "tweet_ar": "أفضل نسبة مخاطرة إلى عائد: $volta",
+      "message_id": 275
     }
   },
-  "angle_i": 65,
+  "angle_i": 66,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1712,14 +1714,15 @@
     "those five winner factors are spot on, but the trader side gets skipped. usually you're digging through tx history to remember what you paid. volta's charts just plot your own buys, sells and avg entry, $VOLTA included. would love to see it in round two",
     "good to see the elysium eco page filling up with launchpads already. worth remembering public mainnet doesn't even land until nov 9, and volta's already live there with $VOLTA folks settled in. more builders showing up this early is good for everyone",
     "first v4 hook on elysium is the headline, distribution is the real flex. volta launches already trade on justrekttool, basedbot and agora before public mainnet even hits nov 9, which is the $VOLTA detail i'd lead with",
-    "5.5 day withdrawals is the line people will skim and regret. for devs shipping on 99901, volta pays creators their fees in HYPE, the $VOLTA detail i'd want on that watchlist"
+    "5.5 day withdrawals is the line people will skim and regret. for devs shipping on 99901, volta pays creators their fees in HYPE, the $VOLTA detail i'd want on that watchlist",
+    "is the tokenized stocks fee option part of your $VOLTA thesis?"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117945433234313681",
     "2117895148365607335"
   ],
-  "last_to_me": 1793795824,
+  "last_to_me": 1793795986,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1767,11 +1770,12 @@
     "2117957641175765165",
     "2117958182416822702",
     "2117958795108450437",
-    "2117958981721395660"
+    "2117958981721395660",
+    "2117959484815360086"
   ],
-  "last_fast": 1793795754,
-  "last_mentions": 1793795754,
-  "last_slow": 1793795754,
+  "last_fast": 1793795959,
+  "last_mentions": 1793795959,
+  "last_slow": 1793795959,
   "tw_samples": [
     [
       1793779148,
@@ -1888,13 +1892,17 @@
     [
       1793795271,
       953679
+    ],
+    [
+      1793795878,
+      950994
     ]
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 35,
-      "input_tokens": 153529,
-      "output_tokens": 23289
+      "calls": 37,
+      "input_tokens": 165590,
+      "output_tokens": 26152
     }
   },
   "x_actions": {
