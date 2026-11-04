@@ -1,5 +1,5 @@
 {
-  "last_check": 1793814762,
+  "last_check": 1793814882,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -191,6 +191,7 @@
     "2118013350693216630",
     "2117622034549080230",
     "2117629016354210030",
+    "2118038959213474256",
     "2117725086413402244",
     "2118007664185835677",
     "2117980675630321812",
@@ -360,20 +361,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117953749591146800": {
-      "author": "whalesdotsol",
-      "text": "@BitBlitzBuzz @TheKleos_ @BitBlitzBuzz $volta (@VoltaFamily) deserves to be here cause it’s the first uniswap V4 hook like, current the best R:R https://t.co/Bn2NVwgeRV",
-      "reply": "per-launch v4 pools paired with HYPE are the $VOLTA detail for me",
-      "tried": [
-        "per-launch v4 pools paired with HYPE are the $VOLTA detail for me"
-      ],
-      "image": "https://pbs.twimg.com/media/HWR7tHHXMAEo3oA.jpg",
-      "followers": 7141,
-      "relevant": true,
-      "reply_ar": "بالنسبة لي، أهم ما يميّز $VOLTA أن لكل توكن يُطلق مسبح V4 خاص به مقترن بـ HYPE.",
-      "tweet_ar": "‏$volta يستحق أن يكون هنا لأنه أول hook على Uniswap V4، وحالياً يقدّم أفضل نسبة مخاطرة إلى عائد.",
-      "message_id": 269
-    },
     "2117955713255485501": {
       "author": "whalesdotsol",
       "text": "@alaska_971 @AdamHODL @VoltaFamily Send it higher $volta",
@@ -1787,11 +1774,24 @@
       "reply_ar": "عصر الأسهم على Elysium، ومتابعو $VOLTA يعرفون أن volta تدفع للمنشئين بالأسهم أيضاً",
       "tweet_ar": "أزواج الأسهم قادمة إلى Kleos. أطلق عملة مقترنة بأسهم مرمّزة لمؤشر S&P 500 أو NVIDIA أو Nasdaq 100 أو Micron على شبكة Elysium، وتُدفع الضريبة ومكافآت الحاملين بالسهم نفسه. شاهدها الآن في صفحة الإنشاء. اكسب مجدك مع Kleos.",
       "message_id": 374
+    },
+    "2118038959213474256": {
+      "author": "AdamHODL",
+      "text": "A lot of people are about to get drained thinking Ascend has launched.\n\nEvery account affiliated with them has always stated mainnet, more than likely they’ve been compromised and what you’re interacting with is a drainer.\n\nWould highly advise revoking access, moving funds, and wait for clarification from @AscendLaunch team. 99% certain they don’t stealth launch out of nowhere with 0 engagement after stating just yesterday nothing till mainnet.\n\nStay safu.\n\nBid the ogs for now imo. Lot of liquidity about to rotate back in.",
+      "reply": "revoke first, verify later, a surprise launch with zero engagement is drainer behavior every time. if liquidity rotates back into live stuff, on volta whoever launches a token earns fees in HYPE, the $VOLTA angle i'm tracking",
+      "tried": [
+        "revoke first, verify later, a surprise launch with zero engagement is drainer behavior every time. if liquidity rotates back into live stuff, on volta whoever launches a token earns fees in HYPE, the $VOLTA angle i'm tracking"
+      ],
+      "image": null,
+      "followers": 73667,
+      "relevant": true,
+      "reply_ar": "ألغِ الصلاحيات أولًا ثم تحقّق لاحقًا، فالإطلاق المفاجئ بلا أي تفاعل هو تصرف أدوات السرقة دائمًا. وإذا عادت السيولة إلى المشاريع الحية، ففي volta من يطلق توكنًا يربح رسومه بعملة HYPE، وهذه هي زاوية $VOLTA التي أتابعها.",
+      "tweet_ar": "كثير من الناس على وشك أن تُسرق محافظهم ظنًا منهم أن Ascend أطلقت. كل الحسابات المرتبطة بهم كانت دائمًا تقول إن الإطلاق سيكون مع الشبكة الرئيسية، فالأرجح أنها اختُرقت وما تتعامل معه هو أداة لسرقة المحافظ. أنصح بشدة بإلغاء الصلاحيات ونقل أموالك وانتظار توضيح من فريق Ascend. متأكد بنسبة 99% أنهم لن يطلقوا فجأة دون أي تفاعل بعد أن قالوا أمس فقط إنه لا شيء قبل الشبكة الرئيسية. ابقوا بأمان. برأيي اشتروا المشاريع القديمة حاليًا، فهناك سيولة كثيرة ستعود إليها.",
+      "message_id": 375
     }
   },
-  "angle_i": 160,
+  "angle_i": 161,
   "recent_texts": [
-    "agreed, and anti-snipe at launch is the $VOLTA part snipers hate",
     "what would make you less skeptical though, traders actually sticking around? for me a launchpad on a fresh chain lives or dies on whether people can see what's moving. volta's trending board does that on elysium, part of why i watch $VOLTA",
     "spreading bets before nov 9 makes sense. normally stuff ships after a chain's mainnet, but volta's already live on elysium so $VOLTA got its first reactions before the public launch",
     "aero on day 1 is a solid sign, and volta already runs a free fast elysium rpc for anyone poking at $VOLTA launches",
@@ -1850,7 +1850,8 @@
     "bots incoming lol. volta's anti-snipe is why i watch $VOLTA",
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
-    "stock era on elysium, $VOLTA fans know volta pays creators in stocks"
+    "stock era on elysium, $VOLTA fans know volta pays creators in stocks",
+    "revoke first, verify later, a surprise launch with zero engagement is drainer behavior every time. if liquidity rotates back into live stuff, on volta whoever launches a token earns fees in HYPE, the $VOLTA angle i'm tracking"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1859,7 +1860,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793814622,
+  "last_to_me": 1793814764,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1998,11 +1999,12 @@
     "2118033614936171005",
     "2118036092137980087",
     "2118036744662880439",
-    "2118037559549050975"
+    "2118037559549050975",
+    "2118038959213474256"
   ],
-  "last_fast": 1793814762,
-  "last_mentions": 1793814702,
-  "last_slow": 1793814702,
+  "last_fast": 1793814882,
+  "last_mentions": 1793814882,
+  "last_slow": 1793814882,
   "tw_samples": [
     [
       1793779148,
