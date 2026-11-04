@@ -203,19 +203,19 @@ def clean_text(text, drop_links=False):
 
 
 HELP_TEXT = (
-    "<b>Volta Radar commands</b>\n\n"
-    "/add username  (or @username or x.com link)\n"
-    "/remove username\n"
-    "/tag username Some Tag  set the label shown on alerts\n"
-    "/list  show tracked accounts\n"
-    "/leaderboard  top Volta mentions and most active accounts\n\n"
-    "<b>✍️ Writing</b>\n"
-    "Send any idea (عربي or English) → I write the tweet\n"
-    "/write idea  same thing\n"
-    "Reply to a draft with your idea → I rewrite it\n"
-    "post / انشر → link to X with it ready\n\n"
-    "/myreport  your replies & posts, last 7 days (/myreport 1 for today)\n\n"
-    "Commands are read every few minutes, so replies can take a short while."
+    "⚡ <b>VOLTA RADAR</b>\n\n"
+    "📊 <b>Reports</b>\n"
+    "/mywork · /today · /week · /month\n"
+    "/links · all your Volta tweet links\n"
+    "/leaderboard\n\n"
+    "✍️ <b>Writing</b>\n"
+    "Send any idea (عربي / English) → English tweet\n"
+    "Reply to a draft with your idea → rewritten\n"
+    "post / انشر → opens X with it ready\n\n"
+    "📃 <b>Accounts</b>\n"
+    "/list · /add name · /remove name\n"
+    "/tag name Label\n\n"
+    "/menu · show the buttons"
 )
 
 
@@ -227,9 +227,16 @@ def handle_command(cfg, handles, tags, text):
     lower = [h.lower() for h in handles]
 
     if cmd == "/list":
-        lines = "\n".join(f"{i}. @{html.escape(h)} · {html.escape(tags.get(h.lower(), '-'))}"
-                          for i, h in enumerate(handles, 1))
-        return f"<b>Tracking {len(handles)} accounts</b>\n\n{lines}"
+        groups = {"🟢": [], "🔵": [], "🟣": [], "⚪": []}
+        for h in handles:
+            groups[tag_marker(tags.get(h.lower()))].append(h)
+        names = {"🟢": "OUR ECOSYSTEM", "🔵": "NETWORKS & PROJECTS", "🟣": "KOLs", "⚪": "OTHER"}
+        out = [f"📃 <b>TRACKED ACCOUNTS</b> · {len(handles)}"]
+        for marker, members in groups.items():
+            if members:
+                out += ["", f"{marker} <b>{names[marker]}</b> · {len(members)}",
+                        "  ".join(f"@{html.escape(h)}" for h in sorted(members, key=str.lower))]
+        return "\n".join(out)
 
     if cmd == "/leaderboard":
         return build_leaderboard(tags)
@@ -441,32 +448,30 @@ def wants_draft(tweet, tags, settings, mention):
 
 def draft_message(d, tags):
     reply_txt = html.escape(d["reply"])
-    footer = []
-    meaning = [f"🇸🇦 <i>{html.escape(d['reply_ar'])}</i>"] if d.get("reply_ar") else []
+    # Arabic translations are collapsed to one line (tap to expand) so the message stays short
+    meaning = [f"<blockquote expandable>🇸🇦 {html.escape(d['reply_ar'])}</blockquote>"] if d.get("reply_ar") else []
     if d.get("kind") == "tweet":
         return "\n".join([
-            "📝 <b>تويتة جديدة</b>", LINE,
-            f"🗒 <i>{html.escape(d.get('instruction') or '')}</i>", LINE,
-            "✍️ <b>التويتة</b> (اضغط للنسخ):", f"<code>{reply_txt}</code>"] + meaning + footer)
+            "📝 <b>تويتة جديدة</b>",
+            f"<i>🗒 {html.escape(d.get('instruction') or '')}</i>", LINE,
+            "✍️ <b>التويتة</b> · اضغط عليها للنسخ", f"<code>{reply_txt}</code>"] + meaning)
     snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
-    label = "🟢 <b>بيذكر Volta</b>" if d.get("relevant") else "💬 <b>تفاعل بس</b> (بدون ذكر Volta)"
-    status = "✅✅ <b>أنا رديت عليها</b> ✅✅" if d.get("done") else "🟡 <b>لسا أنا ما رديت</b>"
+    status = "✅ <b>أنا رديت عليها</b>" if d.get("done") else "🟡 <b>لسا أنا ما رديت</b>"
     if d.get("to_me"):  # someone replied to you
-        lines = [f"📩📩 <b>رد جديد عليك من @{html.escape(d['author'])}</b> 📩📩", status, LINE]
+        lines = [f"📩 <b>رد جديد عليك من @{html.escape(d['author'])}</b>", status, LINE]
         if d.get("my_text"):
-            lines.append(f"🗣 <b>إنت كتبت:</b>\n<blockquote>{html.escape(d['my_text'][:200])}</blockquote>")
-        lines += [f"💬 <b>هو رد:</b>", f"<blockquote>{snippet}</blockquote>"]
+            lines.append(f"<i>🗣 إنت كتبت:</i>\n<blockquote expandable>{html.escape(d['my_text'][:200])}</blockquote>")
+        lines += ["<i>💬 هو رد:</i>", f"<blockquote>{snippet}</blockquote>"]
     else:
-        lines = [status, "🤖 <b>اقتراح رد</b>", LINE,
-                 tag_line(tags, d["author"]),
-                 f"👤 @{html.escape(d['author'])}",
+        lines = [f"🤖 <b>اقتراح رد</b>  ·  {status}", LINE,
+                 f"{tag_line(tags, d['author'])}  ·  @{html.escape(d['author'])}",
                  f"<blockquote>{snippet}</blockquote>"]
     if d.get("tweet_ar"):
-        lines.append(f"🇸🇦 <b>الترجمة:</b>\n<blockquote>{html.escape(d['tweet_ar'][:400])}</blockquote>")
-    lines += [LINE, label, "✍️ <b>الرد المقترح</b> (اضغط للنسخ):", f"<code>{reply_txt}</code>"] + meaning
+        lines.append(f"<blockquote expandable>🇸🇦 {html.escape(d['tweet_ar'][:400])}</blockquote>")
+    lines += [LINE, "✍️ <b>الرد المقترح</b> · اضغط عليه للنسخ", f"<code>{reply_txt}</code>"] + meaning
     if d.get("instruction"):
-        lines.append(f"🗒 <i>فكرتك: {html.escape(d['instruction'])}</i>")
-    return "\n".join(lines + footer)
+        lines.append(f"<i>🗒 فكرتك: {html.escape(d['instruction'])}</i>")
+    return "\n".join(lines)
 
 
 def draft_buttons(tid, d):
@@ -1097,8 +1102,12 @@ def build_my_report(cfg, settings, tags, days):
     avg_views = total["viewCount"] // len(tweets) if tweets else 0
     engagement = total["likeCount"] + total["retweetCount"] + total["replyCount"]
     rate = f"{engagement / total['viewCount'] * 100:.1f}%" if total["viewCount"] else "0%"
-    period = "Today" if days == 1 else "Since start" if days == 0 else f"Last {days} days"
-    date_range = f"{time.strftime('%b %d', time.gmtime(since))} to {time.strftime('%b %d', time.gmtime())}"
+    today = time.strftime("%b %d", time.gmtime())
+    if days == 1:
+        period = f"Today · {today}"
+    else:
+        label = "Since start" if days == 0 else f"Last {days} days"
+        period = f"{label} · {time.strftime('%b %d', time.gmtime(since))} – {today}"
 
     def when(t):
         try:
@@ -1106,58 +1115,61 @@ def build_my_report(cfg, settings, tags, days):
         except ValueError:
             return ""
 
-    def body(t):
-        # drop the @mentions X puts at the start of a reply
-        words = clean_text(t.get("text"), drop_links=True).replace("\n", " ").split()
-        while words and words[0].startswith("@"):
-            words.pop(0)
-        return html.escape(" ".join(words)[:70]) or "media"
+    def row(label, value):  # fixed-width row for the stats table
+        return f"{label:<16}{value:>8}"
 
+    # key numbers as an aligned monospace table, so nothing runs together
+    table = "\n".join([
+        row("Total activity", len(tweets)),
+        row("  Replies", len(replies)),
+        row("  Posts", len(posts)),
+        row("Mention $VOLTA", volta),
+        row("Via Volta Radar", via_bot),
+        "",
+        row("Impressions", short_num(total["viewCount"])),
+        row("Avg per tweet", short_num(avg_views)),
+        row("Likes", short_num(total["likeCount"])),
+        row("Reposts", short_num(total["retweetCount"])),
+        row("Comments", short_num(total["replyCount"])),
+        row("Engagement rate", rate),
+    ])
     lines = ["📊 <b>VOLTA CONTRIBUTION REPORT</b>",
-             f"@{html.escape(me)} · {period} ({date_range})",
-             LINE, "📈 <b>OVERVIEW</b>",
-             f"• Total activity: <b>{len(tweets)}</b> ({len(replies)} replies · {len(posts)} posts)",
-             f"• Mentioning $VOLTA: <b>{volta}</b>",
-             f"• Written with Volta Radar: <b>{via_bot}</b>",
-             f"• Impressions: <b>{short_num(total['viewCount'])}</b> (avg {short_num(avg_views)} per tweet)",
-             f"• Engagement: {short_num(total['likeCount'])} likes · {short_num(total['retweetCount'])} reposts"
-             f" · {short_num(total['replyCount'])} comments",
-             f"• Engagement rate: {rate}"]
+             f"<i>@{html.escape(me)} · {period}</i>",
+             "",
+             f"<pre>{html.escape(table)}</pre>"]
 
     by_cat = {}
     for t in replies:
         marker = tag_marker(tags.get((t.get("inReplyToUsername") or "").lower()))
         by_cat[marker] = by_cat.get(marker, 0) + 1
     if by_cat:
-        names = {"🟢": "Volta / Elysium ecosystem", "🔵": "Other networks & projects", "🟣": "KOLs",
-                 "⚪": "Community"}
-        lines += [LINE, "🎯 <b>REPLIES BY AUDIENCE</b>"]
-        lines += [f"{m} {names[m]}: <b>{c}</b>" for m, c in sorted(by_cat.items(), key=lambda kv: -kv[1])]
+        names = {"🟢": "Ecosystem", "🔵": "Networks", "🟣": "KOLs", "⚪": "Community"}
+        lines += ["", "🎯 <b>AUDIENCE</b>",
+                  "   ".join(f"{m} {names[m]} <b>{c}</b>" for m, c in sorted(by_cat.items(), key=lambda kv: -kv[1]))]
 
     top = sorted(tweets, key=lambda t: (n(t, "viewCount"), n(t, "likeCount")), reverse=True)[:3]
     if top:
-        lines += [LINE, "🏆 <b>TOP PERFORMING</b>"]
+        lines += ["", "🏆 <b>TOP PERFORMING</b>"]
         for medal, t in zip(MEDALS, top):
             to = t.get("inReplyToUsername")
-            where = f"Reply to @{html.escape(to)}" if to else "Post"
-            lines.append(f"{medal} <a href=\"{tweet_url(t)}\">{where}</a> · {short_num(n(t, 'viewCount'))} views"
-                         f" · {n(t, 'likeCount')} like{'' if n(t, 'likeCount') == 1 else 's'}")
+            where = f"↪️ {html.escape(to)}" if to else "📝 Post"
+            lines.append(f"{medal} <a href=\"{tweet_url(t)}\">{where}</a>  ·  👁 {short_num(n(t, 'viewCount'))}"
+                         f"  ❤️ {n(t, 'likeCount')}")
 
     if tweets:
         newest = sorted(tweets, key=lambda t: int(t.get("id") or 0), reverse=True)
-        shown = newest[:20]  # Telegram messages are capped at 4096 characters
+        shown = newest[:30]  # Telegram messages are capped at 4096 characters
         more = f" · latest {len(shown)} of {len(tweets)}" if len(shown) < len(tweets) else ""
-        lines += [LINE, f"📜 <b>ACTIVITY LOG</b>{more}"]
+        lines += ["", f"📜 <b>ACTIVITY LOG</b>{more}"]
         for i, t in enumerate(shown, 1):
             to = t.get("inReplyToUsername")
-            kind = f"↪️ Reply to @{html.escape(to)}" if to else "📝 Post"
-            lines += [f"<b>{i}.</b> {kind} · {when(t)}",
-                      f"    <a href=\"{tweet_url(t)}\">“{body(t)}”</a>",
-                      f"    👁 {short_num(n(t, 'viewCount'))} · ❤️ {n(t, 'likeCount')} · 🔁 {n(t, 'retweetCount')}"
-                      f" · 💬 {n(t, 'replyCount')}"]
+            # the handle is plain text inside the link (no "@"), so the whole line opens your tweet
+            kind = f"↪️ {html.escape(to)}" if to else "📝 Post"
+            lines.append(f"<code>{i:>2}.</code> <a href=\"{tweet_url(t)}\">{kind}</a>  ·  {when(t)}"
+                         f"  ·  👁 {short_num(n(t, 'viewCount'))}  ❤️ {n(t, 'likeCount')}")
     else:
-        lines += [LINE, "<i>No activity in this period.</i>"]
-    lines += [LINE, "<i>Generated by Volta Radar</i>"]
+        lines += ["", "<i>No activity in this period.</i>"]
+    lines += ["", "<i>Generated by Volta Radar</i>"]
     text = "\n".join(lines)
     return text if len(text) <= 4000 else text[:3990].rsplit("\n", 1)[0] + "\n…"
 
