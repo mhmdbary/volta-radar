@@ -1,5 +1,5 @@
 {
-  "last_check": 1793780770,
+  "last_check": 1793780920,
   "seen_ids": [
     "2117752963968143519",
     "2117894343155401011",
@@ -10,9 +10,9 @@
     "2117705105998811367",
     "2117724931626520974",
     "2117729465287774431",
-    "2117702234675060834",
-    "2117895014772813849",
     "2117862767831159287",
+    "2117895014772813849",
+    "2117702234675060834",
     "2117618058525372634",
     "2117725086413402244",
     "2117860431142224016",
@@ -86,6 +86,7 @@
     "2117812508903772532",
     "2117855496178675954",
     "2117888338447540566",
+    "2117896209239277918",
     "2117681085551456728",
     "2117895099598405919",
     "2117595326626619825",
@@ -143,7 +144,7 @@
     "2117683945949343957",
     "2117727385458245913"
   ],
-  "tg_offset": 277101711,
+  "tg_offset": 277101712,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -240,16 +241,6 @@
   },
   "last_follow_check": 1793771975,
   "drafts": {
-    "2117702432436195347": {
-      "author": "OhMyJack",
-      "text": "@VoltaFamily Suplly shock coming",
-      "reply": "appreciate you jack 🙏 we're heads down on the build for now, elysium mainnet goes live nov 9 and that's where our focus is",
-      "tried": [
-        "appreciate you jack 🙏 we're heads down on the build for now, elysium mainnet goes live nov 9 and that's where our focus is"
-      ],
-      "relevant": true,
-      "message_id": 28
-    },
     "w1793735003": {
       "kind": "tweet",
       "instruction": "خلي الreply قصيره و حماسيه للعمله",
@@ -1572,12 +1563,27 @@
       "relevant": true,
       "reply_ar": "متفق، كونه أول hook من Uniswap V4 يعمل فعلياً على Elysium خطوة حقيقية من اليوم الأول. هذا البناء المبكر جزء كبير من سبب احتفاظي بـ $VOLTA",
       "tweet_ar": "كان يستحق Volta على Elysium مكاناً في تلك القائمة، فالبناة من اليوم الأول يستحقون تسليط الضوء عليهم. أتمنى النجاح للإطلاق.",
-      "message_id": 230
+      "message_id": 230,
+      "done": true,
+      "my_url": "https://x.com/barymoto/status/2117895848361427408"
+    },
+    "2117896209239277918": {
+      "author": "m97HR",
+      "text": "@VoltaFamily @Enter_Elysium Amazing job! Happy to connect and explore opportunities 📈",
+      "reply": "same, the anti-snipe at launch is what got me. watching bots eat the first block gets old fast, so it's nice volta just bakes that in. one reason i hold $VOLTA",
+      "tried": [
+        "same, the anti-snipe at launch is what got me. watching bots eat the first block gets old fast, so it's nice volta just bakes that in. one reason i hold $VOLTA"
+      ],
+      "image": null,
+      "followers": 89546,
+      "relevant": true,
+      "reply_ar": "نفس الشعور، ميزة الحماية من القنص عند الإطلاق هي اللي جذبتني. مشاهدة البوتات وهي تلتهم أول بلوك شيء ممل، فجميل إن فولتا تضمّن هذا من الأساس. هذا أحد أسباب احتفاظي بـ $VOLTA",
+      "tweet_ar": "عمل رائع! يسعدني التواصل واستكشاف الفرص 📈",
+      "message_id": 231
     }
   },
-  "angle_i": 36,
+  "angle_i": 37,
   "recent_texts": [
-    "elysium isn't even at public mainnet yet (nov 9) and there's already copy trading. fun to be building $VOLTA next to teams shipping this fast",
     "copy trading on elysium before public mainnet is wild 🔥 volta launches already trade on agora, so $VOLTA launchers just got a lot more eyes on day one",
     "solid list, bit sad we didn't make it lol. we're building volta on elysium too and creators there earn fees in HYPE on every trade. happy to send you $VOLTA onchain data for round 2",
     "launch a token on volta and your creator fees can land as tokenized stocks, not just crypto. we built $VOLTA so a memecoin can quietly fund your stock bag 📈",
@@ -1606,13 +1612,14 @@
     "agreed, and the creator side doesn't get talked about enough. you launch a token on volta and your fees land in HYPE, which is a big part of why i'm a $VOLTA holder",
     "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix",
     "sleeping through chaos is underrated lol. only thing i like waking up to is the volta burn tracker, 80% of fees keep buying back $VOLTA and burning it overnight",
-    "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA"
+    "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA",
+    "same, the anti-snipe at launch is what got me. watching bots eat the first block gets old fast, so it's nice volta just bakes that in. one reason i hold $VOLTA"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117895148365607335"
   ],
-  "last_to_me": 1793780630,
+  "last_to_me": 1793780779,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1632,11 +1639,12 @@
     "2117894194656374840",
     "2117894343155401011",
     "2117895014772813849",
-    "2117895099598405919"
+    "2117895099598405919",
+    "2117896209239277918"
   ],
-  "last_fast": 1793780770,
-  "last_mentions": 1793780770,
-  "last_slow": 1793780600,
+  "last_fast": 1793780920,
+  "last_mentions": 1793780860,
+  "last_slow": 1793780800,
   "tw_samples": [
     [
       1793779148,
@@ -1653,12 +1661,12 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 8,
-      "input_tokens": 27846,
-      "output_tokens": 2999
+      "calls": 9,
+      "input_tokens": 30990,
+      "output_tokens": 3304
     }
   },
   "x_actions": {
-    "likes": 1
+    "likes": 2
   }
 }
