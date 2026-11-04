@@ -36,6 +36,22 @@ ANGLES = [
     "what volta shipped recently, or a question for launchers about what a good launch looks like",
 ]
 
+# The shape of the post rotates separately from the angle, so two drafts never feel alike.
+STYLES = [
+    "a sharp one-liner, under 90 characters",
+    "agree with them, then add one concrete detail they didn't mention",
+    "a light joke or playful twist on what they said, then the volta point",
+    "a genuine question back to them that invites a reply, with volta as the context",
+    "a confident hot take in two short sentences",
+    "a casual observation about the space that leads into the volta point (no made-up personal stories)",
+    "a quick comparison: how it usually goes vs how it works on volta",
+    "short reaction first (2-4 words), then one clear sentence about volta",
+]
+
+# Openings the model tends to repeat; each draft is told to avoid them.
+OVERUSED_OPENERS = ["gm", "honestly", "ngl", "this is", "love this", "wild", "kinda wild", "fun", "nice",
+                    "seconding", "respect", "real", "big", "huge", "facts", "same"]
+
 RULES = """Style: write like a real person on crypto twitter typing on their phone, not like marketing copy.
 - always write in English, even when the user's instruction is in Arabic
 - one idea per post. never list several Volta features in one go
@@ -49,8 +65,10 @@ RULES = """Style: write like a real person on crypto twitter typing on their pho
 Limits:
 - the user is NOT on the Volta team. they are a $VOLTA holder and community supporter. never write "we built",
   "we shipped", "our launchpad", "at volta we" or anything that claims to be the team. speak as a user and holder:
-  "volta lets creators...", "been watching volta...", "what i like about volta...". saying "i hold $VOLTA" when it
-  fits is good, it keeps things honest
+  "volta lets creators...", "been watching volta...", "what i like about volta...". mention that you hold $VOLTA
+  only now and then (roughly one post in four), never as a closing tag line, and not if a recent post did
+- never invent things the user did or saw (no "i bridged last night", "i launched a token", "i made x%").
+  stick to what volta does, opinions, and questions
 - always include the ticker $VOLTA exactly once, worked naturally into the sentence (not tacked on at the end).
   $VOLTA is the token (the one that gets bought back and burned); the platform is "volta". never write
   "we built $VOLTA" or call the launchpad $VOLTA
@@ -120,7 +138,7 @@ def _ask(api_key, system, prompt, image=None):
         max_tokens=2000,
         betas=["server-side-fallback-2026-07-01"],
         fallbacks="default",
-        output_config={"effort": "low", "format": {"type": "json_schema", "schema": SCHEMA}},
+        output_config={"effort": "medium", "format": {"type": "json_schema", "schema": SCHEMA}},
         system=system,
         messages=[{"role": "user", "content": content}],
     )
@@ -134,10 +152,14 @@ def _ask(api_key, system, prompt, image=None):
     return data
 
 
-def _extras(instruction, avoid, recent, angle):
+def _extras(instruction, avoid, recent, angle, style=None):
     extra = ""
     if angle:
         extra += f"\n\nSuggested angle: {angle}"
+    if style:
+        extra += f"\nShape of the post: {style}"
+    used = sorted({" ".join(r.lower().split()[:2]) for r in (recent or []) if r.strip()} | set(OVERUSED_OPENERS))
+    extra += "\nDo not start with any of these openings: " + ", ".join(f'"{o}"' for o in used)
     if instruction:
         extra += f"\n\nUser's instruction (may be Arabic or English): {instruction}"
     if avoid:
@@ -150,15 +172,16 @@ def _extras(instruction, avoid, recent, angle):
     return extra
 
 
-def suggest_reply(api_key, author, text, avoid=None, instruction=None, image=None, recent=None, angle=None):
+def suggest_reply(api_key, author, text, avoid=None, instruction=None, image=None, recent=None, angle=None,
+                  style=None):
     """Return {"relevant", "reason", "reply", ...} for a tweet, or None if the model declined."""
-    prompt = f"Tweet by @{author}:\n\n{text}" + _extras(instruction, avoid, recent, angle)
+    prompt = f"Tweet by @{author}:\n\n{text}" + _extras(instruction, avoid, recent, angle, style)
     try:
         return _ask(api_key, REPLY_SYSTEM, prompt, image)
     except anthropic.BadRequestError:  # image URL unreachable for the API: answer from the text alone
         return _ask(api_key, REPLY_SYSTEM, prompt)
 
 
-def write_tweet(api_key, instruction, avoid=None, recent=None, angle=None):
+def write_tweet(api_key, instruction, avoid=None, recent=None, angle=None, style=None):
     """Return {"relevant", "reason", "reply", ...} where reply is a new tweet written from the instruction."""
-    return _ask(api_key, TWEET_SYSTEM, "Write the tweet." + _extras(instruction, avoid, recent, angle))
+    return _ask(api_key, TWEET_SYSTEM, "Write the tweet." + _extras(instruction, avoid, recent, angle, style))

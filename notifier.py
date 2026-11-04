@@ -569,16 +569,18 @@ def regenerate(cfg, d, state, avoid=None):
     i = int(state.get("angle_i", 0))
     state["angle_i"] = i + 1
     angle = ai_replies.ANGLES[i % len(ai_replies.ANGLES)]
-    recent = state.get("recent_texts", [])[-20:]
+    # styles rotate at a different pace than angles, so the same angle comes back in a new shape
+    style = ai_replies.STYLES[(i * 3 + i // len(ai_replies.ANGLES)) % len(ai_replies.STYLES)]
+    recent = state.get("recent_texts", [])[-40:]
     if d.get("kind") == "tweet":
         result = ai_replies.write_tweet(cfg["anthropic_api_key"], d.get("instruction"), avoid=avoid,
-                                        recent=recent, angle=angle)
+                                        recent=recent, angle=angle, style=style)
     else:
         result = ai_replies.suggest_reply(cfg["anthropic_api_key"], d["author"], d["text"], avoid=avoid,
                                           instruction=d.get("instruction"), image=d.get("image"),
-                                          recent=recent, angle=angle)
+                                          recent=recent, angle=angle, style=style)
     if result and result.get("reply"):
-        state["recent_texts"] = (state.get("recent_texts", []) + [result["reply"]])[-30:]
+        state["recent_texts"] = (state.get("recent_texts", []) + [result["reply"]])[-60:]
     return result
 
 
