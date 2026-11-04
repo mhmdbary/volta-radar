@@ -59,3 +59,4 @@ HyperFND
 tradexyz
 unitxyz
 elonmusk
+Mars_DeFi
