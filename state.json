@@ -1,5 +1,5 @@
 {
-  "last_check": 1793825421,
+  "last_check": 1793825553,
   "seen_ids": [
     "2118073194481373282",
     "2117893633009651980",
@@ -10,6 +10,7 @@
     "2117824660230521170",
     "2117896640929603800",
     "2117602702306034149",
+    "2118083391190917197",
     "2118029678606782539",
     "2117896209239277918",
     "2117942624892194883",
@@ -72,8 +73,9 @@
     "2117771621528121427",
     "2117962969300529218",
     "2117985318255104031",
-    "2117857627841462369",
+    "2118083343271027033",
     "2117995905525907769",
+    "2117857627841462369",
     "2117895014772813849",
     "2117850851910029533",
     "2117610655121588555",
@@ -385,34 +387,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117970556540875056": {
-      "author": "142C_",
-      "text": "@VoltaFamily Really cool stuff guys! Shoot me a message when you can.",
-      "reply": "shoot me a message sounds like something's cooking lol. you thinking of launching on elysium? every token on volta gets its own uniswap v4 pool paired with HYPE right away. what would you put out, something for the $VOLTA crowd or your own community?",
-      "tried": [
-        "shoot me a message sounds like something's cooking lol. you thinking of launching on elysium? every token on volta gets its own uniswap v4 pool paired with HYPE right away. what would you put out, something for the $VOLTA crowd or your own community?"
-      ],
-      "image": null,
-      "followers": 140479,
-      "relevant": true,
-      "reply_ar": "\"راسلوني\" تبدو وكأن هناك شيئاً يُطبخ لول. هل تفكر في إطلاق شيء على إليسيوم؟ كل توكن على فولتا يحصل فوراً على مجمع Uniswap V4 خاص به مقترن بـ HYPE. ماذا ستطلق، شيئاً لمجتمع $VOLTA أم لمجتمعك الخاص؟",
-      "tweet_ar": "أشياء رائعة فعلاً يا شباب! راسلوني عندما تسنح لكم الفرصة.",
-      "message_id": 296
-    },
-    "2117970677550682480": {
-      "author": "iNatalieCole",
-      "text": "@VoltaFamily @Enter_Elysium Ready to give your project a fresh boost. Follow me 🤝📩🔥",
-      "reply": "promo brings eyes, volta's anti-snipe at launch lets those eyes buy before bots do, a big reason i follow $VOLTA",
-      "tried": [
-        "promo brings eyes, volta's anti-snipe at launch lets those eyes buy before bots do, a big reason i follow $VOLTA"
-      ],
-      "image": null,
-      "followers": 720988,
-      "relevant": false,
-      "reply_ar": "الترويج يجلب الأنظار، لكن حماية فولتا من القناصين عند الإطلاق تسمح لأصحاب هذه الأنظار بالشراء قبل البوتات، وهذا سبب كبير لمتابعتي لـ $VOLTA",
-      "tweet_ar": "مستعدة لإعطاء مشروعكم دفعة جديدة. تابعوني 🤝📩🔥",
-      "message_id": 297
-    },
     "2117970774040686814": {
       "author": "nammcamm",
       "text": "@VoltaFamily @BasedBot ready to ape in",
@@ -1799,12 +1773,38 @@
       "reply_ar": "من أين يأتي تمويل عمليات إعادة الشراء عندكم، من رسوم التداول أم من الخزينة؟ فولتا توجّه 80% من الرسوم لشراء $VOLTA وحرقها.",
       "tweet_ar": "حتى الآن، كل هبوط في السعر تمت إعادة شرائه وحرقه. $agora",
       "message_id": 399
+    },
+    "2118083343271027033": {
+      "author": "Xeetbtcvox",
+      "text": "Early find : @GreyCircc\n\nSupply: 1500\nMint: Whitelist Freemint\nMint Date: TBA\n\nA fresh pass aiming to bridge the NFT and DEGEN communities together\n\nLooking forward to this...",
+      "reply": "nft meets degen, neat. volta launchers earn fees in HYPE, $VOLTA plus",
+      "tried": [
+        "nft meets degen, neat. volta launchers earn fees in HYPE, $VOLTA plus"
+      ],
+      "image": null,
+      "followers": 7941,
+      "relevant": false,
+      "reply_ar": "الـ NFT يلتقي بالديجن، جميل. من يطلق توكن على فولتا يكسب رسوماً بعملة HYPE، نقطة لصالح $VOLTA",
+      "tweet_ar": "اكتشاف مبكر: GreyCircc. العدد: 1500. السك: مجاني للقائمة البيضاء. موعد السك: لم يُحدد بعد. تصريح جديد يهدف إلى ربط مجتمع الـ NFT ومجتمع الديجن معاً. متحمس لهذا...",
+      "message_id": 400
+    },
+    "2118083391190917197": {
+      "author": "AdamHODL",
+      "text": "“ “ https://t.co/lzOYtcJSkh",
+      "reply": "empty quotes, full stare. my $VOLTA face at tokenized stock fees",
+      "tried": [
+        "empty quotes, full stare. my $VOLTA face at tokenized stock fees"
+      ],
+      "image": "https://pbs.twimg.com/tweet_video_thumb/HWTxnV8XgAA2Zfb.jpg",
+      "followers": 73674,
+      "relevant": false,
+      "reply_ar": "علامات تنصيص فاضية وتحديق كامل. هذا وجهي كحامل لـ $VOLTA وأنا أشوف رسوم المنشئين المدفوعة بأسهم مرمّزة",
+      "tweet_ar": "(علامات تنصيص فارغة بدون أي كلام، مع صورة متحركة لوجه قطة عن قرب)",
+      "message_id": 401
     }
   },
-  "angle_i": 184,
+  "angle_i": 186,
   "recent_texts": [
-    "$VOLTA folks, would you take volta fees in tokenized stocks today?",
-    "usually the index says nothing about your own situation, volta charts show your own $VOLTA buys and avg entry",
     "patience genuinely paid on that one, congrats on the drop landing. the thing i'm being patient on is elysium, kinetiq's network for hyperliquid goes public mainnet nov 9 and volta's already running launches there, so $VOLTA's been fun to follow early",
     "stocks plus HYPE is a sane book. volta creators earn fees in HYPE and tokenized stocks, my favorite $VOLTA detail",
     "e/acc energy fits, volta launches pay creators their fees in HYPE, $VOLTA's whole vibe",
@@ -1862,7 +1862,9 @@
     "dumping to front run a launch then watching from the sidelines is the most crypto thing ever lol. volta kills that game at the start anyway, anti-snipe on every launch so bots can't grab it all the second it's live. the bit that pulled me toward $VOLTA",
     "mascot coins move quick, volta charts mark your own $VOLTA buys",
     "launchpad season on elysium, volta's had $VOLTA trading pre nov 9",
-    "what's funding the buybacks on your end, trading fees or treasury? volta sends 80% of fees into $VOLTA burns"
+    "what's funding the buybacks on your end, trading fees or treasury? volta sends 80% of fees into $VOLTA burns",
+    "nft meets degen, neat. volta launchers earn fees in HYPE, $VOLTA plus",
+    "empty quotes, full stare. my $VOLTA face at tokenized stock fees"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1871,7 +1873,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793825276,
+  "last_to_me": 1793825425,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2034,11 +2036,13 @@
     "2118073340212433282",
     "2118074775256150106",
     "2118075572371050552",
-    "2118080392104124727"
+    "2118080392104124727",
+    "2118083343271027033",
+    "2118083391190917197"
   ],
-  "last_fast": 1793825421,
-  "last_mentions": 1793825361,
-  "last_slow": 1793825271,
+  "last_fast": 1793825553,
+  "last_mentions": 1793825553,
+  "last_slow": 1793825451,
   "tw_samples": [
     [
       1793779148,
@@ -2355,9 +2359,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 155,
-      "input_tokens": 745826,
-      "output_tokens": 131880
+      "calls": 157,
+      "input_tokens": 754822,
+      "output_tokens": 134215
     }
   },
   "x_actions": {
