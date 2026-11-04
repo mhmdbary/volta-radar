@@ -3,6 +3,7 @@ AI writing help: reply ideas for tweets and custom tweets, drafted by Claude.
 Drafts go to the admin's private chat only, and nothing is posted on X automatically.
 """
 import json
+import random
 
 import anthropic
 
@@ -48,6 +49,21 @@ STYLES = [
     "short reaction first (2-4 words), then one clear sentence about volta",
 ]
 
+# Length is picked at random per draft (weighted), so replies range from a few words to a full thought,
+# like a real person's timeline.
+LENGTHS = [
+    ("very short: 4-12 words, under 70 characters", 3),
+    ("short: one sentence, 70-120 characters", 4),
+    ("medium: two sentences, 120-190 characters", 3),
+    ("longer: up to 260 characters, still casual", 2),
+]
+
+
+def pick_length():
+    options, weights = zip(*LENGTHS)
+    return random.choices(options, weights=weights)[0]
+
+
 # Openings the model tends to repeat; each draft is told to avoid them.
 OVERUSED_OPENERS = ["gm", "honestly", "ngl", "this is", "love this", "wild", "kinda wild", "fun", "nice",
                     "seconding", "respect", "real", "big", "huge", "facts", "same"]
@@ -55,7 +71,7 @@ OVERUSED_OPENERS = ["gm", "honestly", "ngl", "this is", "love this", "wild", "ki
 RULES = """Style: write like a real person on crypto twitter typing on their phone, not like marketing copy.
 - always write in English, even when the user's instruction is in Arabic
 - one idea per post. never list several Volta features in one go
-- short: usually one or two sentences. mostly lowercase, light punctuation, contractions, plain words
+- follow the Length you're given exactly. mostly lowercase, light punctuation, contractions, plain words
 - talk to the person, react to what they actually said; a bit of opinion or humor is good
 - vary the shape: sometimes a reaction, sometimes a question, sometimes a one-liner, sometimes a quick take
 - no em dashes, no semicolons, no "exciting", "thrilled", "game-changer", "revolutionary", "seamless", "unlock",
@@ -82,7 +98,7 @@ REPLY_SYSTEM = f"""You help a $VOLTA holder and community supporter write replie
 
 {FACTS}
 
-For the tweet you are given, write one short reply (ideally under 140 characters, max 180) that promotes Volta well.
+For the tweet you are given, write one reply that promotes Volta well. Its length is given below; real people vary a lot.
 - Start from what the tweet actually says, then connect it to Volta in one smooth step. It should read like
   something an informed holder would naturally say in the conversation, not an ad dropped under someone's post.
 - Use one Volta angle only. Prefer the suggested angle if it fits the tweet; otherwise pick a better one.
@@ -100,7 +116,7 @@ TWEET_SYSTEM = f"""You help a $VOLTA holder and community supporter write their 
 
 {FACTS}
 
-Write one tweet that promotes Volta well (ideally 150-230 characters, max 260).
+Write one tweet that promotes Volta well. Its length is given below; real people vary a lot.
 Follow the user's instruction if there is one; otherwise build it around the suggested angle.
 Explain that one feature clearly enough that someone new gets what it is and why it matters,
 in plain words a degen would use. Sound like a confident early user who gets it, not an ad.
@@ -158,6 +174,10 @@ def _extras(instruction, avoid, recent, angle, style=None):
         extra += f"\n\nSuggested angle: {angle}"
     if style:
         extra += f"\nShape of the post: {style}"
+    length = pick_length()
+    if "very short" in length and style and "two" in style:  # a 2-sentence shape can't be 8 words
+        length = LENGTHS[1][0]
+    extra += f"\nLength: {length}"
     used = sorted({" ".join(r.lower().split()[:2]) for r in (recent or []) if r.strip()} | set(OVERUSED_OPENERS))
     extra += "\nDo not start with any of these openings: " + ", ".join(f'"{o}"' for o in used)
     if instruction:
