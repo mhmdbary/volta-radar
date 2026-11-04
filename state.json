@@ -1,5 +1,5 @@
 {
-  "last_check": 1793800818,
+  "last_check": 1793800938,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -90,6 +90,7 @@
     "2117695695729648007",
     "2117686232830685186",
     "2117738454058508654",
+    "2117980675630321812",
     "2117724185778860520",
     "2117963441696821605",
     "2117718957499293698",
@@ -136,6 +137,7 @@
     "2117942008467570943",
     "2117736244881051699",
     "2117744889324552631",
+    "2117980247031271721",
     "2117579802680992219",
     "2117676035961684155",
     "2117620917341675886",
@@ -293,19 +295,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117812508903772532": {
-      "author": "0xSunSeeker",
-      "text": "@VoltaFamily @BasedBot @JustRektTool @agora_elysium Brrrrrrrr",
-      "reply": "brrrr is the right energy. elysium mainnet on nov 9, see you there",
-      "tried": [
-        "brrrr is the right energy. elysium mainnet on nov 9, see you there"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "برررر هي الطاقة الصحيحة. الشبكة الرئيسية لإليزيوم تنطلق في 9 نوفمبر، نراك هناك",
-      "tweet_ar": "‎@VoltaFamily @BasedBot @JustRektTool @agora_elysium برررررر (تعبير حماسي عن الانطلاق بقوة، مثل صوت طباعة النقود)",
-      "message_id": 108
-    },
     "2117817372010799493": {
       "author": "nammcamm",
       "text": "@VoltaFamily @BasedBot @JustRektTool @agora_elysium every aggregator tapping in now",
@@ -1722,11 +1711,24 @@
       "reply_ar": "كلمة واعد قليلة عليه برأيي. فولتا كان أول هوك من Uniswap V4 يعمل على Elysium، وأي توكن يُطلق هناك يحصل على مجمّع خاص به مقترن بـ HYPE، فإذا تحولت هذه المحادثة إلى إطلاق فلن تبدأ من الصفر، وهذا جانب من $VOLTA لا ينتبه له الناس.",
       "tweet_ar": "هذا واعد جدًا! لنتحدث.",
       "message_id": 304
+    },
+    "2117980675630321812": {
+      "author": "0xCobra_",
+      "text": "@lakesfund got u\ntbh there are some plays everyday\nI personally top blasted Blob at 800k few days ago, looks like it was not a terrible move \n\n@VoltaFamily launched yesterday\n@quoted_xyz the day before \nand mainnet is in 5d",
+      "reply": "top blasting at 800k is bold, volta charts mark it, $VOLTA too",
+      "tried": [
+        "top blasting at 800k is bold, volta charts mark it, $VOLTA too"
+      ],
+      "image": null,
+      "followers": 15622,
+      "relevant": true,
+      "reply_ar": "الشراء من القمة عند 800 ألف جرأة، شارتات volta تعلّم لك نقطة دخولك، وحتى في $VOLTA.",
+      "tweet_ar": "تكرم عينك. بصراحة فيه فرص كل يوم. أنا شخصياً اشتريت Blob عند القمة على 800 ألف قبل كم يوم، ويبدو أنها ما كانت حركة سيئة. Volta أطلقت أمس، وquoted قبلها بيوم، والشبكة الرئيسية بعد 5 أيام.",
+      "message_id": 305
     }
   },
-  "angle_i": 92,
+  "angle_i": 94,
   "recent_texts": [
-    "agreed, and the creator side doesn't get talked about enough. you launch a token on volta and your fees land in HYPE, which is a big part of why i'm a $VOLTA holder",
     "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix",
     "sleeping through chaos is underrated lol. only thing i like waking up to is the volta burn tracker, 80% of fees keep buying back $VOLTA and burning it overnight",
     "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA",
@@ -1785,7 +1787,8 @@
     "you planning to launch one on volta too? creator fees landing in HYPE is the part of $VOLTA i'd brag about",
     "shielded HYPE pools showing up means elysium's filling out fast. usually creator fees on launches are crypto and that's it, on volta creators can also earn in tokenized stocks, a bit of $VOLTA nobody brings up",
     "fair thing to ask, launchpads are popping up everywhere on elysium. for me it's that 80% of volta's trading fees buy back $VOLTA and burn it, so every trade shrinks supply",
-    "promising undersells it imo. volta was the first uniswap v4 hook live on elysium and any token launched there gets its own pool paired with HYPE, so if that chat turns into a launch you're not starting from scratch, the $VOLTA part people sleep on"
+    "promising undersells it imo. volta was the first uniswap v4 hook live on elysium and any token launched there gets its own pool paired with HYPE, so if that chat turns into a launch you're not starting from scratch, the $VOLTA part people sleep on",
+    "top blasting at 800k is bold, volta charts mark it, $VOLTA too"
   ],
   "to_me_seen": [
     "2117872026555965644",
@@ -1793,7 +1796,7 @@
     "2117945433234313681",
     "2117895148365607335"
   ],
-  "last_to_me": 1793800671,
+  "last_to_me": 1793800983,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1866,11 +1869,12 @@
     "2117973903238979761",
     "2117974846923833786",
     "2117977920228757526",
-    "2117978464095719555"
+    "2117978464095719555",
+    "2117980675630321812"
   ],
-  "last_fast": 1793800818,
-  "last_mentions": 1793800758,
-  "last_slow": 1793800758,
+  "last_fast": 1793800938,
+  "last_mentions": 1793800938,
+  "last_slow": 1793800938,
   "tw_samples": [
     [
       1793779148,
