@@ -1,5 +1,5 @@
 {
-  "last_check": 1793801113,
+  "last_check": 1793801233,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -33,6 +33,7 @@
     "2117958981721395660",
     "2117689582485422507",
     "2117957641175765165",
+    "2117981739146699118",
     "2117969714953810404",
     "2117812508903772532",
     "2117748509201899912",
@@ -295,19 +296,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117817372010799493": {
-      "author": "nammcamm",
-      "text": "@VoltaFamily @BasedBot @JustRektTool @agora_elysium every aggregator tapping in now",
-      "reply": "love seeing the tooling show up before mainnet even hits. tokens launched on volta being routable from day one on elysium is exactly what we wanted",
-      "tried": [
-        "love seeing the tooling show up before mainnet even hits. tokens launched on volta being routable from day one on elysium is exactly what we wanted"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "رائع أن نرى الأدوات تظهر حتى قبل إطلاق الشبكة الرئيسية. أن تكون التوكنات التي تُطلق على فولتا قابلة للتداول عبر المجمّعات من اليوم الأول على إليزيوم هو بالضبط ما أردناه",
-      "tweet_ar": "@VoltaFamily @BasedBot @JustRektTool @agora_elysium كل المجمّعات (aggregators) بدأت تنضم الآن",
-      "message_id": 109
-    },
     "2117820217334071587": {
       "author": "Xeetbtcvox",
       "text": "Hi 👋 https://t.co/B1LsHUFwJa",
@@ -1725,11 +1713,24 @@
       "reply_ar": "الشراء من القمة عند 800 ألف جرأة، شارتات volta تعلّم لك نقطة دخولك، وحتى في $VOLTA.",
       "tweet_ar": "تكرم عينك. بصراحة فيه فرص كل يوم. أنا شخصياً اشتريت Blob عند القمة على 800 ألف قبل كم يوم، ويبدو أنها ما كانت حركة سيئة. Volta أطلقت أمس، وquoted قبلها بيوم، والشبكة الرئيسية بعد 5 أيام.",
       "message_id": 305
+    },
+    "2117981739146699118": {
+      "author": "whalesdotsol",
+      "text": "@alaska_971 @thenftjosh @VoltaFamily Best place to bridge tokens",
+      "reply": "bridging is always the first chore on a fresh chain, and volta gets $VOLTA folks onto elysium before the nov 9 mainnet",
+      "tried": [
+        "bridging is always the first chore on a fresh chain, and volta gets $VOLTA folks onto elysium before the nov 9 mainnet"
+      ],
+      "image": null,
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "نقل التوكنات بين الشبكات هو دائماً أول مهمة مملة على أي شبكة جديدة، وفولتا توصل جماعة $VOLTA إلى إليسيوم قبل إطلاق الشبكة الرئيسية في 9 نوفمبر",
+      "tweet_ar": "أفضل مكان لنقل التوكنات بين الشبكات",
+      "message_id": 306
     }
   },
-  "angle_i": 94,
+  "angle_i": 95,
   "recent_texts": [
-    "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix",
     "sleeping through chaos is underrated lol. only thing i like waking up to is the volta burn tracker, 80% of fees keep buying back $VOLTA and burning it overnight",
     "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA",
     "same, the anti-snipe at launch is what got me. watching bots eat the first block gets old fast, so it's nice volta just bakes that in. one reason i hold $VOLTA",
@@ -1788,7 +1789,8 @@
     "shielded HYPE pools showing up means elysium's filling out fast. usually creator fees on launches are crypto and that's it, on volta creators can also earn in tokenized stocks, a bit of $VOLTA nobody brings up",
     "fair thing to ask, launchpads are popping up everywhere on elysium. for me it's that 80% of volta's trading fees buy back $VOLTA and burn it, so every trade shrinks supply",
     "promising undersells it imo. volta was the first uniswap v4 hook live on elysium and any token launched there gets its own pool paired with HYPE, so if that chat turns into a launch you're not starting from scratch, the $VOLTA part people sleep on",
-    "top blasting at 800k is bold, volta charts mark it, $VOLTA too"
+    "top blasting at 800k is bold, volta charts mark it, $VOLTA too",
+    "bridging is always the first chore on a fresh chain, and volta gets $VOLTA folks onto elysium before the nov 9 mainnet"
   ],
   "to_me_seen": [
     "2117872026555965644",
@@ -1870,11 +1872,12 @@
     "2117974846923833786",
     "2117977920228757526",
     "2117978464095719555",
-    "2117980675630321812"
+    "2117980675630321812",
+    "2117981739146699118"
   ],
-  "last_fast": 1793801113,
-  "last_mentions": 1793801053,
-  "last_slow": 1793800938,
+  "last_fast": 1793801233,
+  "last_mentions": 1793801233,
+  "last_slow": 1793801143,
   "tw_samples": [
     [
       1793779148,
