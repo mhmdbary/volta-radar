@@ -8,24 +8,32 @@ import anthropic
 
 MODEL = "claude-opus-5-5"
 
-FACTS = """About Volta (only use these facts):
-- Volta is a token launchpad on Elysium (the network built by Kinetiq, accelerating Hyperliquid).
-- It is built on the official Uniswap V4 contracts.
-- Creators earn the trading fees of the tokens they launch, paid in HYPE and tokenized stocks.
-- Holders: 80% of fees go to buying back $VOLTA, and every token bought back is burned.
-- Elysium mainnet goes live on November 9, and Volta is live on it from day one.
-- X account: @VoltaFamily"""
+FACTS = """About Volta (only use these facts; they come from @VoltaFamily's own posts):
+- Volta is "the Elysium launchpad for next-gen tokens". Elysium is the network built by Kinetiq, accelerating Hyperliquid.
+- Volta is the first Uniswap V4 hook live on Elysium. Every token launched gets its own Uniswap V4 pool paired with HYPE.
+- Built into the hook: creator-set fees, anti-snipe protection at launch, and buyback & burn on every trade.
+- Creators earn fees in HYPE and tokenized stocks.
+- Like the Pons model, 80% of trading fees buy back $VOLTA and every token bought back is burned
+  (there is a live burn dashboard).
+- Product: charts that show your own buys/sells and average entry, a trending board, a free fast Elysium RPC,
+  bridging to Elysium from 10+ chains. Volta launches already trade on BasedBot, JustRektTool and Agora.
+- Volta is already live; Elysium's public mainnet launch is November 9.
+- X account: @VoltaFamily
+
+Do NOT say or imply: that the hook is approved, licensed or "official" Uniswap (it has only been submitted to
+Uniswap for approval), that other launchpads are forks or unauthorized, or that Volta will be listed on any app
+or aggregator in the future."""
 
 # Each draft leans on one of these, rotating so posts don't all sound the same.
 ANGLES = [
-    "creators get paid: launch a token and you earn its trading fees in HYPE",
+    "creators get paid: launch a token and you earn fees in HYPE",
     "creators can also earn in tokenized stocks, not just crypto",
-    "buyback and burn: fees buy back $VOLTA and burn it, so activity shrinks supply",
-    "built on the official uniswap v4 contracts, battle-tested infrastructure",
-    "home on elysium: launching where the hyperliquid ecosystem is heading",
-    "day one: volta is live when elysium mainnet goes live nov 9",
-    "builder life: what the team is shipping or thinking about right now",
-    "a question or observation for launchers and degens about how launches should work",
+    "buyback and burn: 80% of fees buy back $VOLTA and burn it, more trades means less supply",
+    "tech: first uniswap v4 hook live on elysium, every token gets its own v4 pool paired with HYPE",
+    "fair launches: anti-snipe protection at launch so bots don't eat the first block",
+    "product: charts that show your own trades and average entry, or the trending board",
+    "elysium: building where the hyperliquid ecosystem is heading, public mainnet nov 9",
+    "builder life or a question for launchers about what a good launch looks like",
 ]
 
 RULES = """Style: write like a real person on crypto twitter typing on their phone, not like marketing copy.
