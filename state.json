@@ -1,5 +1,5 @@
 {
-  "last_check": 1793818069,
+  "last_check": 1793818189,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -164,6 +164,7 @@
     "2117957641175765165",
     "2117721705338515564",
     "2118042922935566338",
+    "2118053049855881295",
     "2118008855494078569",
     "2118022281259790582",
     "2118004151984570659",
@@ -372,20 +373,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117962969300529218": {
-      "author": "whalesdotsol",
-      "text": "@MRossticsknk @Befbunny @Enter_Elysium @VoltaFamily @voltage_elysium It’s really undervalued",
-      "reply": "undervalued is ct's favorite word after gm lol. price aside, volta's already live on elysium before the nov 9 public mainnet, that's the $VOLTA bit i keep pointing at",
-      "tried": [
-        "undervalued is ct's favorite word after gm lol. price aside, volta's already live on elysium before the nov 9 public mainnet, that's the $VOLTA bit i keep pointing at"
-      ],
-      "image": null,
-      "followers": 7141,
-      "relevant": true,
-      "reply_ar": "كلمة \"مقيّم بأقل من قيمته\" هي الكلمة المفضلة في تويتر الكريبتو بعد gm هههه. بعيداً عن السعر، فولتا شغالة بالفعل على إليسيوم قبل إطلاق الشبكة الرئيسية العامة في 9 نوفمبر، وهذه هي النقطة في $VOLTA التي أشير إليها دائماً",
-      "tweet_ar": "إنه مقيّم بأقل من قيمته الحقيقية فعلاً",
-      "message_id": 280
-    },
     "2117963441696821605": {
       "author": "agora_elysium",
       "text": "We heard there is a mev going around, as an agora user you are now protected \n\nWe've added anti-mev to agora to make sure you don't get mev'd https://t.co/1Ooi496qD0",
@@ -1792,11 +1779,24 @@
       "reply_ar": "كلمة واحدة والتايملاين كله يرجع يدور على السياق 😂. نسختي من \"صحيح\" هي معادلة فولتا: 80% من الرسوم تشتري $VOLTA وتحرقه، فكل صفقة تقلل المعروض. ما هو الشيء الوحيد في الكريبتو اللي تعتبره صحيح بدون أي تحفظات؟",
       "tweet_ar": "صحيح",
       "message_id": 386
+    },
+    "2118053049855881295": {
+      "author": "CryptoTomYT",
+      "text": "We’ve seen all the messages and excitement around Ascend. Thank you to everyone following along.\n\nWe’re heads down preparing for launch on @Enter_Elysium and will share updates as soon as they’re ready.\n\nUntil then, only trust announcements from @AscendLaunch.\n\nOfficial launch is November 9th. See you soon.",
+      "reply": "most wait for nov 9, $VOLTA holders already have v4 HYPE pools live",
+      "tried": [
+        "most wait for nov 9, $VOLTA holders already have v4 HYPE pools live"
+      ],
+      "image": null,
+      "followers": 29679,
+      "relevant": true,
+      "reply_ar": "الأغلب ينتظر 9 نوفمبر، بينما حاملو $VOLTA لديهم بالفعل مجمعات v4 مقترنة بـ HYPE تعمل الآن",
+      "tweet_ar": "رأينا كل الرسائل والحماس حول Ascend، شكرًا لكل من يتابعنا. نحن منشغلون بالتحضير للإطلاق على Elysium وسنشارك التحديثات فور جاهزيتها. حتى ذلك الحين، لا تثقوا إلا بالإعلانات الصادرة من حساب AscendLaunch. الإطلاق الرسمي في 9 نوفمبر، نراكم قريبًا.",
+      "message_id": 387
     }
   },
-  "angle_i": 171,
+  "angle_i": 172,
   "recent_texts": [
-    "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there",
     "gamified apps usually reward players, volta pays token creators fees in HYPE, a $VOLTA side quest for your research",
     "grok handling returns is the real selling point, nobody wants that chore lol. volta skips the cart entirely, creators can earn fees in tokenized stocks, a $VOLTA perk i like",
     "free gear for early customers is the most underrated loyalty move in tech. volta's version is more on-chain, 80% of trading fees buy back $VOLTA and burn it, so the token gets a little smaller every time people actually use the thing",
@@ -1855,7 +1855,8 @@
     "cable's always a cycle behind while markets price things live. same energy as volta's trending board on elysium vs waiting for some thread to tell you, $VOLTA nerd take lol",
     "elysium swap ux leveling up quick, any token into any token is a real upgrade. volta launches already trade here and creators still earn their fees in HYPE, good fit for $VOLTA",
     "eyes on volta too, creator fees in stocks is the $VOLTA hook",
-    "one word and the whole timeline scrolls up for context lol. my version of true is volta's math, 80% of fees buy back $VOLTA and burn it so every trade trims supply. what's the one thing in crypto you'd call true with zero caveats?"
+    "one word and the whole timeline scrolls up for context lol. my version of true is volta's math, 80% of fees buy back $VOLTA and burn it so every trade trims supply. what's the one thing in crypto you'd call true with zero caveats?",
+    "most wait for nov 9, $VOLTA holders already have v4 HYPE pools live"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1864,7 +1865,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793817922,
+  "last_to_me": 1793818233,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2014,11 +2015,12 @@
     "2118043126753607737",
     "2118046344720044475",
     "2118046612316385380",
-    "2118048421663973792"
+    "2118048421663973792",
+    "2118053049855881295"
   ],
-  "last_fast": 1793818069,
-  "last_mentions": 1793818009,
-  "last_slow": 1793818009,
+  "last_fast": 1793818189,
+  "last_mentions": 1793818189,
+  "last_slow": 1793818189,
   "tw_samples": [
     [
       1793779148,
