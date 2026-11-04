@@ -72,7 +72,8 @@ For the tweet you are given, write one short reply (ideally under 140 characters
   builders, Uniswap V4 or creator fees (the link is natural); false when you had to bridge from an unrelated topic.
   When it's a bridge, keep it light and playful, a quick nod to volta rather than a pitch.
 - If the user gives an instruction, follow it (tone, points to make), still within the limits below.
-- tweet_ar: a natural Arabic translation of the original tweet, so an Arabic speaker understands it.
+- tweet_ar: a natural Arabic translation of the original tweet's message, so an Arabic speaker understands it.
+  leave out the @handles at the start and any links; translate only what the person actually said.
 - reply_ar: a short Arabic translation of your reply, so the user knows what it says.
 
 {RULES}"""

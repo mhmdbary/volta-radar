@@ -202,6 +202,22 @@ def clean_text(text, drop_links=False):
     return text
 
 
+def strip_leading_mentions(text):
+    """X puts "@a @b @c" in front of every reply; drop that so only the actual message shows."""
+    words = (text or "").split(" ")
+    while words and (words[0].startswith("@") or words[0] == ""):
+        words.pop(0)
+    return " ".join(words).strip()
+
+
+RLM = "‏"  # right-to-left mark: keeps Arabic lines from getting scrambled by English words / $VOLTA
+
+
+def arabic_quote(text):
+    lines = strip_leading_mentions(text).split("\n")
+    return "<blockquote expandable>🇸🇦 " + "\n".join(RLM + html.escape(l) for l in lines) + "</blockquote>"
+
+
 HELP_TEXT = (
     "⚡ <b>VOLTA RADAR</b>\n\n"
     "📊 <b>Reports</b>\n"
@@ -449,13 +465,13 @@ def wants_draft(tweet, tags, settings, mention):
 def draft_message(d, tags):
     reply_txt = html.escape(d["reply"])
     # Arabic translations are collapsed to one line (tap to expand) so the message stays short
-    meaning = [f"<blockquote expandable>🇸🇦 {html.escape(d['reply_ar'])}</blockquote>"] if d.get("reply_ar") else []
+    meaning = [arabic_quote(d["reply_ar"])] if d.get("reply_ar") else []
     if d.get("kind") == "tweet":
         return "\n".join([
             "📝 <b>تويتة جديدة</b>",
             f"<i>🗒 {html.escape(d.get('instruction') or '')}</i>", LINE,
             "✍️ <b>التويتة</b> · اضغط عليها للنسخ", f"<code>{reply_txt}</code>"] + meaning)
-    snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
+    snippet = html.escape(strip_leading_mentions(clean_text(d["text"], drop_links=True))[:300]) or "📷 media post"
     status = "✅ <b>أنا رديت عليها</b>" if d.get("done") else "🟡 <b>لسا أنا ما رديت</b>"
     if d.get("to_me"):  # someone replied to you
         lines = [f"📩 <b>رد جديد عليك من @{html.escape(d['author'])}</b>", status, LINE]
@@ -467,7 +483,7 @@ def draft_message(d, tags):
                  f"{tag_line(tags, d['author'])}  ·  @{html.escape(d['author'])}",
                  f"<blockquote>{snippet}</blockquote>"]
     if d.get("tweet_ar"):
-        lines.append(f"<blockquote expandable>🇸🇦 {html.escape(d['tweet_ar'][:400])}</blockquote>")
+        lines.append(arabic_quote(d["tweet_ar"][:400]))
     lines += [LINE, "✍️ <b>الرد المقترح</b> · اضغط عليه للنسخ", f"<code>{reply_txt}</code>"] + meaning
     if d.get("instruction"):
         lines.append(f"<i>🗒 فكرتك: {html.escape(d['instruction'])}</i>")
