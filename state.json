@@ -120,7 +120,7 @@
     "2117720496586334520",
     "2117725086413402244"
   ],
-  "tg_offset": 277101674,
+  "tg_offset": 277101675,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -1251,9 +1251,21 @@
       "reply_ar": "قائمة قوية، حزينون قليلاً لأننا لم نكن فيها هههه. نحن نبني فولتا على إليسيوم أيضاً، والمبدعون هناك يربحون رسوماً بـHYPE على كل صفقة. يسعدنا أن نرسل لك بيانات $VOLTA على السلسلة للجولة الثانية",
       "tweet_ar": "ترتيب منصات الإطلاق على إليسيوم: من لديه مستخدمون حقيقيون فعلاً قبل 9 نوفمبر؟ 👀 الجميع يروّج لمنصة ما، أما أنا فقرأت البيانات على السلسلة. 1. كليوس $KLEOS: الأولى بعدد المحافظ الحقيقية (1,050)، و117 إطلاقاً خلال 24 ساعة، والقيمة السوقية 1.37 مليون دولار. قد ترتفع 5-10 أضعاف مع إطلاق الشبكة الرئيسية، لكن 11 محفظة استحوذت على 57.5% عند الإطلاق. 2. ElysiumPump $ELYSP: موطن أشهر عملات الميم على إليسيوم $BLOB و$e/acc، والقيمة السوقية 138 ألف دولار، ما زالت منخفضة جداً. قد ترتفع 5-10 أضعاف إذا زادت الإطلاقات. 3. بوكسا $BOXA: أكبر توكن منصة، وأطلقت $ELYSX، والقيمة السوقية 1.34 مليون دولار. قد ترتفع 5-10 أضعاف إذا جلبت الشبكة الرئيسية أموالاً جديدة، و36.5% ما زالت في محافظ مجمّعة مرتبطة. 4. ستوكيوم: عملات ميم مقترنة بأسهم مرمّزة، و99% من حجم تداولها على توكنها الخاص. 5. إليوس $EOS: أربعة أوضاع إطلاق، والحاملون يربحون HYPE من الضرائب، و43% في محافظ لم توقّع أي معاملة. 6. إليكسا: تقول إن 100% من رسوم البروتوكول تذهب لإعادة الشراء والحرق. 7. كاليكس: رسوم 2%، واسترداد نقدي 30%، و50% من رسوم العملات تذهب لإيردروب يُفتح في 9 نوفمبر. 8. أسيند: منصة من اليوم الأول، بلا توكن، احتفظ بـHYPE الخاص بك. 9. مونترا: منصة على Uniswap V4، و25% من المعروض للإيردروب. 10. StonksPad: عملة $STONKS بلغت قمة 19.5 مليون دولار على BNB وقادمة الآن إلى إليسيوم. 11. أركهام: حوالي 20 محفظة حقيقية فقط حتى الآن. رأيي: فقط كليوس وElysiumPump وبوكسا لديها سوق حقيقي حالياً، والباقي ما زال عليه أن يثبت نفسه. أي منصة ستركب معها إلى الشبكة الرئيسية؟ ليست نصيحة مالية، ابحث بنفسك. ليس وعداً، مجرد رأيي. رسائلي مفتوحة للتعاون مع منصات ومشاريع إليسيوم.",
       "message_id": 136
+    },
+    "w1793772683": {
+      "kind": "tweet",
+      "instruction": "اعمل جمله قصيره و حماسيه",
+      "reply": "launch a token on volta and your creator fees can land as tokenized stocks, not just crypto. we built $VOLTA so a memecoin can quietly fund your stock bag 📈",
+      "tried": [
+        "launch a token on volta and your creator fees can land as tokenized stocks, not just crypto. we built $VOLTA so a memecoin can quietly fund your stock bag 📈"
+      ],
+      "relevant": true,
+      "reply_ar": "أطلق توكن على فولتا ورسوم المنشئ ممكن توصلك كأسهم مرمّزة، مش بس كريبتو. بنينا $VOLTA عشان الميم كوين يقدر يموّل محفظة أسهمك بهدوء 📈",
+      "tweet_ar": "",
+      "message_id": 138
     }
   },
-  "angle_i": 9,
+  "angle_i": 10,
   "recent_texts": [
     "appreciate you 🫡 when you're ready to launch something on elysium, the trading fees are yours, paid in HYPE",
     "gonna stay out of the politics on this one. we're just heads down building volta for elysium, where creators can earn fees in tokenized stocks too",
@@ -1263,6 +1275,7 @@
     "copy trading on elysium already, nice work. volta launches trade on agora too, and on our charts you'll see your own copied buys and avg entry for any $VOLTA pair",
     "elysium isn't even at public mainnet yet (nov 9) and there's already copy trading. fun to be building $VOLTA next to teams shipping this fast",
     "copy trading on elysium before public mainnet is wild 🔥 volta launches already trade on agora, so $VOLTA launchers just got a lot more eyes on day one",
-    "solid list, bit sad we didn't make it lol. we're building volta on elysium too and creators there earn fees in HYPE on every trade. happy to send you $VOLTA onchain data for round 2"
+    "solid list, bit sad we didn't make it lol. we're building volta on elysium too and creators there earn fees in HYPE on every trade. happy to send you $VOLTA onchain data for round 2",
+    "launch a token on volta and your creator fees can land as tokenized stocks, not just crypto. we built $VOLTA so a memecoin can quietly fund your stock bag 📈"
   ]
 }
