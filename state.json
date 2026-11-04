@@ -1,5 +1,5 @@
 {
-  "last_check": 1793813114,
+  "last_check": 1793813234,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -216,6 +216,7 @@
     "2117895099598405919",
     "2117943643290116163",
     "2117955713255485501",
+    "2118031585878454284",
     "2118009229705662536",
     "2117902428750368909",
     "2117717259716362608",
@@ -257,7 +258,7 @@
     "2117997401084510497",
     "2117895014772813849"
   ],
-  "tg_offset": 277101755,
+  "tg_offset": 277101756,
   "last_digest": "2026-11-04",
   "known_follows": {
     "Enter_Elysium": [
@@ -354,21 +355,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117945433234313681": {
-      "to_me": true,
-      "author": "real_alpha",
-      "text": "@barymoto I didn't aped at 100k fk",
-      "reply": "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar",
-      "tried": [
-        "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar"
-      ],
-      "image": null,
-      "my_text": "",
-      "relevant": false,
-      "reply_ar": "إنك تشوف شي يطير وأنت برّاه صار تقريبًا طقس عبور في كريبتو تويتر هههه. لوحة الترند في فولتا على الأقل تخلي الإطلاقات الجديدة أصعب إنها تفوتك، وهذا نص سبب إن $VOLTA تحت عيني",
-      "tweet_ar": "ما دخلت لما كان عند ١٠٠ ألف، تبًا",
-      "message_id": 257
-    },
     "2117947676008300551": {
       "author": "TheKleos_",
       "text": "All Kleos pools have been integrated into @BasedBot \n\nhttps://t.co/iZeJGtAlso https://t.co/MScCec522K",
@@ -1778,11 +1764,24 @@
       "reply_ar": "الإسبرطيون نالوا المجد، ومنشئو التوكنات على فولتا يربحون أسهماً، على طريقة $VOLTA",
       "tweet_ar": "الإسبرطي لا يقاتل وحده أبداً. 🛡️ في تشكيل الفالانكس، كان درعك يحمي الرجل الذي بجانبك. هذه هي كليوس. نصمد معاً في الصف. المجد الخالد يُكتسب كجماعة واحدة. إلى الأمام نحو إليزيوم",
       "message_id": 368
+    },
+    "2118031585878454284": {
+      "author": "yugenioo",
+      "text": "minted my Kalos genesis @kalosfun\ndon`t forget, u have 40 minutes",
+      "reply": "solid grab before the clock runs out, volta's burn has no timer, 80% of fees take $VOLTA off the market for good",
+      "tried": [
+        "solid grab before the clock runs out, volta's burn has no timer, 80% of fees take $VOLTA off the market for good"
+      ],
+      "image": null,
+      "followers": 1289,
+      "relevant": false,
+      "reply_ar": "خطوة موفقة قبل ما ينتهي الوقت، الحرق في فولتا ما له مؤقت، 80% من الرسوم تسحب $VOLTA من السوق نهائياً",
+      "tweet_ar": "سكّيت نسخة Kalos جينيسيس الخاصة بي، لا تنسوا، أمامكم 40 دقيقة",
+      "message_id": 369
     }
   },
-  "angle_i": 154,
+  "angle_i": 155,
   "recent_texts": [
-    "bridging is always the first chore on a fresh chain, and volta gets $VOLTA folks onto elysium before the nov 9 mainnet",
     "dex volume really is where narratives start, robinhood chain showed that fast. over on elysium volta's hook buys back and burns $VOLTA on every trade, so busy days leave a mark",
     "plot twist, volta doesn't pick the next token, the creator does and earns fees in HYPE, best part of $VOLTA imo",
     "auto burns, solid move. $VOLTA gets burned on every volta trade",
@@ -1841,7 +1840,8 @@
     "only touching what a team confirms on its own account is basic elysium hygiene. nov 9 mainnet will bring a flood of fake links, for $VOLTA i just go by @VoltaFamily",
     "calling it already lol. busy days are when volta's free elysium rpc matters, one reason i follow $VOLTA",
     "day 1 crew, ever tempted to launch on volta and take creator fees in HYPE, or strictly a $VOLTA holder?",
-    "spartans earned glory, volta creators earn stocks, $VOLTA style"
+    "spartans earned glory, volta creators earn stocks, $VOLTA style",
+    "solid grab before the clock runs out, volta's burn has no timer, 80% of fees take $VOLTA off the market for good"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1850,7 +1850,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793812968,
+  "last_to_me": 1793813116,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1983,11 +1983,12 @@
     "2118026010604028093",
     "2118026165437034565",
     "2118026636826235261",
-    "2118029678606782539"
+    "2118029678606782539",
+    "2118031585878454284"
   ],
-  "last_fast": 1793813114,
-  "last_mentions": 1793813054,
-  "last_slow": 1793813054,
+  "last_fast": 1793813234,
+  "last_mentions": 1793813234,
+  "last_slow": 1793813234,
   "tw_samples": [
     [
       1793779148,
@@ -2230,7 +2231,7 @@
     }
   },
   "x_actions": {
-    "likes": 22,
+    "likes": 23,
     "reposts": 11
   }
 }
