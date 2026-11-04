@@ -1,5 +1,5 @@
 {
-  "last_check": 1793816566,
+  "last_check": 1793816686,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -18,6 +18,7 @@
     "2117995185975996634",
     "2117966356368785758",
     "2118004635575505305",
+    "2118046344720044475",
     "2117812325944033524",
     "2117620917341675886",
     "2118006107863998667",
@@ -115,6 +116,7 @@
     "2118021706497536396",
     "2117885655221202996",
     "2117578135160135964",
+    "2118046612316385380",
     "2117603996827279590",
     "2117723384910082369",
     "2117726419086413958",
@@ -369,35 +371,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117960431180644557": {
-      "author": "whalesdotsol",
-      "text": "@MRossticsknk @VoltaFamily @OhMyJack @voltage_elysium Great thread",
-      "reply": "yeah, that thread covered a lot. one thing i'd tack on is volta bridging to elysium from 10+ chains, so nobody's stuck on step one before even looking at $VOLTA",
-      "tried": [
-        "yeah, that thread covered a lot. one thing i'd tack on is volta bridging to elysium from 10+ chains, so nobody's stuck on step one before even looking at $VOLTA"
-      ],
-      "image": null,
-      "followers": 7141,
-      "relevant": true,
-      "reply_ar": "أيوه، الثريد غطّى أشياء كثيرة. الشيء الوحيد اللي أضيفه إن volta تتيح الجسر (البريدج) إلى Elysium من أكثر من 10 شبكات، فما أحد يعلق في الخطوة الأولى قبل ما يلقي نظرة حتى على $VOLTA",
-      "tweet_ar": "ثريد رائع",
-      "message_id": 277
-    },
-    "2117962241957904390": {
-      "to_me": true,
-      "author": "Mars_DeFi",
-      "text": "@barymoto @TheKleos_ @Boxa_Elysium @Elysianpad I'll check it out",
-      "reply": "if you're poking around elysium launches, judge them by the first block. volta's hook has anti-snipe built in at launch so real buyers get a shot before bots do, and that's the part of $VOLTA i think people underrate",
-      "tried": [
-        "if you're poking around elysium launches, judge them by the first block. volta's hook has anti-snipe built in at launch so real buyers get a shot before bots do, and that's the part of $VOLTA i think people underrate"
-      ],
-      "image": null,
-      "my_text": "",
-      "relevant": true,
-      "reply_ar": "إذا كنت تتصفح إطلاقات العملات على إليزيوم، فقيّمها بناءً على أول بلوك. خطاف فولتا يتضمن حماية من القنص عند الإطلاق، فيحصل المشترون الحقيقيون على فرصة قبل البوتات، وهذا الجانب من $VOLTA أعتقد أن الناس يقللون من شأنه.",
-      "tweet_ar": "سأتفقده.",
-      "message_id": 278
-    },
     "2117962439178477821": {
       "author": "Wayne_D_Hell",
       "text": "@VoltaFamily @BasedBot @JustRektTool @agora_elysium exciting",
@@ -1790,12 +1763,38 @@
       "reply_ar": "القنوات دايمًا متأخرة دورة كاملة، بينما الأسواق تسعّر الأحداث لحظيًا. نفس الفكرة مع لوحة الترند في volta على Elysium بدل ما تستنى أحد يكتب ثريد ويخبرك، رأي نيرد من حامل $VOLTA هههه",
       "tweet_ar": "بعد كل اللي شفناه صار واضح جدًا إن أسواق التوقعات هي مستقبل طريقة استهلاكنا للمعلومات وفهمها. الناس صاروا يملّون أكثر وأكثر من أخبار القنوات التقليدية، فهي بطيئة وقديمة ومملة وغالبًا منفصلة تمامًا عن اللي يصير فعلًا في الوقت الحقيقي.",
       "message_id": 383
+    },
+    "2118046344720044475": {
+      "author": "agora_elysium",
+      "text": "You can now buy any token with any token in one swap\n\nwe are head bent on giving you what you want, ask for it and it'll be worked on https://t.co/pkDzzagbov",
+      "reply": "elysium swap ux leveling up quick, any token into any token is a real upgrade. volta launches already trade here and creators still earn their fees in HYPE, good fit for $VOLTA",
+      "tried": [
+        "elysium swap ux leveling up quick, any token into any token is a real upgrade. volta launches already trade here and creators still earn their fees in HYPE, good fit for $VOLTA"
+      ],
+      "image": "https://pbs.twimg.com/media/HWTPgFhWoAAv2TD.jpg",
+      "followers": 706,
+      "relevant": true,
+      "reply_ar": "تجربة المبادلة على إليزيوم تتحسن بسرعة، تبديل أي عملة بأي عملة ترقية حقيقية. عملات volta المطلقة يتم تداولها هنا أصلاً، والمنشئون يحصلون على رسومهم بعملة HYPE، تناسب جيد مع $VOLTA",
+      "tweet_ar": "يمكنك الآن شراء أي عملة بأي عملة أخرى في عملية مبادلة واحدة. نحن مصممون على تقديم ما تريده، فقط اطلبه وسنعمل عليه.",
+      "message_id": 384
+    },
+    "2118046612316385380": {
+      "author": "OhMyJack",
+      "text": "@gmgnai @VoltaFamily 👀",
+      "reply": "eyes on volta too, creator fees in stocks is the $VOLTA hook",
+      "tried": [
+        "eyes on volta too, creator fees in stocks is the $VOLTA hook"
+      ],
+      "image": null,
+      "followers": 16213,
+      "relevant": true,
+      "reply_ar": "عيني على فولتا أيضاً، رسوم المنشئين بالأسهم هي ما يميز $VOLTA",
+      "tweet_ar": "👀 (يراقب ويلفت الانتباه إلى فولتا)",
+      "message_id": 385
     }
   },
-  "angle_i": 168,
+  "angle_i": 170,
   "recent_texts": [
-    "solid chips, volta's free elysium rpc is my $VOLTA speed pick",
-    "cool stuff for sure, but the sleeper feature is volta's charts showing your own buys, sells and average entry. once you've traded $VOLTA with that on screen, guessing where you got in feels ancient",
     "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA",
     "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there",
     "gamified apps usually reward players, volta pays token creators fees in HYPE, a $VOLTA side quest for your research",
@@ -1853,7 +1852,9 @@
     "teal pikachu is a sniper finding out volta launches have anti-snipe, peak $VOLTA energy",
     "would an elysium mining token launch like ORE did, or show up next to $VOLTA on volta's trending board?",
     "kyber showing up day 1 is the usual move, volta's already live on elysium ahead of nov 9, a head start i like for $VOLTA",
-    "cable's always a cycle behind while markets price things live. same energy as volta's trending board on elysium vs waiting for some thread to tell you, $VOLTA nerd take lol"
+    "cable's always a cycle behind while markets price things live. same energy as volta's trending board on elysium vs waiting for some thread to tell you, $VOLTA nerd take lol",
+    "elysium swap ux leveling up quick, any token into any token is a real upgrade. volta launches already trade here and creators still earn their fees in HYPE, good fit for $VOLTA",
+    "eyes on volta too, creator fees in stocks is the $VOLTA hook"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1862,7 +1863,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793816448,
+  "last_to_me": 1793816696,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2009,10 +2010,12 @@
     "2118041649943396411",
     "2118042176584327339",
     "2118042922935566338",
-    "2118043126753607737"
+    "2118043126753607737",
+    "2118046344720044475",
+    "2118046612316385380"
   ],
-  "last_fast": 1793816566,
-  "last_mentions": 1793816566,
+  "last_fast": 1793816686,
+  "last_mentions": 1793816656,
   "last_slow": 1793816566,
   "tw_samples": [
     [
@@ -2274,9 +2277,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 139,
-      "input_tokens": 668727,
-      "output_tokens": 117399
+      "calls": 141,
+      "input_tokens": 678687,
+      "output_tokens": 119531
     }
   },
   "x_actions": {
