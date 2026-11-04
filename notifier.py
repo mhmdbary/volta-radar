@@ -213,9 +213,15 @@ def strip_leading_mentions(text):
 RLM = "‏"  # right-to-left mark: keeps Arabic lines from getting scrambled by English words / $VOLTA
 
 
+LATIN_RUN = re.compile(r"[A-Za-z0-9$@#%_./'+-]+(?:[ ,:()]+[A-Za-z0-9$@#%_./'+-]+)*")
+
+
 def arabic_quote(text):
+    """Arabic translation as a collapsed quote. Each English run ($VOLTA, e/acc, volta...) is wrapped in a
+    left-to-right isolate, and each line starts right-to-left, so mixed Arabic + English reads in order."""
     lines = strip_leading_mentions(text).split("\n")
-    return "<blockquote expandable>🇸🇦 " + "\n".join(RLM + html.escape(l) for l in lines) + "</blockquote>"
+    fixed = [RLM + LATIN_RUN.sub(lambda m: "⁦" + m.group(0) + "⁩", html.escape(l)) for l in lines]
+    return "<i>🇸🇦 الترجمة</i>\n<blockquote expandable>" + "\n".join(fixed) + "</blockquote>"
 
 
 HELP_TEXT = (
