@@ -1,5 +1,5 @@
 {
-  "last_check": 1793832873,
+  "last_check": 1793832993,
   "seen_ids": [
     "2117882327418454138",
     "2118110308921389144",
@@ -232,6 +232,7 @@
     "2118009229705662536",
     "2117962969300529218",
     "2117792682991083960",
+    "2118115081200566326",
     "2117726101095035091",
     "2117973687584661878",
     "2118022281259790582",
@@ -405,20 +406,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117988235263766644": {
-      "author": "VoltaFamily",
-      "text": "Friendly reminder that we are pending approval for the Gold Checkmark, that's why we don't have one at the moment.",
-      "reply": "checkmarks take forever on here, volta paying creators their fees in HYPE is the $VOLTA badge i actually care about",
-      "tried": [
-        "checkmarks take forever on here, volta paying creators their fees in HYPE is the $VOLTA badge i actually care about"
-      ],
-      "image": null,
-      "followers": 373,
-      "relevant": false,
-      "reply_ar": "علامات التوثيق تأخذ وقتاً طويلاً هنا، لكن أن تدفع volta للمنشئين رسومهم بعملة HYPE هي الشارة التي تهمني فعلاً في $VOLTA.",
-      "tweet_ar": "تذكير ودي بأننا بانتظار الموافقة على علامة التوثيق الذهبية، ولهذا السبب لا نملكها في الوقت الحالي.",
-      "message_id": 316
-    },
     "2117988958588252435": {
       "author": "Doflam656",
       "text": "@VoltaFamily Website currently not working",
@@ -1818,11 +1805,24 @@
       "reply_ar": "البحث عن القصص أفضل من أي فريق تسويق هههه، وقصة $VOLTA هي إن فولتا أول هوك على يونيسواب V4 شغّال على إليزيوم",
       "tweet_ar": "نفس الأسلوب اللي استخدمه فريق تسويق أبستراكت لما خرّب الميمز الأصلية عند 10 مليون (وبعدها أبستراكت قفلت). على كل حال، ما راح أتوقف عن البحث عن السرديات والقصص الجيدة. يعني هذا تقرير كلتشر عن إليزيوم لحد الآن: BOXA ارتفعت 27 ضعف، e/acc ارتفعت 20 ضعف، VOLTA ارتفعت 8 أضعاف.",
       "message_id": 419
+    },
+    "2118115081200566326": {
+      "author": "CryptoAllFather",
+      "text": "@thejbullmarket @Enter_Elysium @VoidCashio @VoltaFamily Legit project only question is will it survive in the current market",
+      "reply": "bear markets are brutal on launches where bots grab the first block and dump on everyone who shows up after. volta builds anti-snipe into the hook at launch so that early dump is harder to pull off, the $VOLTA detail i'd bring up on the survival question",
+      "tried": [
+        "bear markets are brutal on launches where bots grab the first block and dump on everyone who shows up after. volta builds anti-snipe into the hook at launch so that early dump is harder to pull off, the $VOLTA detail i'd bring up on the survival question"
+      ],
+      "image": null,
+      "followers": 35301,
+      "relevant": true,
+      "reply_ar": "الأسواق الهابطة قاسية على الإطلاقات التي تستحوذ فيها البوتات على أول بلوك ثم تبيع على كل من يأتي بعدها. فولتا تبني حماية ضد القنص داخل الهوك عند الإطلاق، فيصبح هذا البيع المبكر أصعب، وهذه هي نقطة $VOLTA التي سأطرحها في سؤال الصمود",
+      "tweet_ar": "مشروع حقيقي وموثوق، السؤال الوحيد هو هل سيصمد في ظل السوق الحالي",
+      "message_id": 420
     }
   },
-  "angle_i": 204,
+  "angle_i": 205,
   "recent_texts": [
-    "tx tracking before the doors even open, elysium's getting the nerdy stuff done early lol. the onchain activity i'd actually watch is creators getting paid, volta sends whoever launches a token their fees in HYPE, the $VOLTA detail i keep coming back to",
     "volta creators earning tokenized stocks is why $VOLTA fits elysium",
     "obol climbing fast. down at 1%, volta's 25 trades still fed the $VOLTA burn",
     "gvolta! which pair you watching, $VOLTA or a fresh HYPE v4 launch?",
@@ -1881,7 +1881,8 @@
     "valid worry, but volta launches already trade on BasedBot, JustRektTool and Agora, which eases my $VOLTA nerves",
     "privacy meta gets the hype, but the real sleeper on elysium is what launchers get paid in. a privacy token on volta can earn its creator fees in tokenized stocks, the most elysium combo imaginable and the $VOLTA detail people keep missing",
     "hard to argue. funny thing is volta goes the opposite way on its fees, 80% buy back $VOLTA and burn it fully in the open with a live dashboard anyone can check",
-    "lore hunting beats any marketing team lol, $VOLTA lore is volta being the first v4 hook live on elysium"
+    "lore hunting beats any marketing team lol, $VOLTA lore is volta being the first v4 hook live on elysium",
+    "bear markets are brutal on launches where bots grab the first block and dump on everyone who shows up after. volta builds anti-snipe into the hook at launch so that early dump is harder to pull off, the $VOLTA detail i'd bring up on the survival question"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1890,7 +1891,7 @@
     "2117986555780620334",
     "2117945433234313681"
   ],
-  "last_to_me": 1793832824,
+  "last_to_me": 1793832969,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2073,11 +2074,12 @@
     "2118113078361632843",
     "2118113334591701120",
     "2118113647511625768",
-    "2118113809479139690"
+    "2118113809479139690",
+    "2118115081200566326"
   ],
-  "last_fast": 1793832873,
-  "last_mentions": 1793832813,
-  "last_slow": 1793832716,
+  "last_fast": 1793832993,
+  "last_mentions": 1793832993,
+  "last_slow": 1793832903,
   "tw_samples": [
     [
       1793779148,
