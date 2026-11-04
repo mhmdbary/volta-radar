@@ -479,7 +479,7 @@ def draft_message(d, tags):
             lines.append(f"<i>🗣 إنت كتبت:</i>\n<blockquote expandable>{html.escape(d['my_text'][:200])}</blockquote>")
         lines += ["<i>💬 هو رد:</i>", f"<blockquote>{snippet}</blockquote>"]
     else:
-        lines = [f"🤖 <b>اقتراح رد</b>  ·  {status}", LINE,
+        lines = tier_header(tags, d["author"], d.get("followers")) + [f"🤖 <b>اقتراح رد</b>  ·  {status}", LINE,
                  f"{tag_line(tags, d['author'])}  ·  @{html.escape(d['author'])}",
                  f"<blockquote>{snippet}</blockquote>"]
     if d.get("tweet_ar"):
@@ -624,7 +624,7 @@ def send_draft(cfg, settings, state, tags, tweet, mention):
         return
     author = (tweet.get("author") or {}).get("userName") or ""
     d = {"author": author, "text": tweet.get("text") or "", "reply": "", "tried": [],
-         "image": tweet_media(tweet)[0]}
+         "image": tweet_media(tweet)[0], "followers": (tweet.get("author") or {}).get("followers")}
     result = regenerate(cfg, d, state)
     if not result or not result.get("reply"):
         return
@@ -761,6 +761,30 @@ def tweet_media(tweet):
     return None, None
 
 
+def account_tier(tags, handle, followers):
+    """How loud an alert should be: 3 = Volta itself, 2 = official/huge accounts, 1 = notable, 0 = normal."""
+    tag = (tags.get((handle or "").lower()) or "").lower()
+    followers = followers if isinstance(followers, int) else 0
+    if (handle or "").lower() == "voltafamily":
+        return 3
+    if "official" in tag or "founder" in tag or followers >= 100_000:
+        return 2
+    if "top kol" in tag or followers >= 25_000:
+        return 1
+    return 0
+
+
+def tier_header(tags, handle, followers):
+    tier = account_tier(tags, handle, followers)
+    if tier == 3:
+        return ["🚨🚨🚨 <b>VOLTA OFFICIAL</b> 🚨🚨🚨", "⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡"]
+    if tier == 2:
+        return [f"🔥🔥 <b>BIG ACCOUNT</b> · {short_num(followers)} followers 🔥🔥"]
+    if tier == 1:
+        return [f"⭐ <b>NOTABLE</b> · {short_num(followers)} followers"]
+    return []
+
+
 def format_alert(tweet, settings, tags, mention=False):
     author = tweet.get("author") or {}
     handle = author.get("userName") or ""
@@ -773,7 +797,7 @@ def format_alert(tweet, settings, tags, mention=False):
     elif kind in ("video", "animated_gif"):
         text = f"🎥 {text}"
 
-    top = []
+    top = tier_header(tags, handle, author.get("followers"))
     if mention:
         top.append("💬 <b>$VOLTA MENTION</b>")
     elif is_highlight(tweet, settings):
@@ -878,7 +902,10 @@ def mention_query(settings, handles, since):
 
 
 def check_once(cfg, settings, handles, state):
-    since = int(state.get("last_check") or time.time() - 15 * 60)
+    # X search shows new tweets a minute or two late, so always look back a few minutes past the last check;
+    # tweets we already sent are skipped by their id
+    lookback = int(settings.get("lookback_seconds", 300))
+    since = int(state.get("last_check") or time.time() - 15 * 60) - lookback
     now = int(time.time())
     seen = set(state.get("seen_ids", []))
     new_tweets = []  # (tweet, is_mention)
