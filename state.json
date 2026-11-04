@@ -1,5 +1,5 @@
 {
-  "last_check": 1793814486,
+  "last_check": 1793814612,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -86,6 +86,7 @@
     "2118012568166109461",
     "2117948186304070092",
     "2117863456682774755",
+    "2118037559549050975",
     "2118026636826235261",
     "2117792682991083960",
     "2117855496178675954",
@@ -359,22 +360,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117952872898064730": {
-      "author": "whalesdotsol",
-      "text": "@ElCryptoDoc @Enter_Elysium @VoltaFamily is bringing the first live Uniswap V4 hook to Elysium. \n\nEvery token gets its own V4 pool paired with $HYPE, with creator-set fees, launch anti-snipe protection, and built-in buybacks and burns on every trade. https://t.co/hEt9zVDH93",
-      "reply": "every new chain gets a launchpad wave, and the fee flow is the part people skim. on volta 80% of trading fees go into $VOLTA buybacks that get burned, so more volume means less supply",
-      "tried": [
-        "every new chain gets a launchpad wave, and the fee flow is the part people skim. on volta 80% of trading fees go into $VOLTA buybacks that get burned, so more volume means less supply"
-      ],
-      "image": "https://pbs.twimg.com/media/HWR66CFWQAAneH9.jpg",
-      "followers": 7141,
-      "relevant": true,
-      "reply_ar": "كل شبكة جديدة تأتي معها موجة من منصات الإطلاق، ومسار الرسوم هو الجزء الذي يتجاهله الناس. في فولتا تذهب 80% من رسوم التداول لإعادة شراء $VOLTA ثم حرقها، فكلما زاد حجم التداول قلّ المعروض.",
-      "tweet_ar": "فولتا تجلب أول هوك Uniswap V4 فعّال إلى شبكة Elysium. كل توكن يحصل على مجمع V4 خاص به مقترن بـ HYPE، مع رسوم يحددها المنشئ، وحماية من القنص عند الإطلاق، وعمليات إعادة شراء وحرق مدمجة في كل صفقة.",
-      "message_id": 268,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117953403838177676"
-    },
     "2117953749591146800": {
       "author": "whalesdotsol",
       "text": "@BitBlitzBuzz @TheKleos_ @BitBlitzBuzz $volta (@VoltaFamily) deserves to be here cause it’s the first uniswap V4 hook like, current the best R:R https://t.co/Bn2NVwgeRV",
@@ -1788,11 +1773,24 @@
       "reply_ar": "المساعدات الذكية في كل مكان الآن، مساعدي سيذكّرني فقط بأن شبكة إليسيوم، سلسلة $VOLTA، تنطلق للعامة في 9 نوفمبر",
       "tweet_ar": "جرّبوا Grok. إنه كأنك وظّفت مساعداً رائعاً!",
       "message_id": 373
+    },
+    "2118037559549050975": {
+      "author": "TheKleos_",
+      "text": "Stock pairs are coming to Kleos.\nLaunch a coin paired with tokenized S&amp;P 500, NVIDIA, Nasdaq 100 or Micron on Elysium. Its tax and holder rewards are paid in the stock.\nSee them on the create page now: https://t.co/rmrQnlEaDd\nEarn your Kleos https://t.co/CgvMPwY9CR",
+      "reply": "stock era on elysium, $VOLTA fans know volta pays creators in stocks",
+      "tried": [
+        "stock era on elysium, $VOLTA fans know volta pays creators in stocks"
+      ],
+      "image": "https://pbs.twimg.com/media/HWTH7xWWAAAmwXp.jpg",
+      "followers": 1799,
+      "relevant": true,
+      "reply_ar": "عصر الأسهم على Elysium، ومتابعو $VOLTA يعرفون أن volta تدفع للمنشئين بالأسهم أيضاً",
+      "tweet_ar": "أزواج الأسهم قادمة إلى Kleos. أطلق عملة مقترنة بأسهم مرمّزة لمؤشر S&P 500 أو NVIDIA أو Nasdaq 100 أو Micron على شبكة Elysium، وتُدفع الضريبة ومكافآت الحاملين بالسهم نفسه. شاهدها الآن في صفحة الإنشاء. اكسب مجدك مع Kleos.",
+      "message_id": 374
     }
   },
-  "angle_i": 159,
+  "angle_i": 160,
   "recent_texts": [
-    "early chains rarely pull that many traders, guess a fresh v4 pool paired with HYPE for every volta launch helps $VOLTA",
     "agreed, and anti-snipe at launch is the $VOLTA part snipers hate",
     "what would make you less skeptical though, traders actually sticking around? for me a launchpad on a fresh chain lives or dies on whether people can see what's moving. volta's trending board does that on elysium, part of why i watch $VOLTA",
     "spreading bets before nov 9 makes sense. normally stuff ships after a chain's mainnet, but volta's already live on elysium so $VOLTA got its first reactions before the public launch",
@@ -1851,7 +1849,8 @@
     "first v4 hook live on elysium is the real headline, it's not 'official' yet since it's only been submitted to uniswap for approval. every volta token gets its own v4 pool paired with HYPE, so tator wiring that in makes sense to this $VOLTA holder",
     "bots incoming lol. volta's anti-snipe is why i watch $VOLTA",
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
-    "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9"
+    "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
+    "stock era on elysium, $VOLTA fans know volta pays creators in stocks"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1860,7 +1859,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793814357,
+  "last_to_me": 1793814622,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1998,11 +1997,12 @@
     "2118033018963325287",
     "2118033614936171005",
     "2118036092137980087",
-    "2118036744662880439"
+    "2118036744662880439",
+    "2118037559549050975"
   ],
-  "last_fast": 1793814486,
-  "last_mentions": 1793814426,
-  "last_slow": 1793814325,
+  "last_fast": 1793814612,
+  "last_mentions": 1793814612,
+  "last_slow": 1793814516,
   "tw_samples": [
     [
       1793779148,
@@ -2243,13 +2243,17 @@
     [
       1793813884,
       887664
+    ],
+    [
+      1793814496,
+      886209
     ]
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 130,
-      "input_tokens": 624642,
-      "output_tokens": 108428
+      "calls": 131,
+      "input_tokens": 630167,
+      "output_tokens": 109959
     }
   },
   "x_actions": {
