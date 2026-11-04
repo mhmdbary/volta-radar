@@ -1,5 +1,5 @@
 {
-  "last_check": 1793832042,
+  "last_check": 1793832162,
   "seen_ids": [
     "2117882327418454138",
     "2118110308921389144",
@@ -153,6 +153,7 @@
     "2117595326626619825",
     "2117724724499452000",
     "2118083343271027033",
+    "2118111384940495264",
     "2117861128474939488",
     "2117970055988486372",
     "2117854324055490966",
@@ -287,6 +288,7 @@
     "2117943349877588018",
     "2117681643377078689",
     "2117751809427263579",
+    "2118111278149312747",
     "2117721198431985792",
     "2117843126350131380",
     "2118000796990333059",
@@ -397,34 +399,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117982317629091865": {
-      "author": "chrisleao",
-      "text": "@VoltaFamily Impressive launch numbers! Which token will you launch next?",
-      "reply": "plot twist, volta doesn't pick the next token, the creator does and earns fees in HYPE, best part of $VOLTA imo",
-      "tried": [
-        "plot twist, volta doesn't pick the next token, the creator does and earns fees in HYPE, best part of $VOLTA imo"
-      ],
-      "image": null,
-      "followers": 350949,
-      "relevant": true,
-      "reply_ar": "المفاجأة أن فولتا لا تختار التوكن القادم، بل صانعه هو من يختار ويكسب الرسوم بعملة HYPE، وهذا أفضل جزء في $VOLTA برأيي",
-      "tweet_ar": "أرقام إطلاق مبهرة! ما هو التوكن الذي ستطلقونه بعد ذلك؟",
-      "message_id": 308
-    },
-    "2117982889883144652": {
-      "author": "agora_elysium",
-      "text": "🔥 $AGORA buybacks are now fully automatic.\n\n30% of every Agora fee goes straight into an on-chain burn budget. It buys $AGORA when the price dips and burns it, and burns daily on quiet days.\n\nNobody can withdraw it, not even us.\n\nContract: 0x82d59a4b329ee539240113be0e8812363739294a",
-      "reply": "auto burns, solid move. $VOLTA gets burned on every volta trade",
-      "tried": [
-        "auto burns, solid move. $VOLTA gets burned on every volta trade"
-      ],
-      "image": null,
-      "followers": 692,
-      "relevant": true,
-      "reply_ar": "الحرق التلقائي خطوة موفقة. يتم حرق $VOLTA مع كل عملية تداول على فولتا",
-      "tweet_ar": "عمليات إعادة شراء $AGORA أصبحت الآن تلقائية بالكامل. 30% من كل رسوم Agora تذهب مباشرة إلى ميزانية حرق على السلسلة، تشتري $AGORA عندما ينخفض السعر وتحرقه، وتحرق يومياً في الأيام الهادئة. لا أحد يستطيع سحبها، ولا حتى نحن.",
-      "message_id": 309
-    },
     "2117985318255104031": {
       "author": "AdamHODL",
       "text": "There are very few people in this space that backs coins at their earliest stage, with full conviction.\n\n@CryptoKaleo is one of them.\n\nI simply will not fade. https://t.co/WmRaMPMCrU",
@@ -1811,12 +1785,38 @@
       "reply_ar": "الشموع الخضراء تنهي أي جدال على التايملاين هههه. وفي الأثناء على إليزيوم كل توكن يُطلق على فولتا يحصل على مجمع يونيسواب V4 خاص به مقترن بـ HYPE، وهذا الجانب من $VOLTA الذي أتابعه فعلاً",
       "tweet_ar": "البيتكوين ارتفع 5%، شكراً للديمقراطيين!",
       "message_id": 411
+    },
+    "2118111278149312747": {
+      "author": "thejbullmarket",
+      "text": "First utility on @Enter_Elysium  and it's privacy, @VoidCashio $VOID giving shielded pools to send your crypto from without showing your wallet.\n\nPrivacy is a very hot narrative and this one launched on @Voltafamily, the only launchpad with the official Uniswap V4 Hook, which the 2 other launchpads on Elysium don't have and which will cause trouble with getting listed on all the bots and trading platforms like GMGN.\n\nIt's also second biggest token by market cap on it, so there will be a lot of attention on it automatically.\n\nWe saw lots of $30M pumps on ARC a month ago from complete larps.\n\nThis is at $80k, legit project, so there is a ton of upwards potential.\n\n6 days to go until full release of Elysium mainnet, every day there will be more attention and more liquidity going into Elysium.\n\nhttps://t.co/qFLiLaLXge",
+      "reply": "privacy coin with a holder list full of sniper wallets would be kinda ironic. launching on volta with anti-snipe from block one is the part of void that makes the $VOLTA case for me",
+      "tried": [
+        "privacy coin with a holder list full of sniper wallets would be kinda ironic. launching on volta with anti-snipe from block one is the part of void that makes the $VOLTA case for me"
+      ],
+      "image": null,
+      "followers": 173931,
+      "relevant": true,
+      "reply_ar": "عملة خصوصية وقائمة حامليها مليئة بمحافظ القنّاصين، سيكون هذا مفارقة. إطلاقها على فولتا مع الحماية من القنص من أول بلوك هو ما يقنعني بـ $VOLTA في مشروع void.",
+      "tweet_ar": "أول منفعة حقيقية على Elysium هي الخصوصية: مشروع VoidCash وعملته $VOID يقدّم مجمعات محمية ترسل منها عملاتك دون أن تكشف محفظتك. الخصوصية سردية ساخنة جدًا، وهذا المشروع أُطلق على Volta، الذي يقول الكاتب إنها منصة الإطلاق الوحيدة التي تملك خطاف Uniswap V4 الرسمي، وإن المنصتين الأخريين على Elysium لا تملكانه، وإن ذلك سيسبب لهما مشاكل في الإدراج على البوتات ومنصات التداول مثل GMGN. وهي أيضًا ثاني أكبر عملة من حيث القيمة السوقية على المنصة، لذا ستحظى بانتباه كبير تلقائيًا. رأينا قبل شهر الكثير من الارتفاعات إلى 30 مليون دولار على ARC لمشاريع وهمية تمامًا. هذه عند 80 ألف دولار ومشروع حقيقي، لذا هناك مجال كبير للصعود. بقيت 6 أيام على الإطلاق الكامل لشبكة Elysium الرئيسية، وكل يوم سيأتي انتباه أكبر وسيولة أكثر إلى Elysium.",
+      "message_id": 412
+    },
+    "2118111384940495264": {
+      "author": "CryptoTomYT",
+      "text": "A lot of you noticed that the password on Ascend was lifted a while ago, and I've seen all the questions and speculation surrounding it.\n\nI want to make one thing clear. The decision to lift the password was intentional. Every step we take at Ascend has a purpose.\n\nI also want to clear up some confusion. Contracts that exist on Ascend will continue to exist beyond November 9th. Nothing is being wiped or reset.\n\nThat being said, I recognize we could've communicated this much better, and I take responsibility for that. Transparency with our community has always been important to us, and we'll continue to hold ourselves to that standard.\n\nNovember 9th, we Ascend to Elysium.",
+      "reply": "fair, owning it helps. come nov 9 i'll be on volta's trending board seeing what moves next to $VOLTA",
+      "tried": [
+        "fair, owning it helps. come nov 9 i'll be on volta's trending board seeing what moves next to $VOLTA"
+      ],
+      "image": null,
+      "followers": 29777,
+      "relevant": true,
+      "reply_ar": "منطقي، الاعتراف بالخطأ يساعد. مع 9 نوفمبر سأتابع لوحة الترند في فولتا لأرى ما الذي يتحرك بجانب $VOLTA",
+      "tweet_ar": "لاحظ كثير منكم أن كلمة المرور على Ascend أُزيلت قبل فترة، ورأيت كل الأسئلة والتكهنات حول ذلك. أريد توضيح أمر واحد: قرار إزالة كلمة المرور كان مقصوداً، وكل خطوة نتخذها في Ascend لها هدف. وأريد أيضاً إزالة بعض الالتباس: العقود الموجودة على Ascend ستبقى موجودة بعد 9 نوفمبر، ولن يُمسح أو يُعاد ضبط أي شيء. ومع ذلك، أعترف بأنه كان بإمكاننا التواصل بشكل أفضل بكثير، وأتحمل مسؤولية ذلك. الشفافية مع مجتمعنا كانت دائماً مهمة لنا، وسنواصل الالتزام بهذا المعيار. في 9 نوفمبر، نصعد إلى Elysium.",
+      "message_id": 413
     }
   },
-  "angle_i": 196,
+  "angle_i": 198,
   "recent_texts": [
-    "good shout, volta creators collect fees in HYPE, why i hold $VOLTA",
-    "bisa aja is underselling it. volta letting creators earn fees in tokenized stocks is the most slept on thing in the elysium scene, and it's why $VOLTA stays on my screen",
     "iya jir, each volta trade eats a little $VOLTA supply",
     "tagging half of elysium in one go lol, volta was the first uniswap v4 hook live there, that's my $VOLTA pick",
     "all good lol, elysium launchpads popped up so fast it's easy to mix them up. what has me watching $VOLTA is volta's anti-snipe at launch, so bots don't get the first block.",
@@ -1874,7 +1874,9 @@
     "248 launches feeding $VOLTA burns, and each creator still earns fees in HYPE",
     "good to hear your controls held, where are the docs moving next? stocks onchain is my lane too, volta lets creators earn fees in tokenized stocks and that's the $VOLTA bit i track",
     "stress tests usually just find bugs, on volta more trades means 80% of fees buying back and burning $VOLTA",
-    "green candles end every timeline argument lol. meanwhile on elysium each volta launch already gets its own uniswap v4 pool paired with HYPE, the part of $VOLTA i actually watch"
+    "green candles end every timeline argument lol. meanwhile on elysium each volta launch already gets its own uniswap v4 pool paired with HYPE, the part of $VOLTA i actually watch",
+    "privacy coin with a holder list full of sniper wallets would be kinda ironic. launching on volta with anti-snipe from block one is the part of void that makes the $VOLTA case for me",
+    "fair, owning it helps. come nov 9 i'll be on volta's trending board seeing what moves next to $VOLTA"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1883,7 +1885,7 @@
     "2117986555780620334",
     "2117945433234313681"
   ],
-  "last_to_me": 1793832002,
+  "last_to_me": 1793832141,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2058,11 +2060,13 @@
     "2118104754182312367",
     "2118105239073009960",
     "2118109188387909656",
-    "2118110308921389144"
+    "2118110308921389144",
+    "2118111278149312747",
+    "2118111384940495264"
   ],
-  "last_fast": 1793832042,
-  "last_mentions": 1793831980,
-  "last_slow": 1793831980,
+  "last_fast": 1793832162,
+  "last_mentions": 1793832162,
+  "last_slow": 1793832162,
   "tw_samples": [
     [
       1793779148,
@@ -2423,9 +2427,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 167,
-      "input_tokens": 806936,
-      "output_tokens": 143844
+      "calls": 169,
+      "input_tokens": 816080,
+      "output_tokens": 146253
     }
   },
   "x_actions": {
