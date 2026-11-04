@@ -1,5 +1,5 @@
 {
-  "last_check": 1793798558,
+  "last_check": 1793798745,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -8,8 +8,8 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117580008931709076",
     "2117893633009651980",
+    "2117580008931709076",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -34,8 +34,8 @@
     "2117957641175765165",
     "2117969714953810404",
     "2117812508903772532",
-    "2117748509201899912",
     "2117953749591146800",
+    "2117748509201899912",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -154,7 +154,9 @@
     "2117952872898064730",
     "2117686540176376297",
     "2117938931136385206",
+    "2117971363936039117",
     "2117727385458245913",
+    "2117970774040686814",
     "2117896209239277918",
     "2117752963968143519",
     "2117594285797482751",
@@ -189,7 +191,7 @@
     "2117617355627131060",
     "2117942164567343349"
   ],
-  "tg_offset": 277101752,
+  "tg_offset": 277101753,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -286,32 +288,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117779860089340399": {
-      "author": "Realwhales_",
-      "text": "@VoltaFamily @Uniswap Follow back please, Let’s connect and grow together 🤝",
-      "reply": "appreciate you stopping by 🤝 we're always around in the replies, so come say hi when you're building something or have questions",
-      "tried": [
-        "appreciate you stopping by 🤝 we're always around in the replies, so come say hi when you're building something or have questions"
-      ],
-      "image": null,
-      "relevant": false,
-      "reply_ar": "نقدّر مرورك 🤝 نحن دائماً موجودون في الردود، فتعال وقل مرحباً عندما تبني شيئاً أو يكون لديك أسئلة",
-      "tweet_ar": "@VoltaFamily @Uniswap تابعني من فضلك، لنتواصل وننمو معاً 🤝",
-      "message_id": 101
-    },
-    "2117779862056235231": {
-      "author": "VoltaFamily",
-      "text": "Our blue checkmark is gone for now. That's because we've applied for the gold checkmark, and the badge stays off while X reviews it.\n\nEven without the badge, remember that this is the only Volta official profile. https://t.co/C29M4e8JMP",
-      "reply": "quick reminder while the badge is off: double check the handle is @VoltaFamily before clicking anything. impersonators love moments like this",
-      "tried": [
-        "quick reminder while the badge is off: double check the handle is @VoltaFamily before clicking anything. impersonators love moments like this"
-      ],
-      "image": "https://pbs.twimg.com/media/HWPKgeabAAA4E0V.jpg",
-      "relevant": true,
-      "reply_ar": "تذكير سريع بينما الشارة مخفية: تأكدوا أن اسم الحساب هو @VoltaFamily قبل الضغط على أي رابط. المنتحلون يستغلون مثل هذه الفترات",
-      "tweet_ar": "علامة التوثيق الزرقاء اختفت مؤقتًا. السبب أننا قدمنا طلبًا للحصول على العلامة الذهبية، والشارة تبقى مخفية بينما تراجع X الطلب. حتى بدون الشارة، تذكروا أن هذا هو الحساب الرسمي الوحيد لـ Volta.",
-      "message_id": 102
-    },
     "2117782132236120408": {
       "author": "OhMyJack",
       "text": "@AdamHODL @longdotxyz @VoltaFamily ?",
@@ -1708,12 +1684,38 @@
       "reply_ar": "الترويج يجلب الأنظار، لكن حماية فولتا من القناصين عند الإطلاق تسمح لأصحاب هذه الأنظار بالشراء قبل البوتات، وهذا سبب كبير لمتابعتي لـ $VOLTA",
       "tweet_ar": "مستعدة لإعطاء مشروعكم دفعة جديدة. تابعوني 🤝📩🔥",
       "message_id": 297
+    },
+    "2117970774040686814": {
+      "author": "nammcamm",
+      "text": "@VoltaFamily @BasedBot ready to ape in",
+      "reply": "basedbot makes it quick for sure. volta's trending board is the bit i'd pair with it, shows what's actually moving on elysium so you're not picking blind, $VOLTA included",
+      "tried": [
+        "basedbot makes it quick for sure. volta's trending board is the bit i'd pair with it, shows what's actually moving on elysium so you're not picking blind, $VOLTA included"
+      ],
+      "image": null,
+      "followers": 3008,
+      "relevant": true,
+      "reply_ar": "بيسد بوت يخلي الموضوع سريع أكيد. لوحة الترند في فولتا هي الشي اللي أستخدمه معاه، تعرض لك وش اللي يتحرك فعلاً على إليزيوم عشان ما تختار وأنت أعمى، و$VOLTA من ضمنها",
+      "tweet_ar": "جاهز أدخل بقوة",
+      "message_id": 298
+    },
+    "2117971363936039117": {
+      "author": "Habibxweb3",
+      "text": "Thank you @1win https://t.co/0P6YB4oGMl",
+      "reply": "that app ui is clean af. my nov 9 calendar is all elysium though, volta's already live there with $VOLTA",
+      "tried": [
+        "that app ui is clean af. my nov 9 calendar is all elysium though, volta's already live there with $VOLTA"
+      ],
+      "image": "https://pbs.twimg.com/media/HWSLuhaaAAE11-Y.jpg",
+      "followers": 10583,
+      "relevant": false,
+      "reply_ar": "واجهة التطبيق نظيفة جداً. لكن يوم 9 نوفمبر عندي كله لإليزيوم، وفولتا شغالة هناك من الآن مع $VOLTA",
+      "tweet_ar": "شكراً 1win",
+      "message_id": 299
     }
   },
-  "angle_i": 85,
+  "angle_i": 87,
   "recent_texts": [
-    "exit poll threads are the only charts i can't make sense of lol. mine are simpler, volta creators can take fees in tokenized stocks, a quiet reason i hold $VOLTA",
-    "respect. mine are e/burn, which is basically volta taking 80% of fees to buy back $VOLTA and torch it. the faster things trade the smaller supply gets",
     "short and confident, respect. my one-word version is v4 pool, since every volta launch gets its own one paired with HYPE. that's the bit that sold me on holding $VOLTA",
     "love the receipts on every burn. volta has a live burn dashboard for $VOLTA too, and watching those numbers tick up is weirdly satisfying lol",
     "that chart with dev trades and burns marked right on the candles is so clean. on volta i mostly use it to check my own avg entry, kinda why i stuck around holding $VOLTA",
@@ -1771,7 +1773,9 @@
     "the $VOLTA cat finding out volta creators earn tokenized stocks",
     "can't speak to valuation, i just watch the mechanics. 80% of volta's fees go into buying back $VOLTA and all of it gets burned, so i check the burn dashboard more than the chart",
     "shoot me a message sounds like something's cooking lol. you thinking of launching on elysium? every token on volta gets its own uniswap v4 pool paired with HYPE right away. what would you put out, something for the $VOLTA crowd or your own community?",
-    "promo brings eyes, volta's anti-snipe at launch lets those eyes buy before bots do, a big reason i follow $VOLTA"
+    "promo brings eyes, volta's anti-snipe at launch lets those eyes buy before bots do, a big reason i follow $VOLTA",
+    "basedbot makes it quick for sure. volta's trending board is the bit i'd pair with it, shows what's actually moving on elysium so you're not picking blind, $VOLTA included",
+    "that app ui is clean af. my nov 9 calendar is all elysium though, volta's already live there with $VOLTA"
   ],
   "to_me_seen": [
     "2117872026555965644",
@@ -1845,11 +1849,13 @@
     "2117970055988486372",
     "2117970428862050385",
     "2117970556540875056",
-    "2117970677550682480"
+    "2117970677550682480",
+    "2117970774040686814",
+    "2117971363936039117"
   ],
-  "last_fast": 1793798558,
-  "last_mentions": 1793798558,
-  "last_slow": 1793798558,
+  "last_fast": 1793798745,
+  "last_mentions": 1793798745,
+  "last_slow": 1793798745,
   "tw_samples": [
     [
       1793779148,
@@ -1990,13 +1996,13 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 54,
-      "input_tokens": 249381,
-      "output_tokens": 40436
+      "calls": 58,
+      "input_tokens": 267495,
+      "output_tokens": 44266
     }
   },
   "x_actions": {
-    "likes": 20,
+    "likes": 21,
     "reposts": 10
   }
 }
