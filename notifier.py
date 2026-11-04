@@ -979,31 +979,56 @@ def build_leaderboard(cfg, tags, settings):
               if not is_spam(t.get("text"))  # drop "let's collab / DM me" promo accounts
               and int((t.get("author") or {}).get("followers") or 0) >= 100]
 
-    counts, followers = {}, {}
-    for t in tweets:
-        a = t.get("author") or {}
-        h = a.get("userName")
-        if h:
-            counts[h] = counts.get(h, 0) + 1
-            followers[h] = a.get("followers")
+    # Points per supporter: posting about Volta 3 · quoting a Volta post 3 · replying to one 2 · reposting one 1.
+    # (Who liked a post isn't visible on X anymore, so likes can't be counted per person.)
+    POINTS = {"post": 3, "quote": 3, "reply": 2, "repost": 1}
+    board, followers = {}, {}
 
-    def score(t):
-        return int(t.get("likeCount") or 0) + 3 * int(t.get("retweetCount") or 0) + 2 * int(t.get("replyCount") or 0)
+    def add(user, kind):
+        h = (user or {}).get("userName")
+        if not h or h.lower() == "voltafamily":
+            return
+        followers[h] = user.get("followers", user.get("followers_count"))
+        row = board.setdefault(h, {"post": 0, "quote": 0, "reply": 0, "repost": 0})
+        row[kind] += 1
 
-    lines = ["🏆 <b>VOLTA LEADERBOARD</b>",
-             f"<i>Volta talk only · since {time.strftime('%b %d', time.gmtime(start))}</i>", "",
-             "💬 <b>TOP VOLTA VOICES</b>"]
-    top = sorted(counts.items(), key=lambda kv: (-kv[1], -(followers.get(kv[0]) or 0)))[:5]
-    lines += [f"{medal} @{html.escape(h)}  ·  {c} post{'s' if c != 1 else ''}  ·  👥 {short_num(followers.get(h))}"
-              for medal, (h, c) in zip(MEDALS, top)] or ["<i>Nothing yet.</i>"]
+    key = {"X-API-Key": cfg["twitterapi_key"]}
+    volta_posts = search_tweets(cfg["twitterapi_key"], f"from:VoltaFamily since_time:{start} -filter:replies")
+    counted = set()
+    for vp in volta_posts:
+        for kind, path, field in (("reply", "replies", "tweets"), ("quote", "quotes", "tweets"),
+                                  ("repost", "retweeters", "users")):
+            try:
+                data = http_get_json(f"{TWITTERAPI_BASE}/twitter/tweet/{path}?"
+                                     + urllib.parse.urlencode({"tweetId": vp["id"]}), key)
+            except Exception as e:
+                print(f"[leaderboard {path} error] {e}")
+                continue
+            for item in data.get(field) or []:
+                if field == "users":
+                    add(item, kind)
+                elif not is_spam(item.get("text")):
+                    counted.add(str(item.get("id")))
+                    add(item.get("author"), kind)
+    for t in tweets:  # posts about Volta that weren't already counted as a reply / quote
+        if str(t.get("id")) not in counted:
+            add(t.get("author"), "post")
 
-    best = sorted(tweets, key=score, reverse=True)[:5]
-    lines += ["", "🔥 <b>TOP VOLTA POSTS</b>"]
-    lines += [f"{medal} <a href=\"{tweet_url(t)}\">{html.escape((t.get('author') or {}).get('userName') or '?')}</a>"
-              f"  ·  ❤️ {short_num(int(t.get('likeCount') or 0))}  🔁 {short_num(int(t.get('retweetCount') or 0))}"
-              f"  👁 {short_num(int(t.get('viewCount') or 0))}"
-              for medal, t in zip(MEDALS, best)] or ["<i>Nothing yet.</i>"]
-    lines += ["", f"<i>{len(tweets)} Volta posts from {len(counts)} accounts</i>", "⚡ #Leaderboard #VoltaRadar"]
+    def points(row):
+        return sum(POINTS[k] * v for k, v in row.items())
+
+    ranked = sorted(board.items(), key=lambda kv: (-points(kv[1]), -(followers.get(kv[0]) or 0)))[:10]
+    lines = ["🏆 <b>VOLTA SUPPORTERS</b>",
+             f"<i>since {time.strftime('%b %d', time.gmtime(start))} · post 3 · quote 3 · reply 2 · repost 1</i>",
+             LINE,
+             f"<code>{'#':>2} {'Pts':>4} {'Post':>4} {'Rply':>4} {'Qt':>3} {'RT':>3}</code>"]
+    for i, (h, row) in enumerate(ranked, 1):
+        lines.append(f"<code>{i:>2} {points(row):>4} {row['post']:>4} {row['reply']:>4} {row['quote']:>3} "
+                     f"{row['repost']:>3}</code>  @{html.escape(h)}")
+    if not ranked:
+        lines.append("<i>Nothing yet.</i>")
+    lines += [LINE, f"<i>{len(volta_posts)} Volta posts checked · {len(board)} supporters</i>",
+              "⚡ #Leaderboard #VoltaRadar"]
     return "\n".join(lines)
 
 
@@ -1353,7 +1378,7 @@ def build_my_report(cfg, settings, tags, days):
 
     top = sorted(tweets, key=lambda t: (n(t, "viewCount"), n(t, "likeCount")), reverse=True)[:3]
     if top:
-        lines += [LINE, "🏆 <b>TOP PERFORMING</b>", code(f"{'#':>2}  {'Views':>6} {'Likes':>5}")]
+        lines += [LINE, "🏆 <b>MY TOP TWEETS</b> <i>(by views)</i>", code(f"{'#':>2}  {'Views':>6} {'Likes':>5}")]
         for i, t in enumerate(top, 1):
             lines.append(code(f"{i:>2}  {short_num(n(t, 'viewCount')):>6} {n(t, 'likeCount'):>5}")
                          + f"  <a href=\"{tweet_url(t)}\">↗</a>  {account_link(t)}")
