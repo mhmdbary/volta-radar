@@ -1,10 +1,11 @@
 {
-  "last_check": 1793834766,
+  "last_check": 1793834886,
   "seen_ids": [
     "2118023800369615214",
     "2117726419086413958",
     "2117841263013834986",
     "2117982317629091865",
+    "2118123109806964940",
     "2117958795108450437",
     "2117594285797482751",
     "2117870819640827934",
@@ -149,6 +150,7 @@
     "2117732161797464230",
     "2117902428750368909",
     "2117729465287774431",
+    "2118122861860667621",
     "2117607225233690746",
     "2117812325944033524",
     "2118105239073009960",
@@ -407,34 +409,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117988991584854266": {
-      "author": "chiefkeith1000",
-      "text": "The skies of Elysium, @aeroxyz has confirmed for Day 1.\n\ne/acc 🛫 https://t.co/IdkoliTpFa",
-      "reply": "think aero volume spills into volta launches burning $VOLTA too?",
-      "tried": [
-        "think aero volume spills into volta launches burning $VOLTA too?"
-      ],
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2117988601636200448/img/PdhZqDHipdMe4ULG.jpg",
-      "followers": 1284,
-      "relevant": true,
-      "reply_ar": "تتوقع أن نشاط التداول على aero ينتقل لإطلاقات volta اللي تحرق $VOLTA كمان؟",
-      "tweet_ar": "سماء إليسيوم... أكدت aero مشاركتها من اليوم الأول. e/acc 🛫",
-      "message_id": 318
-    },
-    "2117989023126053264": {
-      "author": "OhMyJack",
-      "text": "@VoltaFamily Loading",
-      "reply": "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar",
-      "tried": [
-        "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar"
-      ],
-      "image": null,
-      "followers": 16211,
-      "relevant": true,
-      "reply_ar": "عادةً \"جاري التحميل\" تعني البحث عن سيولة، لكن كل إطلاق على فولتا يحصل على مجمع V4 خاص به مقترن بـ HYPE، ولهذا $VOLTA تحت أنظاري",
-      "tweet_ar": "جاري التحميل",
-      "message_id": 319
-    },
     "2117989292144525474": {
       "author": "elonmusk",
       "text": "Qualcomm’s technology is excellent",
@@ -1820,12 +1794,38 @@
       "reply_ar": "قضية رائعة. لوحة النتائج الوحيدة الأخرى التي أتابعها هي لوحة الترند في فولتا، حيث يوجد $VOLTA",
       "tweet_ar": "اليوم كان عن جمع الناس حول شيء أكبر من كرة السلة. ثماني فرق نزلت إلى الملعب ولعبت لصالح عمل خيري. شكراً لكل قائد فريق ولاعب وداعم ساهم في نجاح هذا اليوم.",
       "message_id": 421
+    },
+    "2118122861860667621": {
+      "author": "cultureANON",
+      "text": "$VOLTA Launchpad is better than Ascend shit btw.",
+      "reply": "what got you into $VOLTA first, the elysium timing?",
+      "tried": [
+        "what got you into $VOLTA first, the elysium timing?"
+      ],
+      "image": null,
+      "followers": 4236,
+      "relevant": true,
+      "reply_ar": "إيش اللي جذبك لـ $VOLTA أول شي، توقيت دخولها على إليزيوم؟",
+      "tweet_ar": "منصة إطلاق $VOLTA أفضل من خراء Ascend بالمناسبة.",
+      "message_id": 422
+    },
+    "2118123109806964940": {
+      "author": "OhMyJack",
+      "text": "@ika_xbt Check out @VoltaFamily 👀",
+      "reply": "spreadsheet entries vs volta charts plotting them, why i like $VOLTA",
+      "tried": [
+        "spreadsheet entries vs volta charts plotting them, why i like $VOLTA"
+      ],
+      "image": null,
+      "followers": 16213,
+      "relevant": true,
+      "reply_ar": "بدل تسجيل نقاط دخولك في جدول، شارتات فولتا ترسمها لك، وهذا سبب إعجابي بـ $VOLTA",
+      "tweet_ar": "ألقِ نظرة على VoltaFamily 👀",
+      "message_id": 423
     }
   },
-  "angle_i": 206,
+  "angle_i": 208,
   "recent_texts": [
-    "obol climbing fast. down at 1%, volta's 25 trades still fed the $VOLTA burn",
-    "gvolta! which pair you watching, $VOLTA or a fresh HYPE v4 launch?",
     "keep building is right, elysium needs it. a typical fresh launch gets cleaned out by snipers in seconds, volta's hook has anti-snipe built in, which is why $VOLTA stays on my radar",
     "safu first is right, volta's trending board is my sanity check for what's moving on elysium, $VOLTA included",
     "only touching what a team confirms on its own account is basic elysium hygiene. nov 9 mainnet will bring a flood of fake links, for $VOLTA i just go by @VoltaFamily",
@@ -1883,7 +1883,9 @@
     "hard to argue. funny thing is volta goes the opposite way on its fees, 80% buy back $VOLTA and burn it fully in the open with a live dashboard anyone can check",
     "lore hunting beats any marketing team lol, $VOLTA lore is volta being the first v4 hook live on elysium",
     "bear markets are brutal on launches where bots grab the first block and dump on everyone who shows up after. volta builds anti-snipe into the hook at launch so that early dump is harder to pull off, the $VOLTA detail i'd bring up on the survival question",
-    "solid cause. my only other scoreboard is volta's trending board, where $VOLTA lives"
+    "solid cause. my only other scoreboard is volta's trending board, where $VOLTA lives",
+    "what got you into $VOLTA first, the elysium timing?",
+    "spreadsheet entries vs volta charts plotting them, why i like $VOLTA"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1892,7 +1894,7 @@
     "2117986555780620334",
     "2117945433234313681"
   ],
-  "last_to_me": 1793834735,
+  "last_to_me": 1793834858,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2077,11 +2079,13 @@
     "2118113647511625768",
     "2118113809479139690",
     "2118115081200566326",
-    "2118121955417289081"
+    "2118121955417289081",
+    "2118122861860667621",
+    "2118123109806964940"
   ],
-  "last_fast": 1793834766,
-  "last_mentions": 1793834703,
-  "last_slow": 1793834703,
+  "last_fast": 1793834886,
+  "last_mentions": 1793834886,
+  "last_slow": 1793834886,
   "tw_samples": [
     [
       1793779148,
