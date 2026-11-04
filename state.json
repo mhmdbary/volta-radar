@@ -1,5 +1,5 @@
 {
-  "last_check": 1793826693,
+  "last_check": 1793826828,
   "seen_ids": [
     "2118073194481373282",
     "2117893633009651980",
@@ -109,6 +109,7 @@
     "2117863302558826655",
     "2118068833294422283",
     "2117579802680992219",
+    "2118088462737998184",
     "2117736244881051699",
     "2117668555147591692",
     "2117742234561060908",
@@ -390,20 +391,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117973903238979761": {
-      "author": "whalesdotsol",
-      "text": "@Thoney044 @SSJCurrency @Enter_Elysium @VoltaFamily Bullish on it 🔥🔥",
-      "reply": "you planning to launch one on volta too? creator fees landing in HYPE is the part of $VOLTA i'd brag about",
-      "tried": [
-        "you planning to launch one on volta too? creator fees landing in HYPE is the part of $VOLTA i'd brag about"
-      ],
-      "image": null,
-      "followers": 7141,
-      "relevant": true,
-      "reply_ar": "هل تخطط لإطلاق توكن على فولتا أنت أيضًا؟ حصول صاحب التوكن على رسوم التداول بعملة HYPE هو الجزء الذي أفتخر به في $VOLTA",
-      "tweet_ar": "متفائل جدًا بهذا المشروع 🔥🔥",
-      "message_id": 301
-    },
     "2117974846923833786": {
       "author": "BitBlitzBuzz",
       "text": "Was scrolling my feed earlier and came across @VoidCashio the first privacy protocol on @Enter_Elysium\n\nbeen seeing more builders ship on elysium lately and this one caught my eye.\n\ndid a little digging. you deposit HYPE into a shielded pool, send it privately inside the pool, and withdraw whenever you want.\n\nngl, privacy narratives always run hard once a chain gets busy and elysium is getting busy fast\n\nthe dapp goes live today, keep this one on your radar guys 🥷",
@@ -1804,11 +1791,24 @@
       "reply_ar": "وكيلي يراقب الورقة الصفراء. هل هناك خطط لحماية من القناصين يوم الإطلاق مثل ما في volta، أم هذا مجرد تفكير عقلي المهووس بـ $VOLTA؟",
       "tweet_ar": "شبكة التطوير (Devnet) الخاصة بـ flop_labs تسير بشكل جيد. نعمل على حل بعض الأمور وتغيير أجزاء من البروتوكول. يرجى جعل وكيلك يراقب مستودع الورقة الصفراء على git لأي تغييرات. سنحدد موعد إطلاق شبكة الاختبار في بداية الأسبوع القادم.",
       "message_id": 404
+    },
+    "2118088462737998184": {
+      "author": "DefiIgnas",
+      "text": "Crypto mostly up while Trump Crime Coins down: \n\n$TRUMP &amp; $MELANIA down double digits\n\n$WLFI would go down more if they didn't control most of tokens &amp; locked most of investors.\n\nThe nature is healing https://t.co/tzN4AoDzcm",
+      "reply": "usual move with political coins is realizing your entry was the top way too late. on volta the chart plots your own buys and avg entry, so you see where you stand on $VOLTA without guessing",
+      "tried": [
+        "usual move with political coins is realizing your entry was the top way too late. on volta the chart plots your own buys and avg entry, so you see where you stand on $VOLTA without guessing"
+      ],
+      "image": "https://pbs.twimg.com/media/HWT1zQrXgAAxJx5.jpg",
+      "followers": 164048,
+      "relevant": false,
+      "reply_ar": "المعتاد مع العملات السياسية أنك تكتشف متأخرًا جدًا أنك دخلت عند القمة. على volta، الشارت يعرض مشترياتك ومتوسط سعر دخولك، فتعرف وضعك في $VOLTA بدون تخمين",
+      "tweet_ar": "الكريبتو في الغالب صاعد بينما عملات ترامب الإجرامية هابطة: $TRUMP و$MELANIA انخفضتا بنسبة من رقمين، و$WLFI كانت ستنخفض أكثر لولا أنهم يسيطرون على معظم التوكنات وقفلوا توكنات معظم المستثمرين. الطبيعة تتعافى",
+      "message_id": 405
     }
   },
-  "angle_i": 189,
+  "angle_i": 190,
   "recent_texts": [
-    "curious, if you ever launched a token would you rather get fees in crypto or stocks? volta lets creators earn in tokenized stocks too, part of why $VOLTA caught my eye",
     "fees normally just vanish, volta's buy back and burn $VOLTA",
     "pvp it is, volta launches each get v4 HYPE pools, $VOLTA arena",
     "farm the apps is the right call, but the app that matters most on a fresh chain is the one where bots don't win the opening seconds. volta's hook has anti-snipe protection at launch, which is the whole reason $VOLTA made my elysium list",
@@ -1867,7 +1867,8 @@
     "empty quotes, full stare. my $VOLTA face at tokenized stock fees",
     "every elysium project has a boost tier chart now, volta's is just 80% of fees buying back and burning $VOLTA",
     "god builder vs country on fire is a rough pitch for paris lol. my attention stays onchain, where every volta launch gets its own v4 pool paired with HYPE, the $VOLTA side of elysium",
-    "agent's on yellow paper duty. any anti-snipe plans for launch day like volta has, or is that just my $VOLTA brain?"
+    "agent's on yellow paper duty. any anti-snipe plans for launch day like volta has, or is that just my $VOLTA brain?",
+    "usual move with political coins is realizing your entry was the top way too late. on volta the chart plots your own buys and avg entry, so you see where you stand on $VOLTA without guessing"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1876,7 +1877,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793826643,
+  "last_to_me": 1793826764,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2044,11 +2045,12 @@
     "2118083391190917197",
     "2118084072551649461",
     "2118086821523652834",
-    "2118088016015335862"
+    "2118088016015335862",
+    "2118088462737998184"
   ],
-  "last_fast": 1793826693,
-  "last_mentions": 1793826633,
-  "last_slow": 1793826543,
+  "last_fast": 1793826828,
+  "last_mentions": 1793826828,
+  "last_slow": 1793826723,
   "tw_samples": [
     [
       1793779148,
@@ -2373,9 +2375,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 160,
-      "input_tokens": 769965,
-      "output_tokens": 137706
+      "calls": 161,
+      "input_tokens": 776126,
+      "output_tokens": 138679
     }
   },
   "x_actions": {
