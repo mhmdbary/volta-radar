@@ -1,5 +1,5 @@
 {
-  "last_check": 1793805690,
+  "last_check": 1793805810,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -223,6 +223,7 @@
     "2117872026555965644",
     "2117683945949343957",
     "2117617355627131060",
+    "2118000796990333059",
     "2117942164567343349"
   ],
   "tg_offset": 277101753,
@@ -322,20 +323,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117875400562929691": {
-      "author": "NftVicto",
-      "text": "@JustRektTool @agora_elysium @elysatrade @VoltaFamily @BasedBot cool bot",
-      "reply": "it's clean. funny part is volta launches already trade on basedbot, so you can snipe-free scroll new tokens from the same bot. one reason i hold $VOLTA",
-      "tried": [
-        "it's clean. funny part is volta launches already trade on basedbot, so you can snipe-free scroll new tokens from the same bot. one reason i hold $VOLTA"
-      ],
-      "image": null,
-      "followers": 1415,
-      "relevant": true,
-      "reply_ar": "إنه نظيف. الطريف أن إطلاقات فولتا تُتداول بالفعل على BasedBot، فيمكنك تصفح الرموز الجديدة من نفس البوت. هذا أحد أسباب احتفاظي بـ $VOLTA",
-      "tweet_ar": "بوت رائع",
-      "message_id": 182
-    },
     "2117882031510364429": {
       "author": "0xweekend59",
       "text": "@agora_elysium @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily oh, so sorry 🥹",
@@ -1763,11 +1750,24 @@
       "reply_ar": "محسومة ومخيطة بإحكام هههه، ولا خيط مفلوت. المبدعون اللي يطلقون توكناتهم على فولتا يقدرون يكسبون رسومهم بأسهم مرمّزة كمان، مو بس كريبتو، وهذي التفصيلة في $VOLTA اللي حسمت الموضوع عندي",
       "tweet_ar": "منصة الإطلاق رقم 1، والأمر محسوم.",
       "message_id": 333
+    },
+    "2118000796990333059": {
+      "author": "BitBlitzBuzz",
+      "text": "nice start november\n\nweb3 did it 💙 https://t.co/E6kP1zzhHx",
+      "reply": "green start to november, volta trades keep burning $VOLTA too",
+      "tried": [
+        "green start to november, volta trades keep burning $VOLTA too"
+      ],
+      "image": "https://pbs.twimg.com/media/HWSmfgmaQAImRVL.jpg",
+      "followers": 10671,
+      "relevant": false,
+      "reply_ar": "بداية خضراء لنوفمبر، وصفقات فولتا مستمرة في حرق $VOLTA أيضًا",
+      "tweet_ar": "بداية جميلة لشهر نوفمبر، الويب3 فعلها 💙",
+      "message_id": 334
     }
   },
-  "angle_i": 122,
+  "angle_i": 123,
   "recent_texts": [
-    "those five winner factors are spot on, but the trader side gets skipped. usually you're digging through tx history to remember what you paid. volta's charts just plot your own buys, sells and avg entry, $VOLTA included. would love to see it in round two",
     "good to see the elysium eco page filling up with launchpads already. worth remembering public mainnet doesn't even land until nov 9, and volta's already live there with $VOLTA folks settled in. more builders showing up this early is good for everyone",
     "first v4 hook on elysium is the headline, distribution is the real flex. volta launches already trade on justrekttool, basedbot and agora before public mainnet even hits nov 9, which is the $VOLTA detail i'd lead with",
     "5.5 day withdrawals is the line people will skim and regret. for devs shipping on 99901, volta pays creators their fees in HYPE, the $VOLTA detail i'd want on that watchlist",
@@ -1826,7 +1826,8 @@
     "you're ahead of the nov 9 crowd then. elysium's public mainnet hasn't even landed and volta's already live, so $VOLTA holders get to see how launches behave before everyone shows up",
     "robinhood chain collection pulling volume on day one is something. what do you think got people in early, the art or the community behind it? i keep asking that about volta launches on elysium too, $VOLTA has me watching first days closely",
     "bullseye fr. on volta whoever launches the token earns fees in HYPE, the $VOLTA target i keep aiming at",
-    "sewn up tight lol, not a loose thread in sight. creators launching on volta can earn fees in tokenized stocks too, not just crypto, and that's the $VOLTA detail that stitched it up for me"
+    "sewn up tight lol, not a loose thread in sight. creators launching on volta can earn fees in tokenized stocks too, not just crypto, and that's the $VOLTA detail that stitched it up for me",
+    "green start to november, volta trades keep burning $VOLTA too"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1835,7 +1836,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793805543,
+  "last_to_me": 1793805693,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1936,11 +1937,12 @@
     "2117997601505284488",
     "2117997401084510497",
     "2117998184941449633",
-    "2117998328835346803"
+    "2117998328835346803",
+    "2118000796990333059"
   ],
-  "last_fast": 1793805690,
-  "last_mentions": 1793805630,
-  "last_slow": 1793805630,
+  "last_fast": 1793805810,
+  "last_mentions": 1793805810,
+  "last_slow": 1793805810,
   "tw_samples": [
     [
       1793779148,
@@ -2121,13 +2123,17 @@
     [
       1793805139,
       915969
+    ],
+    [
+      1793805768,
+      914664
     ]
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 93,
-      "input_tokens": 438477,
-      "output_tokens": 73855
+      "calls": 94,
+      "input_tokens": 444264,
+      "output_tokens": 74441
     }
   },
   "x_actions": {
