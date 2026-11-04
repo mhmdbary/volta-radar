@@ -534,7 +534,7 @@ def draft_buttons(tid, d):
         rows = [[{"text": "🚀 رد على X",
                   "url": "https://twitter.com/intent/tweet?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})},
                  {"text": "👁 شوف التويتة", "url": original}]]
-    if not is_tweet and is_volta_tweet(d):  # Volta's own posts and posts about Volta: like / repost too
+    if not is_tweet and not d.get("to_me"):  # like / repost the tweet in one tap from your private chat
         rows.append(engage_row(tid))
     return {"inline_keyboard": rows + [
         [{"text": "✏️ اكتب فكرتي", "callback_data": f"ins:{tid}"},
@@ -1088,7 +1088,7 @@ def check_once(cfg, settings, handles, state):
             send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
                           format_alert(t, settings, tags, mention), tweet_url(t),
                           (t.get("author") or {}).get("userName"), tweet_media(t)[0],
-                          engage_id=str(t.get("id")) if (mention or is_volta_tweet(t)) else None)
+                          engage_id=str(t.get("id")))
             seen.add(str(t.get("id")))
             time.sleep(3)  # stay under Telegram's per-channel limit
         except Exception as e:
