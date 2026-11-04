@@ -42,8 +42,8 @@ jobs:
           round=0
           while [ $SECONDS -lt $end ]; do
             git pull -q --rebase || true   # pick up handles/settings changed from outside
-            # full check every 3rd minute; in between only read Telegram buttons/commands
-            if [ $((round % 3)) -eq 0 ]; then
+            # full check every minute (set FULL_EVERY to 3 to save credits); in between only read buttons/commands
+            if [ $((round % ${FULL_EVERY:-1})) -eq 0 ]; then
               python notifier.py --once || echo "check failed, retrying next round"
             else
               python notifier.py --commands-only || true
