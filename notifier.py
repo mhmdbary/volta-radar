@@ -512,6 +512,8 @@ def draft_buttons(tid, d):
         rows = [[{"text": "🚀 رد على X",
                   "url": "https://twitter.com/intent/tweet?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})},
                  {"text": "👁 شوف التويتة", "url": original}]]
+    if not is_tweet and is_volta_tweet(d):  # Volta's own posts and posts about Volta: like / repost too
+        rows.append(engage_row(tid))
     return {"inline_keyboard": rows + [
         [{"text": "✏️ اكتب فكرتي", "callback_data": f"ins:{tid}"},
          {"text": "🔄 جيب غيرها", "callback_data": f"chg:{tid}"}],
@@ -819,15 +821,30 @@ def format_alert(tweet, settings, tags, mention=False):
     return "\n".join(parts)
 
 
-def send_telegram(token, chat_id, text, url=None, profile=None, photo=None):
+def engage_row(tweet_id):
+    """❤️ / 🔁 buttons: open X's like / repost screen for that tweet (you still confirm in X)."""
+    return [{"text": "❤️ Like", "url": f"https://twitter.com/intent/like?tweet_id={tweet_id}"},
+            {"text": "🔁 Repost", "url": f"https://twitter.com/intent/retweet?tweet_id={tweet_id}"}]
+
+
+def is_volta_tweet(tweet_or_draft):
+    """From @VoltaFamily, or anyone posting / replying about Volta."""
+    author = (tweet_or_draft.get("author") or {})
+    handle = author.get("userName") if isinstance(author, dict) else author
+    text = (tweet_or_draft.get("text") or "").lower()
+    return (handle or "").lower() == "voltafamily" or "volta" in text
+
+
+def send_telegram(token, chat_id, text, url=None, profile=None, photo=None, engage_id=None):
     payload = {"chat_id": chat_id, "parse_mode": "HTML"}
     buttons = []
     if url:
         buttons.append({"text": "🔗 Open on X", "url": url})
     if profile:
         buttons.append({"text": "👤 Profile", "url": f"https://x.com/{profile}"})
-    if buttons:
-        payload["reply_markup"] = {"inline_keyboard": [buttons]}
+    rows = ([engage_row(engage_id)] if engage_id else []) + ([buttons] if buttons else [])
+    if rows:
+        payload["reply_markup"] = {"inline_keyboard": rows}
     if photo:
         try:
             http_post_json(f"https://api.telegram.org/bot{token}/sendPhoto",
@@ -986,7 +1003,8 @@ def check_once(cfg, settings, handles, state):
         try:
             send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
                           format_alert(t, settings, tags, mention), tweet_url(t),
-                          (t.get("author") or {}).get("userName"), tweet_media(t)[0])
+                          (t.get("author") or {}).get("userName"), tweet_media(t)[0],
+                          engage_id=str(t.get("id")) if (mention or is_volta_tweet(t)) else None)
             seen.add(str(t.get("id")))
             time.sleep(3)  # stay under Telegram's per-channel limit
         except Exception as e:
