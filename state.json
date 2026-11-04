@@ -1,5 +1,5 @@
 {
-  "last_check": 1793803022,
+  "last_check": 1793803187,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -9,8 +9,9 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117893633009651980",
+    "2117989874553008344",
     "2117580008931709076",
+    "2117893633009651980",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -38,10 +39,10 @@
     "2117981944621535375",
     "2117969714953810404",
     "2117812508903772532",
-    "2117953749591146800",
-    "2117985533645427094",
     "2117748509201899912",
     "2117977920228757526",
+    "2117953749591146800",
+    "2117985533645427094",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -309,19 +310,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117856962864136593": {
-      "author": "Cristin7hardsh",
-      "text": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily Obol will win\n\nhttps://t.co/dRcP8IuLap",
-      "reply": "plenty of room on elysium for more than one winner tbh. we built volta on the official uniswap v4 contracts so the boring plumbing just works from day one",
-      "tried": [
-        "plenty of room on elysium for more than one winner tbh. we built volta on the official uniswap v4 contracts so the boring plumbing just works from day one"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "بصراحة فيه مجال على إليسيوم لأكثر من فائز. بنينا فولتا على عقود يونيسواب V4 الرسمية عشان البنية الأساسية تشتغل بدون مشاكل من أول يوم",
-      "tweet_ar": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily أوبول هو اللي راح يفوز",
-      "message_id": 124
-    },
     "2117857627841462369": {
       "author": "Xeetbtcvox",
       "text": "Good morning NFT lovers 🌹 https://t.co/W17nE62J6J",
@@ -1755,11 +1743,24 @@
       "reply_ar": "شرائح قوية فعلاً، أما خياري للسرعة فهو الـ RPC المجاني من فولتا على إليسيوم، وهذا من الأشياء التي أحبها في $VOLTA",
       "tweet_ar": "تقنية كوالكوم ممتازة",
       "message_id": 320
+    },
+    "2117989874553008344": {
+      "author": "142C_",
+      "text": "@VoltaFamily Really cool stuff guys! Shoot me a message when you can.",
+      "reply": "cool stuff for sure, but the sleeper feature is volta's charts showing your own buys, sells and average entry. once you've traded $VOLTA with that on screen, guessing where you got in feels ancient",
+      "tried": [
+        "cool stuff for sure, but the sleeper feature is volta's charts showing your own buys, sells and average entry. once you've traded $VOLTA with that on screen, guessing where you got in feels ancient"
+      ],
+      "image": null,
+      "followers": 140480,
+      "relevant": true,
+      "reply_ar": "أشياء رائعة فعلاً، لكن الميزة اللي ما أحد منتبه لها هي إن رسوم فولتا البيانية تعرض عمليات الشراء والبيع الخاصة فيك ومتوسط سعر دخولك. لما تتداول $VOLTA وهذي المعلومات قدامك، تحس إن تخمين سعر دخولك صار شي من الماضي.",
+      "tweet_ar": "أشياء رائعة حقاً يا جماعة! راسلوني عندما يتسنى لكم ذلك.",
+      "message_id": 321
     }
   },
-  "angle_i": 109,
+  "angle_i": 110,
   "recent_texts": [
-    "exposure anxiety is real lol. usually devs launch and watch others farm the volume, on volta the creator earns fees in HYPE from their own token, part of why $VOLTA caught my eye",
     "won't weigh in on the license stuff, but volta letting creators take fees in tokenized stocks keeps me on $VOLTA",
     "still just submitted to uniswap, but the burn's the story. 80% of volta fees buy back and burn $VOLTA",
     "fingers crossed fr. volta's hook was the first uniswap v4 one live on elysium and every new token gets its own pool paired with HYPE, so $VOLTA isn't waiting on nov 9 to cook",
@@ -1818,7 +1819,8 @@
     "might just be traffic, hopefully back soon. volta launches already trade on basedbot, justrekttool and agora too, so $VOLTA isn't stuck waiting on the site",
     "think aero volume spills into volta launches burning $VOLTA too?",
     "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar",
-    "solid chips, volta's free elysium rpc is my $VOLTA speed pick"
+    "solid chips, volta's free elysium rpc is my $VOLTA speed pick",
+    "cool stuff for sure, but the sleeper feature is volta's charts showing your own buys, sells and average entry. once you've traded $VOLTA with that on screen, guessing where you got in feels ancient"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1827,7 +1829,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793802890,
+  "last_to_me": 1793803057,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1915,10 +1917,11 @@
     "2117988958588252435",
     "2117988991584854266",
     "2117989023126053264",
-    "2117989292144525474"
+    "2117989292144525474",
+    "2117989874553008344"
   ],
-  "last_fast": 1793803022,
-  "last_mentions": 1793803022,
+  "last_fast": 1793803187,
+  "last_mentions": 1793803127,
   "last_slow": 1793803022,
   "tw_samples": [
     [
@@ -2088,9 +2091,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 79,
-      "input_tokens": 371689,
-      "output_tokens": 62142
+      "calls": 81,
+      "input_tokens": 380682,
+      "output_tokens": 63723
     }
   },
   "x_actions": {
