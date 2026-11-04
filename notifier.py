@@ -852,13 +852,15 @@ def handle_engage_button(cfg, cb):
     """❤️ / 🔁 pressed: like or repost on X right away, then mark the button done."""
     import x_actions
     action, _, tweet_id = cb["data"].partition(":")
+    done_text = "❤️ Liked ✓" if action == "lk" else "🔁 Reposted ✓"
     try:
         (x_actions.like if action == "lk" else x_actions.repost)(cfg, tweet_id)
     except Exception as e:
-        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "show_alert": True,
-                                             "text": f"ما زبط ❌\n{str(e)[:150]}"})
-        return
-    done_text = "❤️ Liked ✓" if action == "lk" else "🔁 Reposted ✓"
+        if "already" not in str(e).lower():  # "already retweeted" just means it's done
+            tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "show_alert": True,
+                                                 "text": f"ما زبط ❌\n{str(e)[:150]}"})
+            return
+        done_text += " (already)"
     tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": done_text})
     msg = cb.get("message") or {}
     keyboard = (msg.get("reply_markup") or {}).get("inline_keyboard") or []
