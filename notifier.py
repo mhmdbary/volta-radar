@@ -7,6 +7,7 @@ Usage:
     python notifier.py --once      # check once and exit
     python notifier.py             # keep running, checking every poll_minutes
 """
+import calendar
 import html
 import json
 import os
@@ -901,7 +902,20 @@ def build_my_report(cfg, settings, tags, days):
     if not me:
         return "Set <code>my_handle</code> in settings.json first."
     since = int(time.time()) - days * 86400
+    try:  # never count anything from before the Volta work started
+        start = calendar.timegm(time.strptime(settings.get("work_start", ""), "%Y-%m-%d"))
+        if start > since:
+            since, days = start, 0  # 0 = "since the work started"
+    except ValueError:
+        pass
     tweets = search_tweets(cfg["twitterapi_key"], f"from:{me} since_time:{since} -filter:retweets")
+
+    def about_volta(t):
+        to = (t.get("inReplyToUsername") or "").lower()
+        return ("volta" in (t.get("text") or "").lower() or to == "voltafamily"
+                or tag_marker(tags.get(to)) == "🟢")
+
+    tweets = [t for t in tweets if about_volta(t)]  # only Volta-related work goes in the report
     is_reply = lambda t: bool(t.get("isReply") or t.get("inReplyToUsername"))
     replies = [t for t in tweets if is_reply(t)]
     posts = [t for t in tweets if not is_reply(t)]
@@ -914,7 +928,7 @@ def build_my_report(cfg, settings, tags, days):
     avg_views = total["viewCount"] // len(tweets) if tweets else 0
     engagement = total["likeCount"] + total["retweetCount"] + total["replyCount"]
     rate = f"{engagement / total['viewCount'] * 100:.1f}%" if total["viewCount"] else "0%"
-    period = "Today" if days == 1 else f"Last {days} days"
+    period = "Today" if days == 1 else "Since start" if days == 0 else f"Last {days} days"
     date_range = f"{time.strftime('%b %d', time.gmtime(since))} to {time.strftime('%b %d', time.gmtime())}"
 
     def when(t):
