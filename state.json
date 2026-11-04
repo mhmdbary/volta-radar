@@ -1,5 +1,5 @@
 {
-  "last_check": 1793793747,
+  "last_check": 1793793897,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -8,8 +8,8 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117893633009651980",
     "2117580008931709076",
+    "2117893633009651980",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -54,6 +54,7 @@
     "2117681085551456728",
     "2117681643377078689",
     "2117820217334071587",
+    "2117950680807719246",
     "2117750226228592836",
     "2117737102737858684",
     "2117610655121588555",
@@ -258,21 +259,8 @@
       "HyperliquidX"
     ]
   },
-  "last_follow_check": 1793771975,
+  "last_follow_check": 1793793810,
   "drafts": {
-    "2117727953140519343": {
-      "author": "iSolCryptoo",
-      "text": "@VoltaFamily Good things happen when the right people connect. Let's start a conversation.",
-      "reply": "hey, appreciate you reaching out. dms are open if you want to chat, curious what you've got in mind",
-      "tried": [
-        "hey, appreciate you reaching out. dms are open if you want to chat, curious what you've got in mind"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "أهلاً، نقدّر تواصلك. الرسائل الخاصة مفتوحة إذا أردت الدردشة، فضوليون لمعرفة ما يدور في ذهنك",
-      "tweet_ar": "@VoltaFamily الأشياء الجيدة تحدث عندما يتواصل الأشخاص المناسبون. لنبدأ محادثة.",
-      "message_id": 73
-    },
     "2117729465287774431": {
       "author": "jarmeseelna",
       "text": "@VoltaFamily Interesting vision! Would love to explore what we could build together. 🤝",
@@ -1641,9 +1629,23 @@
       "reply_ar": "‏ملخص مرتب فعلاً. الشيء الوحيد الذي أضيفه هو جانب المنشئين، فمن يطلق توكن على volta يربح رسومه بعملة HYPE، وهذه نقطة تتجاهلها معظم الثريدات عن $VOLTA بشكل غريب.",
       "tweet_ar": "‏Volta تجلب أول خطاف Uniswap V4 يعمل فعلياً على شبكة Elysium ⚡ كل توكن يحصل على مجمع V4 خاص به مقترن بـ HYPE، مع رسوم يحددها المنشئ، وحماية من القنص عند الإطلاق، وعمليات إعادة شراء وحرق مدمجة في كل صفقة. أكثر من مجرد منصة إطلاق، إنها بنية تحتية.",
       "message_id": 260
+    },
+    "2117950680807719246": {
+      "author": "Realwhales_",
+      "text": "@VoltaFamily @fomo @Pumpfun Amazing initiative. Let's discuss possibilities 🚀",
+      "reply": "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with",
+      "tried": [
+        "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with"
+      ],
+      "image": null,
+      "followers": 115969,
+      "relevant": true,
+      "reply_ar": "كلمة \"الإمكانيات\" تحمل عبئاً كبيراً هنا هههه. اقتراحي لجدول النقاش: صنّاع التوكنات على فولتا يمكنهم كسب رسومهم بأسهم مرمّزة وليس بالعملات الرقمية فقط، وهذه تفصيلة $VOLTA التي سأبدأ بها",
+      "tweet_ar": "مبادرة رائعة. دعونا نناقش الإمكانيات 🚀",
+      "message_id": 265
     }
   },
-  "angle_i": 57,
+  "angle_i": 58,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1686,14 +1688,15 @@
     "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar",
     "elysium's not even at public mainnet yet and basedbot's already filling up, $VOLTA folks approve",
     "how early do you spot these, volta trending board or $VOLTA chat?",
-    "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip"
+    "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip",
+    "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117945433234313681",
     "2117895148365607335"
   ],
-  "last_to_me": 1793793629,
+  "last_to_me": 1793793899,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1733,10 +1736,11 @@
     "2117944166487351634",
     "2117947676008300551",
     "2117948186304070092",
-    "2117948392102089136"
+    "2117948392102089136",
+    "2117950680807719246"
   ],
-  "last_fast": 1793793747,
-  "last_mentions": 1793793747,
+  "last_fast": 1793793897,
+  "last_mentions": 1793793837,
   "last_slow": 1793793747,
   "tw_samples": [
     [
@@ -1846,9 +1850,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 29,
-      "input_tokens": 118296,
-      "output_tokens": 17639
+      "calls": 30,
+      "input_tokens": 122981,
+      "output_tokens": 18454
     }
   },
   "x_actions": {
