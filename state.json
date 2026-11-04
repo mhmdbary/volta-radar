@@ -1,5 +1,5 @@
 {
-  "last_check": 1793808459,
+  "last_check": 1793808579,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -168,6 +168,7 @@
     "2117579802680992219",
     "2117676035961684155",
     "2117620917341675886",
+    "2118012568166109461",
     "2117902428750368909",
     "2117894194656374840",
     "2117782132236120408",
@@ -331,20 +332,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117893633009651980": {
-      "author": "elonmusk",
-      "text": "Grok @Bot shopping is great",
-      "reply": "letting a bot do the shopping is peak lazy, love it. my own window shopping lately is elysium ahead of public mainnet nov 9, volta's already live there and i hold $VOLTA",
-      "tried": [
-        "letting a bot do the shopping is peak lazy, love it. my own window shopping lately is elysium ahead of public mainnet nov 9, volta's already live there and i hold $VOLTA"
-      ],
-      "image": null,
-      "followers": 241462263,
-      "relevant": false,
-      "reply_ar": "ترك البوت يتسوق عنك قمة الكسل، أحبها. تسوقي أنا مؤخراً هو تصفح إليسيوم قبل إطلاق الشبكة الرئيسية العامة في 9 نوفمبر، فولتا تعمل هناك بالفعل وأنا أحمل $VOLTA",
-      "tweet_ar": "التسوق عبر بوت Grok رائع",
-      "message_id": 225
-    },
     "2117894194656374840": {
       "author": "cultureANON",
       "text": "shill me your elysium projects. \n\nim just holding $e/acc and $volta for now.",
@@ -1769,11 +1756,24 @@
       "reply_ar": "عادةً الرسوم تختفي وخلاص، أما رسوم فولتا فتُستخدم لإعادة شراء $VOLTA وحرقه.",
       "tweet_ar": "إليزيوم: اسم يعني مكاناً أو حالة من السعادة والسلام والنعيم المثالي. وأيضاً: كتل كل 100 ملي ثانية، و300 مليون غاز في الثانية، وHYPE كغاز أصلي، مع التسوية على HyperEVM، ومتواجد بجوار Hyperliquid. جنة، لكن للمطورين والمتداولين.",
       "message_id": 342
+    },
+    "2118012568166109461": {
+      "author": "Pentosh1",
+      "text": "Okay. \n\nLet’s go. Looking for some PvP people.",
+      "reply": "pvp it is, volta launches each get v4 HYPE pools, $VOLTA arena",
+      "tried": [
+        "pvp it is, volta launches each get v4 HYPE pools, $VOLTA arena"
+      ],
+      "image": null,
+      "followers": 943994,
+      "relevant": false,
+      "reply_ar": "موافق على الـ PvP، كل إطلاق على volta يحصل على مجمع v4 خاص به مقابل HYPE، ساحة $VOLTA",
+      "tweet_ar": "حسنًا. يلا نبدأ. أبحث عن ناس يحبون الـ PvP.",
+      "message_id": 343
     }
   },
-  "angle_i": 131,
+  "angle_i": 132,
   "recent_texts": [
-    "undervalued is ct's favorite word after gm lol. price aside, volta's already live on elysium before the nov 9 public mainnet, that's the $VOLTA bit i keep pointing at",
     "elysium bots having a rough week, agora blocks mev and volta's anti-snipe guards launches, why i rate $VOLTA",
     "100% with you, launching a token should actually pay the person who launched it. on volta creators set their own fee and earn it in HYPE, which is why $VOLTA has me this fired up",
     "congrats on #750, elysium's nft scene is going to carry way more culture than people expect. pair that with volta letting token creators earn fees in tokenized stocks, not just crypto, and $VOLTA ends up right where elysium creators hang out",
@@ -1832,7 +1832,8 @@
     "stocks plus HYPE is a sane book. volta creators earn fees in HYPE and tokenized stocks, my favorite $VOLTA detail",
     "e/acc energy fits, volta launches pay creators their fees in HYPE, $VOLTA's whole vibe",
     "curious, if you ever launched a token would you rather get fees in crypto or stocks? volta lets creators earn in tokenized stocks too, part of why $VOLTA caught my eye",
-    "fees normally just vanish, volta's buy back and burn $VOLTA"
+    "fees normally just vanish, volta's buy back and burn $VOLTA",
+    "pvp it is, volta launches each get v4 HYPE pools, $VOLTA arena"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1841,7 +1842,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793808317,
+  "last_to_me": 1793808461,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1951,11 +1952,12 @@
     "2118007664185835677",
     "2118008855494078569",
     "2118009229705662536",
-    "2118009741620466163"
+    "2118009741620466163",
+    "2118012568166109461"
   ],
-  "last_fast": 1793808459,
-  "last_mentions": 1793808399,
-  "last_slow": 1793808399,
+  "last_fast": 1793808579,
+  "last_mentions": 1793808579,
+  "last_slow": 1793808579,
   "tw_samples": [
     [
       1793779148,
