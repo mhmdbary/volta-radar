@@ -1,10 +1,11 @@
 {
-  "last_check": 1793815633,
+  "last_check": 1793815754,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
     "2118023734410072066",
     "2117841263013834986",
+    "2118042176584327339",
     "2117824660230521170",
     "2117896640929603800",
     "2117602702306034149",
@@ -366,22 +367,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117958981721395660": {
-      "author": "Habibxweb3",
-      "text": "elysium mainnet is nov 9. here's what actually matters before you ape anything\n\n> kinetiq's L2 on hyperliquid. settles to HyperEVM. chain id 99901\n> gas = HYPE, bridged 1:1. no new token, no points program\n> 50% of sequencer fees go to kinetiq:native buybacks. nobody's talking about this\n> day 1: nest DEX live from block one. speculate, dawn, montra, citadel, ascend committed\n> hypercore hooks land ~1 month later. that's the real unlock\n> official bridge withdrawals take ~5.5 days. don't bridge rent money\n\nlaunch-day rule: a $3k liquidity coin moves 50% on a $500 buy\nbots buy in the same block the pool is made\n\nso check liquidity + bot share first, ape second\n\nbuilding my elysium day-1 watchlist. if you're shipping on 99901, drop it below",
-      "reply": "5.5 day withdrawals is the line people will skim and regret. for devs shipping on 99901, volta pays creators their fees in HYPE, the $VOLTA detail i'd want on that watchlist",
-      "tried": [
-        "5.5 day withdrawals is the line people will skim and regret. for devs shipping on 99901, volta pays creators their fees in HYPE, the $VOLTA detail i'd want on that watchlist"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSAZejbEAAvUKG.jpg",
-      "followers": 10583,
-      "relevant": true,
-      "reply_ar": "سحب الأموال الذي يستغرق 5.5 أيام هو السطر الذي سيتجاهله الناس ثم يندمون. للمطورين الذين يطلقون على 99901، فولتا تدفع لصانعي التوكنات رسومهم بعملة HYPE، وهذه هي ميزة $VOLTA التي أود إضافتها لقائمة المراقبة تلك.",
-      "tweet_ar": "الشبكة الرئيسية لـ Elysium تنطلق في 9 نوفمبر. هذا ما يهم فعلاً قبل أن تشتري أي شيء بتهور: إنها شبكة الطبقة الثانية من Kinetiq على Hyperliquid، تتم تسويتها على HyperEVM، ومعرّف الشبكة 99901. الغاز هو HYPE منقولاً بنسبة 1:1، فلا توكن جديد ولا برنامج نقاط. 50% من رسوم المُرتِّب (sequencer) تذهب إلى عمليات إعادة شراء لـ kinetiq، ولا أحد يتحدث عن هذا. في اليوم الأول تعمل منصة التداول Nest من أول بلوك، وقد التزمت كل من Speculate وDawn وMontra وCitadel وAscend بالإطلاق. خطافات HyperCore تصل بعد نحو شهر، وهنا الفرصة الحقيقية. سحب الأموال عبر الجسر الرسمي يستغرق نحو 5.5 أيام، فلا تنقل أموال الإيجار. قاعدة يوم الإطلاق: عملة بسيولة 3 آلاف دولار تتحرك 50% مع عملية شراء بقيمة 500 دولار، والبوتات تشتري في نفس البلوك الذي يُنشأ فيه المسبح. لذا تحقق من السيولة ونسبة البوتات أولاً، ثم اشترِ. أنا أجهّز قائمة مراقبة لليوم الأول على Elysium، فإن كنت تطلق مشروعاً على 99901 فشاركه في الردود.",
-      "message_id": 274,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117960193770402154"
-    },
     "2117959484815360086": {
       "author": "whalesdotsol",
       "text": "@MRossticsknk @cultureANON @voltage_elysium @VoltaFamily Best R:R $volta",
@@ -1789,11 +1774,24 @@
       "reply_ar": "بيكاتشو الأزرق هو وجه القنّاص لما يكتشف أن الإطلاقات على فولتا فيها حماية من القنص، هذه روح $VOLTA بامتياز",
       "tweet_ar": "(التغريدة رابط فقط مع صورة ميم بيكاتشو المندهش بألوان كينيتيك)",
       "message_id": 379
+    },
+    "2118042176584327339": {
+      "author": "real_alpha",
+      "text": "Yo, Mining Tech On Elysium?\n\nSolana got ORE \nRobinhood got SLVR\nElysium got Hash?\n\nLooking forward to this hope Dev bring something banger",
+      "reply": "would an elysium mining token launch like ORE did, or show up next to $VOLTA on volta's trending board?",
+      "tried": [
+        "would an elysium mining token launch like ORE did, or show up next to $VOLTA on volta's trending board?"
+      ],
+      "image": null,
+      "followers": 13094,
+      "relevant": true,
+      "reply_ar": "هل توكن التعدين على Elysium سينطلق بنفس طريقة ORE، أم سيظهر بجانب $VOLTA على لوحة الترند في فولتا؟",
+      "tweet_ar": "يا جماعة، هل في تقنية تعدين على Elysium؟ سولانا عندها ORE، وروبن هود عندها SLVR، فهل Elysium سيكون عندها Hash؟ متحمس لهذا وأتمنى أن يقدم المطور شيئاً قوياً.",
+      "message_id": 381
     }
   },
-  "angle_i": 165,
+  "angle_i": 166,
   "recent_texts": [
-    "might just be traffic, hopefully back soon. volta launches already trade on basedbot, justrekttool and agora too, so $VOLTA isn't stuck waiting on the site",
     "think aero volume spills into volta launches burning $VOLTA too?",
     "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar",
     "solid chips, volta's free elysium rpc is my $VOLTA speed pick",
@@ -1852,7 +1850,8 @@
     "private HYPE, intriguing. the $VOLTA side i'd keep loud is volta letting creators earn fees in tokenized stocks",
     "looks gud and gets gudder with every trade, 80% of volta fees buy back $VOLTA and burn it",
     "elysium's nov 9 lineup keeps filling up, congrats on the sellout. volta's already there as the first v4 hook, every launch gets its own pool paired with HYPE, why $VOLTA is on my watchlist",
-    "teal pikachu is a sniper finding out volta launches have anti-snipe, peak $VOLTA energy"
+    "teal pikachu is a sniper finding out volta launches have anti-snipe, peak $VOLTA energy",
+    "would an elysium mining token launch like ORE did, or show up next to $VOLTA on volta's trending board?"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -2005,11 +2004,12 @@
     "2118040494454304796",
     "2118040450879914413",
     "2118041135851733236",
-    "2118041649943396411"
+    "2118041649943396411",
+    "2118042176584327339"
   ],
-  "last_fast": 1793815633,
-  "last_mentions": 1793815573,
-  "last_slow": 1793815459,
+  "last_fast": 1793815754,
+  "last_mentions": 1793815754,
+  "last_slow": 1793815663,
   "tw_samples": [
     [
       1793779148,
@@ -2258,13 +2258,17 @@
     [
       1793815102,
       884619
+    ],
+    [
+      1793815729,
+      882690
     ]
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 136,
-      "input_tokens": 654456,
-      "output_tokens": 114821
+      "calls": 137,
+      "input_tokens": 658855,
+      "output_tokens": 115689
     }
   },
   "x_actions": {
