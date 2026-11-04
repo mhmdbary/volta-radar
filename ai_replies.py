@@ -48,7 +48,11 @@ RULES = """Style: write like a real person on crypto twitter typing on their pho
 
 Limits:
 - write as the Volta team ("we're building...", "at volta we...") so the affiliation is clear
-- always include the ticker $VOLTA exactly once, worked naturally into the sentence (not tacked on at the end)
+- always include the ticker $VOLTA exactly once, worked naturally into the sentence (not tacked on at the end).
+  $VOLTA is the token (the one that gets bought back and burned); the platform is "volta". never write
+  "we built $VOLTA" or call the launchpad $VOLTA
+- describe what the product does, never promise money: no "fund your bag", "get paid big", "easy money",
+  "passive income", or anything that implies profit
 - never tell anyone to buy, ape, or invest; no price talk, no "100x", no financial advice
 - no claims about competitors, not even implied ones (don't suggest other launchpads are forks, unsafe or
   "mystery code"), and nothing about Volta beyond the facts above"""
