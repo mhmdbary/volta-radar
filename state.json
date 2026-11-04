@@ -1,5 +1,5 @@
 {
-  "last_check": 1793802338,
+  "last_check": 1793802491,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -114,6 +114,7 @@
     "2117618058525372634",
     "2117897156518691273",
     "2117901122773868878",
+    "2117987014398161354",
     "2117871218754048195",
     "2117863302558826655",
     "2117882327418454138",
@@ -121,6 +122,7 @@
     "2117741496816287950",
     "2117895014772813849",
     "2117970034844897362",
+    "2117986479951524064",
     "2117841518438551990",
     "2117958182416822702",
     "2117602702306034149",
@@ -301,45 +303,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117843126350131380": {
-      "author": "ashcotXBT",
-      "text": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily $BOXA sounds close behind, what would make it overtake $KLEOS?",
-      "reply": "honestly too early to call rankings before mainnet even lands on nov 9. we're just heads down building volta so creators on elysium have a solid place to launch, the rest sorts itself out",
-      "tried": [
-        "honestly too early to call rankings before mainnet even lands on nov 9. we're just heads down building volta so creators on elysium have a solid place to launch, the rest sorts itself out"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "بصراحة من المبكر جدًا الحكم على الترتيب قبل إطلاق الشبكة الرئيسية في 9 نوفمبر. نحن مركزون على بناء Volta ليكون للمبدعين على Elysium مكان قوي للإطلاق، والباقي سيتضح مع الوقت",
-      "tweet_ar": "‏$BOXA يبدو قريبًا جدًا من المركز الأول، ما الذي قد يجعله يتفوق على $KLEOS؟",
-      "message_id": 115
-    },
-    "2117843991861543336": {
-      "author": "0xweekend59",
-      "text": "@Habibxweb3 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily Good luck with the lock in",
-      "reply": "appreciate it 🙏 heads down over here getting things ready for elysium mainnet on nov 9",
-      "tried": [
-        "appreciate it 🙏 heads down over here getting things ready for elysium mainnet on nov 9"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر ذلك 🙏 نحن مركزون هنا ونجهز كل شيء لإطلاق شبكة Elysium الرئيسية في 9 نوفمبر",
-      "tweet_ar": "@Habibxweb3 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily بالتوفيق في فترة التركيز والشغل الجاد",
-      "message_id": 116
-    },
-    "2117844124913319946": {
-      "author": "0xweekend59",
-      "text": "@ashcotXBT @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily Seems like it needs more than just sound",
-      "reply": "agreed, hype fades fast if there's nothing under it. for us at volta it's about creators actually getting paid from trading fees so they stick around after launch",
-      "tried": [
-        "agreed, hype fades fast if there's nothing under it. for us at volta it's about creators actually getting paid from trading fees so they stick around after launch"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "متفق، الضجة تختفي بسرعة إذا ما كان في شيء حقيقي وراها. بالنسبة لنا في فولتا الفكرة إن المنشئين ياخذون فعلاً من رسوم التداول عشان يكملون بعد الإطلاق",
-      "tweet_ar": "يبدو أن الأمر يحتاج إلى أكثر من مجرد صوت (ضجيج)",
-      "message_id": 117
-    },
     "2117850834776256564": {
       "author": "Habibxweb3",
       "text": "Elysium price update\n5 days to mainnet, here's where the board sits right now\n\n@Enter_Elysium goes live Nov 9. No chain token, so all the attention is on what's already trading.\n\nthe big 3 ($1.6M+)\n1. solana:6qHtAvksH2cSaUjz6euVSikPU8RnDqLpFtuWH6Ropump, ElysPump mascot\n~$2.23M MC · -2% 24h · 1.2K holders · ~$408K vol\nflipped $BOXA for #1\nCA 0x9a9815af521149e8d982791703a31bca2f95f534\n\n2. $BOXA @Boxa_Elysium, DEX + pad + bridge\n~$1.68M MC · -2% 24h · 1.57K holders\nflat for 2 days, holders still growing\nCA 0xa3c1d6a8648df3978a38ce1478fbc284c75d95d7\n\n3. $KLEOS @TheKleos_, pad token\n~$1.64M MC (est.) · ~735 HYPE in LP\nwent up a lot from ~$984K on Nov 2\nCA 0x51C343Ed5131F17895991849860B61C2cb0E7e7a\n\nmid caps\n4. $e/acc, the chain slogan\n~$470K · -15% 24h · 1.15K holders\ncooling off, copycats everywhere\nCA 0xedb963ed6efe231f6327c87a42ed49abe2447afa\n\n5. $ELYSP, ElysPump pad token\n~$243K · +32% 24h · ~$213K vol\ngreen day, volume close to its MC\nCA 0x7a7ae0e715867fc3b0055192624982017328c60b\n\n6. $SENDU ~$261K (est.)\nCA 0x392EA0144A622773eAeE0Fa59141F058ad39Eef3\n\n7. $AGORA ~$154K (est.)\nCA 0x5e5Df82d563FCF36b6f853c4D09f89e2d18825B4\n\n8. $HOMER @homer_fi ~$117K (est.)\ndown from ~$257K on Nov 2\nCA 0x365Be4728d0Ee2140e8b75A05C5DCf6b7D76399A\n\ngreen today\n9. $AK, Agent K ~$101K · +80%\nCA 0xcceeedb7f7f6fb96451789900bc73937f43d9b6f\n\n10. $CHORD, Notochord ~$44K · +754%\ntiny and parabolic, very risky\nCA 0x6bd503be90d07dd4d917f885c007afee6e53b403\n\n$ELYCAT is off the list. Kleos shows 10+ clone ELYCAT CAs and I can't confirm a liquid official one. If you hold it, check the CA with @Elysium_Cat.\n\nDYOR before you ape:\n→ there are multiple BLOBs, e/accs, KLEOSes and cats. match the CA from the official X on https://t.co/UNAS5nTjX9\n→ thin LP = big moves both ways\n→ bridging back to HyperEVM takes ~6 days\n→ the mainnet pump can turn into sell the news\n\nMC is live from the Kleos board, Nov 4, 11:20 AM Dhaka. HYPE is $83.93. \"est.\" = price × 1B supply. it moves by the hour.\nNFA. DYOR.\n\nWhich one are you holding into Nov 9?\nRT so the Elysium fam sees it",
@@ -1737,13 +1700,53 @@
       "reply_ar": "نادرًا ما تجذب الشبكات في بداياتها هذا العدد من المتداولين، أظن أن وجود مجمع v4 جديد مقترن بـ HYPE لكل إطلاق على volta يساعد $VOLTA",
       "tweet_ar": "500 متداول في يوم واحد بداية قوية لـ volta.",
       "message_id": 311
+    },
+    "2117986555780620334": {
+      "to_me": true,
+      "author": "TLdn43",
+      "text": "@barymoto first uniswap v4 hook live on elysium is a real differentiator",
+      "reply": "agreed, and anti-snipe at launch is the $VOLTA part snipers hate",
+      "tried": [
+        "agreed, and anti-snipe at launch is the $VOLTA part snipers hate"
+      ],
+      "image": null,
+      "my_text": "1/ why i'm early on volta, the elysium launchpad 🧵\n\nbuilt as the first uniswap v4 hook live on elysium, and $VOLTA sits at the center of it\n\neverything you need to know 👇 https://t.co/soqspdqPJV",
+      "relevant": true,
+      "reply_ar": "متفق، والحماية من القنص عند الإطلاق هي الجزء في $VOLTA الذي يكرهه القناصون",
+      "tweet_ar": "أول خطاف (hook) لـ Uniswap V4 يعمل على Elysium يُعد ميزة تنافسية حقيقية",
+      "message_id": 312
+    },
+    "2117986479951524064": {
+      "author": "Xeetbtcvox",
+      "text": "Curious to see if kalosfun will actually make it\n\nThis is one of the reasons I'm skeptical of projects building marketplaces and launchpads for a new chain\n\nYou have to understand, this isn't another Tempo chain.",
+      "reply": "what would make you less skeptical though, traders actually sticking around? for me a launchpad on a fresh chain lives or dies on whether people can see what's moving. volta's trending board does that on elysium, part of why i watch $VOLTA",
+      "tried": [
+        "what would make you less skeptical though, traders actually sticking around? for me a launchpad on a fresh chain lives or dies on whether people can see what's moving. volta's trending board does that on elysium, part of why i watch $VOLTA"
+      ],
+      "image": null,
+      "followers": 7944,
+      "relevant": true,
+      "reply_ar": "لكن ما الذي سيجعلك أقل تشككاً؟ أن يبقى المتداولون فعلاً؟ برأيي، منصة الإطلاق على شبكة جديدة تنجح أو تفشل بناءً على قدرة الناس على رؤية ما يتحرك. لوحة الترند في volta تفعل ذلك على Elysium، وهذا جزء من سبب متابعتي لـ $VOLTA.",
+      "tweet_ar": "أنا فضولي لأرى إن كان kalosfun سينجح فعلاً. هذا أحد أسباب تشككي في المشاريع التي تبني أسواقاً ومنصات إطلاق لشبكة جديدة. يجب أن تفهموا أن هذه ليست مجرد شبكة أخرى مثل Tempo.",
+      "message_id": 313
+    },
+    "2117987014398161354": {
+      "author": "Kenzo13RO",
+      "text": "Added my second launchpad project in my @Enter_Elysium journey.\nAdded a bag of $VOLTA , was launched last night, waited to see the reaction overnight and on the second day.\nPretty strong and also updates from team come pretty quick.\nStill holding the other bags i have, just diversifing.\nStill 5 days left till mainnet, so betting on different horses might pay off later.\nAround 700k right now, but pretty sure its still early on it.",
+      "reply": "spreading bets before nov 9 makes sense. normally stuff ships after a chain's mainnet, but volta's already live on elysium so $VOLTA got its first reactions before the public launch",
+      "tried": [
+        "spreading bets before nov 9 makes sense. normally stuff ships after a chain's mainnet, but volta's already live on elysium so $VOLTA got its first reactions before the public launch"
+      ],
+      "image": null,
+      "followers": 10566,
+      "relevant": true,
+      "reply_ar": "توزيع الرهانات قبل 9 نوفمبر منطقي. عادةً تُطلق المشاريع بعد الشبكة الرئيسية للسلسلة، لكن فولتا تعمل بالفعل على Elysium، لذا حصل $VOLTA على أولى ردود الفعل قبل الإطلاق العام",
+      "tweet_ar": "أضفت مشروع منصة الإطلاق الثاني في رحلتي على Elysium. أضفت كمية من $VOLTA، تم إطلاقه الليلة الماضية، وانتظرت لأرى ردة الفعل خلال الليل وفي اليوم الثاني. قوي جدًا، وتحديثات الفريق تأتي بسرعة أيضًا. ما زلت محتفظًا بالحقائب الأخرى التي أملكها، فقط أنوّع. بقي 5 أيام على الشبكة الرئيسية، لذا المراهنة على عدة خيول قد تؤتي ثمارها لاحقًا. حوالي 700 ألف الآن، لكنني متأكد أنه ما زال مبكرًا.",
+      "message_id": 314
     }
   },
-  "angle_i": 101,
+  "angle_i": 103,
   "recent_texts": [
-    "elysium moving fast for sure. what i'd ask launchers is what a good launch even looks like to them, for me it's creator-set fees from day one. why i hold $VOLTA",
-    "same here, been keeping tabs too. honestly the thing i'd tell any dev is that a volta launch pays the creator in HYPE, that's what got me holding $VOLTA",
-    "a hamie x xeet group chat is a fun combo lol. speaking of being positioned, i like that volta lets creators take fees in tokenized stocks, kinda why $VOLTA is in my wallet",
     "grimwald running a tighter onboarding than most dapps lol. once you're off the ferry, every trade on volta buys back and burns $VOLTA, so the island gets busier and supply gets thinner",
     "retard-proof is the highest compliment a bridge can get lol. once you're over, every volta launch has its own v4 pool paired with HYPE, so you can trade straight away. part of why i hold $VOLTA",
     "nice to see pons waking up. volta runs basically the same model over on elysium, 80% of fees buying back $VOLTA and burning it, so i've got an eye on both chains",
@@ -1800,15 +1803,19 @@
     "plot twist, volta doesn't pick the next token, the creator does and earns fees in HYPE, best part of $VOLTA imo",
     "auto burns, solid move. $VOLTA gets burned on every volta trade",
     "the cigar cat in the hmm shirt is exactly what full conviction looks like lol. my version of not fading is watching volta's fee flow, 80% of trading fees buy back $VOLTA and burn it, so the busier elysium gets the thinner the supply",
-    "early chains rarely pull that many traders, guess a fresh v4 pool paired with HYPE for every volta launch helps $VOLTA"
+    "early chains rarely pull that many traders, guess a fresh v4 pool paired with HYPE for every volta launch helps $VOLTA",
+    "agreed, and anti-snipe at launch is the $VOLTA part snipers hate",
+    "what would make you less skeptical though, traders actually sticking around? for me a launchpad on a fresh chain lives or dies on whether people can see what's moving. volta's trending board does that on elysium, part of why i watch $VOLTA",
+    "spreading bets before nov 9 makes sense. normally stuff ships after a chain's mainnet, but volta's already live on elysium so $VOLTA got its first reactions before the public launch"
   ],
   "to_me_seen": [
-    "2117872026555965644",
+    "2117962241957904390",
     "2117945433234313681",
+    "2117872026555965644",
     "2117895148365607335",
-    "2117962241957904390"
+    "2117986555780620334"
   ],
-  "last_to_me": 1793802220,
+  "last_to_me": 1793802483,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1888,11 +1895,13 @@
     "2117982317629091865",
     "2117982889883144652",
     "2117985318255104031",
-    "2117985533645427094"
+    "2117985533645427094",
+    "2117986479951524064",
+    "2117987014398161354"
   ],
-  "last_fast": 1793802338,
-  "last_mentions": 1793802338,
-  "last_slow": 1793802248,
+  "last_fast": 1793802491,
+  "last_mentions": 1793802434,
+  "last_slow": 1793802434,
   "tw_samples": [
     [
       1793779148,
@@ -2057,9 +2066,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 71,
-      "input_tokens": 332913,
-      "output_tokens": 55615
+      "calls": 74,
+      "input_tokens": 346793,
+      "output_tokens": 58388
     }
   },
   "x_actions": {
