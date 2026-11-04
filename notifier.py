@@ -428,13 +428,16 @@ def draft_message(d, tags):
 
 
 def draft_buttons(tid, d):
+    # twitter.com/intent/tweet is the link the X mobile app registers for, so it opens the app with the text ready
+    # (x.com/intent/post only opens the website)
     if d.get("kind") == "tweet":
-        first = {"text": "🚀 انشر على X", "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"text": d["reply"]})}
+        rows = [[{"text": "🚀 انشر على X",
+                  "url": "https://twitter.com/intent/tweet?" + urllib.parse.urlencode({"text": d["reply"]})}]]
     else:
-        first = {"text": "🚀 رد على X",
-                 "url": "https://x.com/intent/post?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})}
-    return {"inline_keyboard": [
-        [first],
+        rows = [[{"text": "🚀 رد على X",
+                  "url": "https://twitter.com/intent/tweet?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})},
+                 {"text": "📱 افتح التويتة", "url": f"https://x.com/{d.get('author') or 'i'}/status/{tid}"}]]
+    return {"inline_keyboard": rows + [
         [{"text": "✏️ فكرتي بالعربي", "callback_data": f"ins:{tid}"},
          {"text": "🔄 غيرها", "callback_data": f"chg:{tid}"}],
         [{"text": "❌ تجاهل", "callback_data": f"ign:{tid}"}],
