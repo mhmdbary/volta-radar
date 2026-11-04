@@ -1,5 +1,5 @@
 {
-  "last_check": 1793814235,
+  "last_check": 1793814325,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -9,8 +9,8 @@
     "2117896640929603800",
     "2117602702306034149",
     "2118029678606782539",
-    "2117896209239277918",
     "2117942624892194883",
+    "2117896209239277918",
     "2117673754574651760",
     "2117888338447540566",
     "2117748509201899912",
@@ -55,6 +55,7 @@
     "2117968735835394473",
     "2118036092137980087",
     "2117718001873023074",
+    "2117731688319201447",
     "2117732161797464230",
     "2117776366674592206",
     "2117987916375023823",
@@ -97,12 +98,12 @@
     "2117736244881051699",
     "2117668555147591692",
     "2117742234561060908",
+    "2118036744662880439",
     "2117970774040686814",
     "2117843126350131380",
     "2117870819640827934",
     "2118023606836089222",
     "2117970034844897362",
-    "2117752963968143519",
     "2117733694748365046",
     "2117681643377078689",
     "2117991208786010539",
@@ -135,6 +136,7 @@
     "2117748787624186026",
     "2117727040002736243",
     "2117943995653640702",
+    "2117686232830685186",
     "2117942164567343349",
     "2117988958588252435",
     "2117977920228757526",
@@ -165,7 +167,6 @@
     "2117944166487351634",
     "2117962439178477821",
     "2117968931382309203",
-    "2117702404908986400",
     "2117856962864136593",
     "2117726101095035091",
     "2117702432436195347",
@@ -218,7 +219,7 @@
     "2117895099598405919",
     "2117943643290116163",
     "2118031585878454284",
-    "2117882031510364429",
+    "2117955713255485501",
     "2118009229705662536",
     "2117902428750368909",
     "2117717259716362608",
@@ -254,9 +255,9 @@
     "2118022057250402487",
     "2117872026555965644",
     "2117996293188718856",
-    "2117686232830685186",
-    "2117731688319201447",
-    "2117955713255485501",
+    "2117882031510364429",
+    "2117702404908986400",
+    "2117752963968143519",
     "2117953749591146800",
     "2117997401084510497",
     "2117895014772813849"
@@ -358,20 +359,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117950680807719246": {
-      "author": "Realwhales_",
-      "text": "@VoltaFamily @fomo @Pumpfun Amazing initiative. Let's discuss possibilities 🚀",
-      "reply": "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with",
-      "tried": [
-        "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with"
-      ],
-      "image": null,
-      "followers": 115969,
-      "relevant": true,
-      "reply_ar": "كلمة \"الإمكانيات\" تحمل عبئاً كبيراً هنا هههه. اقتراحي لجدول النقاش: صنّاع التوكنات على فولتا يمكنهم كسب رسومهم بأسهم مرمّزة وليس بالعملات الرقمية فقط، وهذه تفصيلة $VOLTA التي سأبدأ بها",
-      "tweet_ar": "مبادرة رائعة. دعونا نناقش الإمكانيات 🚀",
-      "message_id": 265
-    },
     "2117952872898064730": {
       "author": "whalesdotsol",
       "text": "@ElCryptoDoc @Enter_Elysium @VoltaFamily is bringing the first live Uniswap V4 hook to Elysium. \n\nEvery token gets its own V4 pool paired with $HYPE, with creator-set fees, launch anti-snipe protection, and built-in buybacks and burns on every trade. https://t.co/hEt9zVDH93",
@@ -1787,11 +1774,24 @@
       "reply_ar": "اليونيكورن صار ياكل أسهم الحين هههه، على الأقل رسوم فولتا البيانية توريك متوسط سعر دخولك في صفقات $VOLTA",
       "tweet_ar": "عالجت يونيسواب حتى الآن أكثر من 20 مليار دولار من حجم تداول رموز الأسهم على الإطلاق. رقم واحد بين جميع منصات التداول اللامركزية 🦄",
       "message_id": 372
+    },
+    "2118036744662880439": {
+      "author": "elonmusk",
+      "text": "Try Grok @Bot. It’s like hiring an amazing assistant!",
+      "reply": "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
+      "tried": [
+        "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9"
+      ],
+      "image": null,
+      "followers": 241470592,
+      "relevant": false,
+      "reply_ar": "المساعدات الذكية في كل مكان الآن، مساعدي سيذكّرني فقط بأن شبكة إليسيوم، سلسلة $VOLTA، تنطلق للعامة في 9 نوفمبر",
+      "tweet_ar": "جرّبوا Grok. إنه كأنك وظّفت مساعداً رائعاً!",
+      "message_id": 373
     }
   },
-  "angle_i": 158,
+  "angle_i": 159,
   "recent_texts": [
-    "the cigar cat in the hmm shirt is exactly what full conviction looks like lol. my version of not fading is watching volta's fee flow, 80% of trading fees buy back $VOLTA and burn it, so the busier elysium gets the thinner the supply",
     "early chains rarely pull that many traders, guess a fresh v4 pool paired with HYPE for every volta launch helps $VOLTA",
     "agreed, and anti-snipe at launch is the $VOLTA part snipers hate",
     "what would make you less skeptical though, traders actually sticking around? for me a launchpad on a fresh chain lives or dies on whether people can see what's moving. volta's trending board does that on elysium, part of why i watch $VOLTA",
@@ -1850,7 +1850,8 @@
     "solid grab before the clock runs out, volta's burn has no timer, 80% of fees take $VOLTA off the market for good",
     "first v4 hook live on elysium is the real headline, it's not 'official' yet since it's only been submitted to uniswap for approval. every volta token gets its own v4 pool paired with HYPE, so tator wiring that in makes sense to this $VOLTA holder",
     "bots incoming lol. volta's anti-snipe is why i watch $VOLTA",
-    "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades"
+    "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
+    "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1996,11 +1997,12 @@
     "2118031585878454284",
     "2118033018963325287",
     "2118033614936171005",
-    "2118036092137980087"
+    "2118036092137980087",
+    "2118036744662880439"
   ],
-  "last_fast": 1793814235,
-  "last_mentions": 1793814235,
-  "last_slow": 1793814145,
+  "last_fast": 1793814325,
+  "last_mentions": 1793814325,
+  "last_slow": 1793814325,
   "tw_samples": [
     [
       1793779148,
