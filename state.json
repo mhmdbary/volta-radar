@@ -1,11 +1,12 @@
 {
-  "last_check": 1793792241,
+  "last_check": 1793792375,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
     "2117723384910082369",
     "2117595326626619825",
     "2117850834776256564",
+    "2117943643290116163",
     "2117580008931709076",
     "2117893633009651980",
     "2117749916470780198",
@@ -16,6 +17,7 @@
     "2117863047369044414",
     "2117670642388533620",
     "2117875400562929691",
+    "2117944166487351634",
     "2117626218652573730",
     "2117779860089340399",
     "2117726101095035091",
@@ -255,32 +257,6 @@
   },
   "last_follow_check": 1793771975,
   "drafts": {
-    "2117724931626520974": {
-      "author": "Xeetbtcvox",
-      "text": "Early find @Elywizardz [free mint]\n\nBuilding on @Enter_Elysium \n\nAre you positioned? https://t.co/3H4v0vWYEy",
-      "reply": "grimwald holding the apple and not explaining himself is elite lore. good to see more builders showing up on elysium before mainnet, we're building volta there too so it's fun watching the neighborhood fill in",
-      "tried": [
-        "grimwald holding the apple and not explaining himself is elite lore. good to see more builders showing up on elysium before mainnet, we're building volta there too so it's fun watching the neighborhood fill in"
-      ],
-      "image": "https://pbs.twimg.com/media/HWOrmGMWAAEDv7w.jpg",
-      "relevant": true,
-      "reply_ar": "غريموالد اللي ماسك التفاحة وما يشرح ليش، قصة ممتازة. حلو نشوف بناة أكثر يجون على Elysium قبل الإطلاق الرئيسي، إحنا نبني Volta هناك أيضاً فممتع نشوف الحي يمتلئ",
-      "tweet_ar": "اكتشاف مبكر @Elywizardz [سك مجاني]\n\nيبنون على @Enter_Elysium\n\nهل أنت متموضع؟\n(الصورة: حساب Elywizardz بشعار ساحر بكسلي، والوصف: غريموالد لا يقول لماذا يحمل التفاحة. آخر عبّارة إلى Elysium تغادر عند السك. سك مجاني)",
-      "message_id": 67
-    },
-    "2117725086413402244": {
-      "author": "AjkiInfo",
-      "text": "@VoltaFamily Brilliant thinking behind this innovative initiative. Feel free to reach out.",
-      "reply": "appreciate it! we're heads down getting ready for elysium mainnet on nov 9 right now, but always happy to hear what people have in mind",
-      "tried": [
-        "appreciate it! we're heads down getting ready for elysium mainnet on nov 9 right now, but always happy to hear what people have in mind"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "شكرًا لك! نحن مشغولون حاليًا بالتحضير لإطلاق شبكة Elysium الرئيسية في 9 نوفمبر، لكننا دائمًا نحب أن نسمع أفكار الناس",
-      "tweet_ar": "@VoltaFamily تفكير رائع وراء هذه المبادرة المبتكرة. لا تتردد في التواصل معنا.",
-      "message_id": 68
-    },
     "2117726101095035091": {
       "author": "KarollinaOk",
       "text": "@VoltaFamily The idea behind this is pretty clever",
@@ -1627,9 +1603,37 @@
       "reply_ar": "الهوك لسه مقدَّم ليونيسواب للموافقة، بس القصة الحقيقية هي الحرق. 80% من رسوم فولتا تُستخدم لإعادة شراء $VOLTA وحرقه",
       "tweet_ar": "يونيسواب الرسمي 👀 فولتا 🔥",
       "message_id": 254
+    },
+    "2117943643290116163": {
+      "author": "real_alpha",
+      "text": "Everything going good for now\n\nHope no more fud before 9 Nov.\n\nWill cook Much harder if true.",
+      "reply": "fingers crossed fr. volta's hook was the first uniswap v4 one live on elysium and every new token gets its own pool paired with HYPE, so $VOLTA isn't waiting on nov 9 to cook",
+      "tried": [
+        "fingers crossed fr. volta's hook was the first uniswap v4 one live on elysium and every new token gets its own pool paired with HYPE, so $VOLTA isn't waiting on nov 9 to cook"
+      ],
+      "image": null,
+      "followers": 13093,
+      "relevant": true,
+      "reply_ar": "متفائلين فعلاً. الهوك الخاص بـ volta كان أول هوك من Uniswap V4 يعمل على Elysium، وكل توكن جديد يحصل على مجمّع خاص به مقترن بـ HYPE، يعني $VOLTA ما ينتظر 9 نوفمبر عشان ينطلق.",
+      "tweet_ar": "كل شيء يسير بشكل جيد حتى الآن. أتمنى ألا يكون هناك المزيد من الأخبار السلبية والتخويف قبل 9 نوفمبر. إذا صحّ ذلك فسننطلق بقوة أكبر بكثير.",
+      "message_id": 255
+    },
+    "2117944166487351634": {
+      "author": "whalesdotsol",
+      "text": "@pumpitwo @VoltaFamily is bringing the first live Uniswap V4 hook to Elysium. ⚡\n\nEvery token gets its own V4 pool paired with $HYPE, with creator-set fees, launch anti-snipe protection, and built-in buybacks and burns on every trade.\n\nMore than just a launchpad. It’s infrastructure.",
+      "reply": "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA",
+      "tried": [
+        "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA"
+      ],
+      "image": null,
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "\"بنية تحتية\" أفخم وصف ممكن تحصل عليه منصة إطلاق ههه. اللي يهمني فعلاً هو الحماية من القنص عند الإطلاق حتى لا تلتهم البوتات أول بلوك، وهذا تقريباً سبب متابعتي لـ $VOLTA",
+      "tweet_ar": "‏‎@VoltaFamily تجلب أول hook حي من Uniswap V4 إلى شبكة Elysium. ⚡ كل توكن يحصل على مجمع V4 خاص به مقترن بـ $HYPE، مع رسوم يحددها المنشئ، وحماية من القنص عند الإطلاق، وعمليات إعادة شراء وحرق مدمجة في كل صفقة. أكثر من مجرد منصة إطلاق، إنها بنية تحتية.",
+      "message_id": 256
     }
   },
-  "angle_i": 51,
+  "angle_i": 53,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1666,13 +1670,15 @@
     "burn on burn lol, volta launches already trade on agora and every volta trade buys back and burns $VOLTA",
     "exposure anxiety is real lol. usually devs launch and watch others farm the volume, on volta the creator earns fees in HYPE from their own token, part of why $VOLTA caught my eye",
     "won't weigh in on the license stuff, but volta letting creators take fees in tokenized stocks keeps me on $VOLTA",
-    "still just submitted to uniswap, but the burn's the story. 80% of volta fees buy back and burn $VOLTA"
+    "still just submitted to uniswap, but the burn's the story. 80% of volta fees buy back and burn $VOLTA",
+    "fingers crossed fr. volta's hook was the first uniswap v4 one live on elysium and every new token gets its own pool paired with HYPE, so $VOLTA isn't waiting on nov 9 to cook",
+    "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117895148365607335"
   ],
-  "last_to_me": 1793792106,
+  "last_to_me": 1793792243,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1707,11 +1713,13 @@
     "2117942008467570943",
     "2117942624892194883",
     "2117943349877588018",
-    "2117943995653640702"
+    "2117943995653640702",
+    "2117943643290116163",
+    "2117944166487351634"
   ],
-  "last_fast": 1793792241,
-  "last_mentions": 1793792181,
-  "last_slow": 1793792074,
+  "last_fast": 1793792375,
+  "last_mentions": 1793792375,
+  "last_slow": 1793792271,
   "tw_samples": [
     [
       1793779148,
@@ -1812,9 +1820,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 23,
-      "input_tokens": 87027,
-      "output_tokens": 11588
+      "calls": 25,
+      "input_tokens": 96118,
+      "output_tokens": 13809
     }
   },
   "x_actions": {
