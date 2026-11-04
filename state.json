@@ -1,5 +1,5 @@
 {
-  "last_check": 1793797373,
+  "last_check": 1793797523,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -8,8 +8,8 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117893633009651980",
     "2117580008931709076",
+    "2117893633009651980",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -32,8 +32,8 @@
     "2117689582485422507",
     "2117957641175765165",
     "2117812508903772532",
-    "2117953749591146800",
     "2117748509201899912",
+    "2117953749591146800",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -155,6 +155,7 @@
     "2117733694748365046",
     "2117721705338515564",
     "2117855496178675954",
+    "2117965438961189077",
     "2117721198431985792",
     "2117726419086413958",
     "2117817372010799493",
@@ -177,7 +178,7 @@
     "2117617355627131060",
     "2117942164567343349"
   ],
-  "tg_offset": 277101742,
+  "tg_offset": 277101745,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -274,32 +275,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117742234561060908": {
-      "author": "OhMyJack",
-      "text": "@VoltaFamily Need a runner and it’s gg @Enter_Elysium 🔥🔥",
-      "reply": "one good runner and the whole ecosystem wakes up. we're just making sure creators actually get paid when it happens, fees go out in HYPE. nov 9 can't come soon enough",
-      "tried": [
-        "one good runner and the whole ecosystem wakes up. we're just making sure creators actually get paid when it happens, fees go out in HYPE. nov 9 can't come soon enough"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "عملة واحدة ناجحة وينتعش النظام كله. نحن نتأكد فقط أن المنشئين يحصلون فعلاً على أرباحهم عندما يحدث ذلك، الرسوم تُدفع بـ HYPE. ننتظر 9 نوفمبر بفارغ الصبر",
-      "tweet_ar": "@VoltaFamily نحتاج فقط عملة تنطلق بقوة وتكون اللعبة محسومة @Enter_Elysium 🔥🔥",
-      "message_id": 88
-    },
-    "2117743148470337652": {
-      "author": "raynft_",
-      "text": "@VoltaFamily Here if you need a hand completely free. Send a message.",
-      "reply": "appreciate that a lot, means a ton this close to elysium mainnet on nov 9. we'll slide into your dms",
-      "tried": [
-        "appreciate that a lot, means a ton this close to elysium mainnet on nov 9. we'll slide into your dms"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر ذلك كثيراً، وهذا يعني لنا الكثير ونحن على بُعد أيام من إطلاق الشبكة الرئيسية لـ Elysium في 9 نوفمبر. سنراسلك على الخاص",
-      "tweet_ar": "@VoltaFamily أنا موجود إذا احتجتم مساعدة مجاناً تماماً. أرسلوا رسالة.",
-      "message_id": 89
-    },
     "2117744889324552631": {
       "author": "x_teraus",
       "text": "@VoltaFamily @Tunaswiminsea @Kinetiq_xyz @Enter_Elysium @chang_defi @TopherGMI Next-gen pad with HYPE + tokenized stock fees is a sharp thesis for Elysium. Happy to connect if you want builder/dev support as you ship.",
@@ -1679,9 +1654,35 @@
       "message_id": 281,
       "done": true,
       "my_url": "https://x.com/barymoto/status/2117963802113446391"
+    },
+    "w1793797458": {
+      "kind": "tweet",
+      "instruction": "تويته حماسيه عن volta",
+      "reply": "100% with you, launching a token should actually pay the person who launched it. on volta creators set their own fee and earn it in HYPE, which is why $VOLTA has me this fired up",
+      "tried": [
+        "100% with you, launching a token should actually pay the person who launched it. on volta creators set their own fee and earn it in HYPE, which is why $VOLTA has me this fired up"
+      ],
+      "relevant": true,
+      "reply_ar": "معك 100%، إطلاق توكن لازم فعلاً يدفع للشخص اللي أطلقه. على volta المطورين يحددون رسومهم بأنفسهم ويكسبونها بـ HYPE، وهذا سبب حماسي الكبير لـ $VOLTA",
+      "tweet_ar": "",
+      "message_id": 285
+    },
+    "2117965438961189077": {
+      "author": "heavyy",
+      "text": "hey just minted my kalos genesis #750\n\nhuge thank you to the whole team\n\nthey're doing an amazing job for elysium and hyperliquid\n\n@FugakuX is a based dev and just a great person\n\nhope they gamechange HL's nft space\n\ngKalos https://t.co/U9SYqewMU3",
+      "reply": "congrats on #750, elysium's nft scene is going to carry way more culture than people expect. pair that with volta letting token creators earn fees in tokenized stocks, not just crypto, and $VOLTA ends up right where elysium creators hang out",
+      "tried": [
+        "congrats on #750, elysium's nft scene is going to carry way more culture than people expect. pair that with volta letting token creators earn fees in tokenized stocks, not just crypto, and $VOLTA ends up right where elysium creators hang out"
+      ],
+      "image": "https://pbs.twimg.com/media/HWSGQTqasAAYlsP.png",
+      "followers": 2494,
+      "relevant": true,
+      "reply_ar": "مبروك على رقم 750، مشهد الـNFT على إليزيوم سيحمل ثقافة أكبر بكثير مما يتوقعه الناس. وأضف إلى ذلك أن فولتا تتيح لمنشئي التوكنات كسب رسومهم بأسهم مرمّزة وليس بالكريبتو فقط، فيصبح $VOLTA في المكان الذي يتجمع فيه منشئو إليزيوم",
+      "tweet_ar": "سككت للتو عملة كالوس جينيسيس رقم 750. شكر كبير للفريق كله، يقومون بعمل رائع من أجل إليزيوم وهايبرليكويد. فوغاكو مطوّر رائع وشخص طيب جداً. أتمنى أن يغيّروا قواعد اللعبة في مساحة الـNFT على هايبرليكويد. gKalos",
+      "message_id": 286
     }
   },
-  "angle_i": 72,
+  "angle_i": 74,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1739,7 +1740,9 @@
     "if you're poking around elysium launches, judge them by the first block. volta's hook has anti-snipe built in at launch so real buyers get a shot before bots do, and that's the part of $VOLTA i think people underrate",
     "three apps deep now. volta charts still show your $VOLTA avg entry",
     "undervalued is ct's favorite word after gm lol. price aside, volta's already live on elysium before the nov 9 public mainnet, that's the $VOLTA bit i keep pointing at",
-    "elysium bots having a rough week, agora blocks mev and volta's anti-snipe guards launches, why i rate $VOLTA"
+    "elysium bots having a rough week, agora blocks mev and volta's anti-snipe guards launches, why i rate $VOLTA",
+    "100% with you, launching a token should actually pay the person who launched it. on volta creators set their own fee and earn it in HYPE, which is why $VOLTA has me this fired up",
+    "congrats on #750, elysium's nft scene is going to carry way more culture than people expect. pair that with volta letting token creators earn fees in tokenized stocks, not just crypto, and $VOLTA ends up right where elysium creators hang out"
   ],
   "to_me_seen": [
     "2117872026555965644",
@@ -1801,11 +1804,12 @@
     "2117960431180644557",
     "2117962439178477821",
     "2117962969300529218",
-    "2117963441696821605"
+    "2117963441696821605",
+    "2117965438961189077"
   ],
-  "last_fast": 1793797373,
-  "last_mentions": 1793797373,
-  "last_slow": 1793797283,
+  "last_fast": 1793797523,
+  "last_mentions": 1793797463,
+  "last_slow": 1793797463,
   "tw_samples": [
     [
       1793779148,
@@ -1938,13 +1942,13 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 44,
-      "input_tokens": 200664,
-      "output_tokens": 31747
+      "calls": 46,
+      "input_tokens": 210230,
+      "output_tokens": 33505
     }
   },
   "x_actions": {
-    "likes": 14,
+    "likes": 15,
     "reposts": 8
   }
 }
