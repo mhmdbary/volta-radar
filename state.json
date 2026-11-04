@@ -1,5 +1,5 @@
 {
-  "last_check": 1793827848,
+  "last_check": 1793827968,
   "seen_ids": [
     "2118073194481373282",
     "2117893633009651980",
@@ -126,6 +126,7 @@
     "2117991208786010539",
     "2117873469970940170",
     "2117970428862050385",
+    "2118093883145916438",
     "2118021706497536396",
     "2117885655221202996",
     "2117578135160135964",
@@ -391,20 +392,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117974846923833786": {
-      "author": "BitBlitzBuzz",
-      "text": "Was scrolling my feed earlier and came across @VoidCashio the first privacy protocol on @Enter_Elysium\n\nbeen seeing more builders ship on elysium lately and this one caught my eye.\n\ndid a little digging. you deposit HYPE into a shielded pool, send it privately inside the pool, and withdraw whenever you want.\n\nngl, privacy narratives always run hard once a chain gets busy and elysium is getting busy fast\n\nthe dapp goes live today, keep this one on your radar guys 🥷",
-      "reply": "shielded HYPE pools showing up means elysium's filling out fast. usually creator fees on launches are crypto and that's it, on volta creators can also earn in tokenized stocks, a bit of $VOLTA nobody brings up",
-      "tried": [
-        "shielded HYPE pools showing up means elysium's filling out fast. usually creator fees on launches are crypto and that's it, on volta creators can also earn in tokenized stocks, a bit of $VOLTA nobody brings up"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSO5L8bgAAt8iP.jpg",
-      "followers": 10666,
-      "relevant": true,
-      "reply_ar": "ظهور مجمعات HYPE المحمية يعني أن Elysium تمتلئ بالمشاريع بسرعة. عادةً تكون رسوم المنشئين في الإطلاقات عملات رقمية فقط، أما على volta فيمكن للمنشئين أيضًا أن يكسبوا رسومهم بأسهم مرمّزة، وهي نقطة في $VOLTA لا يتحدث عنها أحد تقريبًا.",
-      "tweet_ar": "كنت أتصفح التايملاين في وقت سابق ووقعت على VoidCash، أول بروتوكول خصوصية على Elysium. لاحظت مؤخرًا أن عددًا أكبر من المطورين يطلقون مشاريعهم على Elysium، وهذا المشروع لفت انتباهي. بحثت قليلًا: تودع HYPE في مجمع محمي، وترسله بشكل خاص داخل المجمع، وتسحبه متى شئت. بصراحة، سرديات الخصوصية دائمًا تنطلق بقوة عندما تزدحم الشبكة، وElysium تزدحم بسرعة. التطبيق ينطلق اليوم، ضعوه تحت أنظاركم يا جماعة 🥷",
-      "message_id": 302
-    },
     "2117977920228757526": {
       "author": "SSJCurrency",
       "text": "@Thoney044 @Enter_Elysium @VoltaFamily What's special about this one ?",
@@ -1805,11 +1792,24 @@
       "reply_ar": "المعتاد مع العملات السياسية أنك تكتشف متأخرًا جدًا أنك دخلت عند القمة. على volta، الشارت يعرض مشترياتك ومتوسط سعر دخولك، فتعرف وضعك في $VOLTA بدون تخمين",
       "tweet_ar": "الكريبتو في الغالب صاعد بينما عملات ترامب الإجرامية هابطة: $TRUMP و$MELANIA انخفضتا بنسبة من رقمين، و$WLFI كانت ستنخفض أكثر لولا أنهم يسيطرون على معظم التوكنات وقفلوا توكنات معظم المستثمرين. الطبيعة تتعافى",
       "message_id": 405
+    },
+    "2118093883145916438": {
+      "author": "whalesdotsol",
+      "text": "@Befbunny @Befbunny check out $volta we’re so early on $volta (@VoltaFamily) and it’s the \n first uniswap v4 project on @Enter_Elysium \n\nCa:\n\n0x0f79931689Af199e7CF868ed1107bBA2C83c68f7 https://t.co/jqgqb0ui2l",
+      "reply": "early is right, $VOLTA's here before elysium even opens nov 9",
+      "tried": [
+        "early is right, $VOLTA's here before elysium even opens nov 9"
+      ],
+      "image": "https://pbs.twimg.com/media/HWT7JulXMAEUEUj.jpg",
+      "followers": 7140,
+      "relevant": true,
+      "reply_ar": "صحيح، الوقت مبكر فعلًا، $VOLTA موجود قبل أن تُفتح إليسيوم للعامة حتى في 9 نوفمبر",
+      "tweet_ar": "ألقِ نظرة على $volta، نحن في وقت مبكر جدًا على $volta، وهو أول مشروع يونيسواب V4 على إليسيوم. عنوان العقد: 0x0f79931689Af199e7CF868ed1107bBA2C83c68f7",
+      "message_id": 406
     }
   },
-  "angle_i": 190,
+  "angle_i": 191,
   "recent_texts": [
-    "fees normally just vanish, volta's buy back and burn $VOLTA",
     "pvp it is, volta launches each get v4 HYPE pools, $VOLTA arena",
     "farm the apps is the right call, but the app that matters most on a fresh chain is the one where bots don't win the opening seconds. volta's hook has anti-snipe protection at launch, which is the whole reason $VOLTA made my elysium list",
     "classic new chain rule lol, seeing your own avg entry on volta's elysium charts is the $VOLTA feature i rate most",
@@ -1868,7 +1868,8 @@
     "every elysium project has a boost tier chart now, volta's is just 80% of fees buying back and burning $VOLTA",
     "god builder vs country on fire is a rough pitch for paris lol. my attention stays onchain, where every volta launch gets its own v4 pool paired with HYPE, the $VOLTA side of elysium",
     "agent's on yellow paper duty. any anti-snipe plans for launch day like volta has, or is that just my $VOLTA brain?",
-    "usual move with political coins is realizing your entry was the top way too late. on volta the chart plots your own buys and avg entry, so you see where you stand on $VOLTA without guessing"
+    "usual move with political coins is realizing your entry was the top way too late. on volta the chart plots your own buys and avg entry, so you see where you stand on $VOLTA without guessing",
+    "early is right, $VOLTA's here before elysium even opens nov 9"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -2046,10 +2047,11 @@
     "2118084072551649461",
     "2118086821523652834",
     "2118088016015335862",
-    "2118088462737998184"
+    "2118088462737998184",
+    "2118093883145916438"
   ],
-  "last_fast": 1793827848,
-  "last_mentions": 1793827818,
+  "last_fast": 1793827968,
+  "last_mentions": 1793827908,
   "last_slow": 1793827818,
   "tw_samples": [
     [
@@ -2383,9 +2385,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 161,
-      "input_tokens": 776126,
-      "output_tokens": 138679
+      "calls": 162,
+      "input_tokens": 781865,
+      "output_tokens": 139416
     }
   },
   "x_actions": {
