@@ -373,9 +373,23 @@ def process_commands(cfg, state, wait=0):
         state["tg_offset"] = upd["update_id"] + 1
         cb = upd.get("callback_query")
         if cb:
-            if str((cb.get("from") or {}).get("id")) == admin:
+            data_ = cb.get("data") or ""
+            if str((cb.get("from") or {}).get("id")) != admin:  # e.g. someone else in the channel
                 try:
-                    if (cb.get("data") or "").startswith("rep:"):  # report period buttons
+                    tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"],
+                                                         "text": "Only the bot owner can use this button"})
+                except Exception:
+                    pass
+            elif data_ == "noop":
+                tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "Done already ✓"})
+            elif data_[:3] in ("lk:", "rt:"):
+                try:
+                    handle_engage_button(cfg, cb)
+                except Exception as e:
+                    print(f"[engage error] {e}")
+            else:
+                try:
+                    if data_.startswith("rep:"):  # report period buttons
                         days = int(cb["data"][4:])
                         tg_call(cfg, "editMessageText", {
                             "chat_id": admin, "message_id": cb["message"]["message_id"], "parse_mode": "HTML",
@@ -821,10 +835,43 @@ def format_alert(tweet, settings, tags, mention=False):
     return "\n".join(parts)
 
 
+X_READY = False  # set in main() when the X API keys are present
+
+
 def engage_row(tweet_id):
-    """❤️ / 🔁 buttons: open X's like / repost screen for that tweet (you still confirm in X)."""
+    """❤️ / 🔁 buttons. With X API keys they like / repost in one tap from Telegram;
+    without them they open X's like / repost screen."""
+    if X_READY:
+        return [{"text": "❤️ Like", "callback_data": f"lk:{tweet_id}"},
+                {"text": "🔁 Repost", "callback_data": f"rt:{tweet_id}"}]
     return [{"text": "❤️ Like", "url": f"https://twitter.com/intent/like?tweet_id={tweet_id}"},
             {"text": "🔁 Repost", "url": f"https://twitter.com/intent/retweet?tweet_id={tweet_id}"}]
+
+
+def handle_engage_button(cfg, cb):
+    """❤️ / 🔁 pressed: like or repost on X right away, then mark the button done."""
+    import x_actions
+    action, _, tweet_id = cb["data"].partition(":")
+    try:
+        (x_actions.like if action == "lk" else x_actions.repost)(cfg, tweet_id)
+    except Exception as e:
+        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "show_alert": True,
+                                             "text": f"ما زبط ❌\n{str(e)[:150]}"})
+        return
+    done_text = "❤️ Liked ✓" if action == "lk" else "🔁 Reposted ✓"
+    tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": done_text})
+    msg = cb.get("message") or {}
+    keyboard = (msg.get("reply_markup") or {}).get("inline_keyboard") or []
+    for row in keyboard:
+        for b in row:
+            if b.get("callback_data") == cb["data"]:
+                b.clear()
+                b.update({"text": done_text, "callback_data": "noop"})
+    try:
+        tg_call(cfg, "editMessageReplyMarkup", {"chat_id": msg["chat"]["id"], "message_id": msg["message_id"],
+                                                "reply_markup": {"inline_keyboard": keyboard}})
+    except Exception as e:
+        print(f"[engage edit error] {e}")
 
 
 def is_volta_tweet(tweet_or_draft):
@@ -1401,7 +1448,9 @@ def main():
                      ("telegram_bot_token", "TELEGRAM_BOT_TOKEN"),
                      ("telegram_chat_id", "TELEGRAM_CHAT_ID"),
                      ("telegram_admin_id", "TELEGRAM_ADMIN_ID"),
-                     ("anthropic_api_key", "ANTHROPIC_API_KEY")]:
+                     ("anthropic_api_key", "ANTHROPIC_API_KEY"),
+                     ("x_api_key", "X_API_KEY"), ("x_api_secret", "X_API_SECRET"),
+                     ("x_access_token", "X_ACCESS_TOKEN"), ("x_access_secret", "X_ACCESS_SECRET")]:
         if os.environ.get(env):
             cfg[key] = os.environ[env]
     if not cfg.get("twitterapi_key") or not cfg.get("telegram_bot_token"):
@@ -1410,6 +1459,10 @@ def main():
     if "--chat-id" in sys.argv:
         print_chat_ids(cfg["telegram_bot_token"])
         return
+
+    global X_READY
+    import x_actions
+    X_READY = x_actions.configured(cfg)
 
     state = LIVE_STATE = load_json(STATE_FILE, {})
     if "--daemon" in sys.argv:

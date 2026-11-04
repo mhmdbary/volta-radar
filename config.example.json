@@ -5,5 +5,9 @@
   "poll_minutes": 3,
   "include_replies": false,
   "telegram_admin_id": "YOUR_TELEGRAM_USER_ID",
-  "anthropic_api_key": "PUT_YOUR_ANTHROPIC_API_KEY_HERE"
+  "anthropic_api_key": "PUT_YOUR_ANTHROPIC_API_KEY_HERE",
+  "x_api_key": "PUT_X_API_KEY_HERE",
+  "x_api_secret": "PUT_X_API_SECRET_HERE",
+  "x_access_token": "PUT_X_ACCESS_TOKEN_HERE",
+  "x_access_secret": "PUT_X_ACCESS_SECRET_HERE"
 }
