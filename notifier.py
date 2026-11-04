@@ -338,7 +338,7 @@ def menu_action(cfg, state, handles, tags, action):
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": ASK[action],
                                      "reply_markup": {"force_reply": True, "input_field_placeholder": "اكتب هون..."}})
     elif action == "links":
-        refresh_my_work(cfg, load_json(SETTINGS_FILE, {}), handles, state)
+        refresh_my_work(cfg, load_json(SETTINGS_FILE, {}), handles, state, full=True)
         for m in links_messages():
             tg_call(cfg, "sendMessage", {"chat_id": admin, "text": m, "parse_mode": "HTML",
                                          "disable_web_page_preview": True})
@@ -1000,44 +1000,66 @@ def mention_query(settings, handles, since):
     return query, exclude
 
 
+def split_lanes(handles, tags):
+    """Fast lane: Volta + our ecosystem (checked every few seconds). Slow lane: everyone else."""
+    fast = [h for h in handles if h.lower() == "voltafamily" or tag_marker(tags.get(h.lower())) == "🟢"]
+    slow = [h for h in handles if h not in fast]
+    return fast, slow
+
+
 def check_once(cfg, settings, handles, state):
-    # X search shows new tweets a minute or two late, so always look back a few minutes past the last check;
-    # tweets we already sent are skipped by their id
-    lookback = int(settings.get("lookback_seconds", 300))
-    since = int(state.get("last_check") or time.time() - 15 * 60) - lookback
+    # Credits are spent per search, so each group is checked at its own speed:
+    #   fast lane (Volta + ecosystem) every fast_seconds, everyone else every slow_seconds, mentions every mention_seconds.
+    # X search shows new tweets a minute or two late, so each search looks back a little past its last run;
+    # tweets we already sent are skipped by their id.
+    lookback = int(settings.get("lookback_seconds", 180))
     now = int(time.time())
     seen = set(state.get("seen_ids", []))
     new_tweets = []  # (tweet, is_mention)
     failed = False
+    fast, slow = split_lanes(handles, load_json(TAGS_FILE, {}))
+    lanes = [("fast", fast, int(settings.get("fast_seconds", 30))),
+             ("slow", slow, int(settings.get("slow_seconds", 180))),
+             ("mentions", handles, int(settings.get("mention_seconds", 90)))]
 
-    for i in range(0, len(handles), BATCH_SIZE):
-        batch = handles[i:i + BATCH_SIZE]
-        query = "(" + " OR ".join(f"from:{h}" for h in batch) + f") since_time:{since}"
-        if not cfg.get("include_replies", False):
-            query += " -filter:replies"
-        try:
-            new_tweets.extend((t, False) for t in search_tweets(cfg["twitterapi_key"], query))
-        except Exception as e:  # keep going with the other batches
-            print(f"[search error] {e}")
-            failed = True
-
-    mq = mention_query(settings, handles, since)
-    if mq:
-        query, exclude = mq
-        try:
-            min_followers = int(settings.get("mention_min_followers", 0))
-            for t in search_tweets(cfg["twitterapi_key"], query):
-                author = t.get("author") or {}
-                if (author.get("userName") or "").lower() in exclude:
-                    continue
-                if int(author.get("followers") or 0) < min_followers:  # skip tiny/bot accounts
-                    continue
-                if is_spam(t.get("text")):  # "love the vision, DM me for collab" promo bots
-                    continue
-                new_tweets.append((t, True))
-        except Exception as e:
-            print(f"[mention search error] {e}")
-            failed = True
+    for lane, members, every in lanes:
+        last = int(state.get(f"last_{lane}") or state.get("last_check") or now - 900)
+        if now - last < every or not members:
+            continue
+        since = last - lookback
+        lane_ok = True
+        if lane == "mentions":
+            mq = mention_query(settings, handles, since)
+            if mq:
+                query, exclude = mq
+                try:
+                    min_followers = int(settings.get("mention_min_followers", 0))
+                    for t in search_tweets(cfg["twitterapi_key"], query):
+                        author = t.get("author") or {}
+                        if (author.get("userName") or "").lower() in exclude:
+                            continue
+                        if int(author.get("followers") or 0) < min_followers:  # skip tiny/bot accounts
+                            continue
+                        if is_spam(t.get("text")):  # "love the vision, DM me for collab" promo bots
+                            continue
+                        new_tweets.append((t, True))
+                except Exception as e:
+                    print(f"[mention search error] {e}")
+                    lane_ok = False
+        else:
+            for i in range(0, len(members), BATCH_SIZE):
+                batch = members[i:i + BATCH_SIZE]
+                query = "(" + " OR ".join(f"from:{h}" for h in batch) + f") since_time:{since}"
+                if not cfg.get("include_replies", False):
+                    query += " -filter:replies"
+                try:
+                    new_tweets.extend((t, False) for t in search_tweets(cfg["twitterapi_key"], query))
+                except Exception as e:  # keep going with the other batches
+                    print(f"[search error] {e}")
+                    lane_ok = False
+        if lane_ok:  # on error, keep the old window so the next run catches up
+            state[f"last_{lane}"] = now
+        failed = failed or not lane_ok
 
     unique = {}
     for t, mention in new_tweets:
@@ -1065,7 +1087,7 @@ def check_once(cfg, settings, handles, state):
         except Exception as e:  # AI problems must never block alerts
             print(f"[draft error] {e}")
 
-    if not failed:  # on error, keep the old window so the next run catches up
+    if not failed:
         state["last_check"] = now
     state["seen_ids"] = list(seen)[-2000:]
     save_json(STATE_FILE, state)
@@ -1194,8 +1216,9 @@ def fetch_my_volta_tweets(cfg, me, tags, since):
     return tweets
 
 
-def refresh_my_work(cfg, settings, handles, state):
-    """Every few minutes: keep mywork.json up to date with your latest Volta tweets and their numbers."""
+def refresh_my_work(cfg, settings, handles, state, full=False):
+    """Keep mywork.json up to date with your Volta tweets. The regular pass only reads the last 2 hours
+    (enough to turn answered drafts green); full=True re-reads everything since work_start."""
     me = (settings.get("my_handle") or "").lstrip("@")
     if not me:
         return
@@ -1203,6 +1226,8 @@ def refresh_my_work(cfg, settings, handles, state):
         since = calendar.timegm(time.strptime(settings.get("work_start", ""), "%Y-%m-%d"))
     except ValueError:
         since = int(time.time()) - 7 * 86400
+    if not full:
+        since = max(since, int(time.time()) - 2 * 3600)
     fetch_my_volta_tweets(cfg, me, load_json(TAGS_FILE, {}), since)
 
 
@@ -1417,7 +1442,7 @@ def run_daemon(cfg, state, minutes):
             check_once(cfg, settings, handles, state)
         except Exception as e:
             print(f"[check error] {e}")
-        if time.time() - last_mine > 60:  # your own tweets and replies to you, every minute
+        if time.time() - last_mine > int(settings.get("mine_seconds", 120)):  # your tweets + replies to you
             last_mine = time.time()
             for mine in (check_replies_to_me, refresh_my_work):
                 try:

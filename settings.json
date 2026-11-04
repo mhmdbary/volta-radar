@@ -29,5 +29,10 @@
   "mention_min_followers": 1000,
   "my_handle": "barymoto",
   "work_start": "2026-11-03",
-  "check_seconds": 30
+  "check_seconds": 30,
+  "fast_seconds": 30,
+  "slow_seconds": 180,
+  "mention_seconds": 90,
+  "mine_seconds": 120,
+  "lookback_seconds": 180
 }
