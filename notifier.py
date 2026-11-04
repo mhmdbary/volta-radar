@@ -255,7 +255,7 @@ def handle_command(cfg, handles, tags, text):
         return "\n".join(out)
 
     if cmd == "/leaderboard":
-        return build_leaderboard(tags)
+        return build_leaderboard(cfg, tags, load_json(SETTINGS_FILE, {}))
 
     if cmd == "/tag":
         bits = arg.split(maxsplit=1)
@@ -348,7 +348,10 @@ def menu_action(cfg, state, handles, tags, action):
                                      "reply_markup": REPORT_BUTTONS,
                                      "text": build_my_report(cfg, load_json(SETTINGS_FILE, {}), tags, 7)})
     else:
-        text = build_leaderboard(tags) if action == "leaderboard" else handle_command(cfg, handles, tags, "/list")
+        if action == "leaderboard":
+            typing(cfg)
+        text = (build_leaderboard(cfg, tags, load_json(SETTINGS_FILE, {})) if action == "leaderboard"
+                else handle_command(cfg, handles, tags, "/list"))
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": text, "parse_mode": "HTML",
                                      "disable_web_page_preview": True, "reply_markup": MENU_KEYBOARD})
 
@@ -441,7 +444,8 @@ def process_commands(cfg, state, wait=0):
             continue
         reply = handle_command(cfg, handles, tags, text)
         http_post_json(f"https://api.telegram.org/bot{token}/sendMessage",
-                       {"chat_id": msg["chat"]["id"], "text": reply, "parse_mode": "HTML"})
+                       {"chat_id": msg["chat"]["id"], "text": reply, "parse_mode": "HTML",
+                        "disable_web_page_preview": True})
 
     if handles != before_handles:
         save_handles(handles)
@@ -868,24 +872,53 @@ def record_stats(tweets):
     save_json(STATS_FILE, stats)
 
 
-def build_leaderboard(tags):
-    stats = load_json(STATS_FILE, {})
-    since = stats.get("since")
-    date = time.strftime("%b %d", time.strptime(since, "%Y-%m-%d")) if since else "start"
-    followers = stats.get("followers", {})
+SPAM_WORDS = ("collab", "dm me", "check dm", "let's connect", "lets connect", "let's talk", "partnership",
+              "reach out", "inbox", "work together", "free of charge", "at no cost", "follow back", "hit me up",
+              "send a message", "message me", "let's work", "promote", "hype your project")
 
-    def rows(counts, unit):
-        top = sorted(counts.items(), key=lambda kv: (-kv[1], -followers.get(kv[0], 0)))[:5]
-        if not top:
-            return ["<i>Nothing yet.</i>"]
-        return [f"{medal} {tag_marker(tags.get(h.lower()))} <a href=\"https://x.com/{h}\"><b>@{html.escape(h)}</b></a>"
-                f" · {n} {unit}{'s' if n != 1 else ''} · 👥 {short_num(followers.get(h))}"
-                for medal, (h, n) in zip(MEDALS, top)]
 
-    lines = ["🏆 <b>VOLTA LEADERBOARD</b>", LINE,
-             "💬 <b>MOST VOLTA MENTIONS</b>", ""] + rows(stats.get("mentions", {}), "mention") + [
-             LINE, "🔥 <b>MOST ACTIVE ACCOUNTS</b>", ""] + rows(stats.get("posts", {}), "post") + [
-             LINE, f"📅 Since {date}", "⚡ #Leaderboard #VoltaRadar"]
+def is_spam(text):
+    low = (text or "").lower()
+    return any(w in low for w in SPAM_WORDS)
+
+
+def build_leaderboard(cfg, tags, settings):
+    """Who talks about Volta the most, and the strongest Volta posts, counted live from X (Volta only)."""
+    try:
+        start = calendar.timegm(time.strptime(settings.get("work_start", ""), "%Y-%m-%d"))
+    except ValueError:
+        start = int(time.time()) - 7 * 86400
+    terms = settings.get("mention_terms") or ["$VOLTA", "@VoltaFamily"]
+    query = "(" + " OR ".join(terms + ["volta.family"]) + f") since_time:{start} -filter:retweets -from:VoltaFamily"
+    tweets = [t for t in search_tweets(cfg["twitterapi_key"], query)
+              if not is_spam(t.get("text"))  # drop "let's collab / DM me" promo accounts
+              and int((t.get("author") or {}).get("followers") or 0) >= 100]
+
+    counts, followers = {}, {}
+    for t in tweets:
+        a = t.get("author") or {}
+        h = a.get("userName")
+        if h:
+            counts[h] = counts.get(h, 0) + 1
+            followers[h] = a.get("followers")
+
+    def score(t):
+        return int(t.get("likeCount") or 0) + 3 * int(t.get("retweetCount") or 0) + 2 * int(t.get("replyCount") or 0)
+
+    lines = ["🏆 <b>VOLTA LEADERBOARD</b>",
+             f"<i>Volta talk only · since {time.strftime('%b %d', time.gmtime(start))}</i>", "",
+             "💬 <b>TOP VOLTA VOICES</b>"]
+    top = sorted(counts.items(), key=lambda kv: (-kv[1], -(followers.get(kv[0]) or 0)))[:5]
+    lines += [f"{medal} @{html.escape(h)}  ·  {c} post{'s' if c != 1 else ''}  ·  👥 {short_num(followers.get(h))}"
+              for medal, (h, c) in zip(MEDALS, top)] or ["<i>Nothing yet.</i>"]
+
+    best = sorted(tweets, key=score, reverse=True)[:5]
+    lines += ["", "🔥 <b>TOP VOLTA POSTS</b>"]
+    lines += [f"{medal} <a href=\"{tweet_url(t)}\">{html.escape((t.get('author') or {}).get('userName') or '?')}</a>"
+              f"  ·  ❤️ {short_num(int(t.get('likeCount') or 0))}  🔁 {short_num(int(t.get('retweetCount') or 0))}"
+              f"  👁 {short_num(int(t.get('viewCount') or 0))}"
+              for medal, t in zip(MEDALS, best)] or ["<i>Nothing yet.</i>"]
+    lines += ["", f"<i>{len(tweets)} Volta posts from {len(counts)} accounts</i>", "⚡ #Leaderboard #VoltaRadar"]
     return "\n".join(lines)
 
 
@@ -932,6 +965,8 @@ def check_once(cfg, settings, handles, state):
                 if (author.get("userName") or "").lower() in exclude:
                     continue
                 if int(author.get("followers") or 0) < min_followers:  # skip tiny/bot accounts
+                    continue
+                if is_spam(t.get("text")):  # "love the vision, DM me for collab" promo bots
                     continue
                 new_tweets.append((t, True))
         except Exception as e:
@@ -1033,7 +1068,7 @@ def daily_report(cfg, settings, handles, state):
     send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"],
                   build_digest(settings, tags, tweets, today, len(handles)))
     time.sleep(2)
-    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], build_leaderboard(tags))
+    send_telegram(cfg["telegram_bot_token"], cfg["telegram_chat_id"], build_leaderboard(cfg, tags, settings))
     if cfg.get("telegram_admin_id") and settings.get("my_handle"):  # your daily work log, DM only
         try:
             send_telegram(cfg["telegram_bot_token"], cfg["telegram_admin_id"],
