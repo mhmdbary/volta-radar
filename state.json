@@ -1,5 +1,5 @@
 {
-  "last_check": 1793830578,
+  "last_check": 1793830698,
   "seen_ids": [
     "2118073194481373282",
     "2117893633009651980",
@@ -231,6 +231,7 @@
     "2117751809427263579",
     "2117901122773868878",
     "2117982317629091865",
+    "2118105239073009960",
     "2117988991584854266",
     "2117681085551456728",
     "2117721198431985792",
@@ -394,20 +395,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117980675630321812": {
-      "author": "0xCobra_",
-      "text": "@lakesfund got u\ntbh there are some plays everyday\nI personally top blasted Blob at 800k few days ago, looks like it was not a terrible move \n\n@VoltaFamily launched yesterday\n@quoted_xyz the day before \nand mainnet is in 5d",
-      "reply": "top blasting at 800k is bold, volta charts mark it, $VOLTA too",
-      "tried": [
-        "top blasting at 800k is bold, volta charts mark it, $VOLTA too"
-      ],
-      "image": null,
-      "followers": 15622,
-      "relevant": true,
-      "reply_ar": "الشراء من القمة عند 800 ألف جرأة، شارتات volta تعلّم لك نقطة دخولك، وحتى في $VOLTA.",
-      "tweet_ar": "تكرم عينك. بصراحة فيه فرص كل يوم. أنا شخصياً اشتريت Blob عند القمة على 800 ألف قبل كم يوم، ويبدو أنها ما كانت حركة سيئة. Volta أطلقت أمس، وquoted قبلها بيوم، والشبكة الرئيسية بعد 5 أيام.",
-      "message_id": 305
-    },
     "2117981739146699118": {
       "author": "whalesdotsol",
       "text": "@alaska_971 @thenftjosh @VoltaFamily Best place to bridge tokens",
@@ -1808,11 +1795,24 @@
       "reply_ar": "248 إطلاقاً تغذي عمليات حرق $VOLTA، ومع ذلك كل منشئ توكن يحصل على رسومه بعملة HYPE.",
       "tweet_ar": "عجلة $VOLTA بدأت تدور. مستوحاة من نموذج PONS، حيث تذهب 80% من رسوم التداول لإعادة شراء التوكن وحرقه. كل صفقة تغذي العجلة وتقلل المعروض.",
       "message_id": 408
+    },
+    "2118105239073009960": {
+      "author": "tradexyz",
+      "text": "GitBook has confirmed that the incident affecting our documentation originated from a security breach of its infrastructure.\n\nOur internal investigation found no evidence of any compromise to trade[XYZ] infrastructure. Our security controls functioned as intended, preventing the GitBook incident from affecting trade[XYZ] infrastructure.\n\nWe will be transitioning from Gitbook's platform in the ensuing days.\n\nFor more information on the incident: https://t.co/jLvGCPAcer",
+      "reply": "good to hear your controls held, where are the docs moving next? stocks onchain is my lane too, volta lets creators earn fees in tokenized stocks and that's the $VOLTA bit i track",
+      "tried": [
+        "good to hear your controls held, where are the docs moving next? stocks onchain is my lane too, volta lets creators earn fees in tokenized stocks and that's the $VOLTA bit i track"
+      ],
+      "image": null,
+      "followers": 63334,
+      "relevant": false,
+      "reply_ar": "جميل أن ضوابطكم الأمنية صمدت، إلى أين ستنتقل الوثائق؟ الأسهم على البلوكتشين مجال أتابعه أيضاً، ومنصة volta تتيح للمنشئين كسب الرسوم بأسهم مرمّزة، وهذا الجانب من $VOLTA الذي أتابعه.",
+      "tweet_ar": "أكدت GitBook أن الحادثة التي أثرت على وثائقنا نتجت عن اختراق أمني في بنيتها التحتية. لم يجد تحقيقنا الداخلي أي دليل على اختراق البنية التحتية لـ trade[XYZ]. عملت ضوابطنا الأمنية كما هو متوقع ومنعت حادثة GitBook من التأثير على بنيتنا التحتية. سننتقل من منصة GitBook خلال الأيام القادمة. لمزيد من المعلومات عن الحادثة راجعوا الرابط.",
+      "message_id": 409
     }
   },
-  "angle_i": 193,
+  "angle_i": 194,
   "recent_texts": [
-    "classic new chain rule lol, seeing your own avg entry on volta's elysium charts is the $VOLTA feature i rate most",
     "fischer at 13 calling mate while the room whispered impossible is the purest so back energy lol. elysium feels like move one of a long game, kinetiq's network goes public nov 9 and volta's making moves there pre-clock, which is why $VOLTA has my attention",
     "apps keep multiplying lol, volta bridges 10+ chains for $VOLTA fans",
     "good shout, volta creators collect fees in HYPE, why i hold $VOLTA",
@@ -1871,7 +1871,8 @@
     "usual move with political coins is realizing your entry was the top way too late. on volta the chart plots your own buys and avg entry, so you see where you stand on $VOLTA without guessing",
     "early is right, $VOLTA's here before elysium even opens nov 9",
     "a form and a 10 min call for revenue is easy mode. $VOLTA folks know volta creators just set a fee at launch",
-    "248 launches feeding $VOLTA burns, and each creator still earns fees in HYPE"
+    "248 launches feeding $VOLTA burns, and each creator still earns fees in HYPE",
+    "good to hear your controls held, where are the docs moving next? stocks onchain is my lane too, volta lets creators earn fees in tokenized stocks and that's the $VOLTA bit i track"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1880,7 +1881,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793830440,
+  "last_to_me": 1793830590,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2052,11 +2053,12 @@
     "2118088462737998184",
     "2118093883145916438",
     "2118094726435930417",
-    "2118104754182312367"
+    "2118104754182312367",
+    "2118105239073009960"
   ],
-  "last_fast": 1793830578,
-  "last_mentions": 1793830518,
-  "last_slow": 1793830518,
+  "last_fast": 1793830698,
+  "last_mentions": 1793830698,
+  "last_slow": 1793830698,
   "tw_samples": [
     [
       1793779148,
@@ -2401,6 +2403,10 @@
     [
       1793829984,
       857205
+    ],
+    [
+      1793830593,
+      856185
     ]
   ],
   "ai_usage": {
