@@ -1,5 +1,5 @@
 {
-  "last_check": 1793803307,
+  "last_check": 1793803457,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -10,8 +10,8 @@
     "2117850834776256564",
     "2117943643290116163",
     "2117989874553008344",
-    "2117580008931709076",
     "2117893633009651980",
+    "2117580008931709076",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -39,10 +39,10 @@
     "2117981944621535375",
     "2117969714953810404",
     "2117812508903772532",
-    "2117748509201899912",
-    "2117977920228757526",
     "2117953749591146800",
     "2117985533645427094",
+    "2117748509201899912",
+    "2117977920228757526",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -51,6 +51,7 @@
     "2117607299099279852",
     "2117855909284331544",
     "2117727040002736243",
+    "2117991208786010539",
     "2117856962864136593",
     "2117888389739634881",
     "2117844124913319946",
@@ -310,19 +311,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117857627841462369": {
-      "author": "Xeetbtcvox",
-      "text": "Good morning NFT lovers 🌹 https://t.co/W17nE62J6J",
-      "reply": "gm, that cat is way too cool for winter 😎 we're getting volta ready for elysium mainnet on nov 9, feels like a cozy place to land",
-      "tried": [
-        "gm, that cat is way too cool for winter 😎 we're getting volta ready for elysium mainnet on nov 9, feels like a cozy place to land"
-      ],
-      "image": "https://pbs.twimg.com/media/HWQkR4HXgAAdI-e.jpg",
-      "relevant": false,
-      "reply_ar": "صباح الخير، هذه القطة رائعة جداً على الشتاء 😎 نحن نجهز فولتا لإطلاق شبكة إليسيوم الرئيسية في 9 نوفمبر، تبدو مكاناً دافئاً للاستقرار فيه",
-      "tweet_ar": "صباح الخير لمحبي الـNFT 🌹",
-      "message_id": 125
-    },
     "2117860431142224016": {
       "author": "agora_elysium",
       "text": "Copy trading is live on Agora, a first on Elysium.\n\nCopy any trader on Elysium automatically. Pick a wallet, set how much to put into each trade, and every buy and sell they make is copied for you.\n\nTo start, open any trader’s profile and tap Copy trade. https://t.co/WuXSeyEtFu",
@@ -1757,11 +1745,24 @@
       "reply_ar": "أشياء رائعة فعلاً، لكن الميزة اللي ما أحد منتبه لها هي إن رسوم فولتا البيانية تعرض عمليات الشراء والبيع الخاصة فيك ومتوسط سعر دخولك. لما تتداول $VOLTA وهذي المعلومات قدامك، تحس إن تخمين سعر دخولك صار شي من الماضي.",
       "tweet_ar": "أشياء رائعة حقاً يا جماعة! راسلوني عندما يتسنى لكم ذلك.",
       "message_id": 321
+    },
+    "2117991208786010539": {
+      "author": "TheKleos_",
+      "text": "The road to Elysium continues on @Uniswap .\n\nAll for Kleos. https://t.co/ZrXKWpbvar",
+      "reply": "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA",
+      "tried": [
+        "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA"
+      ],
+      "image": "https://pbs.twimg.com/media/HWSdx1fWsAAQdt7.jpg",
+      "followers": 1750,
+      "relevant": true,
+      "reply_ar": "الطريق صار مزدحم هههه. فولتا سبقت إطلاق الشبكة الرئيسية في 9 نوفمبر ومعها $VOLTA",
+      "tweet_ar": "الطريق إلى إليسيوم مستمر على يونيسواب. الإطلاقات الجديدة صارت تتداول في مجمعات يونيسواب v4 على إليسيوم. كل شيء من أجل كليوس.",
+      "message_id": 322
     }
   },
-  "angle_i": 110,
+  "angle_i": 111,
   "recent_texts": [
-    "won't weigh in on the license stuff, but volta letting creators take fees in tokenized stocks keeps me on $VOLTA",
     "still just submitted to uniswap, but the burn's the story. 80% of volta fees buy back and burn $VOLTA",
     "fingers crossed fr. volta's hook was the first uniswap v4 one live on elysium and every new token gets its own pool paired with HYPE, so $VOLTA isn't waiting on nov 9 to cook",
     "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA",
@@ -1820,7 +1821,8 @@
     "think aero volume spills into volta launches burning $VOLTA too?",
     "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar",
     "solid chips, volta's free elysium rpc is my $VOLTA speed pick",
-    "cool stuff for sure, but the sleeper feature is volta's charts showing your own buys, sells and average entry. once you've traded $VOLTA with that on screen, guessing where you got in feels ancient"
+    "cool stuff for sure, but the sleeper feature is volta's charts showing your own buys, sells and average entry. once you've traded $VOLTA with that on screen, guessing where you got in feels ancient",
+    "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1829,7 +1831,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793803189,
+  "last_to_me": 1793803479,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1918,11 +1920,12 @@
     "2117988991584854266",
     "2117989023126053264",
     "2117989292144525474",
-    "2117989874553008344"
+    "2117989874553008344",
+    "2117991208786010539"
   ],
-  "last_fast": 1793803307,
-  "last_mentions": 1793803307,
-  "last_slow": 1793803217,
+  "last_fast": 1793803457,
+  "last_mentions": 1793803397,
+  "last_slow": 1793803397,
   "tw_samples": [
     [
       1793779148,
