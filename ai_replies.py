@@ -104,6 +104,11 @@ SCHEMA = {
 }
 
 
+# running token totals for this process; the bot moves them into its saved state for /apis
+USAGE = {"calls": 0, "input_tokens": 0, "output_tokens": 0}
+PRICE_PER_MTOK = {"input": 4.00, "output": 20.00}  # Claude Opus 5.5
+
+
 def _ask(api_key, system, prompt, image=None):
     content = prompt
     if image:  # let the model see the tweet's picture / video thumbnail too
@@ -119,6 +124,9 @@ def _ask(api_key, system, prompt, image=None):
         system=system,
         messages=[{"role": "user", "content": content}],
     )
+    USAGE["calls"] += 1
+    USAGE["input_tokens"] += response.usage.input_tokens or 0
+    USAGE["output_tokens"] += response.usage.output_tokens or 0
     if response.stop_reason == "refusal":
         return None
     data = json.loads(next((b.text for b in response.content if b.type == "text"), "{}"))

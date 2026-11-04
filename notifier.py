@@ -305,12 +305,13 @@ MENU_ACTIONS = {
     "➕ ضيف حساب": "add",
     "➖ شيل حساب": "remove",
     "🔗 روابطي": "links",
+    "💳 الرصيد": "apis",
 }
 MENU_KEYBOARD = {
     "keyboard": [[{"text": "✍️ تويتة جديدة"}, {"text": "📋 شغلي"}],
                  [{"text": "🏆 الترتيب"}, {"text": "📃 الحسابات"}],
                  [{"text": "➕ ضيف حساب"}, {"text": "➖ شيل حساب"}],
-                 [{"text": "🔗 روابطي"}]],
+                 [{"text": "🔗 روابطي"}, {"text": "💳 الرصيد"}]],
     "resize_keyboard": True,
     "is_persistent": True,
 }
@@ -337,6 +338,10 @@ def menu_action(cfg, state, handles, tags, action):
         state["awaiting"] = action
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": ASK[action],
                                      "reply_markup": {"force_reply": True, "input_field_placeholder": "اكتب هون..."}})
+    elif action == "apis":
+        typing(cfg)
+        tg_call(cfg, "sendMessage", {"chat_id": admin, "text": build_apis_report(cfg, state), "parse_mode": "HTML",
+                                     "disable_web_page_preview": True})
     elif action == "links":
         refresh_my_work(cfg, load_json(SETTINGS_FILE, {}), handles, state, full=True)
         for m in links_messages():
@@ -432,6 +437,9 @@ def process_commands(cfg, state, wait=0):
                                                  "reply_markup": MENU_KEYBOARD})
                 else:
                     rewrite_draft(cfg, state, waiting, text)
+                continue
+            if first in ("/apis", "/balance"):
+                menu_action(cfg, state, handles, tags, "apis")
                 continue
             if first == "/links":
                 menu_action(cfg, state, handles, tags, "links")
@@ -861,6 +869,10 @@ def handle_engage_button(cfg, cb):
                                                  "text": f"ما زبط ❌\n{str(e)[:150]}"})
             return
         done_text += " (already)"
+    else:
+        xa = LIVE_STATE.setdefault("x_actions", {})
+        key = "likes" if action == "lk" else "reposts"
+        xa[key] = xa.get(key, 0) + 1
     tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": done_text})
     msg = cb.get("message") or {}
     keyboard = (msg.get("reply_markup") or {}).get("inline_keyboard") or []
@@ -1402,6 +1414,81 @@ def check_new_follows(cfg, settings, handles, state):
     save_json(STATE_FILE, state)
 
 
+def twitterapi_credits(cfg):
+    d = http_get_json(f"{TWITTERAPI_BASE}/oapi/my/info", {"X-API-Key": cfg["twitterapi_key"]})
+    return int(d.get("recharge_credits") or 0) + int(d.get("total_bonus_credits") or 0)
+
+
+def sample_balance(cfg, state):
+    """Remember the twitterapi balance over time so /apis can show the real burn rate."""
+    samples = state.setdefault("tw_samples", [])
+    samples.append([int(time.time()), twitterapi_credits(cfg)])
+    del samples[:-300]
+
+
+def flush_ai_usage(state):
+    """Move this process's Claude token counts into the saved state, per day."""
+    try:
+        import ai_replies
+    except ImportError:
+        return
+    u = ai_replies.USAGE
+    if not u["calls"]:
+        return
+    day = state.setdefault("ai_usage", {}).setdefault(time.strftime("%Y-%m-%d", time.gmtime()),
+                                                       {"calls": 0, "input_tokens": 0, "output_tokens": 0})
+    for k in day:
+        day[k] += u[k]
+        u[k] = 0
+    for old in sorted(state["ai_usage"])[:-14]:  # keep two weeks
+        state["ai_usage"].pop(old)
+
+
+def build_apis_report(cfg, state):
+    """💳 All balances and spend in one place."""
+    lines = ["💳 <b>API BALANCES</b>", ""]
+
+    # twitterapi.io: live balance + burn rate measured from the last ~6 hours of samples
+    try:
+        credits = twitterapi_credits(cfg)
+        recent = [s for s in state.get("tw_samples", []) if s[0] > time.time() - 6 * 3600]
+        if len(recent) >= 2 and recent[-1][0] > recent[0][0]:
+            per_day = max(0, (recent[0][1] - recent[-1][1]) / (recent[-1][0] - recent[0][0]) * 86400)
+        else:
+            per_day = 0
+        days = f"{credits / per_day:.1f} days" if per_day else "measuring…"
+        rate = f"${per_day / 100000:.2f}/day" if per_day else "measuring…"
+        lines += ["🐦 <b>twitterapi.io</b> (reading X)",
+                  f"<pre>{'Balance':<14}{'$' + format(credits / 100000, '.2f'):>10}\n"
+                  f"{'Credits':<14}{credits:>10,}\n{'Spend':<14}{rate:>10}\n{'Lasts':<14}{days:>10}</pre>"]
+    except Exception as e:
+        lines += ["🐦 <b>twitterapi.io</b>", f"<i>couldn't read balance: {html.escape(str(e)[:80])}</i>"]
+
+    # Claude: cost from the token counts the bot recorded
+    try:
+        import ai_replies
+        p = ai_replies.PRICE_PER_MTOK
+    except ImportError:
+        p = {"input": 4.0, "output": 20.0}
+    flush_ai_usage(state)
+    usage = state.get("ai_usage", {})
+    cost = lambda d: d["input_tokens"] / 1e6 * p["input"] + d["output_tokens"] / 1e6 * p["output"]
+    today = usage.get(time.strftime("%Y-%m-%d", time.gmtime()), {"calls": 0, "input_tokens": 0, "output_tokens": 0})
+    total = sum(cost(d) for d in usage.values())
+    avg = total / max(1, len(usage))
+    lines += ["", "🤖 <b>Claude</b> (writing replies)",
+              f"<pre>{'Today':<14}{'$' + format(cost(today), '.2f'):>10}\n{'Drafts today':<14}{today['calls']:>10}\n"
+              f"{'Avg / day':<14}{'$' + format(avg, '.2f'):>10}\n{'Last 14 days':<14}{'$' + format(total, '.2f'):>10}</pre>",
+              "<i>Balance: console.anthropic.com → Billing</i>"]
+
+    # X API: count of one-tap likes / reposts
+    xa = state.get("x_actions", {})
+    lines += ["", "❤️ <b>X API</b> (likes / reposts)",
+              f"<pre>{'Likes':<14}{xa.get('likes', 0):>10}\n{'Reposts':<14}{xa.get('reposts', 0):>10}</pre>",
+              "<i>Balance: X Developer Console → Credits</i>"]
+    return "\n".join(lines)
+
+
 def git_sync():
     """On GitHub Actions: commit the bot's state files and push, so the next run continues from here."""
     if not os.environ.get("GITHUB_ACTIONS"):
@@ -1433,7 +1520,7 @@ def run_daemon(cfg, state, minutes):
     stop = threading.Event()
     threading.Thread(target=command_loop, args=(cfg, state, stop), daemon=True).start()
     end = time.time() + minutes * 60
-    last_sync = last_extras = last_mine = 0
+    last_sync = last_extras = last_mine = last_sample = 0
     while time.time() < end:
         started = time.time()
         settings = load_json(SETTINGS_FILE, {})
@@ -1456,6 +1543,13 @@ def run_daemon(cfg, state, minutes):
                     extra(cfg, settings, handles, state)
                 except Exception as e:
                     print(f"[{extra.__name__} error] {e}")
+        flush_ai_usage(state)
+        if time.time() - last_sample > 600:
+            last_sample = time.time()
+            try:
+                sample_balance(cfg, state)
+            except Exception as e:
+                print(f"[balance sample error] {e}")
         if time.time() - last_sync > 120:
             last_sync = time.time()
             git_sync()
