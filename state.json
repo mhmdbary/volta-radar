@@ -1,5 +1,5 @@
 {
-  "last_check": 1793812589,
+  "last_check": 1793812709,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -8,6 +8,7 @@
     "2117824660230521170",
     "2117896640929603800",
     "2117602702306034149",
+    "2118029678606782539",
     "2117896209239277918",
     "2117942624892194883",
     "2117673754574651760",
@@ -353,20 +354,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117944166487351634": {
-      "author": "whalesdotsol",
-      "text": "@pumpitwo @VoltaFamily is bringing the first live Uniswap V4 hook to Elysium. ⚡\n\nEvery token gets its own V4 pool paired with $HYPE, with creator-set fees, launch anti-snipe protection, and built-in buybacks and burns on every trade.\n\nMore than just a launchpad. It’s infrastructure.",
-      "reply": "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA",
-      "tried": [
-        "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA"
-      ],
-      "image": null,
-      "followers": 7141,
-      "relevant": true,
-      "reply_ar": "\"بنية تحتية\" أفخم وصف ممكن تحصل عليه منصة إطلاق ههه. اللي يهمني فعلاً هو الحماية من القنص عند الإطلاق حتى لا تلتهم البوتات أول بلوك، وهذا تقريباً سبب متابعتي لـ $VOLTA",
-      "tweet_ar": "‏‎@VoltaFamily تجلب أول hook حي من Uniswap V4 إلى شبكة Elysium. ⚡ كل توكن يحصل على مجمع V4 خاص به مقترن بـ $HYPE، مع رسوم يحددها المنشئ، وحماية من القنص عند الإطلاق، وعمليات إعادة شراء وحرق مدمجة في كل صفقة. أكثر من مجرد منصة إطلاق، إنها بنية تحتية.",
-      "message_id": 256
-    },
     "2117945433234313681": {
       "to_me": true,
       "author": "real_alpha",
@@ -1777,11 +1764,24 @@
       "reply_ar": "من جماعة اليوم الأول، هل فكرت تطلق توكن على فولتا وتاخذ رسوم المنشئ بعملة HYPE، ولا أنت مجرد حامل لـ $VOLTA؟",
       "tweet_ar": "من اليوم الأول",
       "message_id": 367
+    },
+    "2118029678606782539": {
+      "author": "TheKleos_",
+      "text": "A Spartan never fights alone. 🛡️\nIn the phalanx, your shield protected the man beside you. \nThat's Kleos.\nWe hold the line together. Undying glory is earned as one. Onward to @Enter_Elysium https://t.co/zj68mwS5sA",
+      "reply": "spartans earned glory, volta creators earn stocks, $VOLTA style",
+      "tried": [
+        "spartans earned glory, volta creators earn stocks, $VOLTA style"
+      ],
+      "image": "https://pbs.twimg.com/media/HWTAxIdX0AAOfb4.jpg",
+      "followers": 1793,
+      "relevant": true,
+      "reply_ar": "الإسبرطيون نالوا المجد، ومنشئو التوكنات على فولتا يربحون أسهماً، على طريقة $VOLTA",
+      "tweet_ar": "الإسبرطي لا يقاتل وحده أبداً. 🛡️ في تشكيل الفالانكس، كان درعك يحمي الرجل الذي بجانبك. هذه هي كليوس. نصمد معاً في الصف. المجد الخالد يُكتسب كجماعة واحدة. إلى الأمام نحو إليزيوم",
+      "message_id": 368
     }
   },
-  "angle_i": 153,
+  "angle_i": 154,
   "recent_texts": [
-    "top blasting at 800k is bold, volta charts mark it, $VOLTA too",
     "bridging is always the first chore on a fresh chain, and volta gets $VOLTA folks onto elysium before the nov 9 mainnet",
     "dex volume really is where narratives start, robinhood chain showed that fast. over on elysium volta's hook buys back and burns $VOLTA on every trade, so busy days leave a mark",
     "plot twist, volta doesn't pick the next token, the creator does and earns fees in HYPE, best part of $VOLTA imo",
@@ -1840,7 +1840,8 @@
     "safu first is right, volta's trending board is my sanity check for what's moving on elysium, $VOLTA included",
     "only touching what a team confirms on its own account is basic elysium hygiene. nov 9 mainnet will bring a flood of fake links, for $VOLTA i just go by @VoltaFamily",
     "calling it already lol. busy days are when volta's free elysium rpc matters, one reason i follow $VOLTA",
-    "day 1 crew, ever tempted to launch on volta and take creator fees in HYPE, or strictly a $VOLTA holder?"
+    "day 1 crew, ever tempted to launch on volta and take creator fees in HYPE, or strictly a $VOLTA holder?",
+    "spartans earned glory, volta creators earn stocks, $VOLTA style"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1849,7 +1850,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793812561,
+  "last_to_me": 1793812694,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1981,11 +1982,12 @@
     "2118025498488086623",
     "2118026010604028093",
     "2118026165437034565",
-    "2118026636826235261"
+    "2118026636826235261",
+    "2118029678606782539"
   ],
-  "last_fast": 1793812589,
-  "last_mentions": 1793812589,
-  "last_slow": 1793812499,
+  "last_fast": 1793812709,
+  "last_mentions": 1793812679,
+  "last_slow": 1793812679,
   "tw_samples": [
     [
       1793779148,
@@ -2214,13 +2216,17 @@
     [
       1793812019,
       892149
+    ],
+    [
+      1793812648,
+      890799
     ]
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 124,
-      "input_tokens": 593989,
-      "output_tokens": 102087
+      "calls": 125,
+      "input_tokens": 599609,
+      "output_tokens": 103904
     }
   },
   "x_actions": {
