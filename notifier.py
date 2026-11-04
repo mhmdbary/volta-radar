@@ -466,6 +466,10 @@ def process_commands(cfg, state, wait=0):
             if first in ("/write", "/tweet"):
                 new_tweet_draft(cfg, state, text.partition(" ")[2].strip())
                 continue
+            link = TWEET_LINK.search(text)
+            if link and cfg.get("anthropic_api_key"):  # a pasted tweet link = reply ideas for that tweet
+                draft_from_link(cfg, state, link.group(1))
+                continue
             if not text.startswith("/") and cfg.get("anthropic_api_key"):  # any plain message = tweet idea
                 new_tweet_draft(cfg, state, text.strip())
                 continue
@@ -655,6 +659,30 @@ def new_tweet_draft(cfg, state, instruction):
     key = f"w{int(time.time())}"
     show_draft(cfg, {}, key, d)
     store_draft(state, key, d)
+
+
+TWEET_LINK = re.compile(r"(?:x|twitter)\.com/\w+/status/(\d+)")
+
+
+def draft_from_link(cfg, state, tid):
+    """You pasted a tweet link: fetch it and send reply ideas with the usual buttons."""
+    typing(cfg)
+    data = http_get_json(f"{TWITTERAPI_BASE}/twitter/tweets?tweet_ids={tid}", {"X-API-Key": cfg["twitterapi_key"]})
+    tweet = (data.get("tweets") or [None])[0]
+    if not tweet:
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't find that tweet."})
+        return
+    author = (tweet.get("author") or {}).get("userName") or ""
+    d = {"author": author, "text": tweet.get("text") or "", "reply": "", "tried": [],
+         "image": tweet_media(tweet)[0], "followers": (tweet.get("author") or {}).get("followers")}
+    result = regenerate(cfg, d, state)
+    if not result or not result.get("reply"):
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't write that one, try again."})
+        return
+    apply_result(d, result)
+    tags = load_json(TAGS_FILE, {})
+    show_draft(cfg, tags, tid, d)
+    store_draft(state, tid, d)
 
 
 def send_draft(cfg, settings, state, tags, tweet, mention):
