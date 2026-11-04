@@ -1,5 +1,5 @@
 {
-  "last_check": 1793819353,
+  "last_check": 1793819473,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -35,6 +35,7 @@
     "2117971363936039117",
     "2117820217334071587",
     "2117751871372759488",
+    "2118057810478997714",
     "2117720496586334520",
     "2117904476514480615",
     "2117986479951524064",
@@ -44,6 +45,7 @@
     "2117621571380797866",
     "2117764350727331844",
     "2117686935863119887",
+    "2118057858176848038",
     "2117998184941449633",
     "2117702234675060834",
     "2117987014398161354",
@@ -373,34 +375,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117963441696821605": {
-      "author": "agora_elysium",
-      "text": "We heard there is a mev going around, as an agora user you are now protected \n\nWe've added anti-mev to agora to make sure you don't get mev'd https://t.co/1Ooi496qD0",
-      "reply": "elysium bots having a rough week, agora blocks mev and volta's anti-snipe guards launches, why i rate $VOLTA",
-      "tried": [
-        "elysium bots having a rough week, agora blocks mev and volta's anti-snipe guards launches, why i rate $VOLTA"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSEVcYWwAABwBt.jpg",
-      "followers": 689,
-      "relevant": true,
-      "reply_ar": "البوتات على Elysium عندها أسبوع صعب، agora تمنع الـ MEV وحماية volta ضد القنص تحمي الإطلاقات، وهذا سبب تقديري لـ $VOLTA",
-      "tweet_ar": "سمعنا إن فيه هجمات MEV منتشرة، وكمستخدم لـ agora صرت محمي الآن. أضفنا حماية ضد الـ MEV إلى agora عشان نتأكد إنك ما تتعرض لها.",
-      "message_id": 281,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117963802113446391"
-    },
-    "w1793797458": {
-      "kind": "tweet",
-      "instruction": "تويته حماسيه عن volta",
-      "reply": "100% with you, launching a token should actually pay the person who launched it. on volta creators set their own fee and earn it in HYPE, which is why $VOLTA has me this fired up",
-      "tried": [
-        "100% with you, launching a token should actually pay the person who launched it. on volta creators set their own fee and earn it in HYPE, which is why $VOLTA has me this fired up"
-      ],
-      "relevant": true,
-      "reply_ar": "معك 100%، إطلاق توكن لازم فعلاً يدفع للشخص اللي أطلقه. على volta المطورين يحددون رسومهم بأنفسهم ويكسبونها بـ HYPE، وهذا سبب حماسي الكبير لـ $VOLTA",
-      "tweet_ar": "",
-      "message_id": 285
-    },
     "2117965438961189077": {
       "author": "heavyy",
       "text": "hey just minted my kalos genesis #750\n\nhuge thank you to the whole team\n\nthey're doing an amazing job for elysium and hyperliquid\n\n@FugakuX is a based dev and just a great person\n\nhope they gamechange HL's nft space\n\ngKalos https://t.co/U9SYqewMU3",
@@ -1793,12 +1767,38 @@
       "reply_ar": "الأغلب ينتظر 9 نوفمبر، بينما حاملو $VOLTA لديهم بالفعل مجمعات v4 مقترنة بـ HYPE تعمل الآن",
       "tweet_ar": "رأينا كل الرسائل والحماس حول Ascend، شكرًا لكل من يتابعنا. نحن منشغلون بالتحضير للإطلاق على Elysium وسنشارك التحديثات فور جاهزيتها. حتى ذلك الحين، لا تثقوا إلا بالإعلانات الصادرة من حساب AscendLaunch. الإطلاق الرسمي في 9 نوفمبر، نراكم قريبًا.",
       "message_id": 387
+    },
+    "2118057810478997714": {
+      "author": "Xeetbtcvox",
+      "text": "Who's your favourite?",
+      "reply": "easy pick, $VOLTA, since volta launches come with anti-snipe built in",
+      "tried": [
+        "easy pick, $VOLTA, since volta launches come with anti-snipe built in"
+      ],
+      "image": null,
+      "followers": 7941,
+      "relevant": false,
+      "reply_ar": "اختيار سهل، $VOLTA، لأن إطلاقات فولتا تأتي مع حماية مدمجة ضد القنص (anti-snipe)",
+      "tweet_ar": "مين المفضل عندك؟",
+      "message_id": 388
+    },
+    "2118057858176848038": {
+      "author": "heavyy",
+      "text": "ely &amp; frens",
+      "reply": "ely & frens is the whole vibe, but the frens part only matters if you can see who's actually moving. volta's trending board does that job on elysium better than scrolling the timeline, and it's the part of volta that keeps $VOLTA interesting to me",
+      "tried": [
+        "ely & frens is the whole vibe, but the frens part only matters if you can see who's actually moving. volta's trending board does that job on elysium better than scrolling the timeline, and it's the part of volta that keeps $VOLTA interesting to me"
+      ],
+      "image": null,
+      "followers": 2492,
+      "relevant": true,
+      "reply_ar": "إليسيوم والأصدقاء هي الأجواء كلها، لكن جزء الأصدقاء لا يهم إلا إذا كنت ترى من يتحرك فعلاً. لوحة الترند في فولتا تؤدي هذه المهمة على إليسيوم أفضل من تصفح التايملاين، وهي الجزء من فولتا الذي يُبقي $VOLTA مثيرة للاهتمام بالنسبة لي",
+      "tweet_ar": "إليسيوم والأصدقاء",
+      "message_id": 389
     }
   },
-  "angle_i": 172,
+  "angle_i": 174,
   "recent_texts": [
-    "gamified apps usually reward players, volta pays token creators fees in HYPE, a $VOLTA side quest for your research",
-    "grok handling returns is the real selling point, nobody wants that chore lol. volta skips the cart entirely, creators can earn fees in tokenized stocks, a $VOLTA perk i like",
     "free gear for early customers is the most underrated loyalty move in tech. volta's version is more on-chain, 80% of trading fees buy back $VOLTA and burn it, so the token gets a little smaller every time people actually use the thing",
     "no more dead zones lol. the one network i'm watching is elysium, where volta was the first uniswap v4 hook to go live and each token launched there starts with its own pool against HYPE, kinda why $VOLTA has full bars for me",
     "party's only fun if the bots don't clear the snack table before anyone walks in lol. that's why volta's anti-snipe at launch matters to me, fresh tokens on elysium get a fair first block and $VOLTA holders get to watch real people show up first",
@@ -1856,7 +1856,9 @@
     "elysium swap ux leveling up quick, any token into any token is a real upgrade. volta launches already trade here and creators still earn their fees in HYPE, good fit for $VOLTA",
     "eyes on volta too, creator fees in stocks is the $VOLTA hook",
     "one word and the whole timeline scrolls up for context lol. my version of true is volta's math, 80% of fees buy back $VOLTA and burn it so every trade trims supply. what's the one thing in crypto you'd call true with zero caveats?",
-    "most wait for nov 9, $VOLTA holders already have v4 HYPE pools live"
+    "most wait for nov 9, $VOLTA holders already have v4 HYPE pools live",
+    "easy pick, $VOLTA, since volta launches come with anti-snipe built in",
+    "ely & frens is the whole vibe, but the frens part only matters if you can see who's actually moving. volta's trending board does that job on elysium better than scrolling the timeline, and it's the part of volta that keeps $VOLTA interesting to me"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1865,7 +1867,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793819235,
+  "last_to_me": 1793819355,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2016,11 +2018,13 @@
     "2118046344720044475",
     "2118046612316385380",
     "2118048421663973792",
-    "2118053049855881295"
+    "2118053049855881295",
+    "2118057810478997714",
+    "2118057858176848038"
   ],
-  "last_fast": 1793819353,
-  "last_mentions": 1793819293,
-  "last_slow": 1793819293,
+  "last_fast": 1793819473,
+  "last_mentions": 1793819473,
+  "last_slow": 1793819473,
   "tw_samples": [
     [
       1793779148,
