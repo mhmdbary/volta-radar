@@ -1193,10 +1193,11 @@ LIVE_STATE = {}  # the running bot's state, so reports can see which tweets the 
 
 def is_via_bot(t):
     """Your tweet answers a tweet the bot drafted a reply for, or matches one of its drafts."""
-    if str(t.get("inReplyToId") or "") in set(LIVE_STATE.get("drafted_ids", [])):
+    st = LIVE_STATE or load_json(STATE_FILE, {})  # outside the running bot, read its saved state
+    if str(t.get("inReplyToId") or "") in set(st.get("drafted_ids", [])):
         return True
     text = " ".join(w for w in (t.get("text") or "").lower().split() if not w.startswith("@"))[:50]
-    return bool(text) and any(r.lower()[:50] == text for r in LIVE_STATE.get("recent_texts", []))
+    return bool(text) and any(r.lower()[:50] == text for r in st.get("recent_texts", []))
 
 
 def mark_answered_drafts(cfg, tags, my_tweets):
