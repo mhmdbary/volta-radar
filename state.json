@@ -1,5 +1,5 @@
 {
-  "last_check": 1793804059,
+  "last_check": 1793804179,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -16,6 +16,7 @@
     "2117603996827279590",
     "2117668555147591692",
     "2117843126350131380",
+    "2117994110673977542",
     "2117872723883897139",
     "2117863047369044414",
     "2117670642388533620",
@@ -311,22 +312,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117860431142224016": {
-      "author": "agora_elysium",
-      "text": "Copy trading is live on Agora, a first on Elysium.\n\nCopy any trader on Elysium automatically. Pick a wallet, set how much to put into each trade, and every buy and sell they make is copied for you.\n\nTo start, open any trader’s profile and tap Copy trade. https://t.co/WuXSeyEtFu",
-      "reply": "copy trading on elysium before public mainnet is wild 🔥 volta launches already trade on agora, so $VOLTA launchers just got a lot more eyes on day one",
-      "tried": [
-        "copy trading on elysium already, nice work. volta launches trade on agora too, and on our charts you'll see your own copied buys and avg entry for any $VOLTA pair",
-        "elysium isn't even at public mainnet yet (nov 9) and there's already copy trading. fun to be building $VOLTA next to teams shipping this fast",
-        "copy trading on elysium before public mainnet is wild 🔥 volta launches already trade on agora, so $VOLTA launchers just got a lot more eyes on day one"
-      ],
-      "image": "https://pbs.twimg.com/media/HWQlwyaXsAAX5E3.jpg",
-      "relevant": true,
-      "reply_ar": "التداول بالنسخ على Elysium قبل الإطلاق العام للشبكة شيء مجنون 🔥 إطلاقات Volta تتداول على Agora بالفعل، يعني اللي بيطلقوا توكنات عبر $VOLTA صار عندهم انتشار أكبر من أول يوم",
-      "tweet_ar": "التداول بالنسخ أصبح متاحاً على Agora، وهي أول منصة تقدمه على Elysium. انسخ أي متداول على Elysium تلقائياً. اختر محفظة وحدد المبلغ الذي تريد وضعه في كل صفقة، وسيتم نسخ كل عملية شراء وبيع يقوم بها. للبدء، افتح ملف أي متداول واضغط على Copy trade.",
-      "message_id": 134,
-      "instruction": "اعمل جمله قصيره و حماسيه"
-    },
     "2117861128474939488": {
       "author": "BitBlitzBuzz",
       "text": "elysium launchpads ranked: who actually has real users before nov 9? 👀\n\neveryone shills a pad. i read the onchain data instead\n\n1. @TheKleos_ $KLEOS\n\n#1 by real wallets (1,050), 117 launches in 24h\nmcap - $1.37M. \n\n> could 5-10x when mainnet goes live\nbut 11 wallets took 57.5% at launch\n\n2. @ElysiumPump $ELYSP\nhome of the top elysium memes $BLOB + $e/acc\nmcap $138K, still super low.\n\n> could 5-10x if launches pick up\n\n3. @Boxa_Elysium $BOXA\n\nbiggest pad token, launched $ELYSX\nmcap - $1.34M. could 5-10x if mainnet brings new money\n\n36.5% still sits in linked bundle wallets\n\n4. @Stockium $STOCKIUM\nmemes paired w tokenized stocks\n99% of its vol is its own token\n\n5. @eleosfun $EOS\n4 launch modes, holders earn HYPE from taxes\n43% in wallets that never signed a tx\n\n6. @elyxa_trade $ELYXA\nsays 100% of protocol fees go to buyback & burn\n\n7. @Calyx_elysium\n2% fee, 30% cashback\n50% of coin fees go to an airdrop unlocking nov 9\n\n8. @AscendLaunch\nday one pad, no token, hold your HYPE\n\n9. @MontraXYZ\nuniswap v4 pad, 25% supply airdrop\n\n10. @StonksPadsh \n\n$STONKS hit a $19.5M ath on bnb now coming to elysium...\n\n11. @arkhampad\nonly -20 real wallets so far\n\n> my take: only kleos, elyspump and boxa have a real market rn ngl. rest still gotta prove it\n\nwhich elysium launchpad you riding into mainnet?\n\nNFA. DYOR. \n\nnot a promise, just my call\n\nelysium launchpads/projects my DMs are open for collabs\n\n#Elysium #Hyperliquid #ElysiumLaunchpad",
@@ -1759,11 +1744,24 @@
       "reply_ar": "الطريق صار مزدحم هههه. فولتا سبقت إطلاق الشبكة الرئيسية في 9 نوفمبر ومعها $VOLTA",
       "tweet_ar": "الطريق إلى إليسيوم مستمر على يونيسواب. الإطلاقات الجديدة صارت تتداول في مجمعات يونيسواب v4 على إليسيوم. كل شيء من أجل كليوس.",
       "message_id": 322
+    },
+    "2117994110673977542": {
+      "author": "0xOmnia",
+      "text": "interesting\n\nand elysium coded https://t.co/4Ug6kHAZrE",
+      "reply": "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there",
+      "tried": [
+        "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there"
+      ],
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2117993971003564032/img/lWwpzSaGkNVUAkpe.jpg",
+      "followers": 20264,
+      "relevant": true,
+      "reply_ar": "خطوط الدخان الملونة دي شكلها بالضبط زي يوم إطلاقات زحمة على إليزيوم هههه. بس فضولي أعرف إيه اللي يخلي الإطلاق ناجح فعلاً برأيك. بالنسبة لي هي أول دقايق، وحماية فولتا من القناصة وقت الإطلاق هي الجزء من $VOLTA اللي أشاور عليه هنا",
+      "tweet_ar": "مثير للاهتمام، وفيه طابع إليزيوم.",
+      "message_id": 323
     }
   },
-  "angle_i": 111,
+  "angle_i": 112,
   "recent_texts": [
-    "still just submitted to uniswap, but the burn's the story. 80% of volta fees buy back and burn $VOLTA",
     "fingers crossed fr. volta's hook was the first uniswap v4 one live on elysium and every new token gets its own pool paired with HYPE, so $VOLTA isn't waiting on nov 9 to cook",
     "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA",
     "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar",
@@ -1822,7 +1820,8 @@
     "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar",
     "solid chips, volta's free elysium rpc is my $VOLTA speed pick",
     "cool stuff for sure, but the sleeper feature is volta's charts showing your own buys, sells and average entry. once you've traded $VOLTA with that on screen, guessing where you got in feels ancient",
-    "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA"
+    "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA",
+    "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1831,7 +1830,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793803911,
+  "last_to_me": 1793804061,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1921,11 +1920,12 @@
     "2117989023126053264",
     "2117989292144525474",
     "2117989874553008344",
-    "2117991208786010539"
+    "2117991208786010539",
+    "2117994110673977542"
   ],
-  "last_fast": 1793804059,
-  "last_mentions": 1793804029,
-  "last_slow": 1793803939,
+  "last_fast": 1793804179,
+  "last_mentions": 1793804119,
+  "last_slow": 1793804119,
   "tw_samples": [
     [
       1793779148,
@@ -2102,9 +2102,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 82,
-      "input_tokens": 386290,
-      "output_tokens": 64753
+      "calls": 83,
+      "input_tokens": 391880,
+      "output_tokens": 65468
     }
   },
   "x_actions": {
