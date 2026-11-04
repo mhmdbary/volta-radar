@@ -1,14 +1,15 @@
 {
-  "last_check": 1793793186,
+  "last_check": 1793793357,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
     "2117723384910082369",
     "2117595326626619825",
+    "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117893633009651980",
     "2117580008931709076",
+    "2117893633009651980",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -259,19 +260,6 @@
   },
   "last_follow_check": 1793771975,
   "drafts": {
-    "2117727385458245913": {
-      "author": "iRileyCrypto",
-      "text": "@VoltaFamily Hey, solid vision! Let's talk about working together.",
-      "reply": "appreciate it riley, our dms are open. send over what you have in mind and we'll take a look",
-      "tried": [
-        "appreciate it riley, our dms are open. send over what you have in mind and we'll take a look"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر ذلك يا رايلي، رسائلنا الخاصة مفتوحة. أرسل لنا ما تفكر فيه وسنلقي نظرة",
-      "tweet_ar": "@VoltaFamily مرحباً، رؤية قوية! دعونا نتحدث عن العمل معاً.",
-      "message_id": 72
-    },
     "2117727953140519343": {
       "author": "iSolCryptoo",
       "text": "@VoltaFamily Good things happen when the right people connect. Let's start a conversation.",
@@ -1639,9 +1627,23 @@
       "reply_ar": "متى تكتشف هذه العملات عادةً؟ من لوحة الترند في فولتا أم من مجتمع $VOLTA؟",
       "tweet_ar": "نصيحة سريعة لأي شخص ينقل أمواله إلى إليزيوم: لا تصرف كل محفظتك في ملاحقة الإطلاقات الجديدة تمامًا. المتصدرون متصدرون لسبب. أفضّل أن يكون معظم محفظتي في المتصدرين المثبتين، وأستخدم نسبة أصغر للرهانات الخطرة. أفضل 3 عملات على الشبكة حاليًا: BLOB بـ 2.5 مليون، BOXA بـ 2 مليون، KLEOS بـ 1.7 مليون. لا تستهِن بمدى قوة استمرار الرابحين في الصعود.",
       "message_id": 259
+    },
+    "2117948392102089136": {
+      "author": "whalesdotsol",
+      "text": "@Chickenrekt @VoltaFamily is bringing the first live Uniswap V4 hook to Elysium. ⚡\n\nEvery token gets its own V4 pool paired with $HYPE, with creator-set fees, launch anti-snipe protection, and built-in buybacks and burns on every trade.\n\nMore than just a launchpad. It’s infrastructure. https://t.co/v5cmylspGP",
+      "reply": "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip",
+      "tried": [
+        "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip"
+      ],
+      "image": "https://pbs.twimg.com/media/HWR21RZXwAAZG1O.jpg",
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "‏ملخص مرتب فعلاً. الشيء الوحيد الذي أضيفه هو جانب المنشئين، فمن يطلق توكن على volta يربح رسومه بعملة HYPE، وهذه نقطة تتجاهلها معظم الثريدات عن $VOLTA بشكل غريب.",
+      "tweet_ar": "‏Volta تجلب أول خطاف Uniswap V4 يعمل فعلياً على شبكة Elysium ⚡ كل توكن يحصل على مجمع V4 خاص به مقترن بـ HYPE، مع رسوم يحددها المنشئ، وحماية من القنص عند الإطلاق، وعمليات إعادة شراء وحرق مدمجة في كل صفقة. أكثر من مجرد منصة إطلاق، إنها بنية تحتية.",
+      "message_id": 260
     }
   },
-  "angle_i": 56,
+  "angle_i": 57,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1683,14 +1685,15 @@
     "infrastructure is the fanciest word a launchpad can get lol. what i care about is anti-snipe at launch so bots can't eat the first block, kinda why i keep an eye on $VOLTA",
     "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar",
     "elysium's not even at public mainnet yet and basedbot's already filling up, $VOLTA folks approve",
-    "how early do you spot these, volta trending board or $VOLTA chat?"
+    "how early do you spot these, volta trending board or $VOLTA chat?",
+    "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117945433234313681",
     "2117895148365607335"
   ],
-  "last_to_me": 1793793086,
+  "last_to_me": 1793793359,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1729,10 +1732,11 @@
     "2117943643290116163",
     "2117944166487351634",
     "2117947676008300551",
-    "2117948186304070092"
+    "2117948186304070092",
+    "2117948392102089136"
   ],
-  "last_fast": 1793793186,
-  "last_mentions": 1793793186,
+  "last_fast": 1793793357,
+  "last_mentions": 1793793296,
   "last_slow": 1793793186,
   "tw_samples": [
     [
@@ -1838,9 +1842,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 27,
-      "input_tokens": 106490,
-      "output_tokens": 15464
+      "calls": 29,
+      "input_tokens": 118296,
+      "output_tokens": 17639
     }
   },
   "x_actions": {
