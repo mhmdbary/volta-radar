@@ -452,12 +452,23 @@ def apply_result(d, result):
     d["tried"] = (d.get("tried", []) + [d["reply"]])[-5:]
 
 
-def regenerate(cfg, d, avoid=None):
+def regenerate(cfg, d, state, avoid=None):
+    """Draft with the next angle in the rotation, and show the model recent drafts so posts don't repeat."""
     import ai_replies
+    i = int(state.get("angle_i", 0))
+    state["angle_i"] = i + 1
+    angle = ai_replies.ANGLES[i % len(ai_replies.ANGLES)]
+    recent = state.get("recent_texts", [])[-20:]
     if d.get("kind") == "tweet":
-        return ai_replies.write_tweet(cfg["anthropic_api_key"], d.get("instruction"), avoid=avoid)
-    return ai_replies.suggest_reply(cfg["anthropic_api_key"], d["author"], d["text"],
-                                    avoid=avoid, instruction=d.get("instruction"), image=d.get("image"))
+        result = ai_replies.write_tweet(cfg["anthropic_api_key"], d.get("instruction"), avoid=avoid,
+                                        recent=recent, angle=angle)
+    else:
+        result = ai_replies.suggest_reply(cfg["anthropic_api_key"], d["author"], d["text"], avoid=avoid,
+                                          instruction=d.get("instruction"), image=d.get("image"),
+                                          recent=recent, angle=angle)
+    if result and result.get("reply"):
+        state["recent_texts"] = (state.get("recent_texts", []) + [result["reply"]])[-30:]
+    return result
 
 
 def store_draft(state, key, d):
@@ -493,7 +504,7 @@ def rewrite_draft(cfg, state, key, instruction):
                                      "text": "That draft expired. Use /write your idea for a new tweet."})
         return
     d["instruction"] = instruction
-    result = regenerate(cfg, d)
+    result = regenerate(cfg, d, state)
     if not result or not result.get("reply"):
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't write that one, try rephrasing."})
         return
@@ -514,7 +525,7 @@ def new_tweet_draft(cfg, state, instruction):
                                      "text": "Usage: <code>/write your idea</code>\nمثال: <code>/write تويتة عن إطلاق elysium يوم 9، حماسية</code>"})
         return
     d = {"kind": "tweet", "instruction": instruction, "reply": "", "tried": []}
-    result = regenerate(cfg, d)
+    result = regenerate(cfg, d, state)
     if not result or not result.get("reply"):
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": "Couldn't write that one, try rephrasing."})
         return
@@ -533,7 +544,7 @@ def send_draft(cfg, settings, state, tags, tweet, mention):
     author = (tweet.get("author") or {}).get("userName") or ""
     d = {"author": author, "text": tweet.get("text") or "", "reply": "", "tried": [],
          "image": tweet_media(tweet)[0]}
-    result = regenerate(cfg, d)
+    result = regenerate(cfg, d, state)
     if not result or not result.get("reply"):
         return
     apply_result(d, result)
@@ -583,7 +594,7 @@ def handle_draft_button(cfg, state, cb):
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "اكتب فكرتك"})
         return
     if action == "chg":
-        result = regenerate(cfg, d, avoid=d.get("tried"))
+        result = regenerate(cfg, d, state, avoid=d.get("tried"))
         if not result or not result.get("reply"):
             tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "No better idea, sorry"})
             return
