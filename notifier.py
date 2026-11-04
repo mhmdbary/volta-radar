@@ -468,7 +468,7 @@ def draft_message(d, tags):
     meaning = [arabic_quote(d["reply_ar"])] if d.get("reply_ar") else []
     if d.get("kind") == "tweet":
         return "\n".join([
-            "📝 <b>تويتة جديدة</b>",
+            "📝 <b>تويتة جديدة</b>  ·  " + ("✅ <b>نشرتها</b>" if d.get("done") else "🟡 <b>لسا ما نشرتها</b>"),
             f"<i>🗒 {html.escape(d.get('instruction') or '')}</i>", LINE,
             "✍️ <b>التويتة</b> · اضغط عليها للنسخ", f"<code>{reply_txt}</code>"] + meaning)
     snippet = html.escape(strip_leading_mentions(clean_text(d["text"], drop_links=True))[:300]) or "📷 media post"
@@ -493,23 +493,26 @@ def draft_message(d, tags):
 def draft_buttons(tid, d):
     # twitter.com/intent/tweet is the link the X mobile app registers for, so it opens the app with the text ready
     # (x.com/intent/post only opens the website)
-    if d.get("done"):  # already answered: one button to see your reply (or the tweet), nothing else to press
-        mine = d.get("my_url") or f"https://x.com/{d.get('author') or 'i'}/status/{tid}"
-        return {"inline_keyboard": [[{"text": "✅ أنا رديت · افتح ردي" if d.get("my_url") else "✅ أنا رديت",
-                                      "url": mine}],
-                                    [{"text": "↩️ رجّعها مش متعمولة", "callback_data": f"und:{tid}"}]]}
-    if d.get("kind") == "tweet":
-        rows = [[{"text": "🚀 انشر على X",
+    is_tweet = d.get("kind") == "tweet"
+    original = f"https://x.com/{d.get('author') or 'i'}/status/{tid}"
+    if d.get("done"):  # already handled: link to your post (when we found it) and a way to undo
+        first = ({"text": "🔗 افتح ردي على X", "url": d["my_url"]} if d.get("my_url")
+                 else {"text": "👁 شوف التويتة", "url": original} if not is_tweet else None)
+        rows = [[first]] if first else []
+        return {"inline_keyboard": rows + [[{"text": "↩️ لسا ما نشرتها" if is_tweet else "↩️ لسا ما رديت",
+                                             "callback_data": f"und:{tid}"}]]}
+    if is_tweet:
+        rows = [[{"text": "🚀 انشرها على X",
                   "url": "https://twitter.com/intent/tweet?" + urllib.parse.urlencode({"text": d["reply"]})}]]
     else:
         rows = [[{"text": "🚀 رد على X",
                   "url": "https://twitter.com/intent/tweet?" + urllib.parse.urlencode({"in_reply_to": tid, "text": d["reply"]})},
-                 {"text": "📱 افتح التويتة", "url": f"https://x.com/{d.get('author') or 'i'}/status/{tid}"}]]
+                 {"text": "👁 شوف التويتة", "url": original}]]
     return {"inline_keyboard": rows + [
-        [{"text": "✏️ فكرتي بالعربي", "callback_data": f"ins:{tid}"},
-         {"text": "🔄 غيرها", "callback_data": f"chg:{tid}"}],
-        [{"text": "✅ أنا رديت", "callback_data": f"don:{tid}"},
-         {"text": "❌ تجاهل", "callback_data": f"ign:{tid}"}],
+        [{"text": "✏️ اكتب فكرتي", "callback_data": f"ins:{tid}"},
+         {"text": "🔄 جيب غيرها", "callback_data": f"chg:{tid}"}],
+        [{"text": "✅ نشرتها" if is_tweet else "✅ رديت خلص", "callback_data": f"don:{tid}"},
+         {"text": "🗑 تجاهل", "callback_data": f"ign:{tid}"}],
     ]}
 
 
