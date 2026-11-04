@@ -1,5 +1,5 @@
 {
-  "last_check": 1793796531,
+  "last_check": 1793796698,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -8,8 +8,8 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117580008931709076",
     "2117893633009651980",
+    "2117580008931709076",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -32,8 +32,8 @@
     "2117689582485422507",
     "2117957641175765165",
     "2117812508903772532",
-    "2117748509201899912",
     "2117953749591146800",
+    "2117748509201899912",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -74,6 +74,7 @@
     "2117722410749161518",
     "2117850851910029533",
     "2117751871372759488",
+    "2117962439178477821",
     "2117960003885687063",
     "2117717259716362608",
     "2117680146316419197",
@@ -271,19 +272,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117737949920182411": {
-      "author": "142C_",
-      "text": "@VoltaFamily @Uniswap Hey love the work, let's make something happen",
-      "reply": "appreciate that, means a lot. our dms are open, send over what you have in mind and we'll take a look",
-      "tried": [
-        "appreciate that, means a lot. our dms are open, send over what you have in mind and we'll take a look"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر ذلك كثيراً. رسائلنا الخاصة مفتوحة، أرسل لنا فكرتك وسنطّلع عليها",
-      "tweet_ar": "@VoltaFamily @Uniswap أهلاً، أحب العمل الذي تقومون به، لنعمل على شيء معاً",
-      "message_id": 85
-    },
     "2117738454058508654": {
       "author": "whalesdotsol",
       "text": "@VoltaFamily Generational wealth coming from Volta",
@@ -1565,7 +1553,9 @@
       "relevant": true,
       "reply_ar": "العوامل الخمسة لتحديد الفائزين في محلها، لكن جانب المتداول يُهمل. عادةً تبحث في سجل المعاملات لتتذكر بكم اشتريت. رسوم فولتا البيانية تعرض مشترياتك ومبيعاتك ومتوسط دخولك مباشرة، حتى على $VOLTA نفسه. أتمنى أن أراها في الجولة الثانية",
       "tweet_ar": "رغم أن هذه المنصات تتشارك بنية تحتية متشابهة لإطلاق التوكنات، إلا أن مزاياها التنافسية تنقسم إلى عدة فئات. حجم التداول والوصول للسوق: Kleos وBoxa وElysiumPump حققت أقوى نشاط مبكر. Kleos تجمع بين بنية التداول والعشائر ولوحات المتصدرين ومكافآت الحاملين، وBoxa تتميز بالتجميع واكتشاف الأصول عبر عدة منصات، وElysiumPump تستفيد من دخولها المبكر. لكن النشاط المبكر لا يعني بالضرورة هيمنة دائمة. البنية المتخصصة: Stockium تقدم أزواجاً مع أسهم مرمّزة، وSignal تتيح للمنشئين توجيه الرسوم لمكافآت الحاملين أو إعادة الشراء أو العقود الدائمة، وEleosfun تركز على أوضاع إطلاق مرنة وقواعد شفافة مثل منع رفع الضرائب بعد الإطلاق. البساطة والمجتمع: BunnyPad تركز على الإطلاق العادل والسيولة المقفلة دائماً وحوافز المشاركة، مع ربط جزء من الإيرادات بمخزني الـNFT. أما Elysianpad فتركز على منح المنشئين التحكم في توزيع رسوم التداول: إنشاء التوكن بمعاملة واحدة، ورسوم 1%، وإعادة شراء وحرق ممولة من الرسوم. ما سيحدد الفائزين بعد الشبكة الرئيسية: حجم تداول مستدام، ومنشئون نشطون، والاحتفاظ بالسيولة، وتوزيع رسوم موثق، وتنفيذ فعلي لإعادة الشراء. Elysianpad لا تزال بحاجة لإثبات نموذجها، لكنها خياري المفضل وقد تصبح من أقوى المنصات إذا ركزت Elysium على اقتصاديات إطلاق مستدامة.",
-      "message_id": 271
+      "message_id": 271,
+      "done": true,
+      "my_url": "https://x.com/barymoto/status/2117960073750466679"
     },
     "2117958182416822702": {
       "author": "TheKleos_",
@@ -1669,9 +1659,23 @@
       "reply_ar": "إذا كنت تتصفح إطلاقات العملات على إليزيوم، فقيّمها بناءً على أول بلوك. خطاف فولتا يتضمن حماية من القنص عند الإطلاق، فيحصل المشترون الحقيقيون على فرصة قبل البوتات، وهذا الجانب من $VOLTA أعتقد أن الناس يقللون من شأنه.",
       "tweet_ar": "سأتفقده.",
       "message_id": 278
+    },
+    "2117962439178477821": {
+      "author": "Wayne_D_Hell",
+      "text": "@VoltaFamily @BasedBot @JustRektTool @agora_elysium exciting",
+      "reply": "three apps deep now. volta charts still show your $VOLTA avg entry",
+      "tried": [
+        "three apps deep now. volta charts still show your $VOLTA avg entry"
+      ],
+      "image": null,
+      "followers": 2106,
+      "relevant": true,
+      "reply_ar": "صار على ثلاث تطبيقات الحين. ومع ذلك تشارتات فولتا لسا تعرض لك متوسط سعر دخولك في $VOLTA",
+      "tweet_ar": "أمر مثير",
+      "message_id": 279
     }
   },
-  "angle_i": 69,
+  "angle_i": 70,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1726,15 +1730,16 @@
     "is the tokenized stocks fee option part of your $VOLTA thesis?",
     "most mints end at sellout, volta trades keep burning $VOLTA",
     "yeah, that thread covered a lot. one thing i'd tack on is volta bridging to elysium from 10+ chains, so nobody's stuck on step one before even looking at $VOLTA",
-    "if you're poking around elysium launches, judge them by the first block. volta's hook has anti-snipe built in at launch so real buyers get a shot before bots do, and that's the part of $VOLTA i think people underrate"
+    "if you're poking around elysium launches, judge them by the first block. volta's hook has anti-snipe built in at launch so real buyers get a shot before bots do, and that's the part of $VOLTA i think people underrate",
+    "three apps deep now. volta charts still show your $VOLTA avg entry"
   ],
   "to_me_seen": [
     "2117872026555965644",
-    "2117962241957904390",
     "2117945433234313681",
-    "2117895148365607335"
+    "2117895148365607335",
+    "2117962241957904390"
   ],
-  "last_to_me": 1793796542,
+  "last_to_me": 1793796671,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1785,10 +1790,11 @@
     "2117958981721395660",
     "2117959484815360086",
     "2117960003885687063",
-    "2117960431180644557"
+    "2117960431180644557",
+    "2117962439178477821"
   ],
-  "last_fast": 1793796531,
-  "last_mentions": 1793796531,
+  "last_fast": 1793796698,
+  "last_mentions": 1793796638,
   "last_slow": 1793796531,
   "tw_samples": [
     [
@@ -1918,9 +1924,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 40,
-      "input_tokens": 180739,
-      "output_tokens": 28209
+      "calls": 42,
+      "input_tokens": 190099,
+      "output_tokens": 29711
     }
   },
   "x_actions": {
