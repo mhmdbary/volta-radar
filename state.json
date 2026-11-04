@@ -1,5 +1,5 @@
 {
-  "last_check": 1793801401,
+  "last_check": 1793801521,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -155,6 +155,7 @@
     "2117618801265316350",
     "2117733737706455282",
     "2117943995653640702",
+    "2117982889883144652",
     "2117696004095160739",
     "2117894343155401011",
     "2117885940761059428",
@@ -298,19 +299,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117834480090234947": {
-      "author": "Habibxweb3",
-      "text": "gm fam ☕\n\ntomorrow @FungoLabs genesis mints sealed\n\nno reveal button\nno trait peeking\nrarity sniping = dead\n\nyour NFT is seen by all\nknown by one 🔒\n\nmost of CT still farming the same airdrop\nthe ones who get FHE on @zama are early here\n\nX campaign still live\n300M $FUNGO · submit your 5 best posts\n\nhttps://t.co/q7WfFi2Vh7",
-      "reply": "gm. sealed traits is a smart fix tbh, rarity sniping bots have ruined way too many mints. curious how the reveal works for holders later, can you decrypt your own traits anytime?",
-      "tried": [
-        "gm. sealed traits is a smart fix tbh, rarity sniping bots have ruined way too many mints. curious how the reveal works for holders later, can you decrypt your own traits anytime?"
-      ],
-      "image": "https://pbs.twimg.com/media/HWQPMjSbYAAA4Vm.jpg",
-      "relevant": false,
-      "reply_ar": "صباح الخير. إخفاء الصفات فكرة ذكية فعلًا، بوتات اقتناص الندرة أفسدت الكثير من عمليات السك. فضولي كيف يتم الكشف للحاملين لاحقًا، هل يمكنك فك تشفير صفاتك الخاصة في أي وقت؟",
-      "tweet_ar": "صباح الخير يا جماعة ☕ غدًا يتم سك مجموعة جينيسيس من @FungoLabs بشكل مشفّر. لا زر للكشف، لا تلصص على الصفات، واقتناص الندرة انتهى. الـNFT الخاص بك يراه الجميع لكن لا يعرفه إلا شخص واحد 🔒. معظم الناس على تويتر الكريبتو ما زالوا يزرعون نفس الإيردروب، ومن يفهم تقنية التشفير المتماثل FHE على @zama هم المبكرون هنا. حملة X ما زالت قائمة: 300 مليون $FUNGO، قدّم أفضل 5 منشورات لك.",
-      "message_id": 112
-    },
     "2117841263013834986": {
       "author": "0xFuriofly",
       "text": "@AdamHODL I still gambled on $RONS and $VOLTA",
@@ -1731,11 +1719,24 @@
       "reply_ar": "المفاجأة أن فولتا لا تختار التوكن القادم، بل صانعه هو من يختار ويكسب الرسوم بعملة HYPE، وهذا أفضل جزء في $VOLTA برأيي",
       "tweet_ar": "أرقام إطلاق مبهرة! ما هو التوكن الذي ستطلقونه بعد ذلك؟",
       "message_id": 308
+    },
+    "2117982889883144652": {
+      "author": "agora_elysium",
+      "text": "🔥 $AGORA buybacks are now fully automatic.\n\n30% of every Agora fee goes straight into an on-chain burn budget. It buys $AGORA when the price dips and burns it, and burns daily on quiet days.\n\nNobody can withdraw it, not even us.\n\nContract: 0x82d59a4b329ee539240113be0e8812363739294a",
+      "reply": "auto burns, solid move. $VOLTA gets burned on every volta trade",
+      "tried": [
+        "auto burns, solid move. $VOLTA gets burned on every volta trade"
+      ],
+      "image": null,
+      "followers": 692,
+      "relevant": true,
+      "reply_ar": "الحرق التلقائي خطوة موفقة. يتم حرق $VOLTA مع كل عملية تداول على فولتا",
+      "tweet_ar": "عمليات إعادة شراء $AGORA أصبحت الآن تلقائية بالكامل. 30% من كل رسوم Agora تذهب مباشرة إلى ميزانية حرق على السلسلة، تشتري $AGORA عندما ينخفض السعر وتحرقه، وتحرق يومياً في الأيام الهادئة. لا أحد يستطيع سحبها، ولا حتى نحن.",
+      "message_id": 309
     }
   },
-  "angle_i": 97,
+  "angle_i": 98,
   "recent_texts": [
-    "same, the anti-snipe at launch is what got me. watching bots eat the first block gets old fast, so it's nice volta just bakes that in. one reason i hold $VOLTA",
     "one word and the whole timeline starts guessing lol. what i find interesting is volta's charts marking my own buys right on the candles, keeps me honest about my $VOLTA entry",
     "364 tokens in about a minute is wild. feels like everyone's packing up for elysium before nov 9 mainnet, and volta's already set up there waiting. glad i'm holding $VOLTA early",
     "elysium moving fast for sure. what i'd ask launchers is what a good launch even looks like to them, for me it's creator-set fees from day one. why i hold $VOLTA",
@@ -1794,15 +1795,16 @@
     "top blasting at 800k is bold, volta charts mark it, $VOLTA too",
     "bridging is always the first chore on a fresh chain, and volta gets $VOLTA folks onto elysium before the nov 9 mainnet",
     "dex volume really is where narratives start, robinhood chain showed that fast. over on elysium volta's hook buys back and burns $VOLTA on every trade, so busy days leave a mark",
-    "plot twist, volta doesn't pick the next token, the creator does and earns fees in HYPE, best part of $VOLTA imo"
+    "plot twist, volta doesn't pick the next token, the creator does and earns fees in HYPE, best part of $VOLTA imo",
+    "auto burns, solid move. $VOLTA gets burned on every volta trade"
   ],
   "to_me_seen": [
     "2117872026555965644",
-    "2117962241957904390",
     "2117945433234313681",
-    "2117895148365607335"
+    "2117895148365607335",
+    "2117962241957904390"
   ],
-  "last_to_me": 1793801255,
+  "last_to_me": 1793801413,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1879,11 +1881,12 @@
     "2117980675630321812",
     "2117981739146699118",
     "2117981944621535375",
-    "2117982317629091865"
+    "2117982317629091865",
+    "2117982889883144652"
   ],
-  "last_fast": 1793801401,
-  "last_mentions": 1793801323,
-  "last_slow": 1793801323,
+  "last_fast": 1793801521,
+  "last_mentions": 1793801521,
+  "last_slow": 1793801521,
   "tw_samples": [
     [
       1793779148,
@@ -2036,13 +2039,17 @@
     [
       1793800790,
       928479
+    ],
+    [
+      1793801420,
+      926634
     ]
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 68,
-      "input_tokens": 317160,
-      "output_tokens": 53177
+      "calls": 69,
+      "input_tokens": 321846,
+      "output_tokens": 53987
     }
   },
   "x_actions": {
