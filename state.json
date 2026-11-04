@@ -1,5 +1,5 @@
 {
-  "last_check": 1793832312,
+  "last_check": 1793832432,
   "seen_ids": [
     "2117882327418454138",
     "2118110308921389144",
@@ -26,6 +26,7 @@
     "2117988235263766644",
     "2118023734410072066",
     "2117883929357386063",
+    "2118112875944595825",
     "2117942008467570943",
     "2117885655221202996",
     "2117901122773868878",
@@ -207,6 +208,7 @@
     "2118068833294422283",
     "2117850851910029533",
     "2117723384910082369",
+    "2118112809225441393",
     "2117686935863119887",
     "2117894194656374840",
     "2117732161797464230",
@@ -399,34 +401,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117985318255104031": {
-      "author": "AdamHODL",
-      "text": "There are very few people in this space that backs coins at their earliest stage, with full conviction.\n\n@CryptoKaleo is one of them.\n\nI simply will not fade. https://t.co/WmRaMPMCrU",
-      "reply": "the cigar cat in the hmm shirt is exactly what full conviction looks like lol. my version of not fading is watching volta's fee flow, 80% of trading fees buy back $VOLTA and burn it, so the busier elysium gets the thinner the supply",
-      "tried": [
-        "the cigar cat in the hmm shirt is exactly what full conviction looks like lol. my version of not fading is watching volta's fee flow, 80% of trading fees buy back $VOLTA and burn it, so the busier elysium gets the thinner the supply"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSYa24WIAAxm8y.jpg",
-      "followers": 73660,
-      "relevant": false,
-      "reply_ar": "القط اللي بالسيجار وقميص hmm هو بالضبط شكل القناعة الكاملة. طريقتي في عدم التخلي هي متابعة تدفق الرسوم في فولتا، 80% من رسوم التداول تشتري $VOLTA وتحرقها، فكلما زاد نشاط إليسيوم قل المعروض.",
-      "tweet_ar": "قليلون جداً في هذا المجال من يدعمون العملات في مراحلها الأولى بقناعة كاملة. كاليو واحد منهم. ببساطة لن أراهن ضده.",
-      "message_id": 310
-    },
-    "2117985533645427094": {
-      "author": "TLdn43",
-      "text": "@VoltaFamily 500 traders in a day is a solid start for volta.",
-      "reply": "early chains rarely pull that many traders, guess a fresh v4 pool paired with HYPE for every volta launch helps $VOLTA",
-      "tried": [
-        "early chains rarely pull that many traders, guess a fresh v4 pool paired with HYPE for every volta launch helps $VOLTA"
-      ],
-      "image": null,
-      "followers": 13237,
-      "relevant": true,
-      "reply_ar": "نادرًا ما تجذب الشبكات في بداياتها هذا العدد من المتداولين، أظن أن وجود مجمع v4 جديد مقترن بـ HYPE لكل إطلاق على volta يساعد $VOLTA",
-      "tweet_ar": "500 متداول في يوم واحد بداية قوية لـ volta.",
-      "message_id": 311
-    },
     "2117986555780620334": {
       "to_me": true,
       "author": "TLdn43",
@@ -1813,12 +1787,38 @@
       "reply_ar": "منطقي، الاعتراف بالخطأ يساعد. مع 9 نوفمبر سأتابع لوحة الترند في فولتا لأرى ما الذي يتحرك بجانب $VOLTA",
       "tweet_ar": "لاحظ كثير منكم أن كلمة المرور على Ascend أُزيلت قبل فترة، ورأيت كل الأسئلة والتكهنات حول ذلك. أريد توضيح أمر واحد: قرار إزالة كلمة المرور كان مقصوداً، وكل خطوة نتخذها في Ascend لها هدف. وأريد أيضاً إزالة بعض الالتباس: العقود الموجودة على Ascend ستبقى موجودة بعد 9 نوفمبر، ولن يُمسح أو يُعاد ضبط أي شيء. ومع ذلك، أعترف بأنه كان بإمكاننا التواصل بشكل أفضل بكثير، وأتحمل مسؤولية ذلك. الشفافية مع مجتمعنا كانت دائماً مهمة لنا، وسنواصل الالتزام بهذا المعيار. في 9 نوفمبر، نصعد إلى Elysium.",
       "message_id": 413
+    },
+    "2118112809225441393": {
+      "author": "whalesdotsol",
+      "text": "@Aurelius0121 @Aurelius0121 check out $volta (@VoltaFamily) which is bringing the first live Uniswap V4 hook to Elysium. ⚡\n\nEvery token gets its own V4 pool paired with $HYPE, with creator-set fees, launch anti-snipe protection, and built-in buybacks and burns on every trade.\n\nMore than just a launchpad. It’s infrastructure.\n\nCA:\n\n0x0f79931689Af199e7CF868ed1107bBA2C83c68f7",
+      "reply": "infrastructure means roadwork, volta's paving elysium before the nov 9 public mainnet with $VOLTA riding shotgun",
+      "tried": [
+        "infrastructure means roadwork, volta's paving elysium before the nov 9 public mainnet with $VOLTA riding shotgun"
+      ],
+      "image": "https://pbs.twimg.com/media/HWUMXh7WYAAWDOx.jpg",
+      "followers": 7139,
+      "relevant": true,
+      "reply_ar": "البنية التحتية يعني أعمال طرق، وفولتا عم تعبّد الطريق على Elysium قبل إطلاق الشبكة الرئيسية العامة في 9 نوفمبر و‎$VOLTA‏ راكب جنبها.",
+      "tweet_ar": "شوف ‎$volta‏ (‎@VoltaFamily‏) اللي بيجيب أول hook حي من Uniswap V4 على شبكة Elysium ⚡ كل توكن بياخد مجمع V4 خاص فيه مقرون بـ ‎$HYPE‏، مع رسوم يحددها المنشئ، وحماية من القناصين عند الإطلاق، وإعادة شراء وحرق مدمجة في كل صفقة. أكثر من مجرد منصة إطلاق، إنها بنية تحتية.",
+      "message_id": 414
+    },
+    "2118112875944595825": {
+      "author": "thejbullmarket",
+      "text": "@Enter_Elysium @VoidCashio @VoltaFamily If you don't know yet how to buy tokens on Elysium, try try it with solana:6FhVPctYg363pQbs4iSvqyHe2cJzfsvFD96gePy6pump, here @KadunaBull explains how it works https://t.co/cxFuv2OZPQ",
+      "reply": "how-to threads for buying on elysium are popping up everywhere before nov 9. volta covers step one with bridging from 10+ chains, the unglamorous $VOLTA feature newcomers need most",
+      "tried": [
+        "how-to threads for buying on elysium are popping up everywhere before nov 9. volta covers step one with bridging from 10+ chains, the unglamorous $VOLTA feature newcomers need most"
+      ],
+      "image": null,
+      "followers": 173931,
+      "relevant": true,
+      "reply_ar": "شروحات طريقة الشراء على Elysium منتشرة في كل مكان قبل 9 نوفمبر. فولتا تغطي الخطوة الأولى بالبريدج من أكثر من 10 شبكات، وهي ميزة $VOLTA غير اللامعة لكنها أكثر ما يحتاجه القادمون الجدد.",
+      "tweet_ar": "إذا كنت لا تعرف بعد كيف تشتري التوكنات على Elysium، جرّب ذلك مع هذا التوكن على سولانا، وهنا يشرح KadunaBull كيف تتم العملية.",
+      "message_id": 415
     }
   },
-  "angle_i": 198,
+  "angle_i": 200,
   "recent_texts": [
-    "iya jir, each volta trade eats a little $VOLTA supply",
-    "tagging half of elysium in one go lol, volta was the first uniswap v4 hook live there, that's my $VOLTA pick",
     "all good lol, elysium launchpads popped up so fast it's easy to mix them up. what has me watching $VOLTA is volta's anti-snipe at launch, so bots don't get the first block.",
     "explorer for receipts, volta charts for your $VOLTA avg entry",
     "agreed, what part got you though? for me it's timing. elysium goes public mainnet nov 9 and volta's already running there, so $VOLTA is set up where the hyperliquid crowd looks to be heading. you exploring before launch day or waiting?",
@@ -1876,7 +1876,9 @@
     "stress tests usually just find bugs, on volta more trades means 80% of fees buying back and burning $VOLTA",
     "green candles end every timeline argument lol. meanwhile on elysium each volta launch already gets its own uniswap v4 pool paired with HYPE, the part of $VOLTA i actually watch",
     "privacy coin with a holder list full of sniper wallets would be kinda ironic. launching on volta with anti-snipe from block one is the part of void that makes the $VOLTA case for me",
-    "fair, owning it helps. come nov 9 i'll be on volta's trending board seeing what moves next to $VOLTA"
+    "fair, owning it helps. come nov 9 i'll be on volta's trending board seeing what moves next to $VOLTA",
+    "infrastructure means roadwork, volta's paving elysium before the nov 9 public mainnet with $VOLTA riding shotgun",
+    "how-to threads for buying on elysium are popping up everywhere before nov 9. volta covers step one with bridging from 10+ chains, the unglamorous $VOLTA feature newcomers need most"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1885,7 +1887,7 @@
     "2117986555780620334",
     "2117945433234313681"
   ],
-  "last_to_me": 1793832270,
+  "last_to_me": 1793832404,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2062,11 +2064,13 @@
     "2118109188387909656",
     "2118110308921389144",
     "2118111278149312747",
-    "2118111384940495264"
+    "2118111384940495264",
+    "2118112809225441393",
+    "2118112875944595825"
   ],
-  "last_fast": 1793832312,
-  "last_mentions": 1793832252,
-  "last_slow": 1793832162,
+  "last_fast": 1793832432,
+  "last_mentions": 1793832432,
+  "last_slow": 1793832342,
   "tw_samples": [
     [
       1793779148,
