@@ -1,5 +1,5 @@
 {
-  "last_check": 1793811519,
+  "last_check": 1793811609,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -8,8 +8,8 @@
     "2117824660230521170",
     "2117896640929603800",
     "2117602702306034149",
-    "2117942624892194883",
     "2117896209239277918",
+    "2117942624892194883",
     "2117673754574651760",
     "2117888338447540566",
     "2117748509201899912",
@@ -51,7 +51,6 @@
     "2117973903238979761",
     "2117898072512466964",
     "2117968735835394473",
-    "2117731688319201447",
     "2117718001873023074",
     "2117732161797464230",
     "2117776366674592206",
@@ -98,6 +97,7 @@
     "2117870819640827934",
     "2118023606836089222",
     "2117970034844897362",
+    "2117752963968143519",
     "2117733694748365046",
     "2117681643377078689",
     "2117991208786010539",
@@ -130,7 +130,6 @@
     "2117748787624186026",
     "2117727040002736243",
     "2117943995653640702",
-    "2117686232830685186",
     "2117942164567343349",
     "2117988958588252435",
     "2117977920228757526",
@@ -160,6 +159,7 @@
     "2117944166487351634",
     "2117962439178477821",
     "2117968931382309203",
+    "2117702404908986400",
     "2117856962864136593",
     "2117726101095035091",
     "2117702432436195347",
@@ -198,6 +198,7 @@
     "2117735456699805796",
     "2117980247031271721",
     "2117617355627131060",
+    "2118025155641561310",
     "2117607225233690746",
     "2117749916470780198",
     "2117947676008300551",
@@ -210,7 +211,7 @@
     "2117626218652573730",
     "2117895099598405919",
     "2117943643290116163",
-    "2117955713255485501",
+    "2117882031510364429",
     "2118009229705662536",
     "2117902428750368909",
     "2117717259716362608",
@@ -241,12 +242,13 @@
     "2117989292144525474",
     "2117738454058508654",
     "2117997601505284488",
+    "2118025498488086623",
     "2118022057250402487",
     "2117872026555965644",
     "2117996293188718856",
-    "2117882031510364429",
-    "2117702404908986400",
-    "2117752963968143519",
+    "2117686232830685186",
+    "2117731688319201447",
+    "2117955713255485501",
     "2117953749591146800",
     "2117997401084510497",
     "2117895014772813849"
@@ -348,38 +350,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117942008467570943": {
-      "author": "AdamHODL",
-      "text": "My $AGORA thesis is simple.\n\nThey've built the best DEX, with cool tools like copy trading and limit orders for Elysium, shit that is extremely useful. Plus, the only interface where you can trade tokens across every single launchpad in one spot, with the quickest RPC I've used.\n\nTiny fees, and them fees being rotated into buying back and burning hte token. Don't see it staying sub 200k for very long. Use it yourself, it'll be your go to DEX for Elysium.\n\ne/acc",
-      "reply": "burn on burn lol, volta launches already trade on agora and every volta trade buys back and burns $VOLTA",
-      "tried": [
-        "burn on burn lol, volta launches already trade on agora and every volta trade buys back and burns $VOLTA"
-      ],
-      "image": null,
-      "followers": 73654,
-      "relevant": true,
-      "reply_ar": "حرق فوق حرق 😂 توكنات فولتا تتداول أصلاً على أغورا، وكل صفقة على فولتا تعيد شراء $VOLTA وتحرقه",
-      "tweet_ar": "أطروحتي حول $AGORA بسيطة. بنوا أفضل منصة تداول لامركزية على Elysium، فيها أدوات مفيدة جداً مثل نسخ الصفقات والأوامر المحددة. وهي الواجهة الوحيدة اللي تقدر تتداول فيها توكنات كل منصات الإطلاق في مكان واحد، ومعها أسرع RPC جربته. رسومها صغيرة جداً، وتُستخدم في إعادة شراء التوكن وحرقه. ما أتوقع تبقى قيمتها تحت 200 ألف لفترة طويلة. جربها بنفسك، راح تصير منصتك الأساسية على Elysium. e/acc",
-      "message_id": 251,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117943693651169371"
-    },
-    "2117942624892194883": {
-      "author": "AdamHODL",
-      "text": "don't feel exposed enough to \" \"",
-      "reply": "exposure anxiety is real lol. usually devs launch and watch others farm the volume, on volta the creator earns fees in HYPE from their own token, part of why $VOLTA caught my eye",
-      "tried": [
-        "exposure anxiety is real lol. usually devs launch and watch others farm the volume, on volta the creator earns fees in HYPE from their own token, part of why $VOLTA caught my eye"
-      ],
-      "image": null,
-      "followers": 73654,
-      "relevant": false,
-      "reply_ar": "قلق الانكشاف حقيقي هههه. عادةً المطورون يطلقون توكن ويشاهدون غيرهم يستفيد من حجم التداول، أما على فولتا فصاحب التوكن يكسب رسوماً بعملة HYPE من توكنه نفسه، وهذا جزء من سبب اهتمامي بـ $VOLTA",
-      "tweet_ar": "لا أشعر أن لدي انكشافاً كافياً على \" \"",
-      "message_id": 252,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117943623329468686"
-    },
     "2117943349877588018": {
       "author": "whalesdotsol",
       "text": "@CryptoMonarch22 @Enter_Elysium @Boxa_Elysium @TheKleos_ Boxa and Kleos are unauthorized forks of Uniswap V4, which is still protected by license\n\n@VoltaFamily is deployed on the official Uniswap contracts",
@@ -1778,12 +1748,38 @@
       "reply_ar": "صباح فولتا! أي زوج تتابع، $VOLTA أم إطلاق جديد في مجمع v4 مقترن بـ HYPE؟",
       "tweet_ar": "صباح فولتا. e/acc (التسارع الفعّال)",
       "message_id": 359
+    },
+    "2118025155641561310": {
+      "author": "OhMyJack",
+      "text": "@VoltaFamily @distopyian Keep building @Enter_Elysium 👀",
+      "reply": "keep building is right, elysium needs it. a typical fresh launch gets cleaned out by snipers in seconds, volta's hook has anti-snipe built in, which is why $VOLTA stays on my radar",
+      "tried": [
+        "keep building is right, elysium needs it. a typical fresh launch gets cleaned out by snipers in seconds, volta's hook has anti-snipe built in, which is why $VOLTA stays on my radar"
+      ],
+      "image": null,
+      "followers": 16211,
+      "relevant": true,
+      "reply_ar": "الاستمرار في البناء هو الصح، Elysium يحتاج ذلك. عادةً أي إطلاق جديد يكتسحه القناصون خلال ثوانٍ، لكن hook فولتا فيه حماية مدمجة ضد القنص، ولهذا يبقى $VOLTA تحت نظري",
+      "tweet_ar": "استمروا في البناء على Elysium 👀",
+      "message_id": 360
+    },
+    "2118025498488086623": {
+      "author": "kalosfun",
+      "text": "GTD Phase 2 is live.\n\nFCFS starts in 60 minutes.\n\nDouble check links and stay safu. https://t.co/fFxhRdUVqS",
+      "reply": "safu first is right, volta's trending board is my sanity check for what's moving on elysium, $VOLTA included",
+      "tried": [
+        "safu first is right, volta's trending board is my sanity check for what's moving on elysium, $VOLTA included"
+      ],
+      "image": "https://pbs.twimg.com/media/HWS74kcbsAA6FsV.png",
+      "followers": 7646,
+      "relevant": false,
+      "reply_ar": "الأمان أولاً كلام صحيح، لوحة الترند في فولتا هي طريقتي للتأكد مما يتحرك على إليزيوم، بما في ذلك $VOLTA",
+      "tweet_ar": "المرحلة الثانية للقائمة المضمونة (GTD) بدأت الآن. مرحلة من يأتي أولاً يُخدم أولاً (FCFS) تبدأ بعد 60 دقيقة. تأكدوا من الروابط مرتين وحافظوا على أمانكم.",
+      "message_id": 361
     }
   },
-  "angle_i": 148,
+  "angle_i": 150,
   "recent_texts": [
-    "solid psa fr. once folks are on fresh wallets, volta's free elysium rpc is an easy one to plug in, and keep that seed phrase out of every bot, $VOLTA chat included",
-    "you planning to launch one on volta too? creator fees landing in HYPE is the part of $VOLTA i'd brag about",
     "shielded HYPE pools showing up means elysium's filling out fast. usually creator fees on launches are crypto and that's it, on volta creators can also earn in tokenized stocks, a bit of $VOLTA nobody brings up",
     "fair thing to ask, launchpads are popping up everywhere on elysium. for me it's that 80% of volta's trading fees buy back $VOLTA and burn it, so every trade shrinks supply",
     "promising undersells it imo. volta was the first uniswap v4 hook live on elysium and any token launched there gets its own pool paired with HYPE, so if that chat turns into a launch you're not starting from scratch, the $VOLTA part people sleep on",
@@ -1841,7 +1837,9 @@
     "tx tracking before the doors even open, elysium's getting the nerdy stuff done early lol. the onchain activity i'd actually watch is creators getting paid, volta sends whoever launches a token their fees in HYPE, the $VOLTA detail i keep coming back to",
     "volta creators earning tokenized stocks is why $VOLTA fits elysium",
     "obol climbing fast. down at 1%, volta's 25 trades still fed the $VOLTA burn",
-    "gvolta! which pair you watching, $VOLTA or a fresh HYPE v4 launch?"
+    "gvolta! which pair you watching, $VOLTA or a fresh HYPE v4 launch?",
+    "keep building is right, elysium needs it. a typical fresh launch gets cleaned out by snipers in seconds, volta's hook has anti-snipe built in, which is why $VOLTA stays on my radar",
+    "safu first is right, volta's trending board is my sanity check for what's moving on elysium, $VOLTA included"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1850,7 +1848,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793811387,
+  "last_to_me": 1793811641,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1977,11 +1975,13 @@
     "2118023578004132187",
     "2118023606836089222",
     "2118023800369615214",
-    "2118023734410072066"
+    "2118023734410072066",
+    "2118025155641561310",
+    "2118025498488086623"
   ],
-  "last_fast": 1793811519,
-  "last_mentions": 1793811459,
-  "last_slow": 1793811368,
+  "last_fast": 1793811609,
+  "last_mentions": 1793811549,
+  "last_slow": 1793811549,
   "tw_samples": [
     [
       1793779148,
@@ -2210,9 +2210,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 119,
-      "input_tokens": 569546,
-      "output_tokens": 97615
+      "calls": 120,
+      "input_tokens": 574016,
+      "output_tokens": 98633
     }
   },
   "x_actions": {
