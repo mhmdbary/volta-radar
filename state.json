@@ -1,5 +1,5 @@
 {
-  "last_check": 1793804586,
+  "last_check": 1793804676,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -10,8 +10,8 @@
     "2117850834776256564",
     "2117943643290116163",
     "2117989874553008344",
-    "2117580008931709076",
     "2117893633009651980",
+    "2117580008931709076",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -38,13 +38,14 @@
     "2117689582485422507",
     "2117957641175765165",
     "2117981739146699118",
+    "2117996293188718856",
     "2117981944621535375",
     "2117969714953810404",
     "2117812508903772532",
-    "2117748509201899912",
-    "2117977920228757526",
     "2117953749591146800",
     "2117985533645427094",
+    "2117748509201899912",
+    "2117977920228757526",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -112,6 +113,7 @@
     "2117890229293949130",
     "2117720496586334520",
     "2117968187392479700",
+    "2117995905525907769",
     "2117873469970940170",
     "2117705105998811367",
     "2117685350592098691",
@@ -314,32 +316,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117862767831159287": {
-      "author": "elonmusk",
-      "text": "Guess my election-interfering space lasers didn’t work this time 🤷‍♂️",
-      "reply": "if the space lasers ever need a new target, point them at supply. volta's been burning $VOLTA on every trade without needing orbit lol",
-      "tried": [
-        "if the space lasers ever need a new target, point them at supply. volta's been burning $VOLTA on every trade without needing orbit lol"
-      ],
-      "image": null,
-      "relevant": false,
-      "reply_ar": "لو احتاجت أشعة الليزر الفضائية هدفاً جديداً، وجّهها نحو المعروض. فولتا تحرق $VOLTA مع كل صفقة بدون الحاجة للمدار هههه",
-      "tweet_ar": "يبدو أن أشعة الليزر الفضائية الخاصة بي للتدخل في الانتخابات لم تنجح هذه المرة 🤷‍♂️",
-      "message_id": 141
-    },
-    "2117863047369044414": {
-      "author": "elonmusk",
-      "text": "RT @grok: @cicgods @cremieuxrecueil @cryptovcdylan Cremieux is referring to Elon Musk. Before Musk shifted toward Republicans in 2022 (and…",
-      "reply": "grok out here fact checking elon on his own timeline is peak 2025. i'll stick to simpler stuff, like every volta launch getting its own v4 pool paired with HYPE. holding $VOLTA for that",
-      "tried": [
-        "grok out here fact checking elon on his own timeline is peak 2025. i'll stick to simpler stuff, like every volta launch getting its own v4 pool paired with HYPE. holding $VOLTA for that"
-      ],
-      "image": null,
-      "relevant": false,
-      "reply_ar": "غروك يدقق في كلام إيلون على حسابه الشخصي، هذا قمة 2025. أنا سألتزم بأشياء أبسط، مثل أن كل إطلاق على فولتا يحصل على مجمع V4 خاص به مقترن بـ HYPE. أحتفظ بـ $VOLTA لهذا السبب",
-      "tweet_ar": "إعادة نشر من غروك: كريمو يشير إلى إيلون ماسك. قبل أن يتحول ماسك نحو الجمهوريين في 2022 (و…",
-      "message_id": 142
-    },
     "2117863302558826655": {
       "author": "OhMyJack",
       "text": "@AdamHODL Check @VoltaFamily you will like it",
@@ -1761,12 +1737,38 @@
       "reply_ar": "أن يتولى غروك عمليات الإرجاع هو الميزة الحقيقية، لا أحد يحب هذه المهمة. أما فولتا فتتجاوز سلة التسوق تماماً، إذ يمكن لصنّاع التوكنات كسب رسومهم على شكل أسهم مرمّزة، وهذه ميزة في $VOLTA تعجبني.",
       "tweet_ar": "غروك سيبحث عن أفكار للشراء، ويعرض عليك مجموعة مختارة، ويطلبها، ويتابع المشتريات، ويُرجع أي شيء لا تريده.",
       "message_id": 325
+    },
+    "2117995905525907769": {
+      "author": "elonmusk",
+      "text": "Free new dish for all early Starlink customers",
+      "reply": "free gear for early customers is the most underrated loyalty move in tech. volta's version is more on-chain, 80% of trading fees buy back $VOLTA and burn it, so the token gets a little smaller every time people actually use the thing",
+      "tried": [
+        "free gear for early customers is the most underrated loyalty move in tech. volta's version is more on-chain, 80% of trading fees buy back $VOLTA and burn it, so the token gets a little smaller every time people actually use the thing"
+      ],
+      "image": null,
+      "followers": 241467807,
+      "relevant": false,
+      "reply_ar": "المعدات المجانية للعملاء الأوائل هي أكثر خطوة ولاء مستهان بها في التقنية. نسخة فولتا منها على السلسلة، 80% من رسوم التداول تشتري $VOLTA وتحرقه، فيصغر المعروض من التوكن قليلاً كلما استخدم الناس المنصة فعلاً",
+      "tweet_ar": "طبق جديد مجاني لجميع عملاء ستارلينك الأوائل",
+      "message_id": 326
+    },
+    "2117996293188718856": {
+      "author": "elonmusk",
+      "text": "At last there will be one network with good signal everywhere!",
+      "reply": "no more dead zones lol. the one network i'm watching is elysium, where volta was the first uniswap v4 hook to go live and each token launched there starts with its own pool against HYPE, kinda why $VOLTA has full bars for me",
+      "tried": [
+        "no more dead zones lol. the one network i'm watching is elysium, where volta was the first uniswap v4 hook to go live and each token launched there starts with its own pool against HYPE, kinda why $VOLTA has full bars for me"
+      ],
+      "image": null,
+      "followers": 241467807,
+      "relevant": false,
+      "reply_ar": "وداعاً للمناطق الميتة هههه. الشبكة الوحيدة التي أتابعها هي إليزيوم، حيث كانت فولتا أول hook لـ Uniswap V4 يعمل هناك، وكل توكن يُطلق عليها يبدأ بمجمع خاص به مقابل HYPE، وهذا تقريباً سبب أن $VOLTA عندي إشارته كاملة",
+      "tweet_ar": "أخيراً ستكون هناك شبكة واحدة بإشارة جيدة في كل مكان!",
+      "message_id": 327
     }
   },
-  "angle_i": 114,
+  "angle_i": 116,
   "recent_texts": [
-    "watching something run without you is basically a ct rite of passage lol. volta's trending board at least makes new launches harder to miss, which is half of why $VOLTA is on my radar",
-    "elysium's not even at public mainnet yet and basedbot's already filling up, $VOLTA folks approve",
     "how early do you spot these, volta trending board or $VOLTA chat?",
     "clean breakdown tbh. only thing i'd add is the creator side, whoever launches on volta earns their fees in HYPE, which most $VOLTA threads somehow skip",
     "possibilities is doing a lot of heavy lifting there lol. my pick for the agenda: volta creators can earn fees in tokenized stocks, not just crypto, the $VOLTA detail i'd open with",
@@ -1824,7 +1826,9 @@
     "road's getting busy lol. volta beat the nov 9 mainnet with $VOLTA",
     "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there",
     "gamified apps usually reward players, volta pays token creators fees in HYPE, a $VOLTA side quest for your research",
-    "grok handling returns is the real selling point, nobody wants that chore lol. volta skips the cart entirely, creators can earn fees in tokenized stocks, a $VOLTA perk i like"
+    "grok handling returns is the real selling point, nobody wants that chore lol. volta skips the cart entirely, creators can earn fees in tokenized stocks, a $VOLTA perk i like",
+    "free gear for early customers is the most underrated loyalty move in tech. volta's version is more on-chain, 80% of trading fees buy back $VOLTA and burn it, so the token gets a little smaller every time people actually use the thing",
+    "no more dead zones lol. the one network i'm watching is elysium, where volta was the first uniswap v4 hook to go live and each token launched there starts with its own pool against HYPE, kinda why $VOLTA has full bars for me"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1833,7 +1837,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793804451,
+  "last_to_me": 1793804589,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1926,11 +1930,13 @@
     "2117991208786010539",
     "2117994110673977542",
     "2117995185975996634",
-    "2117995339320070525"
+    "2117995339320070525",
+    "2117995905525907769",
+    "2117996293188718856"
   ],
-  "last_fast": 1793804586,
-  "last_mentions": 1793804586,
-  "last_slow": 1793804479,
+  "last_fast": 1793804676,
+  "last_mentions": 1793804676,
+  "last_slow": 1793804676,
   "tw_samples": [
     [
       1793779148,
