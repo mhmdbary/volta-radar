@@ -450,7 +450,8 @@ def draft_message(d, tags):
             "✍️ <b>التويتة</b> (اضغط للنسخ):", f"<code>{reply_txt}</code>"] + meaning + footer)
     snippet = html.escape(clean_text(d["text"], drop_links=True)[:300]) or "📷 media post"
     label = "🟢 <b>بيذكر Volta</b>" if d.get("relevant") else "💬 <b>تفاعل بس</b> (بدون ذكر Volta)"
-    lines = ["🤖 <b>اقتراح رد</b>", LINE,
+    status = "✅✅ <b>تم الرد</b> ✅✅" if d.get("done") else "🟡 <b>لسا ما رديت</b>"
+    lines = [status, "🤖 <b>اقتراح رد</b>", LINE,
              tag_line(tags, d["author"]),
              f"👤 @{html.escape(d['author'])}",
              f"<blockquote>{snippet}</blockquote>"]
@@ -465,6 +466,11 @@ def draft_message(d, tags):
 def draft_buttons(tid, d):
     # twitter.com/intent/tweet is the link the X mobile app registers for, so it opens the app with the text ready
     # (x.com/intent/post only opens the website)
+    if d.get("done"):  # already answered: one button to see your reply (or the tweet), nothing else to press
+        mine = d.get("my_url") or f"https://x.com/{d.get('author') or 'i'}/status/{tid}"
+        return {"inline_keyboard": [[{"text": "✅ تم الرد · افتح ردي" if d.get("my_url") else "✅ تم الرد",
+                                      "url": mine}],
+                                    [{"text": "↩️ رجّعها مش متعمولة", "callback_data": f"und:{tid}"}]]}
     if d.get("kind") == "tweet":
         rows = [[{"text": "🚀 انشر على X",
                   "url": "https://twitter.com/intent/tweet?" + urllib.parse.urlencode({"text": d["reply"]})}]]
@@ -475,7 +481,8 @@ def draft_buttons(tid, d):
     return {"inline_keyboard": rows + [
         [{"text": "✏️ فكرتي بالعربي", "callback_data": f"ins:{tid}"},
          {"text": "🔄 غيرها", "callback_data": f"chg:{tid}"}],
-        [{"text": "❌ تجاهل", "callback_data": f"ign:{tid}"}],
+        [{"text": "✅ رديت", "callback_data": f"don:{tid}"},
+         {"text": "❌ تجاهل", "callback_data": f"ign:{tid}"}],
     ]}
 
 
@@ -629,6 +636,12 @@ def handle_draft_button(cfg, state, cb):
         tg_call(cfg, "editMessageText", {"chat_id": cfg["telegram_admin_id"], "message_id": msg_id,
                                          "text": f"❌ <i>Ignored · {who}</i>", "parse_mode": "HTML"})
         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "Ignored"})
+        return
+    if action in ("don", "und"):  # ✅ رديت / undo
+        d["done"] = action == "don"
+        show_draft(cfg, load_json(TAGS_FILE, {}), key, d, edit_message_id=msg_id)
+        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"],
+                                             "text": "✅ تمام" if d["done"] else "رجعت 🟡"})
         return
     if action == "ins":
         state["awaiting"] = key
@@ -951,6 +964,21 @@ def is_via_bot(t):
     return bool(text) and any(r.lower()[:50] == text for r in LIVE_STATE.get("recent_texts", []))
 
 
+def mark_answered_drafts(cfg, tags, my_tweets):
+    """Your reply showed up on X: turn that draft green (✅ تم الرد) with a link to your reply."""
+    drafts = LIVE_STATE.get("drafts", {})
+    for t in my_tweets:
+        d = drafts.get(str(t.get("inReplyToId") or ""))
+        if not d or (d.get("done") and d.get("my_url")):
+            continue
+        d["done"], d["my_url"] = True, tweet_url(t)
+        if d.get("message_id") and cfg.get("telegram_admin_id"):
+            try:
+                show_draft(cfg, tags, str(t["inReplyToId"]), d, edit_message_id=d["message_id"])
+            except Exception as e:
+                print(f"[mark done error] {e}")
+
+
 def fetch_my_volta_tweets(cfg, me, tags, since):
     """Your Volta-related tweets since a time; every one is also saved to mywork.json with its link."""
     tweets = search_tweets(cfg["twitterapi_key"], f"from:{me} since_time:{since} -filter:retweets")
@@ -961,6 +989,7 @@ def fetch_my_volta_tweets(cfg, me, tags, since):
                 or tag_marker(tags.get(to)) == "🟢" or is_via_bot(t))
 
     tweets = [t for t in tweets if about_volta(t)]
+    mark_answered_drafts(cfg, tags, tweets)
     saved = load_json(MYWORK_FILE, {})
     for t in tweets:
         saved[str(t.get("id"))] = {
@@ -1178,7 +1207,7 @@ def run_daemon(cfg, state, minutes):
     stop = threading.Event()
     threading.Thread(target=command_loop, args=(cfg, state, stop), daemon=True).start()
     end = time.time() + minutes * 60
-    last_sync = last_extras = 0
+    last_sync = last_extras = last_mine = 0
     while time.time() < end:
         started = time.time()
         settings = load_json(SETTINGS_FILE, {})
@@ -1187,9 +1216,15 @@ def run_daemon(cfg, state, minutes):
             check_once(cfg, settings, handles, state)
         except Exception as e:
             print(f"[check error] {e}")
-        if time.time() - last_extras > 300:  # digest / follows / your links: every 5 minutes is plenty
+        if time.time() - last_mine > 90:  # your own replies: turns answered drafts green quickly
+            last_mine = time.time()
+            try:
+                refresh_my_work(cfg, settings, handles, state)
+            except Exception as e:
+                print(f"[refresh_my_work error] {e}")
+        if time.time() - last_extras > 300:  # digest / follows: every 5 minutes is plenty
             last_extras = time.time()
-            for extra in (daily_report, check_new_follows, refresh_my_work):
+            for extra in (daily_report, check_new_follows):
                 try:
                     extra(cfg, settings, handles, state)
                 except Exception as e:
