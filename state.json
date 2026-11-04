@@ -1,5 +1,5 @@
 {
-  "last_check": 1793798467,
+  "last_check": 1793798558,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -8,8 +8,8 @@
     "2117948392102089136",
     "2117850834776256564",
     "2117943643290116163",
-    "2117893633009651980",
     "2117580008931709076",
+    "2117893633009651980",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -28,13 +28,14 @@
     "2117812325944033524",
     "2117677275575693612",
     "2117764350727331844",
+    "2117970677550682480",
     "2117958981721395660",
     "2117689582485422507",
     "2117957641175765165",
     "2117969714953810404",
     "2117812508903772532",
-    "2117953749591146800",
     "2117748509201899912",
+    "2117953749591146800",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -123,6 +124,7 @@
     "2117970055988486372",
     "2117900196407279826",
     "2117724724499452000",
+    "2117970428862050385",
     "2117732161797464230",
     "2117959484815360086",
     "2117870819640827934",
@@ -136,6 +138,7 @@
     "2117902428750368909",
     "2117894194656374840",
     "2117782132236120408",
+    "2117970556540875056",
     "2117898072512466964",
     "2117882031510364429",
     "2117718001873023074",
@@ -186,7 +189,7 @@
     "2117617355627131060",
     "2117942164567343349"
   ],
-  "tg_offset": 277101751,
+  "tg_offset": 277101752,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -283,45 +286,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117764350727331844": {
-      "author": "AdamHODL",
-      "text": "If you’re building something cool on Elysium, plug it in the comments below.",
-      "reply": "we're building volta, a token launchpad on elysium running on the official uniswap v4 contracts. creators earn fees in HYPE. counting down to nov 9 with everyone else",
-      "tried": [
-        "we're building volta, a token launchpad on elysium running on the official uniswap v4 contracts. creators earn fees in HYPE. counting down to nov 9 with everyone else"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نحن نبني Volta، منصة إطلاق توكنات على Elysium تعمل بعقود Uniswap V4 الرسمية. المنشئون يحصلون على رسوم بعملة HYPE. نعدّ الأيام حتى 9 نوفمبر مثل الجميع",
-      "tweet_ar": "إذا كنت تبني شيئاً رائعاً على Elysium، شاركه في التعليقات بالأسفل.",
-      "message_id": 98
-    },
-    "2117771621528121427": {
-      "author": "AdamHODL",
-      "text": "I can’t be the only one that thinks it’s weird they literally never mention or engage with robinhood:0x39dbed3a2bd333467115de45665cc57f813c4571 \n\nAlso think it’s just as weird PONS don’t engage with projects building cool shit that has launched through them.\n\nRobinhood needs a new launchpad runner that actually gets behind, and amplify projects. All PONS does is facilitate the launch process and eat into their fees.",
-      "reply": "launchpads that take fees and then go quiet on the projects are a real problem. at volta we route trading fees back to creators in HYPE so the launchpad only wins when the projects do",
-      "tried": [
-        "launchpads that take fees and then go quiet on the projects are a real problem. at volta we route trading fees back to creators in HYPE so the launchpad only wins when the projects do"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "منصات الإطلاق التي تأخذ الرسوم ثم تصمت عن المشاريع مشكلة حقيقية. في فولتا نعيد رسوم التداول للمنشئين بعملة HYPE، فتربح المنصة فقط عندما تنجح المشاريع",
-      "tweet_ar": "لا يمكن أن أكون الوحيد الذي يرى أنه من الغريب أنهم لا يذكرون أو يتفاعلون أبداً مع robinhood:0x39dbed3a2bd333467115de45665cc57f813c4571\n\nوأرى أيضاً أنه من الغريب بنفس القدر أن PONS لا تتفاعل مع المشاريع التي تبني أشياء رائعة وأُطلقت من خلالها.\n\nروبن هود يحتاج إلى منصة إطلاق جديدة تدعم المشاريع فعلاً وتروّج لها. كل ما تفعله PONS هو تسهيل عملية الإطلاق وأخذ جزء من الرسوم.",
-      "message_id": 99
-    },
-    "2117776366674592206": {
-      "author": "IamPinkCat_",
-      "text": "@agora_elysium @VoltaFamily Wen obol",
-      "reply": "can't speak for obol, that one's on the agora team. what we can say is elysium mainnet goes live nov 9, so not long now",
-      "tried": [
-        "can't speak for obol, that one's on the agora team. what we can say is elysium mainnet goes live nov 9, so not long now"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "ما نقدر نتكلم عن obol، هذا يرجع لفريق agora. اللي نقدر نقوله إن الشبكة الرئيسية لـ Elysium تنطلق في 9 نوفمبر، يعني باقي وقت قليل",
-      "tweet_ar": "@agora_elysium @VoltaFamily متى obol؟",
-      "message_id": 100
-    },
     "2117779860089340399": {
       "author": "Realwhales_",
       "text": "@VoltaFamily @Uniswap Follow back please, Let’s connect and grow together 🤝",
@@ -1702,13 +1666,52 @@
       "reply_ar": "قطة $VOLTA وهي تكتشف أن صنّاع التوكنات على فولتا يربحون أسهماً مرمّزة",
       "tweet_ar": "(لا يوجد نص، فقط صورة متحركة لقطة تحدّق في الكاميرا عن قرب)",
       "message_id": 294
+    },
+    "2117970428862050385": {
+      "author": "whalesdotsol",
+      "text": "@VoltaFamily This is massively undervalued \n\nSend $volta higher",
+      "reply": "can't speak to valuation, i just watch the mechanics. 80% of volta's fees go into buying back $VOLTA and all of it gets burned, so i check the burn dashboard more than the chart",
+      "tried": [
+        "can't speak to valuation, i just watch the mechanics. 80% of volta's fees go into buying back $VOLTA and all of it gets burned, so i check the burn dashboard more than the chart"
+      ],
+      "image": null,
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "ما أقدر أحكم على التقييم، أنا أتابع الآلية بس. ٨٠٪ من رسوم فولتا تروح لإعادة شراء $VOLTA وكلها تنحرق، فأتابع لوحة الحرق أكثر من الشارت.",
+      "tweet_ar": "هذا مقيّم بأقل بكثير من قيمته الحقيقية. ارفعوا $volta لأعلى.",
+      "message_id": 295
+    },
+    "2117970556540875056": {
+      "author": "142C_",
+      "text": "@VoltaFamily Really cool stuff guys! Shoot me a message when you can.",
+      "reply": "shoot me a message sounds like something's cooking lol. you thinking of launching on elysium? every token on volta gets its own uniswap v4 pool paired with HYPE right away. what would you put out, something for the $VOLTA crowd or your own community?",
+      "tried": [
+        "shoot me a message sounds like something's cooking lol. you thinking of launching on elysium? every token on volta gets its own uniswap v4 pool paired with HYPE right away. what would you put out, something for the $VOLTA crowd or your own community?"
+      ],
+      "image": null,
+      "followers": 140479,
+      "relevant": true,
+      "reply_ar": "\"راسلوني\" تبدو وكأن هناك شيئاً يُطبخ لول. هل تفكر في إطلاق شيء على إليسيوم؟ كل توكن على فولتا يحصل فوراً على مجمع Uniswap V4 خاص به مقترن بـ HYPE. ماذا ستطلق، شيئاً لمجتمع $VOLTA أم لمجتمعك الخاص؟",
+      "tweet_ar": "أشياء رائعة فعلاً يا شباب! راسلوني عندما تسنح لكم الفرصة.",
+      "message_id": 296
+    },
+    "2117970677550682480": {
+      "author": "iNatalieCole",
+      "text": "@VoltaFamily @Enter_Elysium Ready to give your project a fresh boost. Follow me 🤝📩🔥",
+      "reply": "promo brings eyes, volta's anti-snipe at launch lets those eyes buy before bots do, a big reason i follow $VOLTA",
+      "tried": [
+        "promo brings eyes, volta's anti-snipe at launch lets those eyes buy before bots do, a big reason i follow $VOLTA"
+      ],
+      "image": null,
+      "followers": 720988,
+      "relevant": false,
+      "reply_ar": "الترويج يجلب الأنظار، لكن حماية فولتا من القناصين عند الإطلاق تسمح لأصحاب هذه الأنظار بالشراء قبل البوتات، وهذا سبب كبير لمتابعتي لـ $VOLTA",
+      "tweet_ar": "مستعدة لإعطاء مشروعكم دفعة جديدة. تابعوني 🤝📩🔥",
+      "message_id": 297
     }
   },
-  "angle_i": 82,
+  "angle_i": 85,
   "recent_texts": [
-    "nice to see volta on the list. wild that it's already live and trading before elysium even hits public mainnet nov 9, that early start is why i hold $VOLTA",
-    "it's more than a promise tbh, volta already bridges to elysium from 10+ chains. curious which chain you'd come from? i hold $VOLTA and mostly come over from arb",
-    "same energy honestly 🔥 the part that hooked me is creators pocketing their fees in HYPE straight from their own launch. made holding $VOLTA an easy call for me",
     "exit poll threads are the only charts i can't make sense of lol. mine are simpler, volta creators can take fees in tokenized stocks, a quiet reason i hold $VOLTA",
     "respect. mine are e/burn, which is basically volta taking 80% of fees to buy back $VOLTA and torch it. the faster things trade the smaller supply gets",
     "short and confident, respect. my one-word version is v4 pool, since every volta launch gets its own one paired with HYPE. that's the bit that sold me on holding $VOLTA",
@@ -1765,15 +1768,18 @@
     "and that's before elysium's public mainnet on nov 9, what do you think the $VOLTA burn looks like after?",
     "usually you wait for mainnet, volta's live already, $VOLTA too",
     "the driver gets paid every lap on this track lol. launch a token on volta and your creator fees come back in HYPE as it trades, my favorite thing to explain about $VOLTA",
-    "the $VOLTA cat finding out volta creators earn tokenized stocks"
+    "the $VOLTA cat finding out volta creators earn tokenized stocks",
+    "can't speak to valuation, i just watch the mechanics. 80% of volta's fees go into buying back $VOLTA and all of it gets burned, so i check the burn dashboard more than the chart",
+    "shoot me a message sounds like something's cooking lol. you thinking of launching on elysium? every token on volta gets its own uniswap v4 pool paired with HYPE right away. what would you put out, something for the $VOLTA crowd or your own community?",
+    "promo brings eyes, volta's anti-snipe at launch lets those eyes buy before bots do, a big reason i follow $VOLTA"
   ],
   "to_me_seen": [
     "2117872026555965644",
-    "2117962241957904390",
     "2117945433234313681",
-    "2117895148365607335"
+    "2117895148365607335",
+    "2117962241957904390"
   ],
-  "last_to_me": 1793798438,
+  "last_to_me": 1793798608,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1836,11 +1842,14 @@
     "2117969175440470037",
     "2117969714953810404",
     "2117970034844897362",
-    "2117970055988486372"
+    "2117970055988486372",
+    "2117970428862050385",
+    "2117970556540875056",
+    "2117970677550682480"
   ],
-  "last_fast": 1793798467,
-  "last_mentions": 1793798467,
-  "last_slow": 1793798377,
+  "last_fast": 1793798558,
+  "last_mentions": 1793798558,
+  "last_slow": 1793798558,
   "tw_samples": [
     [
       1793779148,
@@ -1981,13 +1990,13 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 52,
-      "input_tokens": 239979,
-      "output_tokens": 38837
+      "calls": 54,
+      "input_tokens": 249381,
+      "output_tokens": 40436
     }
   },
   "x_actions": {
-    "likes": 19,
+    "likes": 20,
     "reposts": 10
   }
 }
