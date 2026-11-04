@@ -1,5 +1,5 @@
 {
-  "last_check": 1793809928,
+  "last_check": 1793810048,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -61,6 +61,7 @@
     "2117855909284331544",
     "2117727040002736243",
     "2117991208786010539",
+    "2118018779175428507",
     "2117856962864136593",
     "2117888389739634881",
     "2117844124913319946",
@@ -336,23 +337,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117895148365607335": {
-      "to_me": true,
-      "author": "x_teraus",
-      "text": "@barymoto @BitBlitzBuzz @TheKleos_ Volta on Elysium deserved a spot on that list — day-one builders should get the spotlight. Rooting for the launch.",
-      "reply": "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA",
-      "tried": [
-        "agreed, being the first uniswap v4 hook actually live on elysium is a real day-one move. that early build is a big chunk of why i hold $VOLTA"
-      ],
-      "image": null,
-      "my_text": "@BitBlitzBuzz @TheKleos_ solid list, bit sad we didn't make it lol. we're building $volta on elysium too",
-      "relevant": true,
-      "reply_ar": "متفق، كونه أول hook من Uniswap V4 يعمل فعلياً على Elysium خطوة حقيقية من اليوم الأول. هذا البناء المبكر جزء كبير من سبب احتفاظي بـ $VOLTA",
-      "tweet_ar": "كان يستحق Volta على Elysium مكاناً في تلك القائمة، فالبناة من اليوم الأول يستحقون تسليط الضوء عليهم. أتمنى النجاح للإطلاق.",
-      "message_id": 230,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117895848361427408"
-    },
     "2117896209239277918": {
       "author": "m97HR",
       "text": "@VoltaFamily @Enter_Elysium Amazing job! Happy to connect and explore opportunities 📈",
@@ -1778,11 +1762,24 @@
       "reply_ar": "التطبيقات تتكاثر هههه، وفولتا توفر جسرًا من أكثر من 10 شبكات لمحبي $VOLTA",
       "tweet_ar": "تابعوا حساب tryfomo. المزيد من أبرز اللحظات، المزيد من التحديثات، المزيد من fomo.",
       "message_id": 347
+    },
+    "2118018779175428507": {
+      "author": "tommy_GV1",
+      "text": "@VoltaFamily Interested in working together feel free to DM 🤝",
+      "reply": "good shout, volta creators collect fees in HYPE, why i hold $VOLTA",
+      "tried": [
+        "good shout, volta creators collect fees in HYPE, why i hold $VOLTA"
+      ],
+      "image": null,
+      "followers": 212073,
+      "relevant": true,
+      "reply_ar": "فكرة جيدة، صناع التوكنات على فولتا يحصلون على رسومهم بعملة HYPE، وهذا سبب احتفاظي بـ $VOLTA",
+      "tweet_ar": "مهتم بالتعاون معكم، لا تترددوا في مراسلتي على الخاص 🤝",
+      "message_id": 348
     }
   },
-  "angle_i": 136,
+  "angle_i": 137,
   "recent_texts": [
-    "e/acc as pronouns is peak ct, volta spinning up a v4 pool with HYPE for every token is very $VOLTA coded",
     "new chain launch days are usually a sniper buffet, 150 tokens behind volta's anti-snipe is the $VOLTA stat i like",
     "500+ $VOLTA holders, all with their avg entry marked on the chart",
     "and that's before elysium's public mainnet on nov 9, what do you think the $VOLTA burn looks like after?",
@@ -1841,7 +1838,8 @@
     "farm the apps is the right call, but the app that matters most on a fresh chain is the one where bots don't win the opening seconds. volta's hook has anti-snipe protection at launch, which is the whole reason $VOLTA made my elysium list",
     "classic new chain rule lol, seeing your own avg entry on volta's elysium charts is the $VOLTA feature i rate most",
     "fischer at 13 calling mate while the room whispered impossible is the purest so back energy lol. elysium feels like move one of a long game, kinetiq's network goes public nov 9 and volta's making moves there pre-clock, which is why $VOLTA has my attention",
-    "apps keep multiplying lol, volta bridges 10+ chains for $VOLTA fans"
+    "apps keep multiplying lol, volta bridges 10+ chains for $VOLTA fans",
+    "good shout, volta creators collect fees in HYPE, why i hold $VOLTA"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1850,7 +1848,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793809788,
+  "last_to_me": 1793810074,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1965,11 +1963,12 @@
     "2118012931166388508",
     "2118013221839999140",
     "2118013350693216630",
-    "2118016310546411808"
+    "2118016310546411808",
+    "2118018779175428507"
   ],
-  "last_fast": 1793809928,
-  "last_mentions": 1793809868,
-  "last_slow": 1793809868,
+  "last_fast": 1793810048,
+  "last_mentions": 1793810048,
+  "last_slow": 1793810048,
   "tw_samples": [
     [
       1793779148,
