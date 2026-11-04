@@ -1,5 +1,5 @@
 {
-  "last_check": 1793808744,
+  "last_check": 1793808865,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -10,8 +10,8 @@
     "2117850834776256564",
     "2117943643290116163",
     "2117989874553008344",
-    "2117580008931709076",
     "2117893633009651980",
+    "2117580008931709076",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -46,10 +46,10 @@
     "2117969714953810404",
     "2117997410031112441",
     "2117812508903772532",
-    "2117748509201899912",
-    "2117977920228757526",
     "2117953749591146800",
     "2117985533645427094",
+    "2117748509201899912",
+    "2117977920228757526",
     "2117888338447540566",
     "2117736590932123955",
     "2117863456682774755",
@@ -72,6 +72,7 @@
     "2117771621528121427",
     "2117997601505284488",
     "2117715072378188051",
+    "2118012931166388508",
     "2117968735835394473",
     "2117702432436195347",
     "2117681085551456728",
@@ -81,6 +82,7 @@
     "2117985318255104031",
     "2117750226228592836",
     "2118007378243408296",
+    "2118013350693216630",
     "2117969175440470037",
     "2117737102737858684",
     "2117610655121588555",
@@ -195,6 +197,7 @@
     "2117727385458245913",
     "2117970774040686814",
     "2117896209239277918",
+    "2118013221839999140",
     "2117752963968143519",
     "2117594285797482751",
     "2117942624892194883",
@@ -332,48 +335,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117894194656374840": {
-      "author": "cultureANON",
-      "text": "shill me your elysium projects. \n\nim just holding $e/acc and $volta for now.",
-      "reply": "solid bag already lol. what keeps me in $VOLTA is the free elysium rpc they run, snappy enough that i stopped switching endpoints. what else is on your watchlist?",
-      "tried": [
-        "solid bag already lol. what keeps me in $VOLTA is the free elysium rpc they run, snappy enough that i stopped switching endpoints. what else is on your watchlist?"
-      ],
-      "image": null,
-      "followers": 4221,
-      "relevant": true,
-      "reply_ar": "محفظتك جيدة أصلًا. ما يبقيني في $VOLTA هو الـ RPC المجاني والسريع لإليسيوم الذي يوفرونه، سريع لدرجة أنني توقفت عن تبديل نقاط الاتصال. ما المشاريع الأخرى التي تراقبها؟",
-      "tweet_ar": "روّجوا لي مشاريعكم على إليسيوم. أنا حاليًا أحتفظ فقط بـ $e/acc و $volta.",
-      "message_id": 226
-    },
-    "2117894343155401011": {
-      "author": "ZaraAlmeira",
-      "text": "@VoltaFamily This one deserves the spotlight. 🌟",
-      "reply": "agreed, and the creator side doesn't get talked about enough. you launch a token on volta and your fees land in HYPE, which is a big part of why i'm a $VOLTA holder",
-      "tried": [
-        "agreed, and the creator side doesn't get talked about enough. you launch a token on volta and your fees land in HYPE, which is a big part of why i'm a $VOLTA holder"
-      ],
-      "image": null,
-      "followers": 127336,
-      "relevant": true,
-      "reply_ar": "متفق، وجانب صنّاع التوكنات لا يُتحدث عنه بما يكفي. تطلق توكن على فولتا ورسومك تصلك بعملة HYPE، وهذا جزء كبير من سبب احتفاظي بـ $VOLTA",
-      "tweet_ar": "هذا المشروع يستحق أن يكون تحت الأضواء 🌟",
-      "message_id": 227
-    },
-    "2117895014772813849": {
-      "author": "AdamHODL",
-      "text": "Feel we see an e/acc repricing on elysium pre mainnet.\n\nLiterally the chain slogan, and one of the first memes onchain. Don’t think it’ll flip $BLOB, but has plenty of upside.\n\nPVE chain.",
-      "reply": "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix",
-      "tried": [
-        "pve chain is the right read imo. e/acc on elysium makes sense, and volta letting creators take fees in tokenized stocks feels very on brand for it. i hold $VOLTA for that mix"
-      ],
-      "image": null,
-      "followers": 73648,
-      "relevant": true,
-      "reply_ar": "وصف PVE هو القراءة الصحيحة برأيي. e/acc على Elysium منطقية، وكون volta تتيح للمنشئين أخذ رسومهم بأسهم مرمّزة يناسب طابع الشبكة. أحمل $VOLTA بسبب هذا المزيج",
-      "tweet_ar": "أشعر أننا سنرى إعادة تسعير لعملة e/acc على شبكة Elysium قبل إطلاق الشبكة الرئيسية. إنه حرفياً شعار الشبكة، وواحدة من أوائل الميمز على السلسلة. لا أظن أنها ستتجاوز $BLOB، لكن لديها مجال كبير للصعود. شبكة PVE.",
-      "message_id": 228
-    },
     "2117895099598405919": {
       "author": "AdamHODL",
       "text": "Man, I am glad I slept through that price action holy shit",
@@ -1770,13 +1731,52 @@
       "reply_ar": "موافق على الـ PvP، كل إطلاق على volta يحصل على مجمع v4 خاص به مقابل HYPE، ساحة $VOLTA",
       "tweet_ar": "حسنًا. يلا نبدأ. أبحث عن ناس يحبون الـ PvP.",
       "message_id": 343
+    },
+    "2118012931166388508": {
+      "author": "Habibxweb3",
+      "text": "elysium has no token.\nits apps are paying early users anyway.\n\n5 days to mainnet. here's what's still open 👇\n\n> @eleosfun pot 2: 50m $EOS for anyone trading on elysium till nov 11. eleos trades count 2x. share = sqrt of volume, so small wallets aren't invisible\n> @MontraXYZ: 25% of $MONTRA supply airdropped. 5% retro to active $HYPE / $KNTQ / elysium users, 5% to creators\n> @eruptdottfun: 4,444 free genesis nfts. your hyperliquid history boosts the WL\n> @ElysiansXYZ: 4,444 mint nov 9 on opensea. GTD / FCFS via pass or seraph's 7 trials\n\nopensea + aero already confirmed for day 1. the liquidity is coming\n\nthe people farming this week are the bags next month\n\nNFA. burner wallet only\nbuilding on 99901 with a drop for early users? put it below 👇",
+      "reply": "farm the apps is the right call, but the app that matters most on a fresh chain is the one where bots don't win the opening seconds. volta's hook has anti-snipe protection at launch, which is the whole reason $VOLTA made my elysium list",
+      "tried": [
+        "farm the apps is the right call, but the app that matters most on a fresh chain is the one where bots don't win the opening seconds. volta's hook has anti-snipe protection at launch, which is the whole reason $VOLTA made my elysium list"
+      ],
+      "image": "https://pbs.twimg.com/media/HWSxf43a8AEJCHS.jpg",
+      "followers": 10588,
+      "relevant": true,
+      "reply_ar": "فكرة زراعة التطبيقات صحيحة، لكن أهم تطبيق على شبكة جديدة هو الذي لا تفوز فيه البوتات بالثواني الأولى. هوك فولتا فيه حماية ضد القنص عند الإطلاق، وهذا بالضبط سبب وجود $VOLTA في قائمتي على إليسيوم.",
+      "tweet_ar": "إليسيوم ليس لديها توكن، لكن تطبيقاتها تكافئ المستخدمين الأوائل على أي حال. باقي 5 أيام على الشبكة الرئيسية، وهذا ما زال متاحاً: إيليوس الجولة الثانية توزع 50 مليون EOS لكل من يتداول على إليسيوم حتى 11 نوفمبر، وتداولات إيليوس تُحسب مضاعفة، والحصة تساوي الجذر التربيعي للحجم حتى لا تختفي المحافظ الصغيرة. مونترا ستوزع 25% من المعروض كإيردروب، منها 5% بأثر رجعي لمستخدمي HYPE وKNTQ وإليسيوم النشطين، و5% لصناع المحتوى. إيربت تطرح 4444 NFT تأسيسية مجانية، وسجلك على هايبرليكويد يرفع فرصك في القائمة البيضاء. إليسيانز تطرح 4444 للسك في 9 نوفمبر على أوبن سي، بمقاعد مضمونة أو بأولوية الوصول عبر بطاقة أو تحديات سيراف السبعة. أوبن سي وإيرو مؤكدتان من اليوم الأول، والسيولة قادمة. من يزرعون هذا الأسبوع هم أصحاب الحقائب الشهر القادم. ليست نصيحة مالية، استخدم محفظة منفصلة فقط. تبني على 99901 ولديك توزيعة للمستخدمين الأوائل؟ ضعها بالأسفل.",
+      "message_id": 344
+    },
+    "2118013221839999140": {
+      "author": "real_alpha",
+      "text": "Yo @AscendLaunch is live &amp; cooked\n\nApe before everyone knows \n\nSell when everyone knows\n\nThat's the rule of new chains! https://t.co/wsvOCyAa7i",
+      "reply": "classic new chain rule lol, seeing your own avg entry on volta's elysium charts is the $VOLTA feature i rate most",
+      "tried": [
+        "classic new chain rule lol, seeing your own avg entry on volta's elysium charts is the $VOLTA feature i rate most"
+      ],
+      "image": "https://pbs.twimg.com/media/HWSxyp_bwAAuznb.jpg",
+      "followers": 13094,
+      "relevant": true,
+      "reply_ar": "قاعدة كلاسيكية للشبكات الجديدة، شوفة متوسط سعر دخولك على شارتات فولتا في إليسيوم هي ميزة $VOLTA اللي أقدّرها أكثر شي",
+      "tweet_ar": "يو، @AscendLaunch انطلق وصار مشتعل. اشترِ قبل ما الكل يعرف، وبِع لما الكل يعرف. هذي قاعدة الشبكات الجديدة!",
+      "message_id": 345
+    },
+    "2118013350693216630": {
+      "author": "ThinkingUSD",
+      "text": "We're so back https://t.co/JVqtUHrVNO",
+      "reply": "fischer at 13 calling mate while the room whispered impossible is the purest so back energy lol. elysium feels like move one of a long game, kinetiq's network goes public nov 9 and volta's making moves there pre-clock, which is why $VOLTA has my attention",
+      "tried": [
+        "fischer at 13 calling mate while the room whispered impossible is the purest so back energy lol. elysium feels like move one of a long game, kinetiq's network goes public nov 9 and volta's making moves there pre-clock, which is why $VOLTA has my attention"
+      ],
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2118013286184603648/img/ABDx6-lkyLfNs5E9.jpg",
+      "followers": 303840,
+      "relevant": false,
+      "reply_ar": "فيشر وهو بعمر 13 يعلن كش مات بينما الحضور يهمسون بأن ذلك مستحيل، هذه أنقى طاقة لعبارة لقد عدنا. إليسيوم تبدو كأنها النقلة الأولى في مباراة طويلة، شبكة كينيتك تطلق شبكتها الرئيسية العامة في 9 نوفمبر وفولتا تتحرك هناك قبل انطلاق الساعة، ولهذا يلفت $VOLTA انتباهي",
+      "tweet_ar": "لقد عدنا بقوة",
+      "message_id": 346
     }
   },
-  "angle_i": 132,
+  "angle_i": 135,
   "recent_texts": [
-    "elysium bots having a rough week, agora blocks mev and volta's anti-snipe guards launches, why i rate $VOLTA",
-    "100% with you, launching a token should actually pay the person who launched it. on volta creators set their own fee and earn it in HYPE, which is why $VOLTA has me this fired up",
-    "congrats on #750, elysium's nft scene is going to carry way more culture than people expect. pair that with volta letting token creators earn fees in tokenized stocks, not just crypto, and $VOLTA ends up right where elysium creators hang out",
     "spicy thread lol. i'd leave other launchpads out of it and point at the mechanics instead, 80% of volta's trading fees buy back $VOLTA and every token bought gets burned, so busy days on elysium show up right on the live burn dashboard",
     "e/acc as pronouns is peak ct, volta spinning up a v4 pool with HYPE for every token is very $VOLTA coded",
     "new chain launch days are usually a sniper buffet, 150 tokens behind volta's anti-snipe is the $VOLTA stat i like",
@@ -1833,7 +1833,10 @@
     "e/acc energy fits, volta launches pay creators their fees in HYPE, $VOLTA's whole vibe",
     "curious, if you ever launched a token would you rather get fees in crypto or stocks? volta lets creators earn in tokenized stocks too, part of why $VOLTA caught my eye",
     "fees normally just vanish, volta's buy back and burn $VOLTA",
-    "pvp it is, volta launches each get v4 HYPE pools, $VOLTA arena"
+    "pvp it is, volta launches each get v4 HYPE pools, $VOLTA arena",
+    "farm the apps is the right call, but the app that matters most on a fresh chain is the one where bots don't win the opening seconds. volta's hook has anti-snipe protection at launch, which is the whole reason $VOLTA made my elysium list",
+    "classic new chain rule lol, seeing your own avg entry on volta's elysium charts is the $VOLTA feature i rate most",
+    "fischer at 13 calling mate while the room whispered impossible is the purest so back energy lol. elysium feels like move one of a long game, kinetiq's network goes public nov 9 and volta's making moves there pre-clock, which is why $VOLTA has my attention"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1842,7 +1845,7 @@
     "2117895148365607335",
     "2117986555780620334"
   ],
-  "last_to_me": 1793808606,
+  "last_to_me": 1793808746,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1953,11 +1956,14 @@
     "2118008855494078569",
     "2118009229705662536",
     "2118009741620466163",
-    "2118012568166109461"
+    "2118012568166109461",
+    "2118012931166388508",
+    "2118013221839999140",
+    "2118013350693216630"
   ],
-  "last_fast": 1793808744,
-  "last_mentions": 1793808684,
-  "last_slow": 1793808579,
+  "last_fast": 1793808865,
+  "last_mentions": 1793808865,
+  "last_slow": 1793808774,
   "tw_samples": [
     [
       1793779148,
@@ -2158,13 +2164,17 @@
     [
       1793808223,
       910119
+    ],
+    [
+      1793808835,
+      909039
     ]
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 103,
-      "input_tokens": 490251,
-      "output_tokens": 83542
+      "calls": 106,
+      "input_tokens": 507648,
+      "output_tokens": 86554
     }
   },
   "x_actions": {
