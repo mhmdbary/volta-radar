@@ -1,5 +1,5 @@
 {
-  "last_check": 1793802881,
+  "last_check": 1793803022,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
@@ -90,6 +90,7 @@
     "2117962439178477821",
     "2117960003885687063",
     "2117717259716362608",
+    "2117988991584854266",
     "2117680146316419197",
     "2117732013021200723",
     "2117695695729648007",
@@ -112,6 +113,7 @@
     "2117685350592098691",
     "2117737949920182411",
     "2117607225233690746",
+    "2117988958588252435",
     "2117618058525372634",
     "2117897156518691273",
     "2117901122773868878",
@@ -201,7 +203,9 @@
     "2117743148470337652",
     "2117722202791649418",
     "2117857627841462369",
+    "2117989023126053264",
     "2117729465287774431",
+    "2117989292144525474",
     "2117621571380797866",
     "2117872026555965644",
     "2117683945949343957",
@@ -305,58 +309,6 @@
   },
   "last_follow_check": 1793793810,
   "drafts": {
-    "2117854324055490966": {
-      "author": "toponeno1",
-      "text": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily e/acc",
-      "reply": "e/acc on elysium hits different. we're building volta so creators can launch here and get paid in HYPE from day one, mainnet nov 9",
-      "tried": [
-        "e/acc on elysium hits different. we're building volta so creators can launch here and get paid in HYPE from day one, mainnet nov 9"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "التسارع الفعّال على إليسيوم له طعم مختلف. نحن نبني فولتا ليتمكن المبدعون من الإطلاق هنا وكسب الرسوم بعملة HYPE من اليوم الأول، والشبكة الرئيسية في 9 نوفمبر",
-      "tweet_ar": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily التسارع الفعّال (e/acc)",
-      "message_id": 120
-    },
-    "2117855496178675954": {
-      "author": "0xSunSeeker",
-      "text": "@VoltaFamily 🫡✅",
-      "reply": "appreciate you 🫡 when you're ready to launch something on elysium, the trading fees are yours, paid in HYPE",
-      "tried": [
-        "appreciate you 🫡 when you're ready to launch something on elysium, the trading fees are yours, paid in HYPE"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "نقدّر دعمك 🫡 لما تكون جاهز تطلق شي على إليسيوم، رسوم التداول تكون لك، وتُدفع بـ HYPE",
-      "tweet_ar": "@VoltaFamily 🫡✅ (تحية وتأكيد، تعبير عن الدعم)",
-      "message_id": 121
-    },
-    "2117855498808840402": {
-      "author": "0xSisyphus",
-      "text": "With constituencies supported by third worlders and poor people sweeping the American midterms, there is a good chance they may be entirely in control of the country within the next few years",
-      "reply": "gonna stay out of the politics on this one. we're just heads down building volta for elysium, where creators can earn fees in tokenized stocks too",
-      "tried": [
-        "gonna stay out of the politics on this one. we're just heads down building volta for elysium, where creators can earn fees in tokenized stocks too"
-      ],
-      "image": null,
-      "relevant": false,
-      "reply_ar": "سأبقى بعيداً عن السياسة في هذا الموضوع. نحن منشغلون ببناء فولتا على إليسيوم، حيث يمكن لصنّاع التوكنات أن يربحوا الرسوم بالأسهم المرمّزة أيضاً",
-      "tweet_ar": "مع اكتساح الدوائر الانتخابية التي يدعمها القادمون من العالم الثالث والفقراء لانتخابات التجديد النصفي الأمريكية، هناك احتمال كبير أن يسيطروا على البلاد بالكامل خلال السنوات القليلة القادمة",
-      "message_id": 122
-    },
-    "2117855909284331544": {
-      "author": "WutianBuddha",
-      "text": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily 🔥",
-      "reply": "🫡 appreciate the tag. at volta 80% of fees go to buying back $VOLTA and every bit of it gets burned, so more activity on elysium means less supply",
-      "tried": [
-        "🫡 appreciate the tag. at volta 80% of fees go to buying back $VOLTA and every bit of it gets burned, so more activity on elysium means less supply"
-      ],
-      "image": null,
-      "relevant": true,
-      "reply_ar": "شكراً على الإشارة. في فولتا، 80% من الرسوم تذهب لإعادة شراء $VOLTA، وكل ما يُعاد شراؤه يُحرق، لذا كلما زاد النشاط على إليزيوم قلّ المعروض",
-      "tweet_ar": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily 🔥 (إشارة لعدة مشاريع على Elysium مع إيموجي نار كتعبير عن الحماس)",
-      "message_id": 123
-    },
     "2117856962864136593": {
       "author": "Cristin7hardsh",
       "text": "@0xweekend59 @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily Obol will win\n\nhttps://t.co/dRcP8IuLap",
@@ -1747,14 +1699,66 @@
       "reply_ar": "علامات التوثيق تأخذ وقتاً طويلاً هنا، لكن أن تدفع volta للمنشئين رسومهم بعملة HYPE هي الشارة التي تهمني فعلاً في $VOLTA.",
       "tweet_ar": "تذكير ودي بأننا بانتظار الموافقة على علامة التوثيق الذهبية، ولهذا السبب لا نملكها في الوقت الحالي.",
       "message_id": 316
+    },
+    "2117988958588252435": {
+      "author": "Doflam656",
+      "text": "@VoltaFamily Website currently not working",
+      "reply": "might just be traffic, hopefully back soon. volta launches already trade on basedbot, justrekttool and agora too, so $VOLTA isn't stuck waiting on the site",
+      "tried": [
+        "might just be traffic, hopefully back soon. volta launches already trade on basedbot, justrekttool and agora too, so $VOLTA isn't stuck waiting on the site"
+      ],
+      "image": null,
+      "followers": 3243,
+      "relevant": true,
+      "reply_ar": "ربما مجرد ضغط زيارات، نأمل أن يعود قريبًا. عملات فولتا يتم تداولها أصلًا على BasedBot وJustRektTool وAgora أيضًا، فـ $VOLTA ليست عالقة بانتظار الموقع",
+      "tweet_ar": "الموقع لا يعمل حاليًا",
+      "message_id": 317
+    },
+    "2117988991584854266": {
+      "author": "chiefkeith1000",
+      "text": "The skies of Elysium, @aeroxyz has confirmed for Day 1.\n\ne/acc 🛫 https://t.co/IdkoliTpFa",
+      "reply": "think aero volume spills into volta launches burning $VOLTA too?",
+      "tried": [
+        "think aero volume spills into volta launches burning $VOLTA too?"
+      ],
+      "image": "https://pbs.twimg.com/amplify_video_thumb/2117988601636200448/img/PdhZqDHipdMe4ULG.jpg",
+      "followers": 1284,
+      "relevant": true,
+      "reply_ar": "تتوقع أن نشاط التداول على aero ينتقل لإطلاقات volta اللي تحرق $VOLTA كمان؟",
+      "tweet_ar": "سماء إليسيوم... أكدت aero مشاركتها من اليوم الأول. e/acc 🛫",
+      "message_id": 318
+    },
+    "2117989023126053264": {
+      "author": "OhMyJack",
+      "text": "@VoltaFamily Loading",
+      "reply": "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar",
+      "tried": [
+        "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar"
+      ],
+      "image": null,
+      "followers": 16211,
+      "relevant": true,
+      "reply_ar": "عادةً \"جاري التحميل\" تعني البحث عن سيولة، لكن كل إطلاق على فولتا يحصل على مجمع V4 خاص به مقترن بـ HYPE، ولهذا $VOLTA تحت أنظاري",
+      "tweet_ar": "جاري التحميل",
+      "message_id": 319
+    },
+    "2117989292144525474": {
+      "author": "elonmusk",
+      "text": "Qualcomm’s technology is excellent",
+      "reply": "solid chips, volta's free elysium rpc is my $VOLTA speed pick",
+      "tried": [
+        "solid chips, volta's free elysium rpc is my $VOLTA speed pick"
+      ],
+      "image": null,
+      "followers": 241468653,
+      "relevant": false,
+      "reply_ar": "شرائح قوية فعلاً، أما خياري للسرعة فهو الـ RPC المجاني من فولتا على إليسيوم، وهذا من الأشياء التي أحبها في $VOLTA",
+      "tweet_ar": "تقنية كوالكوم ممتازة",
+      "message_id": 320
     }
   },
-  "angle_i": 105,
+  "angle_i": 109,
   "recent_texts": [
-    "nice to see pons waking up. volta runs basically the same model over on elysium, 80% of fees buying back $VOLTA and burning it, so i've got an eye on both chains",
-    "basedbot working is the easy win. the underrated part is opening the volta chart after and seeing your own buys and avg entry marked right there, even on $VOLTA itself",
-    "fair take tbh. what keeps me watching is the hook, 80% of volta's fees buy back and burn $VOLTA on every trade",
-    "burn on burn lol, volta launches already trade on agora and every volta trade buys back and burns $VOLTA",
     "exposure anxiety is real lol. usually devs launch and watch others farm the volume, on volta the creator earns fees in HYPE from their own token, part of why $VOLTA caught my eye",
     "won't weigh in on the license stuff, but volta letting creators take fees in tokenized stocks keeps me on $VOLTA",
     "still just submitted to uniswap, but the burn's the story. 80% of volta fees buy back and burn $VOLTA",
@@ -1810,7 +1814,11 @@
     "what would make you less skeptical though, traders actually sticking around? for me a launchpad on a fresh chain lives or dies on whether people can see what's moving. volta's trending board does that on elysium, part of why i watch $VOLTA",
     "spreading bets before nov 9 makes sense. normally stuff ships after a chain's mainnet, but volta's already live on elysium so $VOLTA got its first reactions before the public launch",
     "aero on day 1 is a solid sign, and volta already runs a free fast elysium rpc for anyone poking at $VOLTA launches",
-    "checkmarks take forever on here, volta paying creators their fees in HYPE is the $VOLTA badge i actually care about"
+    "checkmarks take forever on here, volta paying creators their fees in HYPE is the $VOLTA badge i actually care about",
+    "might just be traffic, hopefully back soon. volta launches already trade on basedbot, justrekttool and agora too, so $VOLTA isn't stuck waiting on the site",
+    "think aero volume spills into volta launches burning $VOLTA too?",
+    "loading usually means hunting liquidity, every volta launch gets its own v4 pool with HYPE, why $VOLTA's on my radar",
+    "solid chips, volta's free elysium rpc is my $VOLTA speed pick"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1903,11 +1911,15 @@
     "2117986479951524064",
     "2117987014398161354",
     "2117987916375023823",
-    "2117988235263766644"
+    "2117988235263766644",
+    "2117988958588252435",
+    "2117988991584854266",
+    "2117989023126053264",
+    "2117989292144525474"
   ],
-  "last_fast": 1793802881,
-  "last_mentions": 1793802821,
-  "last_slow": 1793802821,
+  "last_fast": 1793803022,
+  "last_mentions": 1793803022,
+  "last_slow": 1793803022,
   "tw_samples": [
     [
       1793779148,
@@ -2076,9 +2088,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 76,
-      "input_tokens": 357054,
-      "output_tokens": 59715
+      "calls": 79,
+      "input_tokens": 371689,
+      "output_tokens": 62142
     }
   },
   "x_actions": {
