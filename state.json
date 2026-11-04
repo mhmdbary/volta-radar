@@ -1,5 +1,5 @@
 {
-  "last_check": 1793822604,
+  "last_check": 1793822724,
   "seen_ids": [
     "2117893633009651980",
     "2117970556540875056",
@@ -199,6 +199,7 @@
     "2117715072378188051",
     "2117968187392479700",
     "2117685350592098691",
+    "2118071753922805977",
     "2117981739146699118",
     "2117732013021200723",
     "2117997177033388404",
@@ -377,22 +378,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117968187392479700": {
-      "author": "0xOmnia",
-      "text": "my pronouns are e/acc",
-      "reply": "e/acc as pronouns is peak ct, volta spinning up a v4 pool with HYPE for every token is very $VOLTA coded",
-      "tried": [
-        "e/acc as pronouns is peak ct, volta spinning up a v4 pool with HYPE for every token is very $VOLTA coded"
-      ],
-      "image": null,
-      "followers": 20240,
-      "relevant": false,
-      "reply_ar": "استخدام e/acc كضمائر هو قمة ثقافة تويتر الكريبتو، وفولتا التي تنشئ مجمع v4 مقترنًا بـ HYPE لكل توكن هي بالضبط روح $VOLTA",
-      "tweet_ar": "ضمائري هي e/acc (أي أنني من أنصار التسارع التكنولوجي الفعّال)",
-      "message_id": 288,
-      "done": true,
-      "my_url": "https://x.com/barymoto/status/2117968499821940986"
-    },
     "2117968735835394473": {
       "author": "VoltaFamily",
       "text": "The first 24 hours of $VOLTA.\n\n- $400K+ in trading volume.\n- 500+ unique traders.\n- 150+ tokens launched.\n\nThe next generation of tokens on Elysium starts here. https://t.co/z6hj45lJjM",
@@ -1795,11 +1780,24 @@
       "reply_ar": "الهالة مضاءة، كل صفقة على فولتا تعيد شراء $VOLTA، متفائل",
       "tweet_ar": "ممنوع التشاؤم واليأس",
       "message_id": 391
+    },
+    "2118071753922805977": {
+      "author": "ThinkingUSD",
+      "text": "See you guys at the next market bottom or end of year.\n\nGood luck.",
+      "reply": "usual cycle is everyone logs off and waits for the bottom. on volta a creator who launches a token takes fees in HYPE from the trading on it, whatever the timeline mood is. that's the $VOLTA detail i'd check back on. enjoy the break, see you at the bottom",
+      "tried": [
+        "usual cycle is everyone logs off and waits for the bottom. on volta a creator who launches a token takes fees in HYPE from the trading on it, whatever the timeline mood is. that's the $VOLTA detail i'd check back on. enjoy the break, see you at the bottom"
+      ],
+      "image": null,
+      "followers": 305546,
+      "relevant": false,
+      "reply_ar": "الدورة المعتادة أن الكل ينسحب وينتظر القاع. على فولتا، من يطلق توكن يحصل على رسوم بعملة HYPE من التداول عليه، مهما كان مزاج التايملاين. هذه هي النقطة في $VOLTA التي سأعود لمتابعتها. استمتع بالاستراحة، نراك عند القاع.",
+      "tweet_ar": "أراكم يا جماعة عند القاع القادم للسوق أو في نهاية السنة. حظاً موفقاً.",
+      "message_id": 392
     }
   },
-  "angle_i": 176,
+  "angle_i": 177,
   "recent_texts": [
-    "party's only fun if the bots don't clear the snack table before anyone walks in lol. that's why volta's anti-snipe at launch matters to me, fresh tokens on elysium get a fair first block and $VOLTA holders get to watch real people show up first",
     "worth it, most new chains leave you guessing your entry but volta's charts show your own $VOLTA buys and sells",
     "you're ahead of the nov 9 crowd then. elysium's public mainnet hasn't even landed and volta's already live, so $VOLTA holders get to see how launches behave before everyone shows up",
     "robinhood chain collection pulling volume on day one is something. what do you think got people in early, the art or the community behind it? i keep asking that about volta launches on elysium too, $VOLTA has me watching first days closely",
@@ -1858,7 +1856,8 @@
     "easy pick, $VOLTA, since volta launches come with anti-snipe built in",
     "ely & frens is the whole vibe, but the frens part only matters if you can see who's actually moving. volta's trending board does that job on elysium better than scrolling the timeline, and it's the part of volta that keeps $VOLTA interesting to me",
     "welcome in voidcash. landing on volta before elysium's public mainnet on nov 9 feels like the right call, building where the hyperliquid crowd is heading before the rush. that timing is a big part of why i follow $VOLTA",
-    "halo on, every volta trade buys back $VOLTA, whitepilled"
+    "halo on, every volta trade buys back $VOLTA, whitepilled",
+    "usual cycle is everyone logs off and waits for the bottom. on volta a creator who launches a token takes fees in HYPE from the trading on it, whatever the timeline mood is. that's the $VOLTA detail i'd check back on. enjoy the break, see you at the bottom"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1867,7 +1866,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793822486,
+  "last_to_me": 1793822608,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2022,11 +2021,12 @@
     "2118057810478997714",
     "2118057858176848038",
     "2118068875757834327",
-    "2118068833294422283"
+    "2118068833294422283",
+    "2118071753922805977"
   ],
-  "last_fast": 1793822604,
-  "last_mentions": 1793822544,
-  "last_slow": 1793822544,
+  "last_fast": 1793822724,
+  "last_mentions": 1793822724,
+  "last_slow": 1793822724,
   "tw_samples": [
     [
       1793779148,
