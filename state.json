@@ -1,13 +1,13 @@
 {
-  "last_check": 1793791893,
+  "last_check": 1793792074,
   "seen_ids": [
     "2117776366674592206",
     "2117682788166205488",
     "2117723384910082369",
     "2117595326626619825",
     "2117850834776256564",
-    "2117580008931709076",
     "2117893633009651980",
+    "2117580008931709076",
     "2117749916470780198",
     "2117603996827279590",
     "2117668555147591692",
@@ -120,6 +120,7 @@
     "2117696004095160739",
     "2117894343155401011",
     "2117885940761059428",
+    "2117943349877588018",
     "2117702404908986400",
     "2117686540176376297",
     "2117938931136385206",
@@ -156,7 +157,7 @@
     "2117617355627131060",
     "2117942164567343349"
   ],
-  "tg_offset": 277101723,
+  "tg_offset": 277101724,
   "last_digest": "2026-11-03",
   "known_follows": {
     "Enter_Elysium": [
@@ -253,19 +254,6 @@
   },
   "last_follow_check": 1793771975,
   "drafts": {
-    "2117724185778860520": {
-      "author": "TheKleos_",
-      "text": "One week of Kleos on Elysium in the history books.\n\nUndying glory is earned on-chain. https://t.co/ysgyh7coMI",
-      "reply": "1,175 coins and 5.4k unique traders in week one is real activity. good to see elysium builders getting traction early, we're building volta on elysium too so this is fun to watch",
-      "tried": [
-        "1,175 coins and 5.4k unique traders in week one is real activity. good to see elysium builders getting traction early, we're building volta on elysium too so this is fun to watch"
-      ],
-      "image": "https://pbs.twimg.com/media/HWOqugVXAAAfbu2.jpg",
-      "relevant": true,
-      "reply_ar": "1,175 عملة و5.4 ألف متداول فريد في الأسبوع الأول هذا نشاط حقيقي. من الجميل رؤية بناة Elysium يحققون زخمًا مبكرًا، نحن أيضًا نبني Volta على Elysium لذا من الممتع متابعة هذا",
-      "tweet_ar": "أسبوع واحد من Kleos على Elysium أصبح في كتب التاريخ. المجد الخالد يُكسب على السلسلة. (الصورة: إجمالي الحجم 6.15 مليون دولار، 72,259 HYPE، 54,057 صفقة، 1,175 عملة أُطلقت، 5,423 متداولًا فريدًا، من 27 أكتوبر إلى 3 نوفمبر)",
-      "message_id": 65
-    },
     "2117724724499452000": {
       "author": "NickyBuffett",
       "text": "@VoltaFamily @Uniswap Check dm 🔥💬",
@@ -1619,9 +1607,23 @@
       "reply_ar": "قلق الانكشاف حقيقي هههه. عادةً المطورون يطلقون توكن ويشاهدون غيرهم يستفيد من حجم التداول، أما على فولتا فصاحب التوكن يكسب رسوماً بعملة HYPE من توكنه نفسه، وهذا جزء من سبب اهتمامي بـ $VOLTA",
       "tweet_ar": "لا أشعر أن لدي انكشافاً كافياً على \" \"",
       "message_id": 252
+    },
+    "2117943349877588018": {
+      "author": "whalesdotsol",
+      "text": "@CryptoMonarch22 @Enter_Elysium @Boxa_Elysium @TheKleos_ Boxa and Kleos are unauthorized forks of Uniswap V4, which is still protected by license\n\n@VoltaFamily is deployed on the official Uniswap contracts",
+      "reply": "won't weigh in on the license stuff, but volta letting creators take fees in tokenized stocks keeps me on $VOLTA",
+      "tried": [
+        "won't weigh in on the license stuff, but volta letting creators take fees in tokenized stocks keeps me on $VOLTA"
+      ],
+      "image": null,
+      "followers": 7141,
+      "relevant": true,
+      "reply_ar": "لن أخوض في موضوع التراخيص، لكن كون volta تتيح للمنشئين أخذ رسومهم على شكل أسهم مرمّزة هو ما يبقيني مع $VOLTA",
+      "tweet_ar": "Boxa وKleos نسخ غير مصرّح بها من Uniswap V4، الذي لا يزال محمياً بترخيص. أما Volta فهو منشور على عقود Uniswap الرسمية.",
+      "message_id": 253
     }
   },
-  "angle_i": 49,
+  "angle_i": 50,
   "recent_texts": [
     "ha the rockets are a bit much for me but i'll take the energy. curious what makes a launch feel good to you? for me it's the anti-snipe at launch, big reason i hold $VOLTA",
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
@@ -1656,13 +1658,14 @@
     "basedbot working is the easy win. the underrated part is opening the volta chart after and seeing your own buys and avg entry marked right there, even on $VOLTA itself",
     "fair take tbh. what keeps me watching is the hook, 80% of volta's fees buy back and burn $VOLTA on every trade",
     "burn on burn lol, volta launches already trade on agora and every volta trade buys back and burns $VOLTA",
-    "exposure anxiety is real lol. usually devs launch and watch others farm the volume, on volta the creator earns fees in HYPE from their own token, part of why $VOLTA caught my eye"
+    "exposure anxiety is real lol. usually devs launch and watch others farm the volume, on volta the creator earns fees in HYPE from their own token, part of why $VOLTA caught my eye",
+    "won't weigh in on the license stuff, but volta letting creators take fees in tokenized stocks keeps me on $VOLTA"
   ],
   "to_me_seen": [
     "2117872026555965644",
     "2117895148365607335"
   ],
-  "last_to_me": 1793791944,
+  "last_to_me": 1793792106,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -1695,11 +1698,12 @@
     "2117938931136385206",
     "2117942164567343349",
     "2117942008467570943",
-    "2117942624892194883"
+    "2117942624892194883",
+    "2117943349877588018"
   ],
-  "last_fast": 1793791893,
-  "last_mentions": 1793791893,
-  "last_slow": 1793791893,
+  "last_fast": 1793792074,
+  "last_mentions": 1793792074,
+  "last_slow": 1793792074,
   "tw_samples": [
     [
       1793779148,
@@ -1796,13 +1800,13 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 19,
-      "input_tokens": 69568,
-      "output_tokens": 8060
+      "calls": 21,
+      "input_tokens": 78203,
+      "output_tokens": 9948
     }
   },
   "x_actions": {
-    "likes": 5,
+    "likes": 6,
     "reposts": 1
   }
 }
