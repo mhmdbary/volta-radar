@@ -1,5 +1,5 @@
 {
-  "last_check": 1793830428,
+  "last_check": 1793830578,
   "seen_ids": [
     "2118073194481373282",
     "2117893633009651980",
@@ -9,12 +9,12 @@
     "2118042176584327339",
     "2117824660230521170",
     "2117896640929603800",
+    "2118083391190917197",
     "2117602702306034149",
     "2118088016015335862",
-    "2118083391190917197",
     "2118029678606782539",
-    "2117896209239277918",
     "2117942624892194883",
+    "2117896209239277918",
     "2117673754574651760",
     "2117888338447540566",
     "2117748509201899912",
@@ -50,6 +50,7 @@
     "2117621571380797866",
     "2117764350727331844",
     "2117686935863119887",
+    "2118057858176848038",
     "2117998184941449633",
     "2117702234675060834",
     "2117987014398161354",
@@ -63,6 +64,7 @@
     "2117968735835394473",
     "2118036092137980087",
     "2117718001873023074",
+    "2117731688319201447",
     "2117732161797464230",
     "2118072224540156122",
     "2117776366674592206",
@@ -77,7 +79,6 @@
     "2118083343271027033",
     "2117995905525907769",
     "2117857627841462369",
-    "2117895014772813849",
     "2117850851910029533",
     "2117610655121588555",
     "2117970677550682480",
@@ -121,7 +122,7 @@
     "2117970034844897362",
     "2118043126753607737",
     "2117733694748365046",
-    "2117752963968143519",
+    "2118104754182312367",
     "2117681643377078689",
     "2117991208786010539",
     "2117873469970940170",
@@ -156,6 +157,7 @@
     "2117748787624186026",
     "2117727040002736243",
     "2117943995653640702",
+    "2117686232830685186",
     "2117942164567343349",
     "2117988958588252435",
     "2117977920228757526",
@@ -191,7 +193,6 @@
     "2117944166487351634",
     "2117962439178477821",
     "2117968931382309203",
-    "2117702404908986400",
     "2117856962864136593",
     "2117726101095035091",
     "2118040494454304796",
@@ -252,7 +253,7 @@
     "2117895099598405919",
     "2117943643290116163",
     "2118031585878454284",
-    "2117882031510364429",
+    "2117955713255485501",
     "2118009229705662536",
     "2117902428750368909",
     "2117717259716362608",
@@ -288,12 +289,12 @@
     "2118022057250402487",
     "2117872026555965644",
     "2117996293188718856",
-    "2117686232830685186",
-    "2117731688319201447",
-    "2117955713255485501",
+    "2117882031510364429",
+    "2117702404908986400",
+    "2117752963968143519",
     "2117953749591146800",
     "2117997401084510497",
-    "2118057858176848038"
+    "2117895014772813849"
   ],
   "tg_offset": 277101758,
   "last_digest": "2026-11-04",
@@ -393,20 +394,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117978464095719555": {
-      "author": "silvinaescudero",
-      "text": "@VoltaFamily This is so promising! Let’s talk.",
-      "reply": "promising undersells it imo. volta was the first uniswap v4 hook live on elysium and any token launched there gets its own pool paired with HYPE, so if that chat turns into a launch you're not starting from scratch, the $VOLTA part people sleep on",
-      "tried": [
-        "promising undersells it imo. volta was the first uniswap v4 hook live on elysium and any token launched there gets its own pool paired with HYPE, so if that chat turns into a launch you're not starting from scratch, the $VOLTA part people sleep on"
-      ],
-      "image": null,
-      "followers": 757874,
-      "relevant": true,
-      "reply_ar": "كلمة واعد قليلة عليه برأيي. فولتا كان أول هوك من Uniswap V4 يعمل على Elysium، وأي توكن يُطلق هناك يحصل على مجمّع خاص به مقترن بـ HYPE، فإذا تحولت هذه المحادثة إلى إطلاق فلن تبدأ من الصفر، وهذا جانب من $VOLTA لا ينتبه له الناس.",
-      "tweet_ar": "هذا واعد جدًا! لنتحدث.",
-      "message_id": 304
-    },
     "2117980675630321812": {
       "author": "0xCobra_",
       "text": "@lakesfund got u\ntbh there are some plays everyday\nI personally top blasted Blob at 800k few days ago, looks like it was not a terrible move \n\n@VoltaFamily launched yesterday\n@quoted_xyz the day before \nand mainnet is in 5d",
@@ -1807,11 +1794,24 @@
       "reply_ar": "نموذج ومكالمة 10 دقائق للحصول على دخل؟ هذا الوضع السهل. وجماعة $VOLTA يعرفون أن المنشئين على فولتا يحددون رسومهم عند الإطلاق وخلاص.",
       "tweet_ar": "لحظة، يعني الشركات تقدر ترخّص بيانات عملياتها الداخلية كمصدر دخل جديد بعد تعبئة نموذج واحد ومكالمة مدتها 10 دقائق مع وكيل؟؟",
       "message_id": 407
+    },
+    "2118104754182312367": {
+      "author": "VoltaFamily",
+      "text": "The $VOLTA flywheel is in motion. ✧\n\nInspired by the PONS model, 80% of trading fees fuel token buybacks and burns.\n\nEvery trade fuels the flywheel and reduces supply. https://t.co/QdzCsgXIgB",
+      "reply": "248 launches feeding $VOLTA burns, and each creator still earns fees in HYPE",
+      "tried": [
+        "248 launches feeding $VOLTA burns, and each creator still earns fees in HYPE"
+      ],
+      "image": "https://pbs.twimg.com/media/HWT5wZsakAAmCvh.jpg",
+      "followers": 394,
+      "relevant": true,
+      "reply_ar": "248 إطلاقاً تغذي عمليات حرق $VOLTA، ومع ذلك كل منشئ توكن يحصل على رسومه بعملة HYPE.",
+      "tweet_ar": "عجلة $VOLTA بدأت تدور. مستوحاة من نموذج PONS، حيث تذهب 80% من رسوم التداول لإعادة شراء التوكن وحرقه. كل صفقة تغذي العجلة وتقلل المعروض.",
+      "message_id": 408
     }
   },
-  "angle_i": 192,
+  "angle_i": 193,
   "recent_texts": [
-    "farm the apps is the right call, but the app that matters most on a fresh chain is the one where bots don't win the opening seconds. volta's hook has anti-snipe protection at launch, which is the whole reason $VOLTA made my elysium list",
     "classic new chain rule lol, seeing your own avg entry on volta's elysium charts is the $VOLTA feature i rate most",
     "fischer at 13 calling mate while the room whispered impossible is the purest so back energy lol. elysium feels like move one of a long game, kinetiq's network goes public nov 9 and volta's making moves there pre-clock, which is why $VOLTA has my attention",
     "apps keep multiplying lol, volta bridges 10+ chains for $VOLTA fans",
@@ -1870,7 +1870,8 @@
     "agent's on yellow paper duty. any anti-snipe plans for launch day like volta has, or is that just my $VOLTA brain?",
     "usual move with political coins is realizing your entry was the top way too late. on volta the chart plots your own buys and avg entry, so you see where you stand on $VOLTA without guessing",
     "early is right, $VOLTA's here before elysium even opens nov 9",
-    "a form and a 10 min call for revenue is easy mode. $VOLTA folks know volta creators just set a fee at launch"
+    "a form and a 10 min call for revenue is easy mode. $VOLTA folks know volta creators just set a fee at launch",
+    "248 launches feeding $VOLTA burns, and each creator still earns fees in HYPE"
   ],
   "to_me_seen": [
     "2117895148365607335",
@@ -1879,7 +1880,7 @@
     "2117872026555965644",
     "2117986555780620334"
   ],
-  "last_to_me": 1793830311,
+  "last_to_me": 1793830440,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2050,11 +2051,12 @@
     "2118088016015335862",
     "2118088462737998184",
     "2118093883145916438",
-    "2118094726435930417"
+    "2118094726435930417",
+    "2118104754182312367"
   ],
-  "last_fast": 1793830428,
-  "last_mentions": 1793830428,
-  "last_slow": 1793830338,
+  "last_fast": 1793830578,
+  "last_mentions": 1793830518,
+  "last_slow": 1793830518,
   "tw_samples": [
     [
       1793779148,
@@ -2403,9 +2405,9 @@
   ],
   "ai_usage": {
     "2026-11-04": {
-      "calls": 163,
-      "input_tokens": 786205,
-      "output_tokens": 140485
+      "calls": 164,
+      "input_tokens": 791645,
+      "output_tokens": 141106
     }
   },
   "x_actions": {
