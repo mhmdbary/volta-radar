@@ -1,5 +1,5 @@
 {
-  "last_check": 1793775806,
+  "last_check": 1793775957,
   "seen_ids": [
     "2117855498808840402",
     "2117872026555965644",
@@ -16,10 +16,10 @@
     "2117727385458245913",
     "2117785230291730738",
     "2117724185778860520",
-    "2117702404908986400",
-    "2117607299099279852",
-    "2117579802680992219",
     "2117689582485422507",
+    "2117702404908986400",
+    "2117579802680992219",
+    "2117607299099279852",
     "2117702413876666698",
     "2117668555147591692",
     "2117732161797464230",
@@ -32,6 +32,7 @@
     "2117855909284331544",
     "2117620917341675886",
     "2117812508903772532",
+    "2117580008931709076",
     "2117618058525372634",
     "2117682788166205488",
     "2117737949920182411",
@@ -46,7 +47,6 @@
     "2117618801265316350",
     "2117748787624186026",
     "2117686232830685186",
-    "2117717259716362608",
     "2117764350727331844",
     "2117817372010799493",
     "2117726419086413958",
@@ -90,6 +90,7 @@
     "2117856962864136593",
     "2117722202791649418",
     "2117607225233690746",
+    "2117875400562929691",
     "2117863047369044414",
     "2117752963968143519",
     "2117676035961684155",
@@ -127,7 +128,7 @@
     "2117617355627131060",
     "2117873469970940170",
     "2117731962878316686",
-    "2117580008931709076"
+    "2117717259716362608"
   ],
   "tg_offset": 277101688,
   "last_digest": "2026-11-03",
@@ -1398,9 +1399,23 @@
       "message_id": 178,
       "done": true,
       "my_url": "https://x.com/barymoto/status/2117873792999698934"
+    },
+    "2117875400562929691": {
+      "author": "NftVicto",
+      "text": "@JustRektTool @agora_elysium @elysatrade @VoltaFamily @BasedBot cool bot",
+      "reply": "it's clean. funny part is volta launches already trade on basedbot, so you can snipe-free scroll new tokens from the same bot. one reason i hold $VOLTA",
+      "tried": [
+        "it's clean. funny part is volta launches already trade on basedbot, so you can snipe-free scroll new tokens from the same bot. one reason i hold $VOLTA"
+      ],
+      "image": null,
+      "followers": 1415,
+      "relevant": true,
+      "reply_ar": "إنه نظيف. الطريف أن إطلاقات فولتا تُتداول بالفعل على BasedBot، فيمكنك تصفح الرموز الجديدة من نفس البوت. هذا أحد أسباب احتفاظي بـ $VOLTA",
+      "tweet_ar": "بوت رائع",
+      "message_id": 182
     }
   },
-  "angle_i": 20,
+  "angle_i": 21,
   "recent_texts": [
     "appreciate you 🫡 when you're ready to launch something on elysium, the trading fees are yours, paid in HYPE",
     "gonna stay out of the politics on this one. we're just heads down building volta for elysium, where creators can earn fees in tokenized stocks too",
@@ -1421,17 +1436,19 @@
     "not sure about insiders lol, i hold $VOLTA mostly because launching on volta means the creator actually gets paid, fees come in HYPE on every trade",
     "if being an insider means knowing volta creators can take fees in tokenized stocks, then sure, guilty. that detail is half of why i hold $VOLTA",
     "bridged over from sol earlier and it really was a couple minutes. more people landing on elysium means more trades, and 80% of those fees go to burning $VOLTA",
-    "10k creators posting for a slice of $FUNGO is a lot of content lol. i hold $VOLTA partly because on volta every new token just gets its own v4 pool paired with HYPE, no queue"
+    "10k creators posting for a slice of $FUNGO is a lot of content lol. i hold $VOLTA partly because on volta every new token just gets its own v4 pool paired with HYPE, no queue",
+    "it's clean. funny part is volta launches already trade on basedbot, so you can snipe-free scroll new tokens from the same bot. one reason i hold $VOLTA"
   ],
   "to_me_seen": [
     "2117872026555965644"
   ],
-  "last_to_me": 1793775824,
+  "last_to_me": 1793775919,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
     "2117872026555965644",
     "2117872723883897139",
-    "2117873469970940170"
+    "2117873469970940170",
+    "2117875400562929691"
   ]
 }
