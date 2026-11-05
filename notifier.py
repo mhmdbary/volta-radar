@@ -1106,8 +1106,7 @@ def warn_ai_down(cfg, state, error):
         return
     state["ai_warned"] = int(time.time())
     low = "credit balance" in str(error).lower()
-    text = ("⚠️ رصيد Claude خلص. أفكار الردود واقفة لحد ما تشحن من console.anthropic.com
-"
+    text = ("⚠️ رصيد Claude خلص. أفكار الردود واقفة لحد ما تشحن من console.anthropic.com. "
             "التنبيهات لسا شغالة." if low else f"⚠️ Claude stopped working: {str(error)[:150]}")
     try:
         tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": text})
