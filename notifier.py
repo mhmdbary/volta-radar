@@ -575,7 +575,7 @@ def regenerate(cfg, d, state, avoid=None):
     angle = ai_replies.ANGLES[i % len(ai_replies.ANGLES)]
     # styles rotate at a different pace than angles, so the same angle comes back in a new shape
     style = ai_replies.STYLES[(i * 3 + i // len(ai_replies.ANGLES)) % len(ai_replies.STYLES)]
-    recent = state.get("recent_texts", [])[-40:]
+    recent = state.get("recent_texts", [])[-15:]
     if d.get("kind") == "tweet":
         result = ai_replies.write_tweet(cfg["anthropic_api_key"], d.get("instruction"), avoid=avoid,
                                         recent=recent, angle=angle, style=style)
@@ -1100,6 +1100,21 @@ def split_lanes(handles, tags):
     return fast, slow
 
 
+def warn_ai_down(cfg, state, error):
+    """Tell the owner when Claude stops working (usually an empty balance), at most every 6 hours."""
+    if time.time() - int(state.get("ai_warned") or 0) < 6 * 3600:
+        return
+    state["ai_warned"] = int(time.time())
+    low = "credit balance" in str(error).lower()
+    text = ("⚠️ رصيد Claude خلص. أفكار الردود واقفة لحد ما تشحن من console.anthropic.com
+"
+            "التنبيهات لسا شغالة." if low else f"⚠️ Claude stopped working: {str(error)[:150]}")
+    try:
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": text})
+    except Exception as e:
+        print(f"[telegram error] {e}")
+
+
 def check_once(cfg, settings, handles, state):
     # Credits are spent per search, so each group is checked at its own speed:
     #   fast lane (Volta + ecosystem) every fast_seconds, everyone else every slow_seconds, mentions every mention_seconds.
@@ -1180,6 +1195,14 @@ def check_once(cfg, settings, handles, state):
             send_draft(cfg, settings, state, tags, t, mention)
         except Exception as e:  # AI problems must never block alerts
             print(f"[draft error] {e}")
+            warn_ai_down(cfg, state, e)
+            if not channel_ok(cfg):  # no channel and no AI: the plain alert still reaches the owner
+                try:
+                    send_telegram(cfg["telegram_bot_token"], cfg["telegram_admin_id"],
+                                  format_alert(t, settings, tags, mention), tweet_url(t),
+                                  (t.get("author") or {}).get("userName"), tweet_media(t)[0])
+                except Exception as e2:
+                    print(f"[telegram error] {e2}")
 
     if not failed:
         state["last_check"] = now
