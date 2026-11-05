@@ -1,5 +1,5 @@
 {
-  "last_check": 1793836771,
+  "last_check": 1793836891,
   "seen_ids": [
     "2118023800369615214",
     "2117726419086413958",
@@ -273,6 +273,7 @@
     "2117702234675060834",
     "2117618801265316350",
     "2117944166487351634",
+    "2118131354600886509",
     "2118026165437034565",
     "2117970428862050385",
     "2117749916470780198",
@@ -412,20 +413,6 @@
   },
   "last_follow_check": 1793815559,
   "drafts": {
-    "2117994110673977542": {
-      "author": "0xOmnia",
-      "text": "interesting\n\nand elysium coded https://t.co/4Ug6kHAZrE",
-      "reply": "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there",
-      "tried": [
-        "those colored trails look exactly like a busy elysium launch day lol. curious what you think makes a launch actually good though. for me it's the first few minutes, and volta's anti-snipe at launch is the part of $VOLTA i'd point at there"
-      ],
-      "image": "https://pbs.twimg.com/amplify_video_thumb/2117993971003564032/img/lWwpzSaGkNVUAkpe.jpg",
-      "followers": 20264,
-      "relevant": true,
-      "reply_ar": "خطوط الدخان الملونة دي شكلها بالضبط زي يوم إطلاقات زحمة على إليزيوم هههه. بس فضولي أعرف إيه اللي يخلي الإطلاق ناجح فعلاً برأيك. بالنسبة لي هي أول دقايق، وحماية فولتا من القناصة وقت الإطلاق هي الجزء من $VOLTA اللي أشاور عليه هنا",
-      "tweet_ar": "مثير للاهتمام، وفيه طابع إليزيوم.",
-      "message_id": 323
-    },
     "2117995185975996634": {
       "author": "Xeetbtcvox",
       "text": "I find this project quite interesting. The animations and gamification look incredible\n\nI'll be sharing more insights on it once I’m done with my research.",
@@ -1825,11 +1812,24 @@
       "reply_ar": "قفزة arc من أرقام صغيرة في الشبكة التجريبية إلى أرقام من 9 خانات هي المقارنة التي أفكر فيها أنا أيضاً. على volta تُستخدم 80% من الرسوم لإعادة شراء $VOLTA وحرقها، لذا فأي حجم تداول على الشبكة الرئيسية سيظهر على لوحة الحرق.",
       "tweet_ar": "المتعة الحقيقية على Elysium تبدأ مع إطلاق الشبكة الرئيسية في 9 نوفمبر. حالياً حجم التداول على الشبكة كلها أقل من 5 ملايين يومياً، تماماً مثل arc وهي في مرحلة الشبكة التجريبية. وعند إطلاق arc على الشبكة الرئيسية وصل حجم تداولها إلى أرقام من 9 خانات لعدة أيام متتالية. ماذا تتوقعون أن يحدث مع Elysium، والساحة كلها تدعم شبكة الطبقة الثانية لـ Hyperliquid من اليوم الأول؟ لا تخرجوا من السوق مع أول تراجع للشبكة قبل الإطلاق الرئيسي.",
       "message_id": 426
+    },
+    "2118131354600886509": {
+      "author": "based16z",
+      "text": "$BTC",
+      "reply": "btc or HYPE pairs? volta's v4 pools are all HYPE, $VOLTA included",
+      "tried": [
+        "btc or HYPE pairs? volta's v4 pools are all HYPE, $VOLTA included"
+      ],
+      "image": null,
+      "followers": 127910,
+      "relevant": false,
+      "reply_ar": "بيتكوين ولا أزواج HYPE؟ كل مجمعات v4 في فولتا مقترنة بـ HYPE، ومنها $VOLTA",
+      "tweet_ar": "بيتكوين",
+      "message_id": 427
     }
   },
-  "angle_i": 211,
+  "angle_i": 212,
   "recent_texts": [
-    "calling it already lol. busy days are when volta's free elysium rpc matters, one reason i follow $VOLTA",
     "day 1 crew, ever tempted to launch on volta and take creator fees in HYPE, or strictly a $VOLTA holder?",
     "spartans earned glory, volta creators earn stocks, $VOLTA style",
     "solid grab before the clock runs out, volta's burn has no timer, 80% of fees take $VOLTA off the market for good",
@@ -1888,7 +1888,8 @@
     "spreadsheet entries vs volta charts plotting them, why i like $VOLTA",
     "opportunities of a lifetime for creators too, volta launchers earn fees in HYPE, my $VOLTA vested interest",
     "agora's filter bar is getting crowded, volta sits right there next to ascend. still think volta letting creators earn fees in tokenized stocks is the sleeper detail behind $VOLTA",
-    "arc going from testnet crumbs to 9 figures is the comp i keep thinking about too. on volta 80% of fees buy back and burn $VOLTA, so mainnet volume would show up on the burn dashboard"
+    "arc going from testnet crumbs to 9 figures is the comp i keep thinking about too. on volta 80% of fees buy back and burn $VOLTA, so mainnet volume would show up on the burn dashboard",
+    "btc or HYPE pairs? volta's v4 pools are all HYPE, $VOLTA included"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1897,7 +1898,7 @@
     "2117986555780620334",
     "2117945433234313681"
   ],
-  "last_to_me": 1793836652,
+  "last_to_me": 1793836773,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2087,11 +2088,12 @@
     "2118123109806964940",
     "2118124829270237207",
     "2118128474506580400",
-    "2118128608338207226"
+    "2118128608338207226",
+    "2118131354600886509"
   ],
-  "last_fast": 1793836771,
-  "last_mentions": 1793836711,
-  "last_slow": 1793836711,
+  "last_fast": 1793836891,
+  "last_mentions": 1793836891,
+  "last_slow": 1793836891,
   "tw_samples": [
     [
       1793779148,
@@ -2476,6 +2478,10 @@
     [
       1793836191,
       846600
+    ],
+    [
+      1793836820,
+      845475
     ]
   ],
   "ai_usage": {
