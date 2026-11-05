@@ -1,5 +1,5 @@
 {
-  "last_check": 1793880376,
+  "last_check": 1793880526,
   "seen_ids": [
     "2117764350727331844",
     "2118265655648518553",
@@ -528,20 +528,6 @@
   },
   "last_follow_check": 1793858839,
   "drafts": {
-    "2117997601505284488": {
-      "author": "mtehrealm",
-      "text": "Aped a bag of $VOLTA on Elysium. They are the first real launchpad there from I can tell using the official uniswap routes for Elysium. They also a full working bridge. Also got into $VOLT, a trading bot on there that allows you to buy things on VOLTA using RH ETH and airdrops you the tokens you buy on Elysium. \n\nVOLTA Launchpad: https://t.co/bYW4Kf61gB\nhttps://t.co/gtsr9oiN9T\n\nVOLT Trading bot: \nhttps://t.co/lNpeVGurju\nhttps://t.co/9KhnS0SSPr",
-      "reply": "you're ahead of the nov 9 crowd then. elysium's public mainnet hasn't even landed and volta's already live, so $VOLTA holders get to see how launches behave before everyone shows up",
-      "tried": [
-        "you're ahead of the nov 9 crowd then. elysium's public mainnet hasn't even landed and volta's already live, so $VOLTA holders get to see how launches behave before everyone shows up"
-      ],
-      "image": null,
-      "followers": 3174,
-      "relevant": true,
-      "reply_ar": "يعني أنت سابق جماعة ٩ نوفمبر. الشبكة الرئيسية العامة لـ Elysium لم تنطلق بعد وفولتا شغالة من الآن، فحاملو $VOLTA يشوفون كيف تمشي الإطلاقات قبل ما يوصل الجميع.",
-      "tweet_ar": "اشتريت كمية من $VOLTA على Elysium. حسب ما أرى، هم أول منصة إطلاق حقيقية هناك وتستخدم مسارات يونيسواب الرسمية على Elysium. ولديهم أيضاً جسر يعمل بالكامل. ودخلت كذلك في $VOLT، وهو بوت تداول على الشبكة يتيح لك الشراء على VOLTA باستخدام ETH على شبكة روبن هود، ثم يرسل لك التوكنات التي اشتريتها على Elysium كإيردروب.",
-      "message_id": 330
-    },
     "2117997401084510497": {
       "author": "Xeetbtcvox",
       "text": "$0 → $35\n\nI think this could go much higher. https://t.co/Tqr9WRCwB8",
@@ -1935,9 +1921,19 @@
       "image": null,
       "my_text": "1/ why i'm early on volta, the elysium launchpad 🧵\n\nbuilt as the first uniswap v4 hook live on elysium, and $VOLTA sits at the center of it\n\neverything you need to know 👇 https://t.co/soqspdqPJV",
       "message_id": 433
+    },
+    "2118314205203837351": {
+      "to_me": true,
+      "author": "Elysianpad",
+      "text": "@barymoto @Mars_DeFi @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @Stockium @eleosfun @Bunnypadfun @SignalFam @VoltaFamily Elysianpad in addition to having v4 hook live has 100% of fees dedicated to buybacks\nThis is in addition to swap and bridge function incorporated into the platform",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "@Mars_DeFi @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @Stockium @eleosfun @Bunnypadfun @SignalFam @Elysianpad solid breakdown but you’re missing volta, first uniswap v4 hook live on elysium and 80% of fees go to buying back and burning $VOLTA @VoltaFamily",
+      "message_id": 520
     }
   },
-  "angle_i": 328,
+  "angle_i": 329,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -2001,6 +1997,7 @@
     "do creators get a HYPE fee tally next to the $VOLTA burns?"
   ],
   "to_me_seen": [
+    "2118314205203837351",
     "2117986555780620334",
     "2117872026555965644",
     "2117895148365607335",
@@ -2008,7 +2005,7 @@
     "2117962241957904390",
     "2117945433234313681"
   ],
-  "last_to_me": 1793880349,
+  "last_to_me": 1793880476,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2206,8 +2203,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1793880376,
-  "last_mentions": 1793880376,
+  "last_fast": 1793880526,
+  "last_mentions": 1793880466,
   "last_slow": 1793880376,
   "tw_samples": [
     [
