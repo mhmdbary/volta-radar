@@ -7,7 +7,7 @@ import random
 
 import anthropic
 
-MODEL = "claude-opus-5-5"
+MODEL = "claude-haiku-5-5"
 
 FACTS = """About Volta (only use these facts; they come from @VoltaFamily's own posts):
 - Volta is "the Elysium launchpad for next-gen tokens". Elysium is the network built by Kinetiq, accelerating Hyperliquid.
@@ -140,7 +140,7 @@ SCHEMA = {
 
 # running token totals for this process; the bot moves them into its saved state for /apis
 USAGE = {"calls": 0, "input_tokens": 0, "output_tokens": 0}
-PRICE_PER_MTOK = {"input": 4.00, "output": 20.00}  # Claude Opus 5.5
+PRICE_PER_MTOK = {"input": 0.10, "output": 0.50}  # Claude Haiku 5.5
 
 
 def _ask(api_key, system, prompt, image=None):
@@ -149,11 +149,9 @@ def _ask(api_key, system, prompt, image=None):
         content = [{"type": "image", "source": {"type": "url", "url": image}},
                    {"type": "text", "text": prompt + "\n\n(The image above is attached to the tweet.)"}]
     client = anthropic.Anthropic(api_key=api_key)
-    response = client.beta.messages.create(
+    response = client.messages.create(
         model=MODEL,
         max_tokens=2000,
-        betas=["server-side-fallback-2026-07-01"],
-        fallbacks="default",
         output_config={"effort": "medium", "format": {"type": "json_schema", "schema": SCHEMA}},
         system=system,
         messages=[{"role": "user", "content": content}],
