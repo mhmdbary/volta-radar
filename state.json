@@ -1,5 +1,5 @@
 {
-  "last_check": 1793837861,
+  "last_check": 1793837981,
   "seen_ids": [
     "2118023800369615214",
     "2117726419086413958",
@@ -86,6 +86,7 @@
     "2117862767831159287",
     "2117896640929603800",
     "2118112875944595825",
+    "2118135395665977702",
     "2117942008467570943",
     "2117689582485422507",
     "2117970677550682480",
@@ -415,20 +416,6 @@
   },
   "last_follow_check": 1793837224,
   "drafts": {
-    "2117995905525907769": {
-      "author": "elonmusk",
-      "text": "Free new dish for all early Starlink customers",
-      "reply": "free gear for early customers is the most underrated loyalty move in tech. volta's version is more on-chain, 80% of trading fees buy back $VOLTA and burn it, so the token gets a little smaller every time people actually use the thing",
-      "tried": [
-        "free gear for early customers is the most underrated loyalty move in tech. volta's version is more on-chain, 80% of trading fees buy back $VOLTA and burn it, so the token gets a little smaller every time people actually use the thing"
-      ],
-      "image": null,
-      "followers": 241467807,
-      "relevant": false,
-      "reply_ar": "المعدات المجانية للعملاء الأوائل هي أكثر خطوة ولاء مستهان بها في التقنية. نسخة فولتا منها على السلسلة، 80% من رسوم التداول تشتري $VOLTA وتحرقه، فيصغر المعروض من التوكن قليلاً كلما استخدم الناس المنصة فعلاً",
-      "tweet_ar": "طبق جديد مجاني لجميع عملاء ستارلينك الأوائل",
-      "message_id": 326
-    },
     "2117996293188718856": {
       "author": "elonmusk",
       "text": "At last there will be one network with good signal everywhere!",
@@ -1828,11 +1815,24 @@
       "reply_ar": "فوضى خالصة، جماعة $VOLTA سيقضون وقتهم على لوحة الترند في فولتا",
       "tweet_ar": "يوم 9 نوفمبر سيكون فوضى! أرغوس وصل إلى 35 مليون في اليوم الأول",
       "message_id": 429
+    },
+    "2118135395665977702": {
+      "author": "0xagoes1",
+      "text": "@ism_sol @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @ronspadfun @VoltaFamily @agora_elysium @elyxa_trade @Stockium $KLEOS 🚀",
+      "reply": "elysium starter pack right there, and volta already being live before the nov 9 mainnet is why $VOLTA is on my radar",
+      "tried": [
+        "elysium starter pack right there, and volta already being live before the nov 9 mainnet is why $VOLTA is on my radar"
+      ],
+      "image": null,
+      "followers": 3409,
+      "relevant": true,
+      "reply_ar": "هذه هي باقة البداية لمشاريع إليسيوم، وكون فولتا يعمل بالفعل قبل إطلاق الشبكة الرئيسية في 9 نوفمبر هو سبب اهتمامي بـ $VOLTA",
+      "tweet_ar": "$KLEOS 🚀",
+      "message_id": 430
     }
   },
-  "angle_i": 214,
+  "angle_i": 215,
   "recent_texts": [
-    "solid grab before the clock runs out, volta's burn has no timer, 80% of fees take $VOLTA off the market for good",
     "first v4 hook live on elysium is the real headline, it's not 'official' yet since it's only been submitted to uniswap for approval. every volta token gets its own v4 pool paired with HYPE, so tator wiring that in makes sense to this $VOLTA holder",
     "bots incoming lol. volta's anti-snipe is why i watch $VOLTA",
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
@@ -1891,7 +1891,8 @@
     "arc going from testnet crumbs to 9 figures is the comp i keep thinking about too. on volta 80% of fees buy back and burn $VOLTA, so mainnet volume would show up on the burn dashboard",
     "btc or HYPE pairs? volta's v4 pools are all HYPE, $VOLTA included",
     "all these pads on one chart page make launch day easy to compare. usually snipers own the first candle, on volta the hook has anti-snipe at launch, the $VOLTA detail i'd zoom in on",
-    "pure chaos, $VOLTA folks will live on volta's trending board"
+    "pure chaos, $VOLTA folks will live on volta's trending board",
+    "elysium starter pack right there, and volta already being live before the nov 9 mainnet is why $VOLTA is on my radar"
   ],
   "to_me_seen": [
     "2117962241957904390",
@@ -1900,7 +1901,7 @@
     "2117986555780620334",
     "2117945433234313681"
   ],
-  "last_to_me": 1793837722,
+  "last_to_me": 1793837865,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2093,11 +2094,12 @@
     "2118128608338207226",
     "2118131354600886509",
     "2118134132395958768",
-    "2118134498097283161"
+    "2118134498097283161",
+    "2118135395665977702"
   ],
-  "last_fast": 1793837861,
-  "last_mentions": 1793837801,
-  "last_slow": 1793837801,
+  "last_fast": 1793837981,
+  "last_mentions": 1793837981,
+  "last_slow": 1793837981,
   "tw_samples": [
     [
       1793779148,
@@ -2499,9 +2501,9 @@
       "output_tokens": 159289
     },
     "2026-11-05": {
-      "calls": 3,
-      "input_tokens": 15098,
-      "output_tokens": 1922
+      "calls": 4,
+      "input_tokens": 19542,
+      "output_tokens": 2911
     }
   },
   "x_actions": {
