@@ -1279,7 +1279,7 @@ def intel_kols(cfg, settings):
     data = intel_data(cfg, settings)
     voices = data["voices"]
     fans = [(u, v) for u, v in sorted(voices.items(), key=lambda kv: -kv[1]["views"])
-            if u.lower() not in data["skip"] and int(v["followers"] or 0) >= 1000 and quotable(v["best"]) and any(t["author"]["userName"] == u for t in data["picked"]["praise"])][:6]
+            if u.lower() not in data["skip"] and int(v["followers"] or 0) >= 1000 and any(t["author"]["userName"] == u for t in data["picked"]["praise"])][:6]
     hollow = sorted(((u, v) for u, v in voices.items() if int(v["followers"] or 0) >= 100000
                      and v["views"] / v["posts"] < int(v["followers"]) * 0.0005), key=lambda kv: -int(kv[1]["followers"]))[:6]
     body = ["🎯 <b>ALREADY SUPPORTIVE</b> <i>(worth a DM)</i>", "", f"<code>{'Views':>6} {'Followers':>9}</code>"]
