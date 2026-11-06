@@ -1,5 +1,5 @@
 @echo off
-title Volta Radar
+title Bary Radar
 cd /d "%~dp0"
 :loop
 python notifier.py

@@ -4,49 +4,29 @@ Drafts go to the admin's private chat only, and nothing is posted on X automatic
 """
 import json
 import random
+from pathlib import Path
 
 import anthropic
 
 MODEL = "claude-haiku-5-5"
 
-FACTS = """About Volta (only use these facts; they come from @VoltaFamily's own posts):
-- Volta is "the Elysium launchpad for next-gen tokens". Elysium is the network built by Kinetiq, accelerating Hyperliquid.
-- Volta is the first Uniswap V4 hook live on Elysium. Every token launched gets its own Uniswap V4 pool paired with HYPE.
-- Built into the hook: creator-set fees, anti-snipe protection at launch, and buyback & burn on every trade.
-- Creators earn fees in HYPE and tokenized stocks.
-- Like the Pons model, 80% of trading fees buy back $VOLTA and every token bought back is burned
-  (there is a live burn dashboard).
-- Product: charts that show your own buys/sells and average entry, a trending board, a free fast Elysium RPC,
-  bridging to Elysium from 10+ chains. Volta launches already trade on BasedBot, JustRektTool and Agora.
-- Volta is already live; Elysium's public mainnet launch is November 9.
-- X account: @VoltaFamily
-
-Do NOT say or imply: that the hook is approved, licensed or "official" Uniswap (it has only been submitted to
-Uniswap for approval), that other launchpads are forks or unauthorized, or that Volta will be listed on any app
-or aggregator in the future."""
-
+PROJECT = json.loads((Path(__file__).parent / "settings.json").read_text(encoding="utf-8-sig"))["project"]
+NAME, TICKER = PROJECT["name"], PROJECT["ticker"]
+LOWER = NAME.lower()
+FACTS = "\n".join(PROJECT["facts"])
 # Each draft leans on one of these, rotating so posts don't all sound the same.
-ANGLES = [
-    "creators get paid: launch a token and you earn fees in HYPE",
-    "creators can also earn in tokenized stocks, not just crypto",
-    "buyback and burn: 80% of fees buy back $VOLTA and burn it, more trades means less supply",
-    "tech: first uniswap v4 hook live on elysium, every token gets its own v4 pool paired with HYPE",
-    "fair launches: anti-snipe protection at launch so bots don't eat the first block",
-    "product: charts that show your own trades and average entry, or the trending board",
-    "elysium: building where the hyperliquid ecosystem is heading, public mainnet nov 9",
-    "what volta shipped recently, or a question for launchers about what a good launch looks like",
-]
+ANGLES = PROJECT["angles"]
 
 # The shape of the post rotates separately from the angle, so two drafts never feel alike.
 STYLES = [
     "a sharp one-liner, under 90 characters",
     "agree with them, then add one concrete detail they didn't mention",
-    "a light joke or playful twist on what they said, then the volta point",
-    "a genuine question back to them that invites a reply, with volta as the context",
+    f"a light joke or playful twist on what they said, then the {LOWER} point",
+    f"a genuine question back to them that invites a reply, with {LOWER} as the context",
     "a confident hot take in two short sentences",
-    "a casual observation about the space that leads into the volta point (no made-up personal stories)",
-    "a quick comparison: how it usually goes vs how it works on volta",
-    "short reaction first (2-4 words), then one clear sentence about volta",
+    f"a casual observation about the space that leads into the {LOWER} point (no made-up personal stories)",
+    f"a quick comparison: how it usually goes vs how it works on {LOWER}",
+    f"short reaction first (2-4 words), then one clear sentence about {LOWER}",
 ]
 
 # Length is picked at random per draft (weighted), so replies range from a few words to a full thought,
@@ -68,9 +48,9 @@ def pick_length():
 OVERUSED_OPENERS = ["gm", "honestly", "ngl", "this is", "love this", "wild", "kinda wild", "fun", "nice",
                     "seconding", "respect", "real", "big", "huge", "facts", "same"]
 
-RULES = """Style: write like a real person on crypto twitter typing on their phone, not like marketing copy.
+RULES = f"""Style: write like a real person on crypto twitter typing on their phone, not like marketing copy.
 - always write in English, even when the user's instruction is in Arabic
-- one idea per post. never list several Volta features in one go
+- one idea per post. never list several {NAME} features in one go
 - follow the Length you're given exactly. mostly lowercase, light punctuation, contractions, plain words
 - talk to the person, react to what they actually said; a bit of opinion or humor is good
 - vary the shape: sometimes a reaction, sometimes a question, sometimes a one-liner, sometimes a quick take
@@ -79,32 +59,31 @@ RULES = """Style: write like a real person on crypto twitter typing on their pho
 - don't open with "great point" or similar filler
 
 Limits:
-- the user is NOT on the Volta team. they are a $VOLTA holder and community supporter. never write "we built",
-  "we shipped", "our launchpad", "at volta we" or anything that claims to be the team. speak as a user and holder:
-  "volta lets creators...", "been watching volta...", "what i like about volta...". mention that you hold $VOLTA
+- the user is NOT on the {NAME} team. they are a {TICKER} holder and community supporter. never write "we built",
+  "we shipped", "our {PROJECT['category']}", "at {LOWER} we" or anything that claims to be the team. speak as a user and holder:
+  "{LOWER} lets you...", "been watching {LOWER}...", "what i like about {LOWER}...". mention that you hold {TICKER}
   only now and then (roughly one post in four), never as a closing tag line, and not if a recent post did
 - never invent things the user did or saw (no "i bridged last night", "i launched a token", "i made x%").
-  stick to what volta does, opinions, and questions
-- always include the ticker $VOLTA exactly once, worked naturally into the sentence (not tacked on at the end).
-  $VOLTA is the token (the one that gets bought back and burned); the platform is "volta". never write
-  "we built $VOLTA" or call the launchpad $VOLTA
+  stick to what {LOWER} does, opinions, and questions
+- always include the ticker {TICKER} exactly once, worked naturally into the sentence (not tacked on at the end).
+  {TICKER} is the token; the product is "{LOWER}". never write "we built {TICKER}" or call the
+  {PROJECT['category']} {TICKER}
 - describe what the product does, never promise money: no "fund your bag", "get paid big", "easy money",
   "passive income", or anything that implies profit
 - never tell anyone to buy, ape, or invest; no price talk, no "100x", no financial advice
-- no claims about competitors, not even implied ones (don't suggest other launchpads are forks, unsafe or
-  "mystery code"), and nothing about Volta beyond the facts above"""
+- no claims about competitors, not even implied ones (don't suggest other projects are forks, unsafe or
+  "mystery code"), and nothing about {NAME} beyond the facts above"""
 
-REPLY_SYSTEM = f"""You help a $VOLTA holder and community supporter write replies on X (Twitter).
+REPLY_SYSTEM = f"""You help a {TICKER} holder and community supporter write replies on X (Twitter).
 
 {FACTS}
 
-For the tweet you are given, write one reply that promotes Volta well. Its length is given below; real people vary a lot.
-- Start from what the tweet actually says, then connect it to Volta in one smooth step. It should read like
+For the tweet you are given, write one reply that promotes {NAME} well. Its length is given below; real people vary a lot.
+- Start from what the tweet actually says, then connect it to {NAME} in one smooth step. It should read like
   something an informed holder would naturally say in the conversation, not an ad dropped under someone's post.
-- Use one Volta angle only. Prefer the suggested angle if it fits the tweet; otherwise pick a better one.
-- set relevant to true when the tweet is about launchpads, launching tokens, Elysium, Kinetiq, Hyperliquid
-  builders, Uniswap V4 or creator fees (the link is natural); false when you had to bridge from an unrelated topic.
-  When it's a bridge, keep it light and playful, a quick nod to volta rather than a pitch.
+- Use one {NAME} angle only. Prefer the suggested angle if it fits the tweet; otherwise pick a better one.
+- set relevant to true when the tweet is about {PROJECT['topics']} (the link is natural); false when you had to bridge from an unrelated topic.
+  When it's a bridge, keep it light and playful, a quick nod to {LOWER} rather than a pitch.
 - If the user gives an instruction, follow it (tone, points to make), still within the limits below.
 - tweet_ar: a natural Arabic translation of the original tweet's message, so an Arabic speaker understands it.
   leave out the @handles at the start and any links; translate only what the person actually said.
@@ -112,11 +91,11 @@ For the tweet you are given, write one reply that promotes Volta well. Its lengt
 
 {RULES}"""
 
-TWEET_SYSTEM = f"""You help a $VOLTA holder and community supporter write their own tweets on X (Twitter).
+TWEET_SYSTEM = f"""You help a {TICKER} holder and community supporter write their own tweets on X (Twitter).
 
 {FACTS}
 
-Write one tweet that promotes Volta well. Its length is given below; real people vary a lot.
+Write one tweet that promotes {NAME} well. Its length is given below; real people vary a lot.
 Follow the user's instruction if there is one; otherwise build it around the suggested angle.
 Explain that one feature clearly enough that someone new gets what it is and why it matters,
 in plain words a degen would use. Sound like a confident early user who gets it, not an ad.

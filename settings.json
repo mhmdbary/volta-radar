@@ -64,6 +64,41 @@
       "kilnpad",
       "perpmefun",
       "ascendlaunch"
+    ],
+    "ticker": "$VOLTA",
+    "category": "launchpad",
+    "topics": "launchpads, launching tokens, Elysium, Kinetiq, Hyperliquid builders, Uniswap V4 or creator fees",
+    "eco_words": [
+      "volta",
+      "elysium",
+      "kinetiq"
+    ],
+    "facts": [
+      "About Volta (only use these facts; they come from @VoltaFamily's own posts):",
+      "- Volta is \"the Elysium launchpad for next-gen tokens\". Elysium is the network built by Kinetiq, accelerating Hyperliquid.",
+      "- Volta is the first Uniswap V4 hook live on Elysium. Every token launched gets its own Uniswap V4 pool paired with HYPE.",
+      "- Built into the hook: creator-set fees, anti-snipe protection at launch, and buyback & burn on every trade.",
+      "- Creators earn fees in HYPE and tokenized stocks.",
+      "- Like the Pons model, 80% of trading fees buy back $VOLTA and every token bought back is burned",
+      "  (there is a live burn dashboard).",
+      "- Product: charts that show your own buys/sells and average entry, a trending board, a free fast Elysium RPC,",
+      "  bridging to Elysium from 10+ chains. Volta launches already trade on BasedBot, JustRektTool and Agora.",
+      "- Volta is already live; Elysium's public mainnet launch is November 9.",
+      "- X account: @VoltaFamily",
+      "",
+      "Do NOT say or imply: that the hook is approved, licensed or \"official\" Uniswap (it has only been submitted to",
+      "Uniswap for approval), that other launchpads are forks or unauthorized, or that Volta will be listed on any app",
+      "or aggregator in the future."
+    ],
+    "angles": [
+      "creators get paid: launch a token and you earn fees in HYPE",
+      "creators can also earn in tokenized stocks, not just crypto",
+      "buyback and burn: 80% of fees buy back $VOLTA and burn it, more trades means less supply",
+      "tech: first uniswap v4 hook live on elysium, every token gets its own v4 pool paired with HYPE",
+      "fair launches: anti-snipe protection at launch so bots don't eat the first block",
+      "product: charts that show your own trades and average entry, or the trending board",
+      "elysium: building where the hyperliquid ecosystem is heading, public mainnet nov 9",
+      "what volta shipped recently, or a question for launchers about what a good launch looks like"
     ]
   }
 }

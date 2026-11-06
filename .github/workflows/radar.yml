@@ -1,4 +1,4 @@
-name: Volta Radar
+name: Bary Radar
 
 # GitHub's cron is unreliable (often hours late), so each run keeps checking for
 # ~5.5 hours and then starts the next run itself. The hourly cron is only a backup.

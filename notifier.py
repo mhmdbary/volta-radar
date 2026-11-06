@@ -30,8 +30,18 @@ TAGS_FILE = ROOT / "tags.json"
 STATS_FILE = ROOT / "stats.json"
 MYWORK_FILE = ROOT / "mywork.json"
 
+PRODUCT = "Bary Radar"
+# Everything about the project this copy is installed for comes from settings.json (see INSTALL.md)
+PROJECT = json.loads(SETTINGS_FILE.read_text(encoding="utf-8-sig"))["project"]
+NAME, TICKER = PROJECT["name"], PROJECT["ticker"]
+OFFICIAL = PROJECT["handle"].lower()
 # tags containing one of these get the green "our ecosystem" marker
-ECO_WORDS = ("volta", "elysium", "kinetiq")
+ECO_WORDS = tuple(PROJECT["eco_words"])
+
+
+def about_project(text):
+    low = (text or "").lower()
+    return NAME.lower() in low or TICKER.lower() in low
 
 TWITTERAPI_BASE = "https://api.twitterapi.io"
 BATCH_SIZE = 20  # handles per search query (one paid request per batch)
@@ -211,14 +221,14 @@ def strip_leading_mentions(text):
     return " ".join(words).strip()
 
 
-RLM = "‏"  # right-to-left mark: keeps Arabic lines from getting scrambled by English words / $VOLTA
+RLM = "‏"  # right-to-left mark: keeps Arabic lines from getting scrambled by English words / tickers
 
 
 LATIN_RUN = re.compile(r"[A-Za-z0-9$@#%_./'+-]+(?:[ ,:()]+[A-Za-z0-9$@#%_./'+-]+)*")
 
 
 def arabic_quote(text):
-    """Arabic translation as a collapsed quote. Each English run ($VOLTA, e/acc, volta...) is wrapped in a
+    """Arabic translation as a collapsed quote. Each English run (tickers, names...) is wrapped in a
     left-to-right isolate, and each line starts right-to-left, so mixed Arabic + English reads in order."""
     lines = strip_leading_mentions(text).split("\n")
     fixed = [RLM + LATIN_RUN.sub(lambda m: "⁦" + m.group(0) + "⁩", html.escape(l)) for l in lines]
@@ -226,10 +236,10 @@ def arabic_quote(text):
 
 
 HELP_TEXT = (
-    "⚡ <b>VOLTA RADAR</b>\n\n"
+    f"⚡ <b>{PRODUCT.upper()}</b>\n\n"
     "📊 <b>Reports</b>\n"
     "/mywork · /today · /week · /month\n"
-    "/links · all your Volta tweet links\n"
+    f"/links · all your {NAME} tweet links\n"
     "/leaderboard\n\n"
     "✍️ <b>Writing</b>\n"
     "Send any idea (عربي / English) → English tweet\n"
@@ -506,7 +516,7 @@ def tg_call(cfg, method, payload):
 
 
 def wants_draft(tweet, tags, settings, mention):
-    """Every tracked account and every mention gets read; the model still skips tweets where Volta isn't relevant."""
+    """Every tracked account and every mention gets read; the model still skips tweets where the project isn't relevant."""
     if settings.get("ai_all_tracked", True):
         return True
     tag = (tags.get(((tweet.get("author") or {}).get("userName") or "").lower()) or "").lower()
@@ -841,10 +851,10 @@ def tweet_media(tweet):
 
 
 def account_tier(tags, handle, followers):
-    """How loud an alert should be: 3 = Volta itself, 2 = official/huge accounts, 1 = notable, 0 = normal."""
+    """How loud an alert should be: 3 = the project itself, 2 = official/huge accounts, 1 = notable, 0 = normal."""
     tag = (tags.get((handle or "").lower()) or "").lower()
     followers = followers if isinstance(followers, int) else 0
-    if (handle or "").lower() == "voltafamily":
+    if (handle or "").lower() == OFFICIAL:
         return 3
     if "official" in tag or "founder" in tag or followers >= 100_000:
         return 2
@@ -856,7 +866,7 @@ def account_tier(tags, handle, followers):
 def tier_header(tags, handle, followers):
     tier = account_tier(tags, handle, followers)
     if tier == 3:
-        return ["🚨🚨🚨 <b>VOLTA OFFICIAL</b> 🚨🚨🚨", "⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡"]
+        return [f"🚨🚨🚨 <b>{NAME.upper()} OFFICIAL</b> 🚨🚨🚨", "⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡"]
     if tier == 2:
         return [f"🔥🔥 <b>BIG ACCOUNT</b> · {short_num(followers)} followers 🔥🔥"]
     if tier == 1:
@@ -878,7 +888,7 @@ def format_alert(tweet, settings, tags, mention=False):
 
     top = tier_header(tags, handle, author.get("followers"))
     if mention:
-        top.append("💬 <b>$VOLTA MENTION</b>")
+        top.append(f"💬 <b>{TICKER} MENTION</b>")
     elif is_highlight(tweet, settings):
         top.append("⭐ <b>IMPORTANT</b> ⭐")
     top.append(tag_line(tags, handle))
@@ -889,7 +899,7 @@ def format_alert(tweet, settings, tags, mention=False):
                    "",
                    f"<blockquote>{text}</blockquote>",
                    LINE]
-    tags_txt = " ".join(x for x in (tag_hashtag(tags, handle), "#VoltaRadar") if x)
+    tags_txt = " ".join(x for x in (tag_hashtag(tags, handle), "#BaryRadar") if x)
     parts.append(f"⚡ {tags_txt}")
     return "\n".join(parts)
 
@@ -939,12 +949,11 @@ def handle_engage_button(cfg, cb):
         print(f"[engage edit error] {e}")
 
 
-def is_volta_tweet(tweet_or_draft):
-    """From @VoltaFamily, or anyone posting / replying about Volta."""
+def is_project_tweet(tweet_or_draft):
+    """From the official account, or anyone posting / replying about the project."""
     author = (tweet_or_draft.get("author") or {})
     handle = author.get("userName") if isinstance(author, dict) else author
-    text = (tweet_or_draft.get("text") or "").lower()
-    return (handle or "").lower() == "voltafamily" or "volta" in text
+    return (handle or "").lower() == OFFICIAL or about_project(tweet_or_draft.get("text"))
 
 
 CHANNEL_DOWN = {"until": 0}
@@ -997,7 +1006,7 @@ def print_chat_ids(token):
 
 
 def record_stats(tweets):
-    """Count posts per tracked account and Volta mentions per author, for the leaderboard."""
+    """Count posts per tracked account and project mentions per author, for the leaderboard."""
     stats = load_json(STATS_FILE, {})
     stats.setdefault("since", time.strftime("%Y-%m-%d", time.gmtime()))
     posts, mentions = stats.setdefault("posts", {}), stats.setdefault("mentions", {})
@@ -1011,7 +1020,7 @@ def record_stats(tweets):
             followers[handle] = author["followers"]
         if not mention:
             posts[handle] = posts.get(handle, 0) + 1
-        if mention or "volta" in (t.get("text") or "").lower():
+        if mention or about_project(t.get("text")):
             mentions[handle] = mentions.get(handle, 0) + 1
     save_json(STATS_FILE, stats)
 
@@ -1027,34 +1036,35 @@ def is_spam(text):
 
 
 def build_leaderboard(cfg, tags, settings):
-    """Who talks about Volta the most, and the strongest Volta posts, counted live from X (Volta only)."""
+    """Who talks about the project the most, counted live from X (this project only)."""
     try:
         start = calendar.timegm(time.strptime(settings.get("work_start", ""), "%Y-%m-%d"))
     except ValueError:
         start = int(time.time()) - 7 * 86400
-    terms = settings.get("mention_terms") or ["$VOLTA", "@VoltaFamily"]
-    query = "(" + " OR ".join(terms + ["volta.family"]) + f") since_time:{start} -filter:retweets -from:VoltaFamily"
+    terms = settings.get("mention_terms") or [TICKER, "@" + PROJECT["handle"]]
+    query = ("(" + " OR ".join(terms + [PROJECT["site"]]) + f") since_time:{start} -filter:retweets "
+             f"-from:{PROJECT['handle']}")
     tweets = [t for t in search_tweets(cfg["twitterapi_key"], query)
               if not is_spam(t.get("text"))  # drop "let's collab / DM me" promo accounts
               and int((t.get("author") or {}).get("followers") or 0) >= 100]
 
-    # Points per supporter: posting about Volta 3 · quoting a Volta post 3 · replying to one 2 · reposting one 1.
+    # Points per supporter: posting about the project 3 · quoting an official post 3 · replying to one 2 · reposting one 1.
     # (Who liked a post isn't visible on X anymore, so likes can't be counted per person.)
     POINTS = {"post": 3, "quote": 3, "reply": 2, "repost": 1}
     board, followers = {}, {}
 
     def add(user, kind):
         h = (user or {}).get("userName")
-        if not h or h.lower() == "voltafamily":
+        if not h or h.lower() == OFFICIAL:
             return
         followers[h] = user.get("followers", user.get("followers_count"))
         row = board.setdefault(h, {"post": 0, "quote": 0, "reply": 0, "repost": 0})
         row[kind] += 1
 
     key = {"X-API-Key": cfg["twitterapi_key"]}
-    volta_posts = search_tweets(cfg["twitterapi_key"], f"from:VoltaFamily since_time:{start} -filter:replies")
+    official_posts = search_tweets(cfg["twitterapi_key"], f"from:{PROJECT['handle']} since_time:{start} -filter:replies")
     counted = set()
-    for vp in volta_posts:
+    for vp in official_posts:
         for kind, path, field in (("reply", "replies", "tweets"), ("quote", "quotes", "tweets"),
                                   ("repost", "retweeters", "users")):
             try:
@@ -1069,7 +1079,7 @@ def build_leaderboard(cfg, tags, settings):
                 elif not is_spam(item.get("text")):
                     counted.add(str(item.get("id")))
                     add(item.get("author"), kind)
-    for t in tweets:  # posts about Volta that weren't already counted as a reply / quote
+    for t in tweets:  # posts about the project that weren't already counted as a reply / quote
         if str(t.get("id")) not in counted:
             add(t.get("author"), "post")
 
@@ -1077,7 +1087,7 @@ def build_leaderboard(cfg, tags, settings):
         return sum(POINTS[k] * v for k, v in row.items())
 
     ranked = sorted(board.items(), key=lambda kv: (-points(kv[1]), -(followers.get(kv[0]) or 0)))[:10]
-    lines = ["🏆 <b>VOLTA SUPPORTERS</b>",
+    lines = [f"🏆 <b>{NAME.upper()} SUPPORTERS</b>",
              f"<i>since {time.strftime('%b %d', time.gmtime(start))} · post 3 · quote 3 · reply 2 · repost 1</i>",
              LINE,
              f"<code>{'#':>2} {'Pts':>4} {'Post':>4} {'Rply':>4} {'Qt':>3} {'RT':>3}</code>"]
@@ -1086,8 +1096,8 @@ def build_leaderboard(cfg, tags, settings):
                      f"{row['repost']:>3}</code>  @{html.escape(h)}")
     if not ranked:
         lines.append("<i>Nothing yet.</i>")
-    lines += [LINE, f"<i>{len(volta_posts)} Volta posts checked · {len(board)} supporters</i>",
-              "⚡ #Leaderboard #VoltaRadar"]
+    lines += [LINE, f"<i>{len(official_posts)} {NAME} posts checked · {len(board)} supporters</i>",
+              "⚡ #Leaderboard #BaryRadar"]
     return "\n".join(lines)
 
 
@@ -1226,7 +1236,7 @@ def build_intel(cfg, settings, days=7):
         lines += [LINE, "🔍 <b>BIG FOLLOWING, LOW REACH</b> <i>(check before paying)</i>"]
         lines += [f"@{html.escape(u)} · {compact(v['followers'])} followers · {compact(v['views'] / v['posts'])} views per post"
                   for u, v in sorted(hollow, key=lambda kv: -int(kv[1]["followers"]))[:4]]
-    lines += [LINE, f"⚡ <i>Tracked by Volta Radar · {time.strftime('%b %d, %Y', time.gmtime())}</i>"]
+    lines += [LINE, f"⚡ <i>Tracked by {PRODUCT} · {time.strftime('%b %d, %Y', time.gmtime())}</i>"]
 
     messages, current = [], ""  # Telegram caps a message at 4096 characters; sections never split across a tag
     for block in "\n".join(lines).split(LINE):
@@ -1238,7 +1248,7 @@ def build_intel(cfg, settings, days=7):
 
 
 def mention_query(settings, handles, since):
-    """Search for Volta mentions by anyone not already tracked (their posts arrive as normal alerts)."""
+    """Search for project mentions by anyone not already tracked (their posts arrive as normal alerts)."""
     terms = settings.get("mention_terms") or []
     if not terms:
         return None
@@ -1250,8 +1260,8 @@ def mention_query(settings, handles, since):
 
 
 def split_lanes(handles, tags):
-    """Fast lane: Volta + our ecosystem (checked every few seconds). Slow lane: everyone else."""
-    fast = [h for h in handles if h.lower() == "voltafamily" or tag_marker(tags.get(h.lower())) == "🟢"]
+    """Fast lane: the project + our ecosystem (checked every few seconds). Slow lane: everyone else."""
+    fast = [h for h in handles if h.lower() == OFFICIAL or tag_marker(tags.get(h.lower())) == "🟢"]
     slow = [h for h in handles if h not in fast]
     return fast, slow
 
@@ -1272,7 +1282,7 @@ def warn_ai_down(cfg, state, error):
 
 def check_once(cfg, settings, handles, state):
     # Credits are spent per search, so each group is checked at its own speed:
-    #   fast lane (Volta + ecosystem) every fast_seconds, everyone else every slow_seconds, mentions every mention_seconds.
+    #   fast lane (project + ecosystem) every fast_seconds, everyone else every slow_seconds, mentions every mention_seconds.
     # X search shows new tweets a minute or two late, so each search looks back a little past its last run;
     # tweets we already sent are skipped by their id.
     lookback = int(settings.get("lookback_seconds", 180))
@@ -1407,7 +1417,7 @@ def build_digest(settings, tags, tweets, today, n_accounts):
                   f"<blockquote>{snippet}</blockquote>"]
     if not top:
         lines.append("<i>No posts in the last 24h.</i>")
-    lines += [LINE, f"📈 {len(tweets)} posts · {n_accounts} accounts tracked", "⚡ #DailyRadar #VoltaRadar"]
+    lines += [LINE, f"📈 {len(tweets)} posts · {n_accounts} accounts tracked", "⚡ #DailyRadar #BaryRadar"]
     return "\n".join(lines)
 
 
@@ -1473,16 +1483,16 @@ def mark_answered_drafts(cfg, tags, my_tweets):
                 print(f"[mark done error] {e}")
 
 
-def fetch_my_volta_tweets(cfg, me, tags, since):
-    """Your Volta-related tweets since a time; every one is also saved to mywork.json with its link."""
+def fetch_my_project_tweets(cfg, me, tags, since):
+    """Your project-related tweets since a time; every one is also saved to mywork.json with its link."""
     tweets = search_tweets(cfg["twitterapi_key"], f"from:{me} since_time:{since} -filter:retweets")
 
-    def about_volta(t):
+    def counts(t):
         to = (t.get("inReplyToUsername") or "").lower()
-        return ("volta" in (t.get("text") or "").lower() or to == "voltafamily"
+        return (about_project(t.get("text")) or to == OFFICIAL
                 or tag_marker(tags.get(to)) == "🟢" or is_via_bot(t))
 
-    tweets = [t for t in tweets if about_volta(t)]
+    tweets = [t for t in tweets if counts(t)]
     mark_answered_drafts(cfg, tags, tweets)
     saved = load_json(MYWORK_FILE, {})
     for t in tweets:
@@ -1495,7 +1505,7 @@ def fetch_my_volta_tweets(cfg, me, tags, since):
 
 
 def refresh_my_work(cfg, settings, handles, state, full=False):
-    """Keep mywork.json up to date with your Volta tweets. The regular pass only reads the last 2 hours
+    """Keep mywork.json up to date with your project tweets. The regular pass only reads the last 2 hours
     (enough to turn answered drafts green); full=True re-reads everything since work_start."""
     me = (settings.get("my_handle") or "").lstrip("@")
     if not me:
@@ -1506,15 +1516,15 @@ def refresh_my_work(cfg, settings, handles, state, full=False):
         since = int(time.time()) - 7 * 86400
     if not full:
         since = max(since, int(time.time()) - 2 * 3600)
-    fetch_my_volta_tweets(cfg, me, load_json(TAGS_FILE, {}), since)
+    fetch_my_project_tweets(cfg, me, load_json(TAGS_FILE, {}), since)
 
 
 def links_messages():
-    """All saved Volta tweet links, newest first, split into Telegram-sized messages."""
+    """All saved project tweet links, newest first, split into Telegram-sized messages."""
     saved = sorted(load_json(MYWORK_FILE, {}).items(), key=lambda kv: int(kv[0]), reverse=True)
     if not saved:
         return ["No saved links yet."]
-    header = f"🔗 <b>MY VOLTA LINKS</b> · {len(saved)} total (tap to copy)\n{LINE}"
+    header = f"🔗 <b>MY {NAME.upper()} LINKS</b> · {len(saved)} total (tap to copy)\n{LINE}"
     msgs, cur = [], header
     for i, (_, v) in enumerate(saved, 1):
         kind = f"↪️ @{html.escape(v['to'])}" if v.get("to") else "📝 Post"
@@ -1533,13 +1543,13 @@ def build_my_report(cfg, settings, tags, days):
     if not me:
         return "Set <code>my_handle</code> in settings.json first."
     since = int(time.time()) - days * 86400
-    try:  # never count anything from before the Volta work started
+    try:  # never count anything from before the work started
         start = calendar.timegm(time.strptime(settings.get("work_start", ""), "%Y-%m-%d"))
         if start > since:
             since, days = start, 0  # 0 = "since the work started"
     except ValueError:
         pass
-    tweets = fetch_my_volta_tweets(cfg, me, tags, since)
+    tweets = fetch_my_project_tweets(cfg, me, tags, since)
     via_bot = sum(1 for t in tweets if is_via_bot(t))
     is_reply = lambda t: bool(t.get("isReply") or t.get("inReplyToUsername"))
     replies = [t for t in tweets if is_reply(t)]
@@ -1549,7 +1559,7 @@ def build_my_report(cfg, settings, tags, days):
         return int(t.get(k) or 0)
 
     total = {k: sum(n(t, k) for t in tweets) for k in ("likeCount", "viewCount", "retweetCount", "replyCount")}
-    volta = sum(1 for t in tweets if "volta" in (t.get("text") or "").lower())
+    named = sum(1 for t in tweets if about_project(t.get("text")))
     avg_views = total["viewCount"] // len(tweets) if tweets else 0
     engagement = total["likeCount"] + total["retweetCount"] + total["replyCount"]
     rate = f"{engagement / total['viewCount'] * 100:.1f}%" if total["viewCount"] else "0%"
@@ -1574,8 +1584,8 @@ def build_my_report(cfg, settings, tags, days):
         row("Total activity", len(tweets)),
         row("  Replies", len(replies)),
         row("  Posts", len(posts)),
-        row("Mention $VOLTA", volta),
-        row("Via Volta Radar", via_bot),
+        row(f"Mention {TICKER}", named),
+        row(f"Via {PRODUCT}", via_bot),
         "",
         row("Impressions", short_num(total["viewCount"])),
         row("Avg per tweet", short_num(avg_views)),
@@ -1590,7 +1600,7 @@ def build_my_report(cfg, settings, tags, days):
     def code(text):
         return f"<code>{html.escape(text)}</code>"
 
-    lines = ["📊 <b>VOLTA CONTRIBUTION REPORT</b>",
+    lines = [f"📊 <b>{NAME.upper()} CONTRIBUTION REPORT</b>",
              f"<i>@{html.escape(me)} · {period}</i>", LINE, "📈 <b>OVERVIEW</b>"]
     lines += [code(l) if l else "" for l in table.split("\n")]
 
@@ -1627,7 +1637,7 @@ def build_my_report(cfg, settings, tags, days):
                          + f"  <a href=\"{tweet_url(t)}\">↗</a>  {account_link(t)}")
     else:
         lines += [LINE, "<i>No activity in this period.</i>"]
-    lines += [LINE, "<i>↗ opens the tweet · @name opens the profile</i>", "<i>Generated by Volta Radar</i>"]
+    lines += [LINE, "<i>↗ opens the tweet · @name opens the profile</i>", f"<i>Generated by {PRODUCT}</i>"]
     text = "\n".join(lines)
     return text if len(text) <= 4000 else text[:3990].rsplit("\n", 1)[0] + "\n…"
 
@@ -1657,7 +1667,7 @@ def format_new_follow(account, u, already_tracked):
              "", f"<blockquote>{bio}</blockquote>", LINE]
     if not already_tracked:
         lines.append(f"➕ Track it: <code>/add {user}</code>")
-    lines.append("⚡ #NewFollow #VoltaRadar")
+    lines.append("⚡ #NewFollow #BaryRadar")
     return "\n".join(lines)
 
 
