@@ -1,5 +1,5 @@
 {
-  "last_check": 1793966221,
+  "last_check": 1793966461,
   "seen_ids": [
     "2118026010604028093",
     "2118112875944595825",
@@ -15,9 +15,9 @@
     "2117771621528121427",
     "2118672000134582681",
     "2118327008765571084",
-    "2118326057468309512",
     "2118380729277026766",
     "2117955713255485501",
+    "2118326057468309512",
     "2118042176584327339",
     "2117958182416822702",
     "2118553966153716153",
@@ -178,6 +178,7 @@
     "2118168683864596546",
     "2117970556540875056",
     "2118396199137104248",
+    "2118674776751264226",
     "2118316265836273876",
     "2118360120015106179",
     "2117725086413402244",
@@ -832,20 +833,6 @@
   },
   "last_follow_check": 1793945781,
   "drafts": {
-    "2117997401084510497": {
-      "author": "Xeetbtcvox",
-      "text": "$0 → $35\n\nI think this could go much higher. https://t.co/Tqr9WRCwB8",
-      "reply": "robinhood chain collection pulling volume on day one is something. what do you think got people in early, the art or the community behind it? i keep asking that about volta launches on elysium too, $VOLTA has me watching first days closely",
-      "tried": [
-        "robinhood chain collection pulling volume on day one is something. what do you think got people in early, the art or the community behind it? i keep asking that about volta launches on elysium too, $VOLTA has me watching first days closely"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSjZ05XEAAXG3L.jpg",
-      "followers": 7943,
-      "relevant": false,
-      "reply_ar": "مجموعة على سلسلة روبن هود تجذب حجم تداول من أول يوم، شيء لافت. برأيك وش اللي جذب الناس بدري، الفن ولا المجتمع اللي وراها؟ أسأل نفس السؤال عن الإطلاقات على فولتا في إليزيوم، و$VOLTA خلاني أراقب الأيام الأولى عن قرب",
-      "tweet_ar": "من 0 إلى 35 دولار. أعتقد أنها ممكن ترتفع أكثر بكثير.",
-      "message_id": 331
-    },
     "2117998184941449633": {
       "author": "0xOmnia",
       "text": "🎯",
@@ -2235,9 +2222,19 @@
       "image": null,
       "my_text": "@Mars_DeFi @Enter_Elysium @TheKleos_ @Boxa_Elysium @ElysiumPump @Stockium @eleosfun @Bunnypadfun @SignalFam @Elysianpad solid breakdown but you’re missing volta, first uniswap v4 hook live on elysium and 80% of fees go to buying back and burning $VOLTA @VoltaFamily",
       "message_id": 520
+    },
+    "2118673964226732462": {
+      "to_me": true,
+      "author": "Crypt0_Andrii",
+      "text": "@barymoto @VoltaFamily is it a leading launchpad?",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "",
+      "message_id": 866
     }
   },
-  "angle_i": 633,
+  "angle_i": 635,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -2307,9 +2304,10 @@
     "2117945433234313681",
     "2118207660260741354",
     "2117872026555965644",
+    "2118673964226732462",
     "2117962241957904390"
   ],
-  "last_to_me": 1793965742,
+  "last_to_me": 1793966471,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -2507,7 +2505,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1793966221,
+  "last_fast": 1793966461,
   "last_mentions": 1793966221,
   "last_slow": 1793966221,
   "tw_samples": [
