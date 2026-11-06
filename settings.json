@@ -29,11 +29,11 @@
   "mention_min_followers": 1000,
   "my_handle": "barymoto",
   "work_start": "2026-11-03",
-  "check_seconds": 60,
-  "fast_seconds": 60,
-  "slow_seconds": 300,
-  "mention_seconds": 180,
-  "mine_seconds": 300,
+  "check_seconds": 120,
+  "fast_seconds": 120,
+  "slow_seconds": 600,
+  "mention_seconds": 300,
+  "mine_seconds": 600,
   "lookback_seconds": 180,
   "project": {
     "name": "Volta",
@@ -148,7 +148,7 @@
         "$QUOTED"
       ],
       "min_followers": 10000,
-      "every_minutes": 30,
+      "every_minutes": 60,
       "per_round": 3,
       "author_cooldown_hours": 6,
       "skip_words": [
