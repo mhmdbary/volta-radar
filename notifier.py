@@ -324,21 +324,20 @@ MENU_ACTIONS = {
     "➖ شيل حساب": "remove",
     "🔗 روابطي": "links",
     "💳 الرصيد": "apis",
-    "⬇️ خبّي القائمة": "hide",
 }
-MENU_KEYBOARD = {
-    "keyboard": [[{"text": "✍️ تويتة جديدة"}, {"text": "📋 شغلي"}],
-                 [{"text": "🏆 الترتيب"}, {"text": "📃 الحسابات"}],
-                 [{"text": "➕ ضيف حساب"}, {"text": "➖ شيل حساب"}],
-                 [{"text": "🔗 روابطي"}, {"text": "💳 الرصيد"}],
-                 [{"text": "📡 تقرير المشروع"}, {"text": "⬇️ خبّي القائمة"}]],
-    "resize_keyboard": True,
-    "is_persistent": False,  # can be folded away with the keyboard icon next to the message box
-}
+HOME_ROW = [{"text": "🏠 القائمة", "callback_data": "m:menu"}]
+# Buttons inside the chat, under the message, instead of Telegram's bottom keyboard
+MENU_BUTTONS = {"inline_keyboard": [
+    [{"text": "✍️ تويتة جديدة", "callback_data": "m:write"}, {"text": "📡 التقارير", "callback_data": "m:intel"}],
+    [{"text": "📋 شغلي", "callback_data": "m:report"}, {"text": "🏆 الترتيب", "callback_data": "m:leaderboard"}],
+    [{"text": "📃 الحسابات", "callback_data": "m:list"}, {"text": "🔗 روابطي", "callback_data": "m:links"}],
+    [{"text": "➕ ضيف حساب", "callback_data": "m:add"}, {"text": "➖ شيل حساب", "callback_data": "m:remove"}],
+    [{"text": "💳 الرصيد", "callback_data": "m:apis"}],
+]}
 REPORT_BUTTONS = {"inline_keyboard": [[{"text": "Today", "callback_data": "rep:1"},
                                        {"text": "7 days", "callback_data": "rep:7"},
                                        {"text": "30 days", "callback_data": "rep:30"},
-                                       {"text": "All", "callback_data": "rep:3650"}]]}
+                                       {"text": "All", "callback_data": "rep:3650"}], HOME_ROW]}
 ASK = {
     "write": "✍️ اكتب فكرة التويتة بالعربي، وأنا بكتبها إنجليزي:",
     "add": "➕ اكتب يوزر الحساب أو الرابط تبعه:",
@@ -347,9 +346,11 @@ ASK = {
 
 
 def show_menu(cfg):
-    tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "reply_markup": MENU_KEYBOARD,
-                                 "text": "⚡ أهلاً! كل شيء من الأزرار تحت 👇\n\n"
-                                         "اقتراحات الرد بتوصلك هون لحالها مع كل تويتة جديدة."})
+    admin = cfg["telegram_admin_id"]
+    old = tg_call(cfg, "sendMessage", {"chat_id": admin, "text": "⏳", "reply_markup": {"remove_keyboard": True}})
+    tg_call(cfg, "deleteMessage", {"chat_id": admin, "message_id": old["result"]["message_id"]})  # clears the old keyboard
+    tg_call(cfg, "sendMessage", {"chat_id": admin, "reply_markup": MENU_BUTTONS, "parse_mode": "HTML",
+                                 "text": f"⚡ <b>{PRODUCT.upper()}</b>\nاختار من الأزرار 👇"})
 
 
 def menu_action(cfg, state, handles, tags, action):
@@ -358,9 +359,8 @@ def menu_action(cfg, state, handles, tags, action):
         state["awaiting"] = action
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": ASK[action],
                                      "reply_markup": {"force_reply": True, "input_field_placeholder": "اكتب هون..."}})
-    elif action == "hide":
-        tg_call(cfg, "sendMessage", {"chat_id": admin, "reply_markup": {"remove_keyboard": True},
-                                     "text": "تمام ✅ القائمة مخفية. لترجعها اكتب /menu أو اضغط Menu ← menu"})
+    elif action == "menu":
+        show_menu(cfg)
     elif action == "apis":
         typing(cfg)
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": build_apis_report(cfg, state), "parse_mode": "HTML",
@@ -385,7 +385,7 @@ def menu_action(cfg, state, handles, tags, action):
         text = (build_leaderboard(cfg, tags, load_json(SETTINGS_FILE, {})) if action == "leaderboard"
                 else handle_command(cfg, handles, tags, "/list"))
         tg_call(cfg, "sendMessage", {"chat_id": admin, "text": text, "parse_mode": "HTML",
-                                     "disable_web_page_preview": True, "reply_markup": MENU_KEYBOARD})
+                                     "disable_web_page_preview": True, "reply_markup": MENU_BUTTONS})
 
 
 def process_commands(cfg, state, wait=0):
@@ -421,7 +421,10 @@ def process_commands(cfg, state, wait=0):
                     print(f"[engage error] {e}")
             else:
                 try:
-                    if data_.startswith("in:"):  # project report buttons: each sends its own message
+                    if data_.startswith("m:"):  # the main menu buttons
+                        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"]})
+                        menu_action(cfg, state, handles, tags, data_[2:])
+                    elif data_.startswith("in:"):  # project report buttons: each sends its own message
                         tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "⏳"})
                         send_intel(cfg, data_[3:])
                     elif data_.startswith("rep:"):  # report period buttons
@@ -464,7 +467,7 @@ def process_commands(cfg, state, wait=0):
                 elif waiting in ("add", "remove"):
                     reply = handle_command(cfg, handles, tags, f"/{waiting} {text}")
                     tg_call(cfg, "sendMessage", {"chat_id": admin, "text": reply, "parse_mode": "HTML",
-                                                 "reply_markup": MENU_KEYBOARD})
+                                                 "reply_markup": MENU_BUTTONS})
                 else:
                     rewrite_draft(cfg, state, waiting, text)
                 continue
@@ -1329,7 +1332,7 @@ def intel_menu():
     rows = [[{"text": "📊 Overview", "callback_data": "in:overview"}, {"text": "🗣 Top Voices", "callback_data": "in:voices"}],
             [{"text": "💬 Sentiment", "callback_data": "in:sentiment"}, {"text": "🤝 Who to Talk To", "callback_data": "in:partners"}],
             [{"text": "🎯 KOL Check", "callback_data": "in:kols"}]]
-    rows += [[{"text": f"🌐 {w['label']} Watch", "callback_data": f"in:{w['key']}"} for w in PROJECT.get("watch", [])]]
+    rows += [[{"text": f"🌐 {w['label']} Watch", "callback_data": f"in:{w['key']}"} for w in PROJECT.get("watch", [])], HOME_ROW]
     return {"inline_keyboard": rows}
 
 
