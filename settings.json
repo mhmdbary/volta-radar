@@ -63,7 +63,10 @@
       "ronspadfun",
       "kilnpad",
       "perpmefun",
-      "ascendlaunch"
+      "ascendlaunch",
+      "montraxyz",
+      "stonks_exchange",
+      "anyswapbot"
     ],
     "ticker": "$VOLTA",
     "category": "launchpad",
@@ -99,6 +102,34 @@
       "product: charts that show your own trades and average entry, or the trending board",
       "elysium: building where the hyperliquid ecosystem is heading, public mainnet nov 9",
       "what volta shipped recently, or a question for launchers about what a good launch looks like"
+    ],
+    "watch": [
+      {
+        "key": "elysium",
+        "label": "Elysium",
+        "query": "(elysium OR @Enter_Elysium) min_faves:5",
+        "days": 3,
+        "min_followers": 5000
+      },
+      {
+        "key": "hyper",
+        "label": "Hyperliquid",
+        "query": "(hyperliquid OR @HyperliquidX OR hyperevm) min_faves:50",
+        "days": 2,
+        "min_followers": 25000
+      }
+    ],
+    "avoid_quotes": [
+      "without license",
+      "without a license",
+      "unauthorized",
+      "unlicensed",
+      "forked",
+      "mcap",
+      "market cap",
+      "r:r",
+      "my ref",
+      "price target"
     ]
   }
 }

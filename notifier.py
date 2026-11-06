@@ -371,10 +371,9 @@ def menu_action(cfg, state, handles, tags, action):
             tg_call(cfg, "sendMessage", {"chat_id": admin, "text": m, "parse_mode": "HTML",
                                          "disable_web_page_preview": True})
     elif action == "intel":
-        typing(cfg)
-        for m in build_intel(cfg, load_json(SETTINGS_FILE, {})):
-            tg_call(cfg, "sendMessage", {"chat_id": admin, "text": m, "parse_mode": "HTML",
-                                         "disable_web_page_preview": True})
+        tg_call(cfg, "sendMessage", {"chat_id": admin, "reply_markup": intel_menu(), "parse_mode": "HTML",
+                                     "text": f"📡 <b>{html.escape(NAME.upper())} REPORTS</b>\n"
+                                             "اختار التقرير، وكل واحد بيوصلك برسالة لحاله جاهزة للإرسال:"})
     elif action == "report":
         typing(cfg)
         tg_call(cfg, "sendMessage", {"chat_id": admin, "parse_mode": "HTML", "disable_web_page_preview": True,
@@ -422,7 +421,10 @@ def process_commands(cfg, state, wait=0):
                     print(f"[engage error] {e}")
             else:
                 try:
-                    if data_.startswith("rep:"):  # report period buttons
+                    if data_.startswith("in:"):  # project report buttons: each sends its own message
+                        tg_call(cfg, "answerCallbackQuery", {"callback_query_id": cb["id"], "text": "⏳"})
+                        send_intel(cfg, data_[3:])
+                    elif data_.startswith("rep:"):  # report period buttons
                         days = int(cb["data"][4:])
                         tg_call(cfg, "editMessageText", {
                             "chat_id": admin, "message_id": cb["message"]["message_id"], "parse_mode": "HTML",
@@ -815,17 +817,18 @@ def handle_draft_button(cfg, state, cb):
         show_draft(cfg, load_json(TAGS_FILE, {}), key, d, edit_message_id=msg_id)
 
 
-def search_tweets(api_key, query):
-    """Return all tweets for an advanced-search query (follows pagination)."""
-    tweets, cursor = [], ""
+def search_tweets(api_key, query, max_pages=0):
+    """Return all tweets for an advanced-search query (follows pagination, up to max_pages if set)."""
+    tweets, cursor, page = [], "", 0
     while True:
+        page += 1
         params = {"query": query, "queryType": "Latest"}
         if cursor:
             params["cursor"] = cursor
         url = f"{TWITTERAPI_BASE}/twitter/tweet/advanced_search?{urllib.parse.urlencode(params)}"
         data = http_get_json(url, {"X-API-Key": api_key})
         tweets.extend(data.get("tweets") or [])
-        if not data.get("has_next_page") or not data.get("next_cursor"):
+        if not data.get("has_next_page") or not data.get("next_cursor") or page == max_pages:
             return tweets
         cursor = data["next_cursor"]
         time.sleep(6)  # stay under the free-tier request rate
@@ -1162,25 +1165,21 @@ def partnership_leads(cfg, tweets, skip):
     return leads
 
 
-def build_intel(cfg, settings, days=7):
-    """What a project owner wants to know: who talked about them, how it landed, and who to work with next.
-    Everything project-specific comes from settings.json, so the same report serves any project."""
-    project = settings.get("project") or {}
-    name, handle = project.get("name") or "Project", (project.get("handle") or "").lower()
+INTEL_CACHE = {}  # several report buttons in a row share one fetch instead of paying for it each time
+
+
+def intel_data(cfg, settings, days=7):
+    """The project's mentions for the period, with who said them and how they read."""
+    cached = INTEL_CACHE.get(days)
+    if cached and time.time() - cached["at"] < 600:
+        return cached
     me = (settings.get("my_handle") or "").lower()
-    own = {handle, me} | {h.lower() for h in project.get("team", [])}
-    partners = {h.lower() for h in project.get("partners", [])}
+    own = {OFFICIAL, me} | {h.lower() for h in PROJECT.get("team", [])}
     since = int(time.time()) - days * 86400
-    terms = settings.get("mention_terms") or []
-    if project.get("site"):
-        terms = terms + [project["site"]]
-    query = "(" + " OR ".join(terms) + f") since_time:{since} -filter:retweets"
+    query = "(" + " OR ".join((settings.get("mention_terms") or []) + [PROJECT["site"]]) + f") since_time:{since} -filter:retweets"
     tweets = [t for t in search_tweets(cfg["twitterapi_key"], query)
               if (t.get("author") or {}).get("userName", "").lower() not in own
               and not is_spam(t.get("text")) and int((t.get("author") or {}).get("followers") or 0) >= 100]
-    if not tweets:
-        return [f"📡 <b>{html.escape(name.upper())} INTEL</b>\n<i>No posts in the last {days} days.</i>"]
-
     voices = {}
     for t in tweets:
         a = t["author"]
@@ -1189,73 +1188,157 @@ def build_intel(cfg, settings, days=7):
         v["views"] += views(t)
         if views(t) > views(v["best"]):
             v["best"] = t
-    by_day = collections.Counter(time.strftime("%b %d", time.gmtime(tweet_time(t))) for t in sorted(tweets, key=tweet_time))
-    peak = max(by_day.values())
-
-    lines = [f"📡 <b>{html.escape(name.upper())} INTEL</b>",
-             f"<i>last {days} days · official and own accounts excluded</i>", LINE,
-             "📊 <b>OVERVIEW</b>",
-             f"<code>Posts      {len(tweets):>7,}</code>",
-             f"<code>Accounts   {len(voices):>7,}</code>",
-             f"<code>Views      {sum(views(t) for t in tweets):>7,}</code>",
-             f"<code>Likes      {sum(int(t.get('likeCount') or 0) for t in tweets):>7,}</code>", ""]
-    for day, count in by_day.items():
-        lines.append(f"<code>{day}  {count:>4}  {'█' * max(1, round(count / peak * 10))}</code>")
-
-    lines += [LINE, "🗣 <b>TOP VOICES</b> <i>(by real views)</i>", "", f"<code>{'#':>2} {'Views':>6} {'Posts':>5}</code>"]
-    top = sorted(voices.items(), key=lambda kv: -kv[1]["views"])[:8]
-    for i, (user, v) in enumerate(top, 1):
-        lines.append(f"<code>{i:>2} {compact(v['views']):>6} {v['posts']:>5}</code>  "
-                     f"<a href=\"{tweet_url(v['best'])}\">↗</a> @{html.escape(user)}")
-
     # the posts people actually saw decide how the project is perceived, so those get read
     seen_most = sorted(tweets, key=lambda t: -views(t))[:80]
-    labels, by_ai = label_mentions(cfg, seen_most, name)
+    labels, by_ai = label_mentions(cfg, seen_most, NAME) if seen_most else ([], False)
     picked = {"praise": [], "concern": []}
     for t, label in zip(seen_most, labels):
         if label in picked:
             picked[label].append(t)
-    neutral = labels.count("neutral")
-    summary = (f"Praise {len(picked['praise']):>3} · Neutral {neutral:>3} · Concern {len(picked['concern']):>3}" if by_ai
-               else f"Likely praise {len(picked['praise']):>3} of {len(seen_most)}")
-    lines += [LINE, f"💬 <b>SENTIMENT</b> <i>(top {len(seen_most)} posts{'' if by_ai else ', keyword estimate'})</i>",
-              f"<code>{summary}</code>"]
-    for label, icon in (("praise", "💚"), ("concern", "⚠️")):
-        for t in picked[label][:3]:
-            quote = snippet(strip_leading_mentions(t.get("text") or ""), 110)
-            lines += ["", f"{icon} @{html.escape(t['author']['userName'])} <a href=\"{tweet_url(t)}\">↗</a>",
-                      f"<blockquote>{quote}</blockquote>"]
+    skip = own | {h.lower() for h in PROJECT.get("partners", []) + PROJECT.get("not_leads", [])}
+    data = {"at": time.time(), "days": days, "tweets": tweets, "voices": voices, "seen_most": seen_most, "labels": labels,
+            "picked": picked, "by_ai": by_ai, "skip": skip}
+    INTEL_CACHE[days] = data
+    return data
 
-    skip = own | partners | {h.lower() for h in project.get("not_leads", [])}
-    leads = partnership_leads(cfg, tweets, skip)
-    lines += [LINE, "🤝 <b>WHO TO TALK TO</b> <i>(mentioned next to you)</i>"]
-    for user, count, followers, bio in leads:
-        lines += ["", f"▫️ @{html.escape(user)}", f"<code>{count}× mentioned · {compact(followers)} followers</code>",
-                  f"<i>{snippet(bio, 70)}</i>"]
-    if not leads:
-        lines.append("<i>None this period.</i>")
 
-    fans = [(u, v) for u, v in top if u.lower() not in skip and any(t["author"]["userName"] == u for t in picked["praise"])]
-    if fans:
-        lines += [LINE, "🎯 <b>ALREADY ON YOUR SIDE</b> <i>(worth a DM)</i>", "",
-                  f"<code>{'Views':>6} {'Followers':>9}</code>"]
-        lines += [f"<code>{compact(v['views']):>6} {compact(v['followers']):>9}</code>  @{html.escape(u)}" for u, v in fans[:5]]
-    hollow = [(u, v) for u, v in voices.items() if int(v["followers"] or 0) >= 100000
-              and v["views"] / v["posts"] < int(v["followers"]) * 0.0005]
+def report_frame(icon, title, note, body):
+    """The same head and foot on every report, so each one stands alone when forwarded."""
+    return "\n".join([f"{icon} <b>{html.escape(NAME.upper())} · {title}</b>", f"<i>{note}</i>", LINE, *body, LINE,
+                      f"⚡ <i>Tracked by {PRODUCT} · {time.strftime('%b %d, %Y', time.gmtime())}</i>"])
+
+
+def period_note(data):
+    return f"last {data['days']} days · official and own accounts excluded"
+
+
+def intel_overview(cfg, settings):
+    data = intel_data(cfg, settings)
+    tweets = data["tweets"]
+    by_day = collections.Counter(time.strftime("%b %d", time.gmtime(tweet_time(t))) for t in sorted(tweets, key=tweet_time))
+    peak = max(by_day.values(), default=1)
+    body = [f"<code>Posts      {len(tweets):>7,}</code>",
+            f"<code>Accounts   {len(data['voices']):>7,}</code>",
+            f"<code>Views      {sum(views(t) for t in tweets):>7,}</code>",
+            f"<code>Likes      {sum(int(t.get('likeCount') or 0) for t in tweets):>7,}</code>",
+            "", "<b>Posts per day</b>", ""]
+    body += [f"<code>{day}  {count:>4}  {'█' * max(1, round(count / peak * 10))}</code>" for day, count in by_day.items()]
+    return report_frame("📊", "OVERVIEW", period_note(data), body)
+
+
+def intel_voices(cfg, settings):
+    data = intel_data(cfg, settings)
+    body = [f"<code>{'#':>2} {'Views':>6} {'Posts':>5}</code>"]
+    top = sorted(data["voices"].items(), key=lambda kv: -kv[1]["views"])[:10]
+    for i, (user, v) in enumerate(top, 1):
+        body.append(f"<code>{i:>2} {compact(v['views']):>6} {v['posts']:>5}</code>  "
+                    f"<a href=\"{tweet_url(v['best'])}\">↗</a> @{html.escape(user)}")
+    return report_frame("🗣", "TOP VOICES", f"ranked by real views · {period_note(data)}", body)
+
+
+def quotable(t):
+    """Reports get forwarded, so they never repeat accusations against other projects or price talk."""
+    low = (t.get("text") or "").lower()
+    return not any(word in low for word in PROJECT.get("avoid_quotes", []))
+
+
+def intel_sentiment(cfg, settings):
+    data = intel_data(cfg, settings)
+    picked, total = data["picked"], len(data["seen_most"])
+    if data["by_ai"]:
+        body = [f"<code>Praise   {len(picked['praise']):>3}</code>", f"<code>Neutral  {data['labels'].count('neutral'):>3}</code>",
+                f"<code>Concern  {len(picked['concern']):>3}</code>"]
+    else:
+        body = [f"<code>Likely praise  {len(picked['praise'])} of {total}</code>"]
+    for label, icon, title in (("praise", "💚", "WHAT PEOPLE LIKE"), ("concern", "⚠️", "WHAT TO WATCH")):
+        shown = [t for t in picked[label] if label == "concern" or quotable(t)][:4]
+        if shown:
+            body += [LINE, f"{icon} <b>{title}</b>"]
+        for t in shown:
+            body += ["", f"@{html.escape(t['author']['userName'])} · {compact(views(t))} views "
+                         f"<a href=\"{tweet_url(t)}\">↗</a>",
+                     f"<blockquote>{snippet(strip_leading_mentions(t.get('text') or ''), 150)}</blockquote>"]
+    note = f"most-seen {total} posts · {'read by AI' if data['by_ai'] else 'keyword estimate'}"
+    return report_frame("💬", "SENTIMENT", note, body)
+
+
+def intel_partners(cfg, settings):
+    data = intel_data(cfg, settings)
+    leads = data.get("leads")
+    if leads is None:
+        leads = data["leads"] = partnership_leads(cfg, data["tweets"], data["skip"])
+    body = []
+    for i, (user, count, followers, bio) in enumerate(leads):
+        body += ([""] if i else []) + [f"▫️ @{html.escape(user)}", f"<code>{count}× mentioned · {compact(followers)} followers</code>",
+                                       f"<i>{snippet(bio, 90)}</i>"]
+    return report_frame("🤝", "WHO TO TALK TO", "accounts people mention next to the project · not agreed partners",
+                        body or ["<i>None this period.</i>"])
+
+
+def intel_kols(cfg, settings):
+    data = intel_data(cfg, settings)
+    voices = data["voices"]
+    fans = [(u, v) for u, v in sorted(voices.items(), key=lambda kv: -kv[1]["views"])
+            if u.lower() not in data["skip"] and int(v["followers"] or 0) >= 1000 and quotable(v["best"]) and any(t["author"]["userName"] == u for t in data["picked"]["praise"])][:6]
+    hollow = sorted(((u, v) for u, v in voices.items() if int(v["followers"] or 0) >= 100000
+                     and v["views"] / v["posts"] < int(v["followers"]) * 0.0005), key=lambda kv: -int(kv[1]["followers"]))[:6]
+    body = ["🎯 <b>ALREADY SUPPORTIVE</b> <i>(worth a DM)</i>", "", f"<code>{'Views':>6} {'Followers':>9}</code>"]
+    body += [f"<code>{compact(v['views']):>6} {compact(v['followers']):>9}</code>  @{html.escape(u)}" for u, v in fans]
     if hollow:
-        lines += [LINE, "🔍 <b>BIG FOLLOWING, LOW REACH</b> <i>(check before paying)</i>", "",
-                  f"<code>{'Followers':>9} {'Views/post':>10}</code>"]
-        lines += [f"<code>{compact(v['followers']):>9} {compact(v['views'] / v['posts']):>10}</code>  @{html.escape(u)}"
-                  for u, v in sorted(hollow, key=lambda kv: -int(kv[1]["followers"]))[:4]]
-    lines += [LINE, f"⚡ <i>Tracked by {PRODUCT} · {time.strftime('%b %d, %Y', time.gmtime())}</i>"]
+        body += [LINE, "🔍 <b>BIG FOLLOWING, LOW REACH</b> <i>(check before paying)</i>", "",
+                 f"<code>{'Followers':>9} {'Views/post':>10}</code>"]
+        body += [f"<code>{compact(v['followers']):>9} {compact(v['views'] / v['posts']):>10}</code>  @{html.escape(u)}"
+                 for u, v in hollow]
+    return report_frame("🎯", "KOL CHECK", period_note(data), body)
 
-    messages, current = [], ""  # Telegram caps a message at 4096 characters; sections never split across a tag
-    for block in "\n".join(lines).split(LINE):
-        if current and len(current) + len(block) > 3800:
-            messages.append(current.rstrip())
-            current = ""
-        current += (LINE if current else "") + block
-    return messages + [current.rstrip()]
+
+def intel_watch(cfg, settings, key):
+    """Big accounts talking about the wider ecosystem, and whether the project is part of that conversation."""
+    watch = next(w for w in PROJECT["watch"] if w["key"] == key)
+    days = int(watch.get("days", 3))
+    since = int(time.time()) - days * 86400
+    found = search_tweets(cfg["twitterapi_key"], f"{watch['query']} since_time:{since} -filter:retweets -filter:replies",
+                          max_pages=4)
+    own = {OFFICIAL, (settings.get("my_handle") or "").lower()}
+    kols = [t for t in found if int((t.get("author") or {}).get("followers") or 0) >= int(watch.get("min_followers", 10000))
+            and t["author"]["userName"].lower() not in own and not is_spam(t.get("text"))]
+    best = {}
+    for t in sorted(kols, key=views):  # each account once, with its most-seen post
+        best[t["author"]["userName"]] = t
+    ranked = sorted(filter(quotable, best.values()), key=lambda t: -views(t))[:8]
+    named = sum(about_project(t.get("text")) for t in best.values())
+    body = [f"<code>KOLs found        {len(best):>5}</code>", f"<code>Mention {NAME:<9} {named:>5}</code>",
+            f"<code>Open to reach     {len(best) - named:>5}</code>"]
+    for i, t in enumerate(ranked):
+        a = t["author"]
+        mark = "✅" if about_project(t.get("text")) else "▫️"
+        body += [LINE if i == 0 else "", f"{mark} @{html.escape(a['userName'])} · {compact(a.get('followers'))} followers · "
+                                         f"{compact(views(t))} views <a href=\"{tweet_url(t)}\">↗</a>",
+                 f"<blockquote>{snippet(re.sub(r"0x[a-fA-F0-9]{40}|https?://\S+", "", t.get("text") or ""), 140)}</blockquote>"]
+    if not ranked:
+        body.append("<i>No big accounts in this period.</i>")
+    return report_frame("🌐", f"{watch['label'].upper()} WATCH",
+                        f"big accounts on {watch['label']}, latest posts from the last {days} days · ✅ already mentions {NAME}", body)
+
+
+INTEL_REPORTS = {"overview": intel_overview, "voices": intel_voices, "sentiment": intel_sentiment,
+                 "partners": intel_partners, "kols": intel_kols}
+
+
+def intel_menu():
+    rows = [[{"text": "📊 Overview", "callback_data": "in:overview"}, {"text": "🗣 Top Voices", "callback_data": "in:voices"}],
+            [{"text": "💬 Sentiment", "callback_data": "in:sentiment"}, {"text": "🤝 Who to Talk To", "callback_data": "in:partners"}],
+            [{"text": "🎯 KOL Check", "callback_data": "in:kols"}]]
+    rows += [[{"text": f"🌐 {w['label']} Watch", "callback_data": f"in:{w['key']}"} for w in PROJECT.get("watch", [])]]
+    return {"inline_keyboard": rows}
+
+
+def send_intel(cfg, key):
+    settings = load_json(SETTINGS_FILE, {})
+    typing(cfg)
+    text = INTEL_REPORTS[key](cfg, settings) if key in INTEL_REPORTS else intel_watch(cfg, settings, key)
+    tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": text, "parse_mode": "HTML",
+                                 "disable_web_page_preview": True, "reply_markup": intel_menu()})
 
 
 def mention_query(settings, handles, since):
