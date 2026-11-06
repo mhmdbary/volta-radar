@@ -1110,6 +1110,14 @@ def compact(n):
     return f"{n / 1e6:.1f}M" if n >= 1e6 else f"{n / 1e3:.1f}K" if n >= 1e4 else f"{n:,}"
 
 
+def snippet(text, limit):
+    """One line of text cut at a word, so a handle or word is never chopped in half."""
+    text = " ".join((text or "").split())
+    if len(text) <= limit:
+        return html.escape(text)
+    return html.escape(text[:limit].rsplit(" ", 1)[0].rstrip(" ,.;:-|•")) + "…"
+
+
 def tweet_time(t):
     return calendar.timegm(time.strptime(t["createdAt"], "%a %b %d %H:%M:%S +0000 %Y"))
 
@@ -1194,7 +1202,7 @@ def build_intel(cfg, settings, days=7):
     for day, count in by_day.items():
         lines.append(f"<code>{day}  {count:>4}  {'█' * max(1, round(count / peak * 10))}</code>")
 
-    lines += [LINE, "🗣 <b>TOP VOICES</b> <i>(by real views)</i>", f"<code>{'#':>2} {'Views':>6} {'Posts':>5}</code>"]
+    lines += [LINE, "🗣 <b>TOP VOICES</b> <i>(by real views)</i>", "", f"<code>{'#':>2} {'Views':>6} {'Posts':>5}</code>"]
     top = sorted(voices.items(), key=lambda kv: -kv[1]["views"])[:8]
     for i, (user, v) in enumerate(top, 1):
         lines.append(f"<code>{i:>2} {compact(v['views']):>6} {v['posts']:>5}</code>  "
@@ -1214,27 +1222,30 @@ def build_intel(cfg, settings, days=7):
               f"<code>{summary}</code>"]
     for label, icon in (("praise", "💚"), ("concern", "⚠️")):
         for t in picked[label][:3]:
-            quote = html.escape(" ".join(strip_leading_mentions(t.get("text") or "").split())[:70]) + "…"
-            lines.append(f"{icon} <a href=\"{tweet_url(t)}\">↗</a> @{html.escape(t['author']['userName'])}: {quote}")
+            quote = snippet(strip_leading_mentions(t.get("text") or ""), 110)
+            lines += ["", f"{icon} @{html.escape(t['author']['userName'])} <a href=\"{tweet_url(t)}\">↗</a>",
+                      f"<blockquote>{quote}</blockquote>"]
 
     skip = own | partners | {h.lower() for h in project.get("not_leads", [])}
     leads = partnership_leads(cfg, tweets, skip)
     lines += [LINE, "🤝 <b>WHO TO TALK TO</b> <i>(mentioned next to you)</i>"]
     for user, count, followers, bio in leads:
-        about = html.escape(" ".join(bio.split())[:60])
-        lines.append(f"@{html.escape(user)} · {count}× · {compact(followers)} followers\n<i>{about}</i>")
+        lines += ["", f"▫️ @{html.escape(user)}", f"<code>{count}× mentioned · {compact(followers)} followers</code>",
+                  f"<i>{snippet(bio, 70)}</i>"]
     if not leads:
         lines.append("<i>None this period.</i>")
 
     fans = [(u, v) for u, v in top if u.lower() not in skip and any(t["author"]["userName"] == u for t in picked["praise"])]
     if fans:
-        lines += [LINE, "🎯 <b>ALREADY ON YOUR SIDE</b> <i>(worth a DM)</i>"]
-        lines += [f"@{html.escape(u)} · {compact(v['views'])} views · {compact(v['followers'])} followers" for u, v in fans[:5]]
+        lines += [LINE, "🎯 <b>ALREADY ON YOUR SIDE</b> <i>(worth a DM)</i>", "",
+                  f"<code>{'Views':>6} {'Followers':>9}</code>"]
+        lines += [f"<code>{compact(v['views']):>6} {compact(v['followers']):>9}</code>  @{html.escape(u)}" for u, v in fans[:5]]
     hollow = [(u, v) for u, v in voices.items() if int(v["followers"] or 0) >= 100000
               and v["views"] / v["posts"] < int(v["followers"]) * 0.0005]
     if hollow:
-        lines += [LINE, "🔍 <b>BIG FOLLOWING, LOW REACH</b> <i>(check before paying)</i>"]
-        lines += [f"@{html.escape(u)} · {compact(v['followers'])} followers · {compact(v['views'] / v['posts'])} views per post"
+        lines += [LINE, "🔍 <b>BIG FOLLOWING, LOW REACH</b> <i>(check before paying)</i>", "",
+                  f"<code>{'Followers':>9} {'Views/post':>10}</code>"]
+        lines += [f"<code>{compact(v['followers']):>9} {compact(v['views'] / v['posts']):>10}</code>  @{html.escape(u)}"
                   for u, v in sorted(hollow, key=lambda kv: -int(kv[1]["followers"]))[:4]]
     lines += [LINE, f"⚡ <i>Tracked by {PRODUCT} · {time.strftime('%b %d, %Y', time.gmtime())}</i>"]
 
