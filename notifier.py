@@ -1360,6 +1360,53 @@ def split_lanes(handles, tags):
     return fast, slow
 
 
+def pick_opportunities(cfg, handles, state):
+    """The best fresh ecosystem posts for you to reply to yourself, a few per round so the chat stays readable."""
+    opp = PROJECT["opportunity"]
+    now = int(time.time())
+    since = now - int(opp["every_minutes"]) * 60 - int(load_json(SETTINGS_FILE, {}).get("lookback_seconds", 180))
+    query = "(" + " OR ".join(opp["terms"]) + f") since_time:{since} -filter:retweets -filter:replies"
+    found = search_tweets(cfg["twitterapi_key"], query, max_pages=3)
+    seen, tracked = set(state.get("seen_ids", [])), {h.lower() for h in handles}
+    always, cooldown = set(opp.get("always", [])), state.get("opp_authors", {})
+    wait = int(opp["author_cooldown_hours"]) * 3600
+    picks, authors = [], set()
+    for t in sorted(found, key=lambda t: (-engagement(t), -views(t))):
+        a = t["author"]
+        user = (a.get("userName") or "").lower()
+        text = (t.get("text") or "").lower()
+        if (str(t.get("id")) in seen or user in tracked or user in authors or now - int(cooldown.get(user) or 0) < wait
+                or a.get("isAutomated") or is_spam(text) or about_project(text)
+                or any(word in text for word in opp.get("skip_words", []))):
+            continue
+        if user in always or int(a.get("followers") or 0) >= int(opp["min_followers"]):
+            picks.append(t)
+            authors.add(user)
+        if len(picks) == int(opp["per_round"]):
+            break
+    return picks
+
+
+def check_opportunities(cfg, settings, handles, state):
+    tags = load_json(TAGS_FILE, {})
+    seen = state.get("seen_ids", [])
+    cooldown = state.setdefault("opp_authors", {})
+    for t in pick_opportunities(cfg, handles, state):
+        seen.append(str(t.get("id")))
+        cooldown[t["author"]["userName"].lower()] = int(time.time())
+        try:
+            send_draft(cfg, settings, state, tags, t, False)
+        except Exception as e:  # no AI: the post still arrives, you write the reply
+            print(f"[draft error] {e}")
+            warn_ai_down(cfg, state, e)
+            send_telegram(cfg["telegram_bot_token"], cfg["telegram_admin_id"], format_alert(t, settings, tags, False),
+                          tweet_url(t), t["author"].get("userName"), tweet_media(t)[0])
+    state["seen_ids"] = seen[-2000:]
+    now = time.time()
+    state["opp_authors"] = {u: at for u, at in cooldown.items() if now - at < 86400}
+    save_json(STATE_FILE, state)
+
+
 def warn_ai_down(cfg, state, error):
     """Tell the owner when Claude stops working (usually an empty balance), at most every 6 hours."""
     if time.time() - int(state.get("ai_warned") or 0) < 6 * 3600:
@@ -1897,7 +1944,7 @@ def run_daemon(cfg, state, minutes):
     stop = threading.Event()
     threading.Thread(target=command_loop, args=(cfg, state, stop), daemon=True).start()
     end = time.time() + minutes * 60
-    last_sync = last_extras = last_mine = last_sample = 0
+    last_sync = last_extras = last_mine = last_sample = last_opp = 0
     while time.time() < end:
         started = time.time()
         settings = load_json(SETTINGS_FILE, {})
@@ -1906,6 +1953,12 @@ def run_daemon(cfg, state, minutes):
             check_once(cfg, settings, handles, state)
         except Exception as e:
             print(f"[check error] {e}")
+        if time.time() - last_opp > int(PROJECT["opportunity"]["every_minutes"]) * 60:  # posts for you to reply to
+            last_opp = time.time()
+            try:
+                check_opportunities(cfg, settings, handles, state)
+            except Exception as e:
+                print(f"[opportunity error] {e}")
         if time.time() - last_mine > int(settings.get("mine_seconds", 120)):  # your tweets + replies to you
             last_mine = time.time()
             for mine in (check_replies_to_me, refresh_my_work):

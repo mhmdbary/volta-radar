@@ -130,6 +130,58 @@
       "r:r",
       "my ref",
       "price target"
-    ]
+    ],
+    "opportunity": {
+      "terms": [
+        "elysium",
+        "@Enter_Elysium",
+        "@AscendLaunch",
+        "@MontraXYZ",
+        "@TheKleos_",
+        "@Boxa_Elysium",
+        "@eleosfun",
+        "$KLEOS",
+        "$BOXA",
+        "$AGORA",
+        "$SPIRE",
+        "$HELIOS",
+        "$QUOTED"
+      ],
+      "min_followers": 10000,
+      "every_minutes": 30,
+      "per_round": 3,
+      "author_cooldown_hours": 6,
+      "skip_words": [
+        "trending update",
+        "wl spot",
+        "whitelist",
+        "giveaway",
+        "airdrop",
+        "retweet to",
+        "rt &amp; follow",
+        "follow &amp;",
+        "gleam.io"
+      ],
+      "always": [
+        "bitblitzbuzz",
+        "lucasng990",
+        "hunter_xhunta",
+        "adamhodl",
+        "lorddurden",
+        "shafii2012",
+        "0xwassie",
+        "elysiumslashhub",
+        "blknoiz06",
+        "jumperwave",
+        "the_smart_ape",
+        "0xbrys",
+        "ezmoneygems",
+        "lateniteonchain",
+        "zemoon_xbt",
+        "ze_baz",
+        "unborninfinite",
+        "tanaka_l2"
+      ]
+    }
   }
 }
