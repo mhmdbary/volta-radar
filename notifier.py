@@ -8,6 +8,7 @@ Usage:
     python notifier.py             # keep running, checking every poll_minutes
 """
 import calendar
+import collections
 import html
 import json
 import os
@@ -307,6 +308,7 @@ MENU_ACTIONS = {
     "✍️ تويتة جديدة": "write",
     "📋 شغلي": "report",
     "🏆 الترتيب": "leaderboard",
+    "📡 تقرير المشروع": "intel",
     "📃 الحسابات": "list",
     "➕ ضيف حساب": "add",
     "➖ شيل حساب": "remove",
@@ -319,7 +321,7 @@ MENU_KEYBOARD = {
                  [{"text": "🏆 الترتيب"}, {"text": "📃 الحسابات"}],
                  [{"text": "➕ ضيف حساب"}, {"text": "➖ شيل حساب"}],
                  [{"text": "🔗 روابطي"}, {"text": "💳 الرصيد"}],
-                 [{"text": "⬇️ خبّي القائمة"}]],
+                 [{"text": "📡 تقرير المشروع"}, {"text": "⬇️ خبّي القائمة"}]],
     "resize_keyboard": True,
     "is_persistent": False,  # can be folded away with the keyboard icon next to the message box
 }
@@ -356,6 +358,11 @@ def menu_action(cfg, state, handles, tags, action):
     elif action == "links":
         refresh_my_work(cfg, load_json(SETTINGS_FILE, {}), handles, state, full=True)
         for m in links_messages():
+            tg_call(cfg, "sendMessage", {"chat_id": admin, "text": m, "parse_mode": "HTML",
+                                         "disable_web_page_preview": True})
+    elif action == "intel":
+        typing(cfg)
+        for m in build_intel(cfg, load_json(SETTINGS_FILE, {})):
             tg_call(cfg, "sendMessage", {"chat_id": admin, "text": m, "parse_mode": "HTML",
                                          "disable_web_page_preview": True})
     elif action == "report":
@@ -454,6 +461,9 @@ def process_commands(cfg, state, wait=0):
                 continue
             if first == "/links":
                 menu_action(cfg, state, handles, tags, "links")
+                continue
+            if first == "/intel":
+                menu_action(cfg, state, handles, tags, "intel")
                 continue
             report_days = {"/today": 1, "/week": 7, "/month": 30, "/all": 3650, "/mywork": 3650}
             if first in report_days or first == "/myreport":
@@ -1079,6 +1089,152 @@ def build_leaderboard(cfg, tags, settings):
     lines += [LINE, f"<i>{len(volta_posts)} Volta posts checked · {len(board)} supporters</i>",
               "⚡ #Leaderboard #VoltaRadar"]
     return "\n".join(lines)
+
+
+PRAISE_WORDS = re.compile(r"bullish|\blove\b|\bbest\b|\bstrong\b|\bsolid\b|\bgem\b|#1|\bwinner\b|\bbag\b|\bhold(ing)?\b|"
+                          r"\bimpressive\b|\bgreat\b|\bamazing\b|\bwagmi\b|🔥|💪|🚀", re.I)
+
+
+def compact(n):
+    n = int(n or 0)
+    return f"{n / 1e6:.1f}M" if n >= 1e6 else f"{n / 1e3:.1f}K" if n >= 1e4 else f"{n:,}"
+
+
+def tweet_time(t):
+    return calendar.timegm(time.strptime(t["createdAt"], "%a %b %d %H:%M:%S +0000 %Y"))
+
+
+def views(t):
+    return int(t.get("viewCount") or 0)
+
+
+def label_mentions(cfg, tweets, name):
+    """Praise / neutral / concern for each post. Claude reads them; without it, keywords can spot likely praise
+    but can't tell criticism of this project from criticism of its rivals, so concerns are left out."""
+    if cfg.get("anthropic_api_key"):
+        try:
+            import ai_replies
+            labels = ai_replies.classify_mentions(cfg["anthropic_api_key"], name, [t.get("text") or "" for t in tweets])
+            if labels:
+                return labels, True
+        except Exception as e:
+            print(f"[intel labels error] {e}")
+    return ["praise" if PRAISE_WORDS.search(t.get("text") or "") else "neutral" for t in tweets], False
+
+
+def partnership_leads(cfg, tweets, skip):
+    """Projects people mention next to this one, most mentioned first, with who they are."""
+    counts = collections.Counter()
+    for t in tweets:
+        counts.update({h.lower() for h in re.findall(r"@(\w{1,15})", strip_leading_mentions(t.get("text") or ""))})
+    leads = []
+    for h, count in counts.most_common(25):
+        if h in skip:
+            continue
+        try:
+            data = http_get_json(f"{TWITTERAPI_BASE}/twitter/user/info?userName={h}",
+                                 {"X-API-Key": cfg["twitterapi_key"]}).get("data") or {}
+        except Exception as e:
+            print(f"[intel lead error] {e}")
+            continue
+        if int(data.get("followers") or 0) >= 100:
+            leads.append((data.get("userName") or h, count, data.get("followers"), data.get("description") or ""))
+        if len(leads) == 5:
+            break
+    return leads
+
+
+def build_intel(cfg, settings, days=7):
+    """What a project owner wants to know: who talked about them, how it landed, and who to work with next.
+    Everything project-specific comes from settings.json, so the same report serves any project."""
+    project = settings.get("project") or {}
+    name, handle = project.get("name") or "Project", (project.get("handle") or "").lower()
+    me = (settings.get("my_handle") or "").lower()
+    own = {handle, me} | {h.lower() for h in project.get("team", [])}
+    partners = {h.lower() for h in project.get("partners", [])}
+    since = int(time.time()) - days * 86400
+    terms = settings.get("mention_terms") or []
+    if project.get("site"):
+        terms = terms + [project["site"]]
+    query = "(" + " OR ".join(terms) + f") since_time:{since} -filter:retweets"
+    tweets = [t for t in search_tweets(cfg["twitterapi_key"], query)
+              if (t.get("author") or {}).get("userName", "").lower() not in own
+              and not is_spam(t.get("text")) and int((t.get("author") or {}).get("followers") or 0) >= 100]
+    if not tweets:
+        return [f"📡 <b>{html.escape(name.upper())} INTEL</b>\n<i>No posts in the last {days} days.</i>"]
+
+    voices = {}
+    for t in tweets:
+        a = t["author"]
+        v = voices.setdefault(a["userName"], {"posts": 0, "views": 0, "followers": a.get("followers"), "best": t})
+        v["posts"] += 1
+        v["views"] += views(t)
+        if views(t) > views(v["best"]):
+            v["best"] = t
+    by_day = collections.Counter(time.strftime("%b %d", time.gmtime(tweet_time(t))) for t in sorted(tweets, key=tweet_time))
+    peak = max(by_day.values())
+
+    lines = [f"📡 <b>{html.escape(name.upper())} INTEL</b>",
+             f"<i>last {days} days · official and own accounts excluded</i>", LINE,
+             "📊 <b>OVERVIEW</b>",
+             f"<code>Posts      {len(tweets):>7,}</code>",
+             f"<code>Accounts   {len(voices):>7,}</code>",
+             f"<code>Views      {sum(views(t) for t in tweets):>7,}</code>",
+             f"<code>Likes      {sum(int(t.get('likeCount') or 0) for t in tweets):>7,}</code>", ""]
+    for day, count in by_day.items():
+        lines.append(f"<code>{day}  {count:>4}  {'█' * max(1, round(count / peak * 10))}</code>")
+
+    lines += [LINE, "🗣 <b>TOP VOICES</b> <i>(by real views)</i>", f"<code>{'#':>2} {'Views':>6} {'Posts':>5}</code>"]
+    top = sorted(voices.items(), key=lambda kv: -kv[1]["views"])[:8]
+    for i, (user, v) in enumerate(top, 1):
+        lines.append(f"<code>{i:>2} {compact(v['views']):>6} {v['posts']:>5}</code>  "
+                     f"<a href=\"{tweet_url(v['best'])}\">↗</a> @{html.escape(user)}")
+
+    # the posts people actually saw decide how the project is perceived, so those get read
+    seen_most = sorted(tweets, key=lambda t: -views(t))[:80]
+    labels, by_ai = label_mentions(cfg, seen_most, name)
+    picked = {"praise": [], "concern": []}
+    for t, label in zip(seen_most, labels):
+        if label in picked:
+            picked[label].append(t)
+    neutral = labels.count("neutral")
+    summary = (f"Praise {len(picked['praise']):>3} · Neutral {neutral:>3} · Concern {len(picked['concern']):>3}" if by_ai
+               else f"Likely praise {len(picked['praise']):>3} of {len(seen_most)}")
+    lines += [LINE, f"💬 <b>SENTIMENT</b> <i>(top {len(seen_most)} posts{'' if by_ai else ', keyword estimate'})</i>",
+              f"<code>{summary}</code>"]
+    for label, icon in (("praise", "💚"), ("concern", "⚠️")):
+        for t in picked[label][:3]:
+            quote = html.escape(" ".join(strip_leading_mentions(t.get("text") or "").split())[:70]) + "…"
+            lines.append(f"{icon} <a href=\"{tweet_url(t)}\">↗</a> @{html.escape(t['author']['userName'])}: {quote}")
+
+    skip = own | partners | {h.lower() for h in project.get("not_leads", [])}
+    leads = partnership_leads(cfg, tweets, skip)
+    lines += [LINE, "🤝 <b>WHO TO TALK TO</b> <i>(mentioned next to you)</i>"]
+    for user, count, followers, bio in leads:
+        about = html.escape(" ".join(bio.split())[:60])
+        lines.append(f"@{html.escape(user)} · {count}× · {compact(followers)} followers\n<i>{about}</i>")
+    if not leads:
+        lines.append("<i>None this period.</i>")
+
+    fans = [(u, v) for u, v in top if u.lower() not in skip and any(t["author"]["userName"] == u for t in picked["praise"])]
+    if fans:
+        lines += [LINE, "🎯 <b>ALREADY ON YOUR SIDE</b> <i>(worth a DM)</i>"]
+        lines += [f"@{html.escape(u)} · {compact(v['views'])} views · {compact(v['followers'])} followers" for u, v in fans[:5]]
+    hollow = [(u, v) for u, v in voices.items() if int(v["followers"] or 0) >= 100000
+              and v["views"] / v["posts"] < int(v["followers"]) * 0.0005]
+    if hollow:
+        lines += [LINE, "🔍 <b>BIG FOLLOWING, LOW REACH</b> <i>(check before paying)</i>"]
+        lines += [f"@{html.escape(u)} · {compact(v['followers'])} followers · {compact(v['views'] / v['posts'])} views per post"
+                  for u, v in sorted(hollow, key=lambda kv: -int(kv[1]["followers"]))[:4]]
+    lines += [LINE, f"⚡ <i>Tracked by Volta Radar · {time.strftime('%b %d, %Y', time.gmtime())}</i>"]
+
+    messages, current = [], ""  # Telegram caps a message at 4096 characters; sections never split across a tag
+    for block in "\n".join(lines).split(LINE):
+        if current and len(current) + len(block) > 3800:
+            messages.append(current.rstrip())
+            current = ""
+        current += (LINE if current else "") + block
+    return messages + [current.rstrip()]
 
 
 def mention_query(settings, handles, since):

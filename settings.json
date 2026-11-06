@@ -34,5 +34,36 @@
   "slow_seconds": 180,
   "mention_seconds": 90,
   "mine_seconds": 120,
-  "lookback_seconds": 180
+  "lookback_seconds": 180,
+  "project": {
+    "name": "Volta",
+    "handle": "VoltaFamily",
+    "site": "volta.family",
+    "team": [],
+    "partners": [
+      "BasedBot",
+      "agora_elysium",
+      "JustRektTool"
+    ],
+    "not_leads": [
+      "uniswap",
+      "fomo",
+      "pumpfun",
+      "enter_elysium",
+      "kinetiq_xyz",
+      "hyperliquidx",
+      "thekleos_",
+      "boxa_elysium",
+      "elysiumpump",
+      "stockium",
+      "eleosfun",
+      "bunnypadfun",
+      "signalfam",
+      "elysianpad",
+      "ronspadfun",
+      "kilnpad",
+      "perpmefun",
+      "ascendlaunch"
+    ]
+  }
 }
