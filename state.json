@@ -1,5 +1,5 @@
 {
-  "last_check": 1794054204,
+  "last_check": 1794054444,
   "seen_ids": [
     "2118863752594391290",
     "2118773850460540974",
@@ -230,6 +230,7 @@
     "2118958842600182186",
     "2118728736665477388",
     "2118621358129061927",
+    "2119044060430434311",
     "2118854515336368373",
     "2118725340558225557",
     "2118189145915068918",
@@ -651,6 +652,7 @@
     "2118315524170059815",
     "2118614379084099789",
     "2118012931166388508",
+    "2119043941446078938",
     "2118372265519976637",
     "2118480791831490981",
     "2118131354600886509",
@@ -1299,7 +1301,7 @@
       "HyperliquidX"
     ]
   },
-  "last_follow_check": 1794032835,
+  "last_follow_check": 1794054464,
   "drafts": {
     "2117998184941449633": {
       "author": "0xOmnia",
@@ -2702,7 +2704,7 @@
       "message_id": 866
     }
   },
-  "angle_i": 1100,
+  "angle_i": 1102,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -2973,8 +2975,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794054204,
-  "last_mentions": 1794054084,
+  "last_fast": 1794054444,
+  "last_mentions": 1794054444,
   "last_slow": 1794053964,
   "tw_samples": [
     [
