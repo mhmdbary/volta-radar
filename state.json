@@ -1,5 +1,5 @@
 {
-  "last_check": 1794088425,
+  "last_check": 1794088545,
   "seen_ids": [
     "2117668555147591692",
     "2118068875757834327",
@@ -269,6 +269,7 @@
     "2118596790958322075",
     "2118663638252994701",
     "2117603996827279590",
+    "2119185626851389504",
     "2118640682495570119",
     "2118177608802468333",
     "2118787704746086715",
@@ -1403,7 +1404,10 @@
     "2118251802680553974",
     "2118798900123381951",
     "2119066586434924949",
-    "2118550967717339570"
+    "2118550967717339570",
+    "2119182353860108639",
+    "2119185373557596495",
+    "2119185649354064001"
   ],
   "tg_offset": 277101791,
   "last_digest": "2026-11-07",
@@ -2907,7 +2911,7 @@
       "message_id": 866
     }
   },
-  "angle_i": 1305,
+  "angle_i": 1309,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3178,8 +3182,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794088425,
-  "last_mentions": 1794088185,
+  "last_fast": 1794088545,
+  "last_mentions": 1794088545,
   "last_slow": 1794088425,
   "tw_samples": [
     [
@@ -4407,12 +4411,6 @@
     "lucasng990": 1794009194,
     "sebastianwols17": 1794056031,
     "lateniteonchain": 1794081259,
-    "elysium_machine": 1794000178,
-    "baibai_cx": 1794000179,
-    "synthra_finance": 1794000180,
-    "vibelancer": 1794001876,
-    "nan0q_": 1794001878,
-    "the_smart_ape": 1794001879,
     "hunter_xhunta": 1794072248,
     "toady_hawk": 1794009193,
     "dreinstein9999": 1794012795,
@@ -4469,6 +4467,9 @@
     "that1618guy": 1794081258,
     "koolkrypto223": 1794084860,
     "chilltrd": 1794084861,
-    "iamlequanghuong": 1794084862
+    "iamlequanghuong": 1794084862,
+    "bobby_1111888": 1794088572,
+    "mcglive": 1794088573,
+    "jaymesrosenthal": 1794088574
   }
 }
