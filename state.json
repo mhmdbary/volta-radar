@@ -1,5 +1,5 @@
 {
-  "last_check": 1794055764,
+  "last_check": 1794056004,
   "seen_ids": [
     "2118863752594391290",
     "2118773850460540974",
@@ -659,6 +659,7 @@
     "2118012931166388508",
     "2119043941446078938",
     "2118372265519976637",
+    "2119050227470475405",
     "2118480791831490981",
     "2118131354600886509",
     "2118322590351769830",
@@ -1206,7 +1207,10 @@
     "2118807588955447574",
     "2118033018963325287",
     "2118124829270237207",
-    "2118326623640719557"
+    "2118326623640719557",
+    "2119048471911264462",
+    "2119047732732055677",
+    "2119050307082862973"
   ],
   "tg_offset": 277101781,
   "last_digest": "2026-11-06",
@@ -2710,7 +2714,7 @@
       "message_id": 866
     }
   },
-  "angle_i": 1108,
+  "angle_i": 1112,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -2981,8 +2985,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794055764,
-  "last_mentions": 1794055524,
+  "last_fast": 1794056004,
+  "last_mentions": 1794055884,
   "last_slow": 1794055764,
   "tw_samples": [
     [
@@ -4207,8 +4211,6 @@
     "talonxbt": 1794021692,
     "pangboygg": 1793989267,
     "89trading": 1794009194,
-    "uniquesingh__": 1793969606,
-    "jumperwave": 1793969607,
     "0xleegenz": 1794020236,
     "0xwassie": 1793973329,
     "atnsxbt": 1793973330,
@@ -4229,7 +4231,7 @@
     "taifoon_io": 1793989268,
     "bashorunedward": 1793992868,
     "noteezzy": 1793992870,
-    "sebastianwols17": 1793992870,
+    "sebastianwols17": 1794056031,
     "lateniteonchain": 1794020235,
     "carmelbeautyyyy": 1793996475,
     "elysium_machine": 1794000178,
@@ -4271,6 +4273,8 @@
     "aiqiang888": 1794048823,
     "yuchen": 1794048823,
     "yihan0202": 1794052422,
-    "superpobe": 1794052423
+    "superpobe": 1794052423,
+    "velvet_capital": 1794056030,
+    "bloomtrading": 1794056032
   }
 }
