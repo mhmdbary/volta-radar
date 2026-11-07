@@ -1,5 +1,5 @@
 {
-  "last_check": 1794019977,
+  "last_check": 1794020217,
   "seen_ids": [
     "2118194461528449450",
     "2117680146316419197",
@@ -51,9 +51,9 @@
     "2118475785392812446",
     "2118797593065165087",
     "2117686540176376297",
+    "2118884500201787770",
     "2118316856847331395",
     "2118620178737197536",
-    "2118884500201787770",
     "2118725243229577362",
     "2117885655221202996",
     "2118388558797140231",
@@ -1043,7 +1043,10 @@
     "2118404729487097958",
     "2118046612316385380",
     "2118220166417031523",
-    "2117732161797464230"
+    "2117732161797464230",
+    "2118891033157333422",
+    "2118892450156793957",
+    "2118892005690654968"
   ],
   "tg_offset": 277101775,
   "last_digest": "2026-11-06",
@@ -2547,7 +2550,7 @@
       "message_id": 866
     }
   },
-  "angle_i": 945,
+  "angle_i": 948,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -2818,8 +2821,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794019977,
-  "last_mentions": 1794019857,
+  "last_fast": 1794020217,
+  "last_mentions": 1794020217,
   "last_slow": 1794019737,
   "tw_samples": [
     [
@@ -4055,7 +4058,7 @@
     "crypt0_andrii": 1793965896,
     "uniquesingh__": 1793969606,
     "jumperwave": 1793969607,
-    "0xleegenz": 1793969608,
+    "0xleegenz": 1794020236,
     "0xwassie": 1793973329,
     "atnsxbt": 1793973330,
     "monsieurabbit": 1793973331,
@@ -4076,7 +4079,7 @@
     "bashorunedward": 1793992868,
     "noteezzy": 1793992870,
     "sebastianwols17": 1793992870,
-    "lateniteonchain": 1793996473,
+    "lateniteonchain": 1794020235,
     "carmelbeautyyyy": 1793996475,
     "elysium_machine": 1794000178,
     "baibai_cx": 1794000179,
@@ -4091,6 +4094,7 @@
     "greenytrades": 1794012796,
     "maxuelulu1": 1794016524,
     "hellosuoha": 1794016524,
-    "hyperliquid_hub": 1794016525
+    "hyperliquid_hub": 1794016525,
+    "jords": 1794020237
   }
 }
