@@ -1,5 +1,5 @@
 {
-  "last_check": 1794099465,
+  "last_check": 1794099585,
   "seen_ids": [
     "2119200408774275304",
     "2117668555147591692",
@@ -1474,7 +1474,8 @@
     "2118251802680553974",
     "2118798900123381951",
     "2119066586434924949",
-    "2118550967717339570"
+    "2118550967717339570",
+    "2119233273033593268"
   ],
   "tg_offset": 277101791,
   "last_digest": "2026-11-07",
@@ -2978,7 +2979,7 @@
       "message_id": 866
     }
   },
-  "angle_i": 1376,
+  "angle_i": 1377,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3249,7 +3250,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794099465,
+  "last_fast": 1794099585,
   "last_mentions": 1794099345,
   "last_slow": 1794099225,
   "tw_samples": [
@@ -4477,9 +4478,6 @@
     "sebastianwols17": 1794056031,
     "lateniteonchain": 1794081259,
     "hunter_xhunta": 1794072248,
-    "dreinstein9999": 1794012795,
-    "wizardofsoho": 1794012796,
-    "greenytrades": 1794012796,
     "maxuelulu1": 1794016524,
     "hellosuoha": 1794016524,
     "hyperliquid_hub": 1794016525,
@@ -4538,6 +4536,7 @@
     "ace9vn": 1794092199,
     "adeyemoseunayo2": 1794092200,
     "pangboygg": 1794092202,
-    "shelleymaeph": 1794095884
+    "shelleymaeph": 1794095884,
+    "xueqiu88": 1794099611
   }
 }
