@@ -1,5 +1,5 @@
 {
-  "last_check": 1794111839,
+  "last_check": 1794112079,
   "seen_ids": [
     "2117897156518691273",
     "2118730649368698993",
@@ -1524,7 +1524,10 @@
     "2118683652712231346",
     "2118976996298330202",
     "2118725508372299906",
-    "2118031585878454284"
+    "2118031585878454284",
+    "2119280448324911164",
+    "2119283771862118660",
+    "2119280205974147163"
   ],
   "tg_offset": 277101791,
   "last_digest": "2026-11-07",
@@ -3028,7 +3031,7 @@
       "message_id": 866
     }
   },
-  "angle_i": 1426,
+  "angle_i": 1429,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3101,7 +3104,7 @@
     "2117962241957904390",
     "2117872026555965644"
   ],
-  "last_to_me": 1794111259,
+  "last_to_me": 1794111868,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3299,14 +3302,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794111839,
-  "last_mentions": 1794111599,
+  "last_fast": 1794112079,
+  "last_mentions": 1794111959,
   "last_slow": 1794111839,
   "tw_samples": [
-    [
-      1793915179,
-      652323
-    ],
     [
       1793915809,
       651273
@@ -4502,6 +4501,10 @@
     [
       1794111260,
       244386
+    ],
+    [
+      1794111869,
+      244086
     ]
   ],
   "ai_usage": {
@@ -4535,7 +4538,7 @@
     "thenftjosh": 1794032610,
     "airdropfinds": 1794032611,
     "aniqardyy": 1794036210,
-    "0xsstat": 1794036211,
+    "0xsstat": 1794112105,
     "youngjazzeth": 1794039932,
     "elatedtate": 1794039933,
     "sellmanft": 1794039933,
@@ -4552,7 +4555,7 @@
     "superpobe": 1794052423,
     "velvet_capital": 1794056030,
     "bloomtrading": 1794056032,
-    "congge918": 1794059742,
+    "congge918": 1794112104,
     "betmanjoe": 1794059743,
     "0xnahid": 1794059744,
     "0xcobra_": 1794061331,
@@ -4586,6 +4589,7 @@
     "andyyy": 1794104779,
     "cookerflips": 1794108385,
     "y_cryptoanalyst": 1794108386,
-    "citroncynique": 1794108387
+    "citroncynique": 1794108387,
+    "fugakux": 1794112103
   }
 }
