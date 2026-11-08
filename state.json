@@ -1,5 +1,5 @@
 {
-  "last_check": 1794122776,
+  "last_check": 1794123016,
   "seen_ids": [
     "2119194910347710543",
     "2119230492415258723",
@@ -71,9 +71,9 @@
     "2118122861860667621",
     "2118951112518795519",
     "2117982889883144652",
-    "2119289981860807095",
     "2118562584723181920",
     "2118256240006430749",
+    "2119289981860807095",
     "2118651525136265387",
     "2118870193858658525",
     "2118699293087265154",
@@ -1667,20 +1667,6 @@
   },
   "last_follow_check": 1794119762,
   "drafts": {
-    "2117998184941449633": {
-      "author": "0xOmnia",
-      "text": "🎯",
-      "reply": "bullseye fr. on volta whoever launches the token earns fees in HYPE, the $VOLTA target i keep aiming at",
-      "tried": [
-        "bullseye fr. on volta whoever launches the token earns fees in HYPE, the $VOLTA target i keep aiming at"
-      ],
-      "image": null,
-      "followers": 20267,
-      "relevant": false,
-      "reply_ar": "إصابة في الصميم فعلاً. على فولتا، من يطلق التوكن يكسب رسوماً بعملة HYPE، وهذا هو الهدف في $VOLTA الذي أصوّب نحوه دائماً",
-      "tweet_ar": "🎯 (إصابة الهدف بالضبط)",
-      "message_id": 332
-    },
     "2117998328835346803": {
       "author": "CryptoShlug",
       "text": "@VoltaFamily #1 pad sewn",
@@ -3066,9 +3052,19 @@
       "image": null,
       "my_text": "",
       "message_id": 866
+    },
+    "2119328316146454611": {
+      "to_me": true,
+      "author": "_bunny_exe",
+      "text": "@barymoto @Kenzo13RO @Enter_Elysium Mainnet would be crazy. https://t.co/RVrVD2WD3Y",
+      "reply": "",
+      "tried": [],
+      "image": "https://pbs.twimg.com/tweet_video_thumb/HWld3KTWQAAxv3b.jpg",
+      "my_text": "@Kenzo13RO @Enter_Elysium The team keeps delivering. $VOLTA is shaping up to be a serious player on Elysium, and we haven’t even hit mainnet yet. 👀",
+      "message_id": 1749
     }
   },
-  "angle_i": 1466,
+  "angle_i": 1467,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3135,13 +3131,14 @@
     "2117895148365607335",
     "2117986555780620334",
     "2117962241957904390",
-    "2118314205203837351",
+    "2119328316146454611",
     "2117945433234313681",
+    "2118314205203837351",
     "2118207660260741354",
     "2118673964226732462",
     "2117872026555965644"
   ],
-  "last_to_me": 1794122178,
+  "last_to_me": 1794122786,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3339,7 +3336,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794122776,
+  "last_fast": 1794123016,
   "last_mentions": 1794122776,
   "last_slow": 1794122656,
   "tw_samples": [
