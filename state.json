@@ -1,5 +1,5 @@
 {
-  "last_check": 1794125536,
+  "last_check": 1794125776,
   "seen_ids": [
     "2119194910347710543",
     "2119230492415258723",
@@ -71,9 +71,9 @@
     "2118122861860667621",
     "2118951112518795519",
     "2117982889883144652",
-    "2118562584723181920",
     "2118256240006430749",
     "2119289981860807095",
+    "2118562584723181920",
     "2118651525136265387",
     "2118870193858658525",
     "2118699293087265154",
@@ -513,6 +513,7 @@
     "2118905050085118449",
     "2118402882860949641",
     "2117998328835346803",
+    "2119341548097638742",
     "2117732013021200723",
     "2119254864190722482",
     "2119045124994851116",
@@ -522,6 +523,7 @@
     "2117779862056235231",
     "2118628033120567584",
     "2118670903773143357",
+    "2119341495937581517",
     "2119146526899396725",
     "2118995187087429890",
     "2118377694056604119",
@@ -832,6 +834,7 @@
     "2119106430540357669",
     "2118878603974742283",
     "2119214807643468057",
+    "2119341383983177739",
     "2119110778364244410",
     "2119310904420696449",
     "2118408826588147755",
@@ -1103,6 +1106,7 @@
     "2118541394117837108",
     "2119206627039699302",
     "2118772611564146846",
+    "2119342185581871233",
     "2119011435430937081",
     "2118670357574066551",
     "2118264161021137035",
@@ -1679,20 +1683,6 @@
   },
   "last_follow_check": 1794119762,
   "drafts": {
-    "2117998328835346803": {
-      "author": "CryptoShlug",
-      "text": "@VoltaFamily #1 pad sewn",
-      "reply": "sewn up tight lol, not a loose thread in sight. creators launching on volta can earn fees in tokenized stocks too, not just crypto, and that's the $VOLTA detail that stitched it up for me",
-      "tried": [
-        "sewn up tight lol, not a loose thread in sight. creators launching on volta can earn fees in tokenized stocks too, not just crypto, and that's the $VOLTA detail that stitched it up for me"
-      ],
-      "image": null,
-      "followers": 26045,
-      "relevant": true,
-      "reply_ar": "محسومة ومخيطة بإحكام هههه، ولا خيط مفلوت. المبدعون اللي يطلقون توكناتهم على فولتا يقدرون يكسبون رسومهم بأسهم مرمّزة كمان، مو بس كريبتو، وهذي التفصيلة في $VOLTA اللي حسمت الموضوع عندي",
-      "tweet_ar": "منصة الإطلاق رقم 1، والأمر محسوم.",
-      "message_id": 333
-    },
     "2118000796990333059": {
       "author": "BitBlitzBuzz",
       "text": "nice start november\n\nweb3 did it 💙 https://t.co/E6kP1zzhHx",
@@ -3074,9 +3064,19 @@
       "image": "https://pbs.twimg.com/tweet_video_thumb/HWld3KTWQAAxv3b.jpg",
       "my_text": "@Kenzo13RO @Enter_Elysium The team keeps delivering. $VOLTA is shaping up to be a serious player on Elysium, and we haven’t even hit mainnet yet. 👀",
       "message_id": 1749
+    },
+    "2119340150547530150": {
+      "to_me": true,
+      "author": "Karamata2_2",
+      "text": "@barymoto @Enter_Elysium @exfildotfun 🤝",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "@Karamata2_2 @Enter_Elysium @exfildotfun Mainnet is almost here. Good to see people getting prepared. $VOLTA is one of the DeFi projects I'll be watching closely on Elysium.",
+      "message_id": 1762
     }
   },
-  "angle_i": 1479,
+  "angle_i": 1484,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3148,9 +3148,10 @@
     "2118314205203837351",
     "2118207660260741354",
     "2118673964226732462",
+    "2119340150547530150",
     "2117872026555965644"
   ],
-  "last_to_me": 1794124820,
+  "last_to_me": 1794125538,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3348,14 +3349,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794125536,
-  "last_mentions": 1794125296,
-  "last_slow": 1794125056,
+  "last_fast": 1794125776,
+  "last_mentions": 1794125656,
+  "last_slow": 1794125656,
   "tw_samples": [
-    [
-      1793927897,
-      629994
-    ],
     [
       1793928526,
       628914
@@ -4551,6 +4548,10 @@
     [
       1794124828,
       230283
+    ],
+    [
+      1794125552,
+      229788
     ]
   ],
   "ai_usage": {
