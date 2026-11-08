@@ -1,5 +1,5 @@
 {
-  "last_check": 1794138136,
+  "last_check": 1794138256,
   "seen_ids": [
     "2119194910347710543",
     "2119230492415258723",
@@ -28,6 +28,7 @@
     "2118672183962825071",
     "2119183199104532637",
     "2118752625776816281",
+    "2119395217195585895",
     "2119384097072320664",
     "2117680146316419197",
     "2118767210143646169",
@@ -59,8 +60,8 @@
     "2119187592709329152",
     "2118725628883067137",
     "2118238011477606768",
-    "2119195648968757541",
     "2118463142095142973",
+    "2119195648968757541",
     "2118372615748296791",
     "2118827766892109872",
     "2118211522149367965",
@@ -377,7 +378,6 @@
     "2118948507516379147",
     "2119222194307764381",
     "2118025155641561310",
-    "2119210566652924087",
     "2117980247031271721",
     "2118057810478997714",
     "2118688074724995518",
@@ -538,6 +538,7 @@
     "2119147727066132725",
     "2119086251869434000",
     "2118449493502747102",
+    "2119393200565866581",
     "2119109552050458771",
     "2118360467748053016",
     "2119060997654938103",
@@ -649,6 +650,7 @@
     "2118963469726646498",
     "2119391772048785748",
     "2119182353860108639",
+    "2118807313117057502",
     "2118328929542906097",
     "2118967590995288558",
     "2118653894175990168",
@@ -1696,7 +1698,7 @@
     "2118392971037171816",
     "2118355138599690430",
     "2119206008476291299",
-    "2118807313117057502"
+    "2119210566652924087"
   ],
   "tg_offset": 277101806,
   "last_digest": "2026-11-07",
@@ -1799,20 +1801,6 @@
   },
   "last_follow_check": 1794119762,
   "drafts": {
-    "2118000796990333059": {
-      "author": "BitBlitzBuzz",
-      "text": "nice start november\n\nweb3 did it 💙 https://t.co/E6kP1zzhHx",
-      "reply": "green start to november, volta trades keep burning $VOLTA too",
-      "tried": [
-        "green start to november, volta trades keep burning $VOLTA too"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSmfgmaQAImRVL.jpg",
-      "followers": 10671,
-      "relevant": false,
-      "reply_ar": "بداية خضراء لنوفمبر، وصفقات فولتا مستمرة في حرق $VOLTA أيضًا",
-      "tweet_ar": "بداية جميلة لشهر نوفمبر، الويب3 فعلها 💙",
-      "message_id": 334
-    },
     "2118004151984570659": {
       "author": "DefiIgnas",
       "text": "End of Crime Season:\n\n- Crime coins/extractooor KOLs get no bid\n- Trump & His Cartel face responsibility for their scams\n\nWhile\n- OG devs who built for years get rewarded: $FLUID solana:KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS $AAVE $UNI etc.\n- Tradfi x crypto merges more ($HYPE $LIT $VAR + tokenized stocks)\n- High rev tokens continue to outperform\n\nBut\n- Privacy coins serve as hedge: $ZEC but also $ETH",
@@ -3190,9 +3178,19 @@
       "image": null,
       "my_text": "@Karamata2_2 @Enter_Elysium @exfildotfun Mainnet is almost here. Good to see people getting prepared. $VOLTA is one of the DeFi projects I'll be watching closely on Elysium.",
       "message_id": 1762
+    },
+    "2119395334610968888": {
+      "to_me": true,
+      "author": "SebastianWols17",
+      "text": "@barymoto @Yieldex_markets VOLTA is cooking I love it",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "@SebastianWols17 @Yieldex_markets Solid research bro. $VOLTA deserves a spot on the radar too. Uniswap V4, buybacks and burns. Interested to see how it performs after mainnet.",
+      "message_id": 1904
     }
   },
-  "angle_i": 1600,
+  "angle_i": 1603,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3265,9 +3263,10 @@
     "2118207660260741354",
     "2118673964226732462",
     "2119340150547530150",
-    "2117872026555965644"
+    "2117872026555965644",
+    "2119395334610968888"
   ],
-  "last_to_me": 1794137548,
+  "last_to_me": 1794138286,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3465,9 +3464,9 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794138136,
-  "last_mentions": 1794137896,
-  "last_slow": 1794137656,
+  "last_fast": 1794138256,
+  "last_mentions": 1794138256,
+  "last_slow": 1794138256,
   "tw_samples": [
     [
       1793939077,
