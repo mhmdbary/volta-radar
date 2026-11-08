@@ -1,5 +1,5 @@
 {
-  "last_check": 1794115559,
+  "last_check": 1794115799,
   "seen_ids": [
     "2117897156518691273",
     "2118730649368698993",
@@ -1532,7 +1532,10 @@
     "2118683652712231346",
     "2118976996298330202",
     "2118725508372299906",
-    "2118031585878454284"
+    "2118031585878454284",
+    "2119298099105722456",
+    "2119295701465309296",
+    "2119297975126282526"
   ],
   "tg_offset": 277101791,
   "last_digest": "2026-11-07",
@@ -3036,7 +3039,7 @@
       "message_id": 866
     }
   },
-  "angle_i": 1434,
+  "angle_i": 1437,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3307,7 +3310,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794115559,
+  "last_fast": 1794115799,
   "last_mentions": 1794115559,
   "last_slow": 1794115439,
   "tw_samples": [
@@ -4536,9 +4539,6 @@
     "hunter_xhunta": 1794072248,
     "jords": 1794052421,
     "ika_xbt": 1794081256,
-    "itsgayri": 1794029009,
-    "akakay04": 1794029010,
-    "0xyi666": 1794029010,
     "jackienecton": 1794032609,
     "thenftjosh": 1794032610,
     "airdropfinds": 1794032611,
@@ -4595,6 +4595,9 @@
     "cookerflips": 1794108385,
     "y_cryptoanalyst": 1794108386,
     "citroncynique": 1794108387,
-    "fugakux": 1794112103
+    "fugakux": 1794112103,
+    "mbxxvv": 1794115824,
+    "fulldotfun": 1794115825,
+    "wen394428142129": 1794115826
   }
 }
