@@ -1,5 +1,5 @@
 {
-  "last_check": 1794146071,
+  "last_check": 1794146311,
   "seen_ids": [
     "2118336620197752910",
     "2117771621528121427",
@@ -217,6 +217,7 @@
     "2118504417041535111",
     "2118759692121833668",
     "2119372015245332592",
+    "2119427647054750000",
     "2119352621681246320",
     "2118341032974639560",
     "2118726200541544958",
@@ -318,6 +319,8 @@
     "2119256945810870618",
     "2119079833422442505",
     "2118088462737998184",
+    "2119428816833773655",
+    "2119427997946028501",
     "2119208987937665216",
     "2119333869031710985",
     "2119063587138539670",
@@ -373,6 +376,7 @@
     "2117965438961189077",
     "2119044177736478793",
     "2119224858282508622",
+    "2119427697768366423",
     "2118233983150370980",
     "2118695527248498711",
     "2119419943146123271",
@@ -697,6 +701,7 @@
     "2118797767606964510",
     "2117595326626619825",
     "2118327107365511446",
+    "2119428833292009522",
     "2119055698772492741",
     "2118650151833063750",
     "2119194626317820377",
@@ -1106,6 +1111,7 @@
     "2118683652712231346",
     "2118581126683840955",
     "2117982317629091865",
+    "2119427605883482599",
     "2119366317904113863",
     "2118787365426893002",
     "2117725086413402244",
@@ -1885,20 +1891,6 @@
   },
   "last_follow_check": 1794141402,
   "drafts": {
-    "2118004151984570659": {
-      "author": "DefiIgnas",
-      "text": "End of Crime Season:\n\n- Crime coins/extractooor KOLs get no bid\n- Trump & His Cartel face responsibility for their scams\n\nWhile\n- OG devs who built for years get rewarded: $FLUID solana:KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS $AAVE $UNI etc.\n- Tradfi x crypto merges more ($HYPE $LIT $VAR + tokenized stocks)\n- High rev tokens continue to outperform\n\nBut\n- Privacy coins serve as hedge: $ZEC but also $ETH",
-      "reply": "the HYPE line is why i watch $VOLTA, every volta launch gets a v4 pool paired with HYPE",
-      "tried": [
-        "the HYPE line is why i watch $VOLTA, every volta launch gets a v4 pool paired with HYPE"
-      ],
-      "image": null,
-      "followers": 164037,
-      "relevant": false,
-      "reply_ar": "ذكرك لـ HYPE هو سبب متابعتي لـ $VOLTA، فكل عملة تُطلق على فولتا تحصل على مجمع Uniswap v4 خاص بها مقترن بـ HYPE.",
-      "tweet_ar": "نهاية موسم الجرائم: عملات الاحتيال والمؤثرون الذين يستنزفون متابعيهم لن يجدوا من يشتري منهم، وترامب وعصابته سيواجهون المسؤولية عن عمليات احتيالهم. في المقابل، المطورون القدامى الذين بنوا لسنوات سيُكافَؤون، مثل $FLUID و$AAVE و$UNI وغيرها. والاندماج بين التمويل التقليدي والكريبتو يزداد ($HYPE و$LIT و$VAR والأسهم المرمّزة). والعملات ذات الإيرادات العالية ستواصل التفوق. لكن عملات الخصوصية تبقى وسيلة تحوّط، مثل $ZEC وأيضاً $ETH.",
-      "message_id": 335
-    },
     "2118004635575505305": {
       "author": "Markets_xyz",
       "text": "BREAKING: U.S. stocks are posting massive gains in their initial reaction to the midterm election results.\n\nOver $1.3 TRILLION has been added to the U.S. stock market today. https://t.co/w3BhhDIDPm",
@@ -3272,9 +3264,19 @@
       "image": null,
       "my_text": "@SebastianWols17 @Yieldex_markets Solid research bro. $VOLTA deserves a spot on the radar too. Uniswap V4, buybacks and burns. Interested to see how it performs after mainnet.",
       "message_id": 1904
+    },
+    "2119426118985875703": {
+      "to_me": true,
+      "author": "_bunny_exe",
+      "text": "@barymoto @VoltaFamily @Enter_Elysium send it 🔥",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "Aped 👇\n\nOn @VoltaFamily \n\n@Enter_Elysium",
+      "message_id": 1996
     }
   },
-  "angle_i": 1687,
+  "angle_i": 1694,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3338,19 +3340,20 @@
     "do creators get a HYPE fee tally next to the $VOLTA burns?"
   ],
   "to_me_seen": [
-    "2117986555780620334",
     "2118207660260741354",
     "2119395334610968888",
+    "2119426118985875703",
     "2117945433234313681",
     "2117895148365607335",
     "2118314205203837351",
     "2119340150547530150",
     "2118673964226732462",
+    "2119328316146454611",
     "2117962241957904390",
     "2117872026555965644",
-    "2119328316146454611"
+    "2117986555780620334"
   ],
-  "last_to_me": 1794145503,
+  "last_to_me": 1794146204,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3548,14 +3551,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794146071,
-  "last_mentions": 1794145831,
+  "last_fast": 1794146311,
+  "last_mentions": 1794146191,
   "last_slow": 1794146071,
   "tw_samples": [
-    [
-      1793946459,
-      597405
-    ],
     [
       1793947059,
       596355
@@ -4751,6 +4750,10 @@
     [
       1794145518,
       184155
+    ],
+    [
+      1794146219,
+      183675
     ]
   ],
   "ai_usage": {
