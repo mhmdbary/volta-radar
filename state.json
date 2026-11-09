@@ -1,5 +1,5 @@
 {
-  "last_check": 1794227735,
+  "last_check": 1794227975,
   "seen_ids": [
     "2119559785154810247",
     "2119410798707765468",
@@ -2037,6 +2037,7 @@
       "Kinetiq_xyz"
     ],
     "Kinetiq_xyz": [
+      "HyperliquidNews",
       "wormhole",
       "NestExchange",
       "matchaxyz",
@@ -2101,7 +2102,7 @@
       "HyperliquidX"
     ]
   },
-  "last_follow_check": 1794206362,
+  "last_follow_check": 1794227983,
   "drafts": {
     "2118007378243408296": {
       "author": "Habibxweb3",
@@ -3757,7 +3758,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794227735,
+  "last_fast": 1794227975,
   "last_mentions": 1794227735,
   "last_slow": 1794227735,
   "tw_samples": [
