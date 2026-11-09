@@ -1,9 +1,6 @@
 {
-  "last_check": 1794238175,
+  "last_check": 1794238415,
   "seen_ids": [
-    "2118360120015106179",
-    "2118692229149593996",
-    "2119384097072320664",
     "2117995185975996634",
     "2119583300767621468",
     "2119554927337017525",
@@ -2000,7 +1997,10 @@
     "2119812110989316578",
     "2119109706690015680",
     "2118046612316385380",
-    "2118332013472092661"
+    "2118332013472092661",
+    "2119815259301245096",
+    "2119814918937461127",
+    "2119815106167296130"
   ],
   "tg_offset": 277101812,
   "last_digest": "2026-11-08",
@@ -3481,7 +3481,7 @@
       "message_id": 2568
     }
   },
-  "angle_i": 2544,
+  "angle_i": 2547,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3758,7 +3758,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794238175,
+  "last_fast": 1794238415,
   "last_mentions": 1794238175,
   "last_slow": 1794237935,
   "tw_samples": [
@@ -4982,12 +4982,9 @@
   "ai_warned": 1794228465,
   "opp_authors": {
     "congge918": 1794191489,
-    "nuttardios": 1794151624,
     "fulldotfun": 1794164234,
     "rifat__dimple": 1794211184,
     "oxgeek": 1794200258,
-    "maxelrowan": 1794151622,
-    "kingsecheeh": 1794151623,
     "ezmoneygems": 1794155224,
     "hypeconomist": 1794155225,
     "kyle": 1794155226,
@@ -5049,6 +5046,9 @@
     "0xmeow0130": 1794231035,
     "starplatinum_": 1794234732,
     "starlisting": 1794234733,
-    "lilmoonlambo": 1794234734
+    "lilmoonlambo": 1794234734,
+    "abdulhalimix44": 1794238434,
+    "_ummulkhair_": 1794238435,
+    "0xshorif": 1794238437
   }
 }
