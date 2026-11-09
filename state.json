@@ -1,5 +1,5 @@
 {
-  "last_check": 1794205759,
+  "last_check": 1794205999,
   "seen_ids": [
     "2119473030510584307",
     "2118839069719527436",
@@ -304,9 +304,9 @@
     "2119019128401035712",
     "2119033052756398407",
     "2118591409225880053",
-    "2118854515336368373",
-    "2119110778364244410",
     "2118491617556598786",
+    "2119110778364244410",
+    "2118854515336368373",
     "2119010686659412170",
     "2119659318748332068",
     "2119468447113298126",
@@ -2103,20 +2103,6 @@
   },
   "last_follow_check": 1794184747,
   "drafts": {
-    "2118004635575505305": {
-      "author": "Markets_xyz",
-      "text": "BREAKING: U.S. stocks are posting massive gains in their initial reaction to the midterm election results.\n\nOver $1.3 TRILLION has been added to the U.S. stock market today. https://t.co/w3BhhDIDPm",
-      "reply": "$VOLTA folks, would you take volta fees in tokenized stocks today?",
-      "tried": [
-        "$VOLTA folks, would you take volta fees in tokenized stocks today?"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSpb0uWAAE7Q1m.jpg",
-      "followers": 13956,
-      "relevant": false,
-      "reply_ar": "يا جماعة $VOLTA، هل كنتم ستأخذون رسوم فولتا على شكل أسهم مرمّزة في يوم كهذا؟",
-      "tweet_ar": "عاجل: الأسهم الأمريكية تسجل مكاسب ضخمة في أول رد فعل على نتائج الانتخابات النصفية. أُضيف أكثر من 1.3 تريليون دولار إلى سوق الأسهم الأمريكية اليوم.",
-      "message_id": 336
-    },
     "2118006107863998667": {
       "author": "ThinkingUSD",
       "text": "This should be a major wakeup call for all my conservative friends who think that the average American equates stock market performance to their quality of life.\n\nAmericans care about the promises made that were not kept, we're in foreign wars which have lead to increased costs to their everyday lives.\n\nThe technocratic ruling class has attempted to manufacture compliance and broad acceptance of AI while telling everyone they're going to lose their job or die.\n\nI'm optimistic for the future of this country and respect the majority of Americans voicing their opinion.",
@@ -3486,9 +3472,19 @@
       "image": null,
       "my_text": "Aped 👇\n\nOn @VoltaFamily \n\n@Enter_Elysium",
       "message_id": 1996
+    },
+    "2119677854250078285": {
+      "to_me": true,
+      "author": "SufeeErc",
+      "text": "@barymoto @Enter_Elysium Pay dex bro and be active",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "",
+      "message_id": 2503
     }
   },
-  "angle_i": 2185,
+  "angle_i": 2186,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3560,12 +3556,13 @@
     "2117945433234313681",
     "2118314205203837351",
     "2118207660260741354",
+    "2119677854250078285",
     "2117895148365607335",
     "2118673964226732462",
     "2119395334610968888",
     "2119426118985875703"
   ],
-  "last_to_me": 1794205051,
+  "last_to_me": 1794205769,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3763,14 +3760,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794205759,
+  "last_fast": 1794205999,
   "last_mentions": 1794205759,
   "last_slow": 1794205519,
   "tw_samples": [
-    [
-      1794000411,
-      400296
-    ],
     [
       1794001141,
       399921
@@ -4966,6 +4959,10 @@
     [
       1794205051,
       79959
+    ],
+    [
+      1794205783,
+      79074
     ]
   ],
   "ai_usage": {
