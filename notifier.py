@@ -1339,7 +1339,12 @@ def intel_menu():
 def send_intel(cfg, key):
     settings = load_json(SETTINGS_FILE, {})
     typing(cfg)
-    text = INTEL_REPORTS[key](cfg, settings) if key in INTEL_REPORTS else intel_watch(cfg, settings, key)
+    try:
+        text = INTEL_REPORTS[key](cfg, settings) if key in INTEL_REPORTS else intel_watch(cfg, settings, key)
+    except Exception as e:
+        out = "402" in str(e)
+        text = ("⚠️ <b>رصيد twitterapi.io خلص</b>\nالتقارير والتنبيهات واقفة لحد ما تشحن. بعد الشحن بترجع لحالها."
+                if out else f"⚠️ التقرير ما اشتغل: <code>{html.escape(str(e)[:150])}</code>")
     tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "text": text, "parse_mode": "HTML",
                                  "disable_web_page_preview": True, "reply_markup": intel_menu()})
 
@@ -1849,8 +1854,14 @@ def twitterapi_credits(cfg):
 def sample_balance(cfg, state):
     """Remember the twitterapi balance over time so /apis can show the real burn rate."""
     samples = state.setdefault("tw_samples", [])
-    samples.append([int(time.time()), twitterapi_credits(cfg)])
+    credits = twitterapi_credits(cfg)
+    samples.append([int(time.time()), credits])
     del samples[:-300]
+    if credits <= 0 and time.time() - float(state.get("tw_warned") or 0) > 6 * 3600:  # reading X has stopped
+        state["tw_warned"] = int(time.time())
+        tg_call(cfg, "sendMessage", {"chat_id": cfg["telegram_admin_id"], "parse_mode": "HTML",
+                                     "text": "⚠️ <b>رصيد twitterapi.io خلص</b>\n"
+                                             "التنبيهات والتقارير واقفة لحد ما تشحن: twitterapi.io → Dashboard"})
 
 
 def flush_ai_usage(state):
