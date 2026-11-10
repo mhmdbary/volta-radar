@@ -734,8 +734,8 @@ def check_replies_to_me(cfg, settings, handles, state):
     me = (settings.get("my_handle") or "").lstrip("@")
     if not me or not cfg.get("telegram_admin_id"):
         return
-    since = int(state.get("last_to_me") or time.time() - 600)
     now = int(time.time())
+    since = max(int(state.get("last_to_me") or now - 600), now - 3 * 3600)  # after an outage, the last 3 hours
     found = search_tweets(cfg["twitterapi_key"], f"to:{me} since_time:{since} -from:{me}")
     seen = set(state.get("to_me_seen", []))
     mine = load_json(MYWORK_FILE, {})
@@ -1448,7 +1448,7 @@ def check_once(cfg, settings, handles, state):
         last = int(state.get(f"last_{lane}") or state.get("last_check") or now - 900)
         if now - last < every or not members:
             continue
-        since = last - lookback
+        since = max(last, now - 3600) - lookback  # after an outage, catch up one hour at most (no flood of old alerts)
         lane_ok = True
         if lane == "mentions":
             mq = mention_query(settings, handles, since)
