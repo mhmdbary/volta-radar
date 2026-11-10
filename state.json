@@ -1,11 +1,10 @@
 {
-  "last_check": 1794338402,
+  "last_check": 1794338642,
   "seen_ids": [
-    "2118732279958905281",
-    "2118697894244929799",
     "2118620772268990966",
-    "2120137612363272380",
+    "2118697894244929799",
     "2118037559549050975",
+    "2120137612363272380",
     "2118461410242125845",
     "2118458223934259317",
     "2118428712685211862",
@@ -744,6 +743,7 @@
     "2119459210631000502",
     "2120147957190144097",
     "2119718581332226145",
+    "2120234561686962203",
     "2118798900123381951",
     "2119419956546752600",
     "2119659665382609107",
@@ -2107,20 +2107,6 @@
   },
   "last_follow_check": 1794334570,
   "drafts": {
-    "2118007664185835677": {
-      "author": "ThinkingUSD",
-      "text": "We've decided to close nearly all of our equity shorts into last nights emotional selling. One of our most profitable months ever. Thank you to our counterparties on those trades.\n\nWhile the next year looks challenging for equity markets, I don't think it continues to make sense to be directionally short.\n\nWhile sitting nearly 50% cash, we continue to hold large HYPE and Bitcoin positions.",
-      "reply": "stocks plus HYPE is a sane book. volta creators earn fees in HYPE and tokenized stocks, my favorite $VOLTA detail",
-      "tried": [
-        "stocks plus HYPE is a sane book. volta creators earn fees in HYPE and tokenized stocks, my favorite $VOLTA detail"
-      ],
-      "image": null,
-      "followers": 303746,
-      "relevant": false,
-      "reply_ar": "الأسهم مع HYPE محفظة منطقية. صنّاع التوكنات على فولتا يحصلون على رسومهم بعملة HYPE وبأسهم مرمّزة، وهذه أكثر تفصيلة أحبها في $VOLTA",
-      "tweet_ar": "قررنا إغلاق معظم مراكز البيع على المكشوف في الأسهم خلال موجة البيع العاطفي الليلة الماضية. كان من أكثر أشهرنا ربحًا على الإطلاق. شكرًا للأطراف المقابلة في تلك الصفقات. رغم أن السنة القادمة تبدو صعبة على أسواق الأسهم، لا أعتقد أنه من المنطقي الاستمرار في المراهنة على الهبوط. ومع احتفاظنا بنحو 50% نقدًا، ما زلنا نحتفظ بمراكز كبيرة في HYPE وبيتكوين.",
-      "message_id": 339
-    },
     "2118008855494078569": {
       "author": "Enter_Elysium",
       "text": "If you haven’t watched this already, a great breakdown from @sensahil of @Quicknode.\n\ne/acc",
@@ -3478,9 +3464,19 @@
       "image": null,
       "my_text": "@lateniteonchain @Enter_Elysium @fomo Elysium is just getting started 👀 $VOLTA is one to keep on the radar. Curious to see how the ecosystem grows from here ⚡",
       "message_id": 2971
+    },
+    "2120232291985457265": {
+      "to_me": true,
+      "author": "ItsNessaOnX",
+      "text": "@barymoto i will stay on the underestimated topic, shiny tickers can wait",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "",
+      "message_id": 3128
     }
   },
-  "angle_i": 2774,
+  "angle_i": 2776,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3545,22 +3541,23 @@
   ],
   "to_me_seen": [
     "2118207660260741354",
+    "2120232291985457265",
     "2119340150547530150",
     "2119426118985875703",
     "2119677854250078285",
     "2119328316146454611",
     "2117895148365607335",
     "2117945433234313681",
-    "2118314205203837351",
+    "2120134588408156302",
     "2118673964226732462",
     "2119706739176296919",
     "2117962241957904390",
     "2117872026555965644",
-    "2120134588408156302",
+    "2118314205203837351",
     "2119395334610968888",
     "2117986555780620334"
   ],
-  "last_to_me": 1794337692,
+  "last_to_me": 1794338413,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3758,14 +3755,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794338402,
+  "last_fast": 1794338642,
   "last_mentions": 1794338402,
-  "last_slow": 1794337922,
+  "last_slow": 1794338522,
   "tw_samples": [
-    [
-      1794130355,
-      223503
-    ],
     [
       1794131080,
       222963
@@ -4961,6 +4954,10 @@
     [
       1794337702,
       937198
+    ],
+    [
+      1794338430,
+      936763
     ]
   ],
   "ai_usage": {
