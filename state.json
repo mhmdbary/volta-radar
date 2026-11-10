@@ -1,9 +1,6 @@
 {
-  "last_check": 1794347298,
+  "last_check": 1794347418,
   "seen_ids": [
-    "2119562048493572176",
-    "2118752197588799714",
-    "2119536811240276467",
     "2117950680807719246",
     "2118679873409736839",
     "2119667468021154101",
@@ -2000,7 +1997,10 @@
     "2118617837933601029",
     "2118837678720651421",
     "2119701525396103292",
-    "2119505480531800248"
+    "2119505480531800248",
+    "2120270134405206094",
+    "2120271867470549377",
+    "2120271844104347930"
   ],
   "tg_offset": 277101833,
   "last_digest": "2026-11-10",
@@ -3476,7 +3476,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 2815,
+  "angle_i": 2818,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3755,7 +3755,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794347298,
+  "last_fast": 1794347418,
   "last_mentions": 1794347178,
   "last_slow": 1794347058,
   "tw_samples": [
@@ -4978,7 +4978,7 @@
   },
   "ai_warned": 1794335555,
   "opp_authors": {
-    "aaminhajj__": 1794312936,
+    "aaminhajj__": 1794347437,
     "crypto_peet": 1794312937,
     "rahim_mahtab": 1794312937,
     "potu_eth": 1794343720,
@@ -5005,7 +5005,9 @@
     "3__ij": 1794340110,
     "yourfriendsommi": 1794340111,
     "agek1d": 1794343718,
-    "xcurveth": 1794343719
+    "xcurveth": 1794343719,
+    "deltaliquidity": 1794347437,
+    "youngjazzeth": 1794347438
   },
   "tw_warned": 1794310624
 }
