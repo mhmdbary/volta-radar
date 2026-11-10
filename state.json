@@ -1,8 +1,6 @@
 {
-  "last_check": 1794334322,
+  "last_check": 1794334562,
   "seen_ids": [
-    "2118692936506605911",
-    "2118532663120458108",
     "2120133456667549830",
     "2119092790047219915",
     "2120214980209623078",
@@ -518,6 +516,7 @@
     "2119531151643849156",
     "2119480782066729067",
     "2119170127933673799",
+    "2120217467272274306",
     "2118679197157851315",
     "2119660620668899835",
     "2119370788235338238",
@@ -1720,6 +1719,7 @@
     "2119076151276503405",
     "2119829271359398148",
     "2119428833292009522",
+    "2120218040239268350",
     "2119823626132414500",
     "2120214792292241870",
     "2119021003980648742",
@@ -2039,6 +2039,7 @@
       "Kinetiq_xyz"
     ],
     "Kinetiq_xyz": [
+      "arbitrum",
       "HyperliquidNews",
       "wormhole",
       "NestExchange",
@@ -2104,7 +2105,7 @@
       "HyperliquidX"
     ]
   },
-  "last_follow_check": 1794312953,
+  "last_follow_check": 1794334570,
   "drafts": {
     "2118007664185835677": {
       "author": "ThinkingUSD",
@@ -3479,7 +3480,7 @@
       "message_id": 2971
     }
   },
-  "angle_i": 2757,
+  "angle_i": 2759,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,8 +3758,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794334322,
-  "last_mentions": 1794334082,
+  "last_fast": 1794334562,
+  "last_mentions": 1794334442,
   "last_slow": 1794334322,
   "tw_samples": [
     [
