@@ -1,8 +1,6 @@
 {
-  "last_check": 1794315017,
+  "last_check": 1794315257,
   "seen_ids": [
-    "2119777634976694427",
-    "2119203108626862435",
     "2119822055655051598",
     "2119584267114025469",
     "2118000796990333059",
@@ -291,6 +289,7 @@
     "2118421335332499526",
     "2119725599459791333",
     "2119419373353906293",
+    "2120137873701875978",
     "2119324380006068585",
     "2119547361659904130",
     "2119657910041018675",
@@ -720,6 +719,7 @@
     "2118040494454304796",
     "2119675855274442813",
     "2117957641175765165",
+    "2120135970775507416",
     "2118797767606964510",
     "2120128768224481384",
     "2119695167045136657",
@@ -2002,7 +2002,7 @@
     "2119256945810870618",
     "2119146979590901932"
   ],
-  "tg_offset": 277101826,
+  "tg_offset": 277101829,
   "last_digest": "2026-11-09",
   "known_follows": {
     "Enter_Elysium": [
@@ -2106,20 +2106,6 @@
   },
   "last_follow_check": 1794312953,
   "drafts": {
-    "2118007378243408296": {
-      "author": "Habibxweb3",
-      "text": "$5.76 in. four figures out.\n\n$1WIN airdrop finally landed 🫡\n\n26,441 $1WIN → 1,271.18 CASH, swapped clean on solana\n\npatience paid fr\nweb3 did it\n\ntnx @1winToken, delivered as promised https://t.co/Et3rCWH6qQ",
-      "reply": "patience genuinely paid on that one, congrats on the drop landing. the thing i'm being patient on is elysium, kinetiq's network for hyperliquid goes public mainnet nov 9 and volta's already running launches there, so $VOLTA's been fun to follow early",
-      "tried": [
-        "patience genuinely paid on that one, congrats on the drop landing. the thing i'm being patient on is elysium, kinetiq's network for hyperliquid goes public mainnet nov 9 and volta's already running launches there, so $VOLTA's been fun to follow early"
-      ],
-      "image": "https://pbs.twimg.com/media/HWSsbE0bQAAEDJA.jpg",
-      "followers": 10588,
-      "relevant": false,
-      "reply_ar": "الصبر فعلًا أتى بنتيجة هنا، مبروك وصول الإيردروب. الشيء الذي أصبر عليه أنا هو Elysium، شبكة Kinetiq لـ Hyperliquid، وإطلاقها العام على الشبكة الرئيسية في 9 نوفمبر. وفولتا تطلق التوكنات عليها من الآن، لذلك متابعة $VOLTA من البداية ممتعة.",
-      "tweet_ar": "دخلت بـ 5.76 دولار وطلعت بأربعة أرقام. إيردروب $1WIN وصل أخيرًا. بدّلت 26,441 من $1WIN إلى 1,271.18 CASH بسلاسة على سولانا. الصبر أتى بنتيجة فعلًا، الويب3 فعلها. شكرًا لـ 1winToken، وفوا بوعدهم.",
-      "message_id": 338
-    },
     "2118007664185835677": {
       "author": "ThinkingUSD",
       "text": "We've decided to close nearly all of our equity shorts into last nights emotional selling. One of our most profitable months ever. Thank you to our counterparties on those trades.\n\nWhile the next year looks challenging for equity markets, I don't think it continues to make sense to be directionally short.\n\nWhile sitting nearly 50% cash, we continue to hold large HYPE and Bitcoin positions.",
@@ -3481,9 +3467,19 @@
       "image": null,
       "my_text": "@jargon_sol @Enter_Elysium Elysium mainnet is almost here 👀 $VOLTA is one I'm watching closely. Tomorrow could get interesting ⚡",
       "message_id": 2568
+    },
+    "2120134588408156302": {
+      "to_me": true,
+      "author": "_bunny_exe",
+      "text": "@barymoto @lateniteonchain @Enter_Elysium @fomo yes yes.. they don't know!",
+      "reply": "",
+      "tried": [],
+      "image": null,
+      "my_text": "@lateniteonchain @Enter_Elysium @fomo Elysium is just getting started 👀 $VOLTA is one to keep on the radar. Curious to see how the ecosystem grows from here ⚡",
+      "message_id": 2971
     }
   },
-  "angle_i": 2633,
+  "angle_i": 2636,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3547,6 +3543,7 @@
     "do creators get a HYPE fee tally next to the $VOLTA burns?"
   ],
   "to_me_seen": [
+    "2120134588408156302",
     "2117872026555965644",
     "2119426118985875703",
     "2117986555780620334",
@@ -3562,7 +3559,7 @@
     "2117895148365607335",
     "2119340150547530150"
   ],
-  "last_to_me": 1794314308,
+  "last_to_me": 1794315035,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3760,14 +3757,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794315017,
+  "last_fast": 1794315257,
   "last_mentions": 1794315017,
-  "last_slow": 1794314657,
+  "last_slow": 1794315257,
   "tw_samples": [
-    [
-      1794109211,
-      245346
-    ],
     [
       1794109821,
       245076
@@ -4963,6 +4956,10 @@
     [
       1794314316,
       993448
+    ],
+    [
+      1794315051,
+      992743
     ]
   ],
   "ai_usage": {
