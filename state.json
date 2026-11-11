@@ -1,8 +1,6 @@
 {
-  "last_check": 1794359792,
+  "last_check": 1794360032,
   "seen_ids": [
-    "2119299074579136866",
-    "2119611980990578927",
     "2118788169583997408",
     "2119784445444042967",
     "2120227592158523446",
@@ -2000,7 +1998,9 @@
     "2118480791831490981",
     "2118679362958467387",
     "2118968940688712172",
-    "2118021706497536396"
+    "2118021706497536396",
+    "2120323612918075488",
+    "2120323704148427089"
   ],
   "tg_offset": 277101833,
   "last_digest": "2026-11-10",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 2842,
+  "angle_i": 2844,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,7 +3757,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794359792,
+  "last_fast": 1794360032,
   "last_mentions": 1794359792,
   "last_slow": 1794359792,
   "tw_samples": [
@@ -4988,7 +4988,7 @@
     "basedsnipez": 1794316596,
     "fulldotfun": 1794320200,
     "zemoon_xbt": 1794320200,
-    "itzabcrypto": 1794320201,
+    "itzabcrypto": 1794360054,
     "arbitrum": 1794323802,
     "promint_x": 1794323802,
     "emermuo": 1794323803,
@@ -5012,7 +5012,8 @@
     "clark10x": 1794352654,
     "that1618guy": 1794352655,
     "bobby_1111888": 1794356331,
-    "0xleegenz": 1794356332
+    "0xleegenz": 1794356332,
+    "89trading": 1794360055
   },
   "tw_warned": 1794310624
 }
