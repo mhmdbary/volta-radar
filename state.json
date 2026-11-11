@@ -1,9 +1,6 @@
 {
-  "last_check": 1794419147,
+  "last_check": 1794419387,
   "seen_ids": [
-    "2118696289307177141",
-    "2119621186724176060",
-    "2119454243287671073",
     "2118251802680553974",
     "2118712647646695920",
     "2118494748054863953",
@@ -2000,7 +1997,10 @@
     "2119069939529327054",
     "2119458516675051945",
     "2118628232002158682",
-    "2118381856454524939"
+    "2118381856454524939",
+    "2120573167936704753",
+    "2120573635656380827",
+    "2120573595202236851"
   ],
   "tg_offset": 277101846,
   "last_digest": "2026-11-11",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3121,
+  "angle_i": 3124,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,8 +3757,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794419147,
-  "last_mentions": 1794419027,
+  "last_fast": 1794419387,
+  "last_mentions": 1794419387,
   "last_slow": 1794418907,
   "tw_samples": [
     [
@@ -4986,12 +4986,6 @@
     "itzabcrypto": 1794395856,
     "emermuo": 1794406888,
     "chris218n": 1794367449,
-    "aurelius0121": 1794331948,
-    "elizacreatez": 1794331948,
-    "bloodredfrog": 1794331949,
-    "altcoinmiyagi": 1794332783,
-    "lewiczmichal": 1794332786,
-    "makurdi4": 1794332787,
     "mrmilli0naire": 1794336384,
     "hanzeey81": 1794336385,
     "iammattiex": 1794340110,
@@ -5045,7 +5039,10 @@
     "kyle": 1794412089,
     "omme_82": 1794415777,
     "elminselimov5": 1794415778,
-    "king_memento": 1794415778
+    "king_memento": 1794415778,
+    "bob_6969": 1794419407,
+    "extravod_": 1794419408,
+    "shenfluxx": 1794419409
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
