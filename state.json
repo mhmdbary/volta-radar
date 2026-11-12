@@ -1,11 +1,8 @@
 {
-  "last_check": 1794508064,
+  "last_check": 1794508184,
   "seen_ids": [
-    "2119110778364244410",
-    "2120386114263597212",
-    "2119147993710633037",
-    "2117850851910029533",
     "2119752745574179093",
+    "2117850851910029533",
     "2118767398257938869",
     "2118385235737911742",
     "2120162097682084261",
@@ -2000,7 +1997,10 @@
     "2119422528061866149",
     "2120663848046796846",
     "2120518847061233821",
-    "2118113078361632843"
+    "2118113078361632843",
+    "2120937417276531059",
+    "2120939685002326390",
+    "2120941276774203639"
   ],
   "tg_offset": 277101853,
   "last_digest": "2026-11-12",
@@ -3480,7 +3480,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3451,
+  "angle_i": 3454,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3759,7 +3759,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794508064,
+  "last_fast": 1794508184,
   "last_mentions": 1794508064,
   "last_slow": 1794508064,
   "tw_samples": [
@@ -4997,8 +4997,6 @@
     "faaroeth": 1794471669,
     "elminselimov5": 1794504527,
     "bob_6969": 1794496545,
-    "extravod_": 1794419408,
-    "shenfluxx": 1794419409,
     "ezmoneygems": 1794437091,
     "melspurgatory": 1794437092,
     "thecryptochefx": 1794437093,
@@ -5006,7 +5004,7 @@
     "ohmyjack": 1794440811,
     "shisuixbt": 1794444411,
     "dens_club": 1794444412,
-    "aforanjan": 1794473030,
+    "aforanjan": 1794508204,
     "alext_works": 1794487776,
     "jupiterexchange": 1794451850,
     "0x_sixxxvc": 1794451851,
@@ -5037,7 +5035,9 @@
     "lsdinmysoul": 1794496544,
     "debankdefi": 1794500261,
     "kylieroodi": 1794500262,
-    "niftynoon": 1794504529
+    "niftynoon": 1794504529,
+    "2xnmore": 1794508205,
+    "0xwassie": 1794508206
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
