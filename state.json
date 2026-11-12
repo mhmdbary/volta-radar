@@ -1,7 +1,6 @@
 {
-  "last_check": 1794524882,
+  "last_check": 1794525122,
   "seen_ids": [
-    "2119705710107779101",
     "2120891859387990202",
     "2119284646676689326",
     "2118630041064009936",
@@ -1536,6 +1535,7 @@
     "2120243125461586392",
     "2118819033382551590",
     "2118638089677803638",
+    "2121017341643235696",
     "2118722188249600262",
     "2120536479571329307",
     "2120548381860954409",
@@ -3480,7 +3480,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3500,
+  "angle_i": 3501,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3759,8 +3759,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794524882,
-  "last_mentions": 1794524642,
+  "last_fast": 1794525122,
+  "last_mentions": 1794525002,
   "last_slow": 1794524882,
   "tw_samples": [
     [
