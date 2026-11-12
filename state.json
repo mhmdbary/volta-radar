@@ -1,9 +1,6 @@
 {
-  "last_check": 1794460370,
+  "last_check": 1794460610,
   "seen_ids": [
-    "2119741891549774019",
-    "2119512506217677135",
-    "2120381904134549692",
     "2119747084119064965",
     "2120459349415931943",
     "2120455627512099063",
@@ -2000,7 +1997,10 @@
     "2120657692520006131",
     "2119413085957988443",
     "2120222451661701395",
-    "2120667388634914839"
+    "2120667388634914839",
+    "2120737964841902590",
+    "2120743878722470139",
+    "2120745160174923812"
   ],
   "tg_offset": 277101847,
   "last_digest": "2026-11-11",
@@ -3479,7 +3479,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3254,
+  "angle_i": 3257,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3758,7 +3758,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794460370,
+  "last_fast": 1794460610,
   "last_mentions": 1794460370,
   "last_slow": 1794460370,
   "tw_samples": [
@@ -4983,19 +4983,14 @@
   "opp_authors": {
     "aaminhajj__": 1794392254,
     "potu_eth": 1794383349,
-    "desalimfi": 1794412088,
+    "desalimfi": 1794460630,
     "itzabcrypto": 1794448133,
     "emermuo": 1794456914,
     "agek1d": 1794390798,
     "onyx__fury": 1794412087,
     "koolkrypto223": 1794433417,
     "hakibtc": 1794444414,
-    "duongphat99": 1794371092,
-    "bitgetwalletsa": 1794371092,
-    "kungfu_hunter": 1794371093,
     "_ummulkhair_": 1794406886,
-    "0z_dustin136": 1794372451,
-    "coinsyntax": 1794372453,
     "h_crypto2": 1794376146,
     "dee_e6": 1794376147,
     "noiseirons": 1794376149,
@@ -5026,7 +5021,7 @@
     "omme_82": 1794415777,
     "elminselimov5": 1794415778,
     "king_memento": 1794415778,
-    "bob_6969": 1794419407,
+    "bob_6969": 1794460629,
     "extravod_": 1794419408,
     "shenfluxx": 1794419409,
     "ezmoneygems": 1794437091,
@@ -5042,7 +5037,8 @@
     "0x_sixxxvc": 1794451851,
     "bitcoinchina_": 1794451852,
     "lgk007": 1794453204,
-    "yoda21n": 1794453205
+    "yoda21n": 1794453205,
+    "jaxxx_eth": 1794460631
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
