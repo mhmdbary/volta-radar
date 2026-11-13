@@ -1,9 +1,6 @@
 {
-  "last_check": 1794566671,
+  "last_check": 1794566911,
   "seen_ids": [
-    "2120123340824445115",
-    "2121028769833967913",
-    "2119769446499930427",
     "2120488885834977538",
     "2120809330324779113",
     "2120489750305837154",
@@ -2000,7 +1997,10 @@
     "2121102420612624525",
     "2118465723274002904",
     "2119744075352178950",
-    "2119821008253182144"
+    "2119821008253182144",
+    "2121186085225242958",
+    "2121182988335710494",
+    "2121181291509064148"
   ],
   "tg_offset": 277101856,
   "last_digest": "2026-11-12",
@@ -3480,7 +3480,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3632,
+  "angle_i": 3635,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3759,7 +3759,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794566671,
+  "last_fast": 1794566911,
   "last_mentions": 1794566671,
   "last_slow": 1794566671,
   "tw_samples": [
@@ -4985,7 +4985,6 @@
     "aaminhajj__": 1794552306,
     "desalimfi": 1794559521,
     "itzabcrypto": 1794555920,
-    "emermuo": 1794480330,
     "sense_mex": 1794563218,
     "abba__80": 1794555919,
     "dhavied_brown": 1794487777,
@@ -4998,7 +4997,6 @@
     "lin98201": 1794552308,
     "changchangl3": 1794543301,
     "hanzeey81": 1794552307,
-    "dexking001": 1794480329,
     "audrey2ug": 1794563224,
     "0xvietnguyen": 1794484048,
     "puffypoodle6": 1794543301,
@@ -5007,7 +5005,7 @@
     "cryptothannos": 1794491491,
     "cryptopizzagirl": 1794492844,
     "rektdiomedes": 1794492845,
-    "simplemindscom": 1794492847,
+    "simplemindscom": 1794566936,
     "lsdinmysoul": 1794496544,
     "debankdefi": 1794500261,
     "kylieroodi": 1794500262,
@@ -5040,7 +5038,9 @@
     "_ummulkhair_": 1794550716,
     "cryptodetonator": 1794555921,
     "deekay_btc": 1794559522,
-    "jiangd0g": 1794563231
+    "jiangd0g": 1794563231,
+    "xiaopao718": 1794566933,
+    "xiaonezha_lab": 1794566934
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
