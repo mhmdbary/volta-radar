@@ -1,8 +1,6 @@
 {
-  "last_check": 1794550457,
+  "last_check": 1794550697,
   "seen_ids": [
-    "2119795079259054349",
-    "2118205175999643741",
     "2119240706384625688",
     "2120776920355029299",
     "2119731736749691235",
@@ -2000,7 +1998,9 @@
     "2120866748295454840",
     "2119761240197062830",
     "2120176249855160362",
-    "2120494518206435637"
+    "2120494518206435637",
+    "2121114721843605709",
+    "2121117353157275909"
   ],
   "tg_offset": 277101853,
   "last_digest": "2026-11-12",
@@ -3480,7 +3480,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3579,
+  "angle_i": 3581,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3759,7 +3759,7 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794550457,
+  "last_fast": 1794550697,
   "last_mentions": 1794550457,
   "last_slow": 1794550457,
   "tw_samples": [
@@ -4997,7 +4997,6 @@
     "aforanjan": 1794508204,
     "alext_works": 1794539698,
     "yoda21n": 1794536094,
-    "jaxxx_eth": 1794460631,
     "lin98201": 1794464352,
     "aminn_eth": 1794464353,
     "jiangd0g": 1794467962,
@@ -5034,7 +5033,7 @@
     "timelynpclings": 1794523592,
     "0xleegenz": 1794527305,
     "ace_da_book": 1794527306,
-    "lateniteonchain": 1794527307,
+    "lateniteonchain": 1794550718,
     "ika_xbt": 1794531034,
     "h_crypto2": 1794531035,
     "vydamo_": 1794532489,
@@ -5046,7 +5045,8 @@
     "corvencarrion": 1794539700,
     "yatesedls": 1794543302,
     "cryptogorilla": 1794546999,
-    "omme_82": 1794547000
+    "omme_82": 1794547000,
+    "_ummulkhair_": 1794550716
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
