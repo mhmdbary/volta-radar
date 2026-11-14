@@ -1,9 +1,6 @@
 {
-  "last_check": 1794662471,
+  "last_check": 1794662591,
   "seen_ids": [
-    "2121533619445575774",
-    "2121258448822444214",
-    "2119684747555397733",
     "2120287863682249079",
     "2119726291335475422",
     "2119489600896765972",
@@ -2000,7 +1997,10 @@
     "2121167126434287867",
     "2119737603801206888",
     "2121380455270547821",
-    "2120292319601500179"
+    "2120292319601500179",
+    "2121582209245253899",
+    "2121583701435842605",
+    "2121588836748955929"
   ],
   "tg_offset": 277101865,
   "last_digest": "2026-11-13",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3954,
+  "angle_i": 3957,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,8 +3757,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794662471,
-  "last_mentions": 1794662231,
+  "last_fast": 1794662591,
+  "last_mentions": 1794662591,
   "last_slow": 1794662471,
   "tw_samples": [
     [
@@ -4991,7 +4991,6 @@
     "lin98201": 1794658907,
     "changchangl3": 1794642690,
     "hanzeey81": 1794622746,
-    "discopsychebot": 1794575738,
     "ace_da_book": 1794602899,
     "h_crypto2": 1794638967,
     "hakibtc": 1794619147,
@@ -4999,8 +4998,6 @@
     "jiangd0g": 1794635247,
     "chris218n": 1794635247,
     "zayanxbt": 1794655186,
-    "dinerodom0": 1794572121,
-    "lvn_crypto": 1794572122,
     "zyro_eth": 1794649998,
     "tgd_duu": 1794579354,
     "hyperliquid_hub": 1794579357,
@@ -5037,7 +5034,10 @@
     "manyaaww": 1794651458,
     "0x0217": 1794651460,
     "sebastianwols17": 1794651461,
-    "weingfo": 1794655185
+    "weingfo": 1794655185,
+    "0xleegenz": 1794662617,
+    "abba__80": 1794662618,
+    "onyx__fury": 1794662619
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
