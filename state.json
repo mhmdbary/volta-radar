@@ -1,9 +1,6 @@
 {
-  "last_check": 1794654911,
+  "last_check": 1794655151,
   "seen_ids": [
-    "2120152459272192328",
-    "2120154166589100397",
-    "2119701525396103292",
     "2120795904319816035",
     "2120182024052801871",
     "2121277748626817535",
@@ -2000,7 +1997,10 @@
     "2121167126434287867",
     "2119737603801206888",
     "2121380455270547821",
-    "2120292319601500179"
+    "2120292319601500179",
+    "2121554857689772397",
+    "2121556981970612326",
+    "2121559546565206346"
   ],
   "tg_offset": 277101865,
   "last_digest": "2026-11-13",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3934,
+  "angle_i": 3937,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,8 +3757,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794654911,
-  "last_mentions": 1794654671,
+  "last_fast": 1794655151,
+  "last_mentions": 1794655031,
   "last_slow": 1794654671,
   "tw_samples": [
     [
@@ -4992,16 +4992,13 @@
     "changchangl3": 1794642690,
     "hanzeey81": 1794622746,
     "discopsychebot": 1794575738,
-    "simplemindscom": 1794566936,
     "ace_da_book": 1794602899,
     "h_crypto2": 1794638967,
     "hakibtc": 1794619147,
     "that1618guy": 1794586624,
     "jiangd0g": 1794635247,
-    "xiaopao718": 1794566933,
-    "xiaonezha_lab": 1794566934,
     "chris218n": 1794635247,
-    "zayanxbt": 1794572120,
+    "zayanxbt": 1794655186,
     "dinerodom0": 1794572121,
     "lvn_crypto": 1794572122,
     "zyro_eth": 1794649998,
@@ -5029,7 +5026,7 @@
     "duola_eth": 1794622748,
     "leeheart_idris": 1794626349,
     "hoodinsiderhb": 1794630081,
-    "puffypoodle6": 1794631637,
+    "puffypoodle6": 1794655187,
     "crawvo": 1794631639,
     "yatesedls": 1794631640,
     "fateeydbt": 1794635246,
@@ -5039,7 +5036,8 @@
     "lakzonevn": 1794650000,
     "manyaaww": 1794651458,
     "0x0217": 1794651460,
-    "sebastianwols17": 1794651461
+    "sebastianwols17": 1794651461,
+    "weingfo": 1794655185
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
