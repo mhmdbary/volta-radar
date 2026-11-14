@@ -1,9 +1,6 @@
 {
-  "last_check": 1794669671,
+  "last_check": 1794669911,
   "seen_ids": [
-    "2120517020470952178",
-    "2121259227239108872",
-    "2119781433640140999",
     "2121430506478715179",
     "2120755071936049192",
     "2120963844944036091",
@@ -2000,7 +1997,10 @@
     "2121167126434287867",
     "2119737603801206888",
     "2121380455270547821",
-    "2120292319601500179"
+    "2120292319601500179",
+    "2121616642962866661",
+    "2121616035686027272",
+    "2121617077479903659"
   ],
   "tg_offset": 277101868,
   "last_digest": "2026-11-13",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 3982,
+  "angle_i": 3985,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,8 +3757,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794669671,
-  "last_mentions": 1794669431,
+  "last_fast": 1794669911,
+  "last_mentions": 1794669791,
   "last_slow": 1794669671,
   "tw_samples": [
     [
@@ -4980,13 +4980,13 @@
   },
   "ai_warned": 1794652762,
   "opp_authors": {
-    "aaminhajj__": 1794638965,
+    "aaminhajj__": 1794669935,
     "desalimfi": 1794646298,
     "itzabcrypto": 1794606644,
     "sense_mex": 1794610340,
     "faaroeth": 1794630082,
     "bob_6969": 1794658906,
-    "alext_works": 1794626348,
+    "alext_works": 1794669932,
     "yoda21n": 1794642689,
     "lin98201": 1794658907,
     "changchangl3": 1794642690,
@@ -4999,7 +4999,6 @@
     "chris218n": 1794635247,
     "zayanxbt": 1794655186,
     "zyro_eth": 1794649998,
-    "turbojedi": 1794583026,
     "shenfluxx": 1794586625,
     "dhavied_brown": 1794658904,
     "mcglive": 1794615429,
@@ -5036,7 +5035,8 @@
     "0xleegenz": 1794662617,
     "abba__80": 1794662618,
     "onyx__fury": 1794662619,
-    "milenadraws": 1794666221
+    "milenadraws": 1794666221,
+    "f13thfranchise": 1794669933
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
