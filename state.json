@@ -1,9 +1,6 @@
 {
-  "last_check": 1794754115,
+  "last_check": 1794754235,
   "seen_ids": [
-    "2120243125461586392",
-    "2118494823455814040",
-    "2121556981970612326",
     "2118785195667284200",
     "2121616642962866661",
     "2121845796911915132",
@@ -2000,7 +1997,10 @@
     "2120389887291527178",
     "2121328035546939453",
     "2121726288968720709",
-    "2120834430071951766"
+    "2120834430071951766",
+    "2121965470643281930",
+    "2121967337196626242",
+    "2121967184998265211"
   ],
   "tg_offset": 277101871,
   "last_digest": "2026-11-14",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 4263,
+  "angle_i": 4266,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,8 +3757,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794754115,
-  "last_mentions": 1794753875,
+  "last_fast": 1794754235,
+  "last_mentions": 1794754235,
   "last_slow": 1794753875,
   "tw_samples": [
     [
@@ -4999,8 +4999,7 @@
     "puffypoodle6": 1794730848,
     "fateeydbt": 1794729388,
     "henry29n": 1794729387,
-    "abba__80": 1794721941,
-    "milenadraws": 1794666221,
+    "abba__80": 1794754272,
     "f13thfranchise": 1794669933,
     "nhuyna1234": 1794671267,
     "showy005": 1794671270,
@@ -5029,7 +5028,7 @@
     "deekay_btc": 1794721943,
     "mbxxvv": 1794721945,
     "yatesedls": 1794725676,
-    "chris218n": 1794729390,
+    "chris218n": 1794754275,
     "aminn_eth": 1794730849,
     "meltonmy2": 1794734558,
     "jiangd0g": 1794734559,
@@ -5041,7 +5040,8 @@
     "potu_eth": 1794745719,
     "tradesgiving": 1794749323,
     "kryptobank1": 1794750656,
-    "nicolablackwo12": 1794750660
+    "nicolablackwo12": 1794750660,
+    "crawvo": 1794754274
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
