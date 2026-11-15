@@ -1,9 +1,6 @@
 {
-  "last_check": 1794765208,
+  "last_check": 1794765328,
   "seen_ids": [
-    "2121364224618500218",
-    "2119072922748809395",
-    "2121982425790366094",
     "2121700075751788826",
     "2120713206243143841",
     "2120820690039251224",
@@ -2000,7 +1997,10 @@
     "2120389887291527178",
     "2121328035546939453",
     "2121726288968720709",
-    "2120834430071951766"
+    "2120834430071951766",
+    "2122015643272986733",
+    "2122009941708042676",
+    "2122021549939269635"
   ],
   "tg_offset": 277101875,
   "last_digest": "2026-11-15",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 4291,
+  "angle_i": 4294,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,14 +3757,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794765208,
+  "last_fast": 1794765328,
   "last_mentions": 1794765208,
   "last_slow": 1794765088,
   "tw_samples": [
-    [
-      1794560444,
-      688351
-    ],
     [
       1794561157,
       688006
@@ -4960,6 +4956,10 @@
     [
       1794764612,
       434968
+    ],
+    [
+      1794765218,
+      434728
     ]
   ],
   "ai_usage": {
@@ -4982,7 +4982,7 @@
   "opp_authors": {
     "aaminhajj__": 1794761708,
     "desalimfi": 1794689637,
-    "bob_6969": 1794689638,
+    "bob_6969": 1794765350,
     "alext_works": 1794761709,
     "yoda21n": 1794725675,
     "changchangl3": 1794725676,
@@ -4992,14 +4992,13 @@
     "zyro_eth": 1794730850,
     "dhavied_brown": 1794742006,
     "mcglive": 1794691207,
-    "0xlyra_web3": 1794738293,
+    "0xlyra_web3": 1794765347,
     "agek1d": 1794750659,
     "aforanjan": 1794761711,
     "puffypoodle6": 1794730848,
     "fateeydbt": 1794729388,
     "henry29n": 1794729387,
     "abba__80": 1794754272,
-    "gamerant": 1794678595,
     "_ummulkhair_": 1794682306,
     "crypto_first21": 1794682309,
     "discopsychebot": 1794686037,
@@ -5034,7 +5033,8 @@
     "tradesgiving": 1794749323,
     "kryptobank1": 1794750656,
     "nicolablackwo12": 1794750660,
-    "crawvo": 1794754274
+    "crawvo": 1794754274,
+    "rxhridoy0017": 1794765349
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
