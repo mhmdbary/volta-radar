@@ -1,9 +1,6 @@
 {
-  "last_check": 1794749059,
+  "last_check": 1794749299,
   "seen_ids": [
-    "2121283217114157557",
-    "2117987014398161354",
-    "2119367537905352747",
     "2121141551413768199",
     "2120644534136975526",
     "2120187594101412070",
@@ -2000,7 +1997,10 @@
     "2121419072353251428",
     "2119608290447626706",
     "2121723362137489647",
-    "2117856962864136593"
+    "2117856962864136593",
+    "2121949896777539997",
+    "2121947601486405655",
+    "2121955070803861707"
   ],
   "tg_offset": 277101871,
   "last_digest": "2026-11-14",
@@ -3478,7 +3478,7 @@
       "message_id": 3128
     }
   },
-  "angle_i": 4245,
+  "angle_i": 4248,
   "recent_texts": [
     "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
@@ -3757,8 +3757,8 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1794749059,
-  "last_mentions": 1794748819,
+  "last_fast": 1794749299,
+  "last_mentions": 1794749179,
   "last_slow": 1794749059,
   "tw_samples": [
     [
@@ -4987,7 +4987,7 @@
     "alext_works": 1794709686,
     "yoda21n": 1794725675,
     "changchangl3": 1794725676,
-    "hanzeey81": 1794702366,
+    "hanzeey81": 1794749322,
     "h_crypto2": 1794691208,
     "hakibtc": 1794705974,
     "zyro_eth": 1794730850,
@@ -4999,9 +4999,7 @@
     "puffypoodle6": 1794730848,
     "fateeydbt": 1794729388,
     "henry29n": 1794729387,
-    "0xleegenz": 1794662617,
     "abba__80": 1794721941,
-    "onyx__fury": 1794662619,
     "milenadraws": 1794666221,
     "f13thfranchise": 1794669933,
     "nhuyna1234": 1794671267,
@@ -5017,7 +5015,7 @@
     "elysium_machine": 1794686039,
     "rexstjohn": 1794689639,
     "direumatteul": 1794691209,
-    "oliviaeth0": 1794694925,
+    "oliviaeth0": 1794749319,
     "rbthreek": 1794694927,
     "cryptoopener": 1794694927,
     "emermuo": 1794698679,
@@ -5040,7 +5038,8 @@
     "bluntcap": 1794742007,
     "audrey2ug": 1794742008,
     "ezmoneygems": 1794745718,
-    "potu_eth": 1794745719
+    "potu_eth": 1794745719,
+    "tradesgiving": 1794749323
   },
   "tw_warned": 1794310624,
   "awaiting": "add"
