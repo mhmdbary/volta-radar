@@ -328,12 +328,22 @@ MENU_ACTIONS = {
 HOME_ROW = [{"text": "🏠 القائمة", "callback_data": "m:menu"}]
 # Buttons inside the chat, under the message, instead of Telegram's bottom keyboard
 MENU_BUTTONS = {"inline_keyboard": [
-    [{"text": "✍️ تويتة جديدة", "callback_data": "m:write"}, {"text": "📡 التقارير", "callback_data": "m:intel"}],
-    [{"text": "📋 شغلي", "callback_data": "m:report"}, {"text": "🏆 الترتيب", "callback_data": "m:leaderboard"}],
-    [{"text": "📃 الحسابات", "callback_data": "m:list"}, {"text": "🔗 روابطي", "callback_data": "m:links"}],
-    [{"text": "➕ ضيف حساب", "callback_data": "m:add"}, {"text": "➖ شيل حساب", "callback_data": "m:remove"}],
+    [{"text": "🌐 Elysium Watch · أهم التويتات الحين", "callback_data": "in:elysium"}],
+    [{"text": "📡 كل التقارير", "callback_data": "m:intel"}, {"text": "✍️ تويتة جديدة", "callback_data": "m:write"}],
+    [{"text": "📋 شغلي", "callback_data": "m:report"}, {"text": "🔗 روابطي", "callback_data": "m:links"},
+     {"text": "🏆 الترتيب", "callback_data": "m:leaderboard"}],
+    [{"text": "📃 الحسابات", "callback_data": "m:list"}, {"text": "➕ ضيف", "callback_data": "m:add"},
+     {"text": "➖ شيل", "callback_data": "m:remove"}],
     [{"text": "💳 الرصيد", "callback_data": "m:apis"}],
 ]}
+MENU_TEXT = (f"⚡ <b>{PRODUCT.upper()}</b>\n{LINE}\n"
+             "🌐 <b>Elysium Watch</b>: أهم تويتات Elysium، مرقمة وجاهزة\n"
+             "📡 <b>التقارير</b>: مين حكى عن المشروع، KOLs، شراكات\n"
+             "✍️ <b>تويتة جديدة</b>: اكتب فكرتك وبتوصلك جاهزة\n"
+             "📋 <b>شغلي</b> · 🔗 <b>روابطي</b> · 🏆 <b>الترتيب</b>: إنجازك\n"
+             "📃 <b>الحسابات</b>: اللي البوت بيتابعهم\n"
+             "💳 <b>الرصيد</b>: قديش ضايلك\n"
+             f"{LINE}\n<i>كل زر بيصرف من الرصيد بس لما تكبسه</i>")
 REPORT_BUTTONS = {"inline_keyboard": [[{"text": "Today", "callback_data": "rep:1"},
                                        {"text": "7 days", "callback_data": "rep:7"},
                                        {"text": "30 days", "callback_data": "rep:30"},
@@ -350,7 +360,7 @@ def show_menu(cfg):
     old = tg_call(cfg, "sendMessage", {"chat_id": admin, "text": "⏳", "reply_markup": {"remove_keyboard": True}})
     tg_call(cfg, "deleteMessage", {"chat_id": admin, "message_id": old["result"]["message_id"]})  # clears the old keyboard
     tg_call(cfg, "sendMessage", {"chat_id": admin, "reply_markup": MENU_BUTTONS, "parse_mode": "HTML",
-                                 "text": f"⚡ <b>{PRODUCT.upper()}</b>\nاختار من الأزرار 👇"})
+                                 "text": MENU_TEXT})
 
 
 def menu_action(cfg, state, handles, tags, action):
@@ -1297,6 +1307,15 @@ def intel_kols(cfg, settings):
     return report_frame("🎯", "KOL CHECK", period_note(data), body)
 
 
+NUMS = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
+SEP = "┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄"
+
+
+def ago(t):
+    mins = max(0, int(time.time() - tweet_time(t)) // 60)
+    return f"{mins}m ago" if mins < 60 else f"{mins // 60}h ago" if mins < 1440 else f"{mins // 1440}d ago"
+
+
 def intel_watch(cfg, settings, key):
     """Big accounts talking about the wider ecosystem, and whether the project is part of that conversation."""
     watch = next(w for w in PROJECT["watch"] if w["key"] == key)
@@ -1306,20 +1325,25 @@ def intel_watch(cfg, settings, key):
                           max_pages=4)
     own = {OFFICIAL, (settings.get("my_handle") or "").lower()}
     kols = [t for t in found if int((t.get("author") or {}).get("followers") or 0) >= int(watch.get("min_followers", 10000))
-            and t["author"]["userName"].lower() not in own and not is_spam(t.get("text"))]
+            and t["author"]["userName"].lower() not in own and not is_spam(t.get("text"))
+            and not any(w in (t.get("text") or "").lower() for w in watch.get("exclude", []))]  # e.g. paid campaigns
     best = {}
     for t in sorted(kols, key=views):  # each account once, with its most-seen post
         best[t["author"]["userName"]] = t
-    ranked = sorted(filter(quotable, best.values()), key=lambda t: -views(t))[:8]
+    prefer = [w.lower() for w in watch.get("prefer", [])]
+    on_topic = lambda t: any(w in (t.get("text") or "").lower() for w in prefer)
+    ranked = sorted(filter(quotable, best.values()), key=lambda t: (not on_topic(t), -views(t)))[:8]
     named = sum(about_project(t.get("text")) for t in best.values())
     body = [f"<code>KOLs found        {len(best):>5}</code>", f"<code>Mention {NAME:<9} {named:>5}</code>",
             f"<code>Open to reach     {len(best) - named:>5}</code>"]
-    for i, t in enumerate(ranked):
+    for i, t in enumerate(ranked, 1):
         a = t["author"]
-        mark = "✅" if about_project(t.get("text")) else "▫️"
-        body += [LINE if i == 0 else "", f"{mark} @{html.escape(a['userName'])} · {compact(a.get('followers'))} followers · "
-                                         f"{compact(views(t))} views <a href=\"{tweet_url(t)}\">↗</a>",
-                 f"<blockquote>{snippet(re.sub(r"0x[a-fA-F0-9]{40}|https?://\S+", "", t.get("text") or ""), 140)}</blockquote>"]
+        mark = " ✅" if about_project(t.get("text")) else ""
+        body += [LINE if i == 1 else SEP,
+                 f"{NUMS[i - 1]} <b>@{html.escape(a['userName'])}</b>{mark}",
+                 f"<code>{compact(a.get('followers'))} followers · {compact(views(t))} views · {ago(t)}</code>",
+                 f"<blockquote>{snippet(re.sub(r"0x[a-fA-F0-9]{40}|https?://\S+", "", t.get("text") or ""), 150)}</blockquote>",
+                 f"👉 <a href=\"{tweet_url(t)}\"><b>Open post</b></a>"]
     if not ranked:
         body.append("<i>No big accounts in this period.</i>")
     return report_frame("🌐", f"{watch['label'].upper()} WATCH",
@@ -1331,10 +1355,10 @@ INTEL_REPORTS = {"overview": intel_overview, "voices": intel_voices, "sentiment"
 
 
 def intel_menu():
-    rows = [[{"text": "📊 Overview", "callback_data": "in:overview"}, {"text": "🗣 Top Voices", "callback_data": "in:voices"}],
+    rows = [[{"text": f"🌐 {w['label']} Watch", "callback_data": f"in:{w['key']}"} for w in PROJECT.get("watch", [])],
+            [{"text": "📊 Overview", "callback_data": "in:overview"}, {"text": "🗣 Top Voices", "callback_data": "in:voices"}],
             [{"text": "💬 Sentiment", "callback_data": "in:sentiment"}, {"text": "🤝 Who to Talk To", "callback_data": "in:partners"}],
-            [{"text": "🎯 KOL Check", "callback_data": "in:kols"}]]
-    rows += [[{"text": f"🌐 {w['label']} Watch", "callback_data": f"in:{w['key']}"} for w in PROJECT.get("watch", [])], HOME_ROW]
+            [{"text": "🎯 KOL Check", "callback_data": "in:kols"}], HOME_ROW]
     return {"inline_keyboard": rows}
 
 

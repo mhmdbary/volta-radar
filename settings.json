@@ -109,7 +109,31 @@
         "label": "Elysium",
         "query": "(elysium OR @Enter_Elysium) min_faves:5",
         "days": 3,
-        "min_followers": 5000
+        "min_followers": 5000,
+        "prefer": [
+          "launchpad",
+          "launch",
+          "token",
+          "liquidity",
+          "ecosystem",
+          "project",
+          "build",
+          "deploy",
+          "dapp",
+          "mainnet",
+          "pool",
+          "memecoin",
+          "meme",
+          "creator",
+          "chain",
+          "native"
+        ],
+        "exclude": [
+          "hypesium",
+          "trading bot",
+          "sniper bot",
+          "trading terminal"
+        ]
       },
       {
         "key": "hyper",
