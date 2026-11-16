@@ -183,5 +183,6 @@
         "tanaka_l2"
       ]
     }
-  }
+  },
+  "auto_checks": false
 }

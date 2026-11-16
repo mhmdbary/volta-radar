@@ -376,6 +376,8 @@ def menu_action(cfg, state, handles, tags, action):
                                              "اختار التقرير، وكل واحد بيوصلك برسالة لحاله جاهزة للإرسال:"})
     elif action == "report":
         typing(cfg)
+        if not load_json(SETTINGS_FILE, {}).get("auto_checks", True):  # nothing refreshes it in the background
+            refresh_my_work(cfg, load_json(SETTINGS_FILE, {}), handles, state, full=True)
         tg_call(cfg, "sendMessage", {"chat_id": admin, "parse_mode": "HTML", "disable_web_page_preview": True,
                                      "reply_markup": REPORT_BUTTONS,
                                      "text": build_my_report(cfg, load_json(SETTINGS_FILE, {}), tags, 7)})
@@ -1963,24 +1965,30 @@ def run_daemon(cfg, state, minutes):
         started = time.time()
         settings = load_json(SETTINGS_FILE, {})
         handles = load_handles()
+        auto = settings.get("auto_checks", True)  # false: read X only when a button asks (saves credits)
+        if not auto:
+            for lane in ("fast", "slow", "mentions"):  # when turned back on, start from now
+                state[f"last_{lane}"] = int(time.time())
+            state["last_to_me"] = int(time.time())
         try:
-            check_once(cfg, settings, handles, state)
+            if auto:
+                check_once(cfg, settings, handles, state)
         except Exception as e:
             print(f"[check error] {e}")
-        if time.time() - last_opp > int(PROJECT["opportunity"]["every_minutes"]) * 60:  # posts for you to reply to
+        if auto and time.time() - last_opp > int(PROJECT["opportunity"]["every_minutes"]) * 60:  # posts for you to reply to
             last_opp = time.time()
             try:
                 check_opportunities(cfg, settings, handles, state)
             except Exception as e:
                 print(f"[opportunity error] {e}")
-        if time.time() - last_mine > int(settings.get("mine_seconds", 120)):  # your tweets + replies to you
+        if auto and time.time() - last_mine > int(settings.get("mine_seconds", 120)):  # your tweets + replies to you
             last_mine = time.time()
             for mine in (check_replies_to_me, refresh_my_work):
                 try:
                     mine(cfg, settings, handles, state)
                 except Exception as e:
                     print(f"[{mine.__name__} error] {e}")
-        if time.time() - last_extras > 300:  # digest / follows: every 5 minutes is plenty
+        if auto and time.time() - last_extras > 300:  # digest / follows: every 5 minutes is plenty
             last_extras = time.time()
             for extra in (daily_report, check_new_follows):
                 try:
