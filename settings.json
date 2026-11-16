@@ -132,8 +132,15 @@
           "hypesium",
           "trading bot",
           "sniper bot",
-          "trading terminal"
-        ]
+          "trading terminal",
+          "robinhood",
+          "monad",
+          "megaeth",
+          "solana",
+          "@base ",
+          "base chain"
+        ],
+        "strict": true
       },
       {
         "key": "hyper",

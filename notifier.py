@@ -1321,7 +1321,9 @@ def intel_watch(cfg, settings, key):
     watch = next(w for w in PROJECT["watch"] if w["key"] == key)
     days = int(watch.get("days", 3))
     since = int(time.time()) - days * 86400
-    found = search_tweets(cfg["twitterapi_key"], f"{watch['query']} since_time:{since} -filter:retweets -filter:replies",
+    skip = "".join(f' -"{w.strip()}"' if " " in w.strip() else f" -{w.strip()}"
+                   for w in watch.get("exclude", []) if w.strip().replace(" ", "").isalnum())  # don't spend pages on them
+    found = search_tweets(cfg["twitterapi_key"], f"{watch['query']}{skip} since_time:{since} -filter:retweets -filter:replies",
                           max_pages=4)
     own = {OFFICIAL, (settings.get("my_handle") or "").lower()}
     kols = [t for t in found if int((t.get("author") or {}).get("followers") or 0) >= int(watch.get("min_followers", 10000))
@@ -1332,7 +1334,8 @@ def intel_watch(cfg, settings, key):
         best[t["author"]["userName"]] = t
     prefer = [w.lower() for w in watch.get("prefer", [])]
     on_topic = lambda t: any(w in (t.get("text") or "").lower() for w in prefer)
-    ranked = sorted(filter(quotable, best.values()), key=lambda t: (not on_topic(t), -views(t)))[:8]
+    pool = [t for t in best.values() if quotable(t) and (on_topic(t) or not watch.get("strict"))]  # strict: ecosystem posts only
+    ranked = sorted(pool, key=lambda t: (not on_topic(t), -views(t)))[:8]
     named = sum(about_project(t.get("text")) for t in best.values())
     body = [f"<code>KOLs found        {len(best):>5}</code>", f"<code>Mention {NAME:<9} {named:>5}</code>",
             f"<code>Open to reach     {len(best) - named:>5}</code>"]
