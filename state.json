@@ -2002,7 +2002,7 @@
     "2120852028687519988",
     "2120299018030833889"
   ],
-  "tg_offset": 277101902,
+  "tg_offset": 277101920,
   "last_digest": "2026-11-15",
   "known_follows": {
     "Enter_Elysium": [
@@ -2109,20 +2109,6 @@
   },
   "last_follow_check": 1794801860,
   "drafts": {
-    "2118008855494078569": {
-      "author": "Enter_Elysium",
-      "text": "If you haven’t watched this already, a great breakdown from @sensahil of @Quicknode.\n\ne/acc",
-      "reply": "e/acc energy fits, volta launches pay creators their fees in HYPE, $VOLTA's whole vibe",
-      "tried": [
-        "e/acc energy fits, volta launches pay creators their fees in HYPE, $VOLTA's whole vibe"
-      ],
-      "image": null,
-      "followers": 27875,
-      "relevant": true,
-      "reply_ar": "روح e/acc مناسبة تماماً، الإطلاقات على فولتا تدفع للمنشئين رسومهم بعملة HYPE، وهذا جوهر $VOLTA",
-      "tweet_ar": "إذا لم تشاهده بعد، فهذا شرح رائع من sensahil من Quicknode. e/acc (التسارع الفعّال)",
-      "message_id": 340
-    },
     "2118009229705662536": {
       "author": "ThinkingUSD",
       "text": "https://t.co/9xSmULDBM0",
@@ -3476,11 +3462,22 @@
       "image": null,
       "my_text": "",
       "message_id": 3128
+    },
+    "w1795275147": {
+      "kind": "tweet",
+      "instruction": "…..",
+      "reply": "usually you're guessing your average entry from a messy wallet history. on volta the chart plots your own buys and sells with your average entry right on it, so you actually know where you stand on $VOLTA",
+      "tried": [
+        "usually you're guessing your average entry from a messy wallet history. on volta the chart plots your own buys and sells with your average entry right on it, so you actually know where you stand on $VOLTA"
+      ],
+      "relevant": true,
+      "reply_ar": "عادةً تخمن متوسط سعر دخولك من سجل محفظة فوضوي. على volta الرسم البياني يوضح صفقات شرائك وبيعك مع متوسط سعر دخولك مباشرةً، فتعرف فعلاً وضعك في $VOLTA",
+      "tweet_ar": "",
+      "message_id": 4996
     }
   },
-  "angle_i": 4413,
+  "angle_i": 4414,
   "recent_texts": [
-    "unicorn eating stocks now lol, volta charts at least show your own avg entry on $VOLTA trades",
     "ai assistants everywhere now, mine would just remind me $VOLTA's chain elysium goes public nov 9",
     "stock era on elysium, $VOLTA fans know volta pays creators in stocks",
     "revoke first, verify later, a surprise launch with zero engagement is drainer behavior every time. if liquidity rotates back into live stuff, on volta whoever launches a token earns fees in HYPE, the $VOLTA angle i'm tracking",
@@ -3539,7 +3536,8 @@
     "pure chaos, $VOLTA folks will live on volta's trending board",
     "elysium starter pack right there, and volta already being live before the nov 9 mainnet is why $VOLTA is on my radar",
     "vamping always stings. volta creators earn fees from ongoing trading, which is why i like $VOLTA for devs who stay",
-    "do creators get a HYPE fee tally next to the $VOLTA burns?"
+    "do creators get a HYPE fee tally next to the $VOLTA burns?",
+    "usually you're guessing your average entry from a messy wallet history. on volta the chart plots your own buys and sells with your average entry right on it, so you actually know where you stand on $VOLTA"
   ],
   "to_me_seen": [
     "2118207660260741354",
@@ -3559,7 +3557,7 @@
     "2119706739176296919",
     "2119426118985875703"
   ],
-  "last_to_me": 1795274846,
+  "last_to_me": 1795275086,
   "drafted_ids": [
     "2117870819640827934",
     "2117871218754048195",
@@ -3757,14 +3755,10 @@
     "2118150594884145573",
     "2118152819421409701"
   ],
-  "last_fast": 1795274846,
-  "last_mentions": 1795274846,
-  "last_slow": 1795274846,
+  "last_fast": 1795275086,
+  "last_mentions": 1795275086,
+  "last_slow": 1795275086,
   "tw_samples": [
-    [
-      1795094691,
-      393556
-    ],
     [
       1795095409,
       393556
@@ -4959,6 +4953,10 @@
     ],
     [
       1795274366,
+      392341
+    ],
+    [
+      1795274966,
       392341
     ]
   ],
